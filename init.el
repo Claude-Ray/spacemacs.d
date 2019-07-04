@@ -41,10 +41,13 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
+     dap
      emacs-lisp
      git
      helm
-     ;; lsp
+     (lsp :variables
+          lsp-ui-doc-enable t
+          lsp-ui-sideline-enable nil)
      markdown
      multiple-cursors
      org
@@ -56,7 +59,7 @@ This function should only modify configuration layer settings."
      treemacs
      ;; version-control
      (javascript :variables
-                 javascript-backend 'tern
+                 javascript-backend 'lsp
                  javascript-repl `nodejs
                  js-indent-level 2
                  js2-basic-offset 2
@@ -200,7 +203,9 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(ample
+                         zenburn
+                         spacemacs-dark
                          spacemacs-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
@@ -464,9 +469,11 @@ configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
-    '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-	  ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
-	  ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+        '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
+          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+  ;; (setq tramp-ssh-controlmaster-options
+  ;;       "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   )
 
 (defun dotspacemacs/user-load ()

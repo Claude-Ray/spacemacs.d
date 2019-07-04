@@ -1,0 +1,19 @@
+* Personal spacemacs configuration
+  
+Hacking Emacs!
+
+** Dependents
+- MacOS 10.14+
+- Emacs 26.2+
+
+** Installation
+
+*** font
+#+begin_src bash
+brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
+#+end_src
+*** formatters && linters
+#+begin_src bash
+npm install -g js-beautify typescript typescript-language-server tslint eslint
+#+end_src
+
