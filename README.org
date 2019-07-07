@@ -2,6 +2,16 @@
   
 Hacking Emacs!
 
+* Table of Contents
+- [[#setup][Setup]]
+  - [[#dependents][Dependents]]
+  - [[#installation][Installation]]
+- [[#faq][FAQ]]
+  - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when spacemacs starts up?]]
+  - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
+  - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
+
+* Setup
 ** Dependents
 - MacOS 10.14+
 - Emacs 26.2+
@@ -16,13 +26,6 @@ brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
 #+begin_src bash
 npm install -g js-beautify typescript typescript-language-server tslint eslint
 #+end_src
-
-
-* Table of Contents
-- [[#FAQ][FAQ]]
-  - [[#why-tramp-hangs-when-spacemacs-starts-up?][Why tramp hangs when spacemacs starts up?]]
-  - [[#how-to-set-up-node.js-autocompletion?][How to set up Node.js autocompletion?]]
-  - [[#why-js2-mode-always-warning-"missing-;-after-statement"?][Why js2-mode always warning =missing ; after statement=?]]
 
 * FAQ 
 ** Why tramp hangs when spacemacs starts up?
