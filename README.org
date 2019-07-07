@@ -46,3 +46,12 @@ Try =M-x recentf-edit-list= to remove ssh files from the list. Fix it!
 Further more, clear all the records of this ssh connection from files in =.emacs.d/.cache/= —— =tramp=, =savehist=, =recentf= etc.
 ** How to set up Node.js autocompletion?
 Does it work after applying the steps of tern's documents? If not, give lsp-mode a try.
+** Why js2-mode always warning =missing ; after statement=?
+Reference from [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][lunaryorn's answer]]:
+
+The warning comes from JS2 Mode which implements its own parser for Javascript and warns about a couple of issues.
+As noted in the other answer the particular warning you observed is controlled by the user option =js2-strict-missing-semi-warning= which you can set to nil in your init file or via M-x customize so as to turn off the warning.
+
+When using JS2 Mode together with Flycheck we generally recommend to turn off all warnings of JS2 Mode by setting the variables =js2-mode-show-parse-errors= and =js2-mode-show-strict-warnings= to nil as in almost all cases Flycheck's syntax checking provides superior error reporting.
+
+
