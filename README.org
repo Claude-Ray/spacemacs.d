@@ -18,10 +18,16 @@ npm install -g js-beautify typescript typescript-language-server tslint eslint
 #+end_src
 
 
+* Table of Contents
+- [[#FAQ][FAQ]]
+  - [[#why-tramp-hangs-when-spacemacs-starts-up?][Why tramp hangs when spacemacs starts up?]]
+  - [[#how-to-set-up-node.js-autocompletion?][How to set up Node.js autocompletion?]]
+  - [[#why-js2-mode-always-warning-"missing-;-after-statement"?][Why js2-mode always warning =missing ; after statement=?]]
+
 * FAQ 
 ** Why tramp hangs when spacemacs starts up?
 After I tried tramp for ssh connecting remote server, spacemacs hangs with error =Tramp: Waiting for prompts from remote shell= each time I start it up.
-*** Remote sever use zsh 
+*** Remote sever is using zsh 
 https://www.emacswiki.org/emacs/TrampMode#toc9
 Maybe zsh of remote server is the root problem.
 *** Helm using Tramp which tries to figure out some SSH/DNS settings at startup
@@ -46,7 +52,7 @@ Try =M-x recentf-edit-list= to remove ssh files from the list. Fix it!
 Further more, clear all the records of this ssh connection from files in =.emacs.d/.cache/= —— =tramp=, =savehist=, =recentf= etc.
 ** How to set up Node.js autocompletion?
 Does it work after applying the steps of tern's documents? If not, give lsp-mode a try.
-** Why js2-mode always warning =missing ; after statement=?
+** Why js2-mode always warning "missing ; after statement"?
 Reference from [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][lunaryorn's answer]]:
 
 The warning comes from JS2 Mode which implements its own parser for Javascript and warns about a couple of issues.
