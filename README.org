@@ -4,7 +4,7 @@ Hacking Emacs!
 
 * Table of Contents
 - [[#setup][Setup]]
-  - [[#dependents][Dependents]]
+  - [[#dependencies][Dependencies]]
   - [[#installation][Installation]]
 - [[#faq][FAQ]]
   - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when spacemacs starts up?]]
@@ -12,7 +12,7 @@ Hacking Emacs!
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
 
 * Setup
-** Dependents
+** Dependencies
 - MacOS 10.14+
 - Emacs 26.2+
 
