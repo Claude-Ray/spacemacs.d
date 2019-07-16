@@ -44,6 +44,8 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
      better-defaults
+     (chinese :variables
+              chinese-enable-fcitx t)
      dap
      emacs-lisp
      git
