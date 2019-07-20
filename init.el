@@ -44,25 +44,14 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
      better-defaults
+     (c-c++ :variables
+            c-c++-default-mode-for-headers 'c++-mode)
      (chinese :variables
               chinese-enable-fcitx t)
      dap
      emacs-lisp
      git
      helm
-     (lsp :variables
-          lsp-ui-doc-enable t
-          lsp-ui-sideline-enable nil)
-     markdown
-     multiple-cursors
-     org
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     ;; spell-checking
-     syntax-checking
-     treemacs
-     ;; version-control
      (javascript :variables
                  javascript-backend 'lsp
                  javascript-repl `nodejs
@@ -71,8 +60,21 @@ This function should only modify configuration layer settings."
                  js2-include-node-externs t
                  js2-mode-show-strict-warnings nil
                  js2-mode-show-parse-errors nil)
-	   typescript
+     (lsp :variables
+          lsp-ui-doc-enable t
+          lsp-ui-sideline-enable nil)
+     markdown
+     multiple-cursors
      nginx
+     org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; spell-checking
+     syntax-checking
+     treemacs
+	   typescript
+     ;; version-control
      yaml
      )
 
