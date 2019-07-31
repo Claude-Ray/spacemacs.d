@@ -1,6 +1,6 @@
 * Personal spacemacs configuration
   
-Hacking Emacs!
+Happy hacking!
 
 * Table of Contents
 - [[#setup][Setup]]
@@ -19,12 +19,19 @@ Hacking Emacs!
 ** Installation
 
 *** font
+    
 #+begin_src bash
-brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
+  brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
 #+end_src
-*** formatters && linters
+*** Node.js
+**** formatters && linters
 #+begin_src bash
-npm install -g js-beautify typescript typescript-language-server tslint eslint
+  npm install -g js-beautify typescript typescript-language-server tslint eslint
+#+end_src
+*** C-C++
+**** backend
+#+begin_src bash
+  brew install ccls
 #+end_src
 
 * FAQ 
