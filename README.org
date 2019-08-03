@@ -10,7 +10,7 @@ Happy hacking!
   - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when spacemacs starts up?]]
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
-  - [[some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
+  - [[#some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
 
 * Setup
 ** Dependencies
