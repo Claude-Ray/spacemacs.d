@@ -74,12 +74,12 @@ As noted in the other answer the particular warning you observed is controlled b
 When using JS2 Mode together with Flycheck we generally recommend to turn off all warnings of JS2 Mode by setting the variables =js2-mode-show-parse-errors= and =js2-mode-show-strict-warnings= to nil as in almost all cases Flycheck's syntax checking provides superior error reporting.
 
 ** Some C/C++ headers are not recognized
-1. Install C headers
+*** 1. Install C headers
 #+begin_src bash
   open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 #+end_src
 
-2. Include C++ headers
+*** 2. Include C++ headers
 First you need to get the absolute path to =/usr/local/bin/ccls=, depending on the version you installed. And my path is =/usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls=.
 
 #+begin_src bash
