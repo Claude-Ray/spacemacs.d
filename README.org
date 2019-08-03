@@ -10,6 +10,7 @@ Happy hacking!
   - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when spacemacs starts up?]]
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
+  - [[some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
 
 * Setup
 ** Dependencies
@@ -33,6 +34,8 @@ Happy hacking!
 #+begin_src bash
   brew install ccls
 #+end_src
+
+Read on [[#some-cc-headers-are-not-recognized][FAQ]] if C/C++ headers are not recognized.
 
 * FAQ 
 ** Why tramp hangs when spacemacs starts up?
@@ -70,4 +73,26 @@ As noted in the other answer the particular warning you observed is controlled b
 
 When using JS2 Mode together with Flycheck we generally recommend to turn off all warnings of JS2 Mode by setting the variables =js2-mode-show-parse-errors= and =js2-mode-show-strict-warnings= to nil as in almost all cases Flycheck's syntax checking provides superior error reporting.
 
+** Some C/C++ headers are not recognized
+1. Install C headers
+#+begin_src bash
+  open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+#+end_src
 
+2. Include C++ headers
+First you need to get the absolute path to =/usr/local/bin/ccls=, depending on the version you installed. And my path is =/usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls=.
+
+#+begin_src bash
+  ls -l /usr/local/bin/ccls
+  # optionally back up the symbolic link installed by homebrew
+  mv /usr/local/bin/ccls /usr/local/bin/ccls.brew
+  # create a new executable file
+  touch /usr/local/bin/ccls
+  chmod +x /usr/local/bin/ccls
+#+end_src
+
+Putting this shell in =/usr/local/bin/ccls=.
+#+begin_src bash
+  #!/bin/sh
+  exec /usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls -init='{"clang":{"extraArgs":["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1"]}}' "$@"
+#+end_src
