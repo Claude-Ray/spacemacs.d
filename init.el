@@ -88,7 +88,10 @@ This function should only modify configuration layer settings."
    ;; To use a local version of a package, use the `:location' property:
    ;; '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     exec-path-from-shell
+     )
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -504,6 +507,8 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   ;; (spacemacs/toggle-transparency)
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
