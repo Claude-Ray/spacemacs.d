@@ -11,6 +11,7 @@ Happy hacking!
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
   - [[#some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
+  - [[*How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
 
 * Setup
 ** Dependencies
@@ -96,3 +97,15 @@ Putting this shell in =/usr/local/bin/ccls=.
   #!/bin/sh
   exec /usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls -init='{"clang":{"extraArgs":["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1"]}}' "$@"
 #+end_src
+
+** How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?
+   #+begin_example
+   Please type q, s, or p; or ? for help
+   ...emacs.d/.cache/recentf locked by claude@ray (pid 5647): (s, q, p, ?)? 
+   #+end_example
+   It occurs frequently on Mac OSX. According to this [[https://github.com/syl20bnr/spacemacs/issues/5186][issue]], the bug still hasn't been solved compeletely. But it can be avoided. 
+   You could clear the auto-save timer of recentf by adding the following into =(dotspacemacs/user-config)=:
+   #+begin_src elisp
+     (cancel-timer recentf-auto-save-timer)
+   #+end_src
+   Then you have to call =recentf-save-list= manually to save recent files.
