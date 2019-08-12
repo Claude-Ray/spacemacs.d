@@ -507,10 +507,17 @@ Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   ;; (spacemacs/toggle-transparency)
+
   (when (memq window-system '(mac ns x))
-    (exec-path-from-shell-initialize))
+    (exec-path-from-shell-initialize)
+
+    ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
+    ;; You can call recentf-save-list manually to save recent files.
+    (cancel-timer recentf-auto-save-timer))
+
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
+
   (setq org-agenda-files (list "~/org"))
   )
 
