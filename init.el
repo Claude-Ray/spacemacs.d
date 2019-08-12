@@ -509,6 +509,9 @@ before packages are loaded."
   ;; (spacemacs/toggle-transparency)
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize))
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
+  (setq org-agenda-files (list "~/org"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
