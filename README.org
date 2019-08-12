@@ -11,7 +11,7 @@ Happy hacking!
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
   - [[#some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
-  - [[*How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
+  - [[#how-to-troubleshoot-the-emacsdcacherecentf-locked-by-xxx-warning-message][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
 
 * Setup
 ** Dependencies
