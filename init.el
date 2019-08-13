@@ -519,6 +519,23 @@ before packages are loaded."
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
 
   (setq org-agenda-files (list "~/org"))
+
+  (setq org-capture-templates
+        '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
+           "* TODO %?\n %i\n %a")
+          ("w" "Work" entry (file+headline "~/org/work.org" "Works")
+           "* TODO %?\n %i\n %U"
+           :empty-lines 1)
+          ("i" "Idea" entry (file+headline "~/org/note.org" "Ideas")
+           "* TODO %?\n %i\n %U")
+          ("m" "Mark" entry (file+headline "~/org/note.org" "Marks")
+           "* %?\n %i\n %U %a")
+          ("n" "Note" entry (file+headline "~/org/note.org" "Notes")
+           "* %?\n %i\n %U")
+          ("j" "Journal" entry (file+headline "~/org/journal.org" "Journals")
+           "* %?\n %i\n %U"
+           :empty-lines 1)
+          ))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
