@@ -50,7 +50,8 @@ This function should only modify configuration layer settings."
             c-c++-backend 'lsp-ccls
             c-c++-lsp-executable (file-truename "/usr/local/bin/ccls"))
      (chinese :variables
-              chinese-enable-fcitx t)
+              chinese-enable-fcitx t
+              chinese-default-input-method nil)
      dap
      emacs-lisp
      git
@@ -98,8 +99,16 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
-   '(tern company-tern magit-gitflow doom-modeline org-download org-present
-               )
+   '(tern
+     company-tern
+     magit-gitflow
+     doom-modeline
+     org-download
+     org-present
+     find-by-pinyin-dired
+     ace-pinyin
+     chinese-conv
+     )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
@@ -508,12 +517,15 @@ before packages are loaded."
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   ;; (spacemacs/toggle-transparency)
 
+  (global-pangu-spacing-mode 0)
+
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
 
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
-    (cancel-timer recentf-auto-save-timer))
+    (cancel-timer recentf-auto-save-timer)
+    )
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
