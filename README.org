@@ -1,17 +1,29 @@
-* Personal spacemacs configuration
+* Personal Spacemacs Configuration
   
 Happy hacking!
 
-* Table of Contents
+* Table of Contents                                                     :TOC:
+- [[#personal-spacemacs-configuration][Personal Spacemacs Configuration]]
 - [[#setup][Setup]]
   - [[#dependencies][Dependencies]]
   - [[#installation][Installation]]
+    - [[#font][font]]
+    - [[#nodejs][Node.js]]
+      - [[#formatters--linters][formatters && linters]]
+    - [[#c-c][C-C++]]
+      - [[#backend][backend]]
 - [[#faq][FAQ]]
-  - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when spacemacs starts up?]]
+  - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when Spacemacs starts up?]]
+    - [[#remote-sever-is-using-zsh][Remote sever is using zsh]]
+    - [[#helm-using-tramp-which-tries-to-figure-out-some-sshdns-settings-at-startup][Helm using Tramp which tries to figure out some SSH/DNS settings at startup]]
+    - [[#recentf][recentf]]
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
-  - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning =missing ; after statement=?]]
+  - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning "missing ; after statement"?]]
   - [[#some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
+    - [[#1-install-c-headers][1. Install C headers]]
+    - [[#2-include-c-headers][2. Include C++ headers]]
   - [[#how-to-troubleshoot-the-emacsdcacherecentf-locked-by-xxx-warning-message][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
+  - [[#how-to-ignore-paths-such-as-node_modules-when-using-spc-][How to ignore paths such as "node_modules" when using =SPC /=?]]
 
 * Setup
 ** Dependencies
@@ -39,8 +51,8 @@ Happy hacking!
 Read on [[#some-cc-headers-are-not-recognized][FAQ]] if C/C++ headers are not recognized.
 
 * FAQ 
-** Why tramp hangs when spacemacs starts up?
-After I tried tramp for ssh connecting remote server, spacemacs hangs with error =Tramp: Waiting for prompts from remote shell= each time I start it up.
+** Why tramp hangs when Spacemacs starts up?
+After I tried tramp for ssh connecting remote server, Spacemacs hangs with error =Tramp: Waiting for prompts from remote shell= each time I start it up.
 *** Remote sever is using zsh 
 https://www.emacswiki.org/emacs/TrampMode#toc9
 Maybe zsh of remote server is the root problem.
@@ -109,3 +121,7 @@ Putting this shell in =/usr/local/bin/ccls=.
      (cancel-timer recentf-auto-save-timer)
    #+end_src
    Then you have to call =recentf-save-list= manually to save recent files.
+
+** How to ignore paths such as "node_modules" when using =SPC /=?
+   This is a bug of projectile. Related issue - [[https://github.com/bbatsov/projectile/issues/1075][Projectile does not ignore contents in .gitignore after opening respective the file directly]].
+   Adding =-/node_modules= to the =.projectile= file under your project root directory will fix it.
