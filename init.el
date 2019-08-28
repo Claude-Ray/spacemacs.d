@@ -52,6 +52,8 @@ This function should only modify configuration layer settings."
      (chinese :variables
               chinese-enable-fcitx t
               chinese-default-input-method nil)
+     (colors :variables
+             colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
      emacs-lisp
      git
