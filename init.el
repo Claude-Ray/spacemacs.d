@@ -73,7 +73,6 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      org
-     osx
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -528,6 +527,11 @@ before packages are loaded."
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
     (cancel-timer recentf-auto-save-timer)
+
+    ;; use gls instead of ls
+    (setq dired-use-ls-dired t
+        insert-directory-program "/usr/local/bin/gls"
+        dired-listing-switches "-aBhl --group-directories-first")
     )
 
   (setq org-todo-keywords
