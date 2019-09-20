@@ -73,6 +73,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      org
+     osx
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
