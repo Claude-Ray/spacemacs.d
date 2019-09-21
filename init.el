@@ -524,6 +524,10 @@ before packages are loaded."
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
 
+    ;; Disable menu-bar in OSX GUI by default
+    (menu-bar-mode -1)
+    ;; (setq ns-auto-hide-menu-bar t)
+
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
     (cancel-timer recentf-auto-save-timer)
