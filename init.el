@@ -69,10 +69,13 @@ This function should only modify configuration layer settings."
      (lsp :variables
           lsp-ui-doc-enable t
           lsp-ui-sideline-enable nil)
+     lua
      markdown
      multiple-cursors
      nginx
      org
+     (rust :variables
+           rust-backend 'lsp)
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -270,7 +273,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; Major mode leader key is a shortcut key which is the equivalent of
    ;; pressing `<leader> m`. Set it to `nil` to disable it. (default ",")
-   dotspacemacs-major-mode-leader-key "\\"
+   dotspacemacs-major-mode-leader-key ","
 
    ;; Major mode leader key accessible in `emacs state' and `insert state'.
    ;; (default "C-M-m")
