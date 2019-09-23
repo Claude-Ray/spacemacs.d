@@ -524,6 +524,9 @@ before packages are loaded."
 
   (global-pangu-spacing-mode 0)
 
+  ;; Language settings for dap-mode
+  (require 'dap-node)
+
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
 
