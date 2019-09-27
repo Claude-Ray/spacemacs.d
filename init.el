@@ -524,6 +524,9 @@ before packages are loaded."
 
   (global-pangu-spacing-mode 0)
 
+  ;; undo-in-region is known to cause undo history corruption
+  (setq undo-tree-enable-undo-in-region nil)
+
   ;; Language settings for dap-mode
   (require 'dap-node)
 
