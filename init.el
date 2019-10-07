@@ -527,6 +527,9 @@ before packages are loaded."
   ;; undo-in-region is known to cause undo history corruption
   (setq undo-tree-enable-undo-in-region nil)
 
+  ;; Disabled for typing a single quote instead of \'\' in smartparens-mode.
+  (setq sp-escape-quotes-after-insert nil)
+
   ;; Language settings for dap-mode
   (require 'dap-node)
 
