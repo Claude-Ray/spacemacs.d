@@ -100,9 +100,12 @@ MacOS Majavo 10.14
 
 MacOS Catalina 10.15
 #+begin_src bash
+  # Install Xcode command line tool
   xcode-select --install
+  # Create symlinks to /user/local/include for C headers
+  ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
+  # Reinstall ccls and its dependencies if the headers are not working correctly
 #+end_src
-Don't forget to open Xcode once to finish the installation.
 
 *** 2. Include C++ headers
 First you need to get the absolute path to =/usr/local/bin/ccls=, depending on the version you installed. And my path is =/usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls=.
