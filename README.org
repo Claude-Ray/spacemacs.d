@@ -93,9 +93,16 @@ When using JS2 Mode together with Flycheck we generally recommend to turn off al
 
 ** Some C/C++ headers are not recognized
 *** 1. Install C headers
+MacOS Majavo 10.14
 #+begin_src bash
   open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
 #+end_src
+
+MacOS Catalina 10.15
+#+begin_src bash
+  xcode-select --install
+#+end_src
+Don't forget to open Xcode once to finish the installation.
 
 *** 2. Include C++ headers
 First you need to get the absolute path to =/usr/local/bin/ccls=, depending on the version you installed. And my path is =/usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls=.
@@ -114,6 +121,8 @@ Putting this shell in =/usr/local/bin/ccls=.
   #!/bin/sh
   exec /usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls -init='{"clang":{"extraArgs":["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1"]}}' "$@"
 #+end_src
+
+Further more, =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1= can also be used as =-isystem= on MacOS Catalina.
 
 ** How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?
    #+begin_example
