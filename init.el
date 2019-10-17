@@ -533,6 +533,10 @@ before packages are loaded."
   ;; Language settings for dap-mode
   (require 'dap-node)
 
+  ;; Update treemacs theme with all-the-icons (via doom-themes)
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config)
+
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
 
