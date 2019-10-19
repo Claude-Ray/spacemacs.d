@@ -50,8 +50,8 @@ This function should only modify configuration layer settings."
             c-c++-backend 'lsp-ccls
             c-c++-lsp-executable (file-truename "/usr/local/bin/ccls"))
      (chinese :variables
-              chinese-enable-fcitx t
-              chinese-default-input-method nil)
+              chinese-enable-avy-pinyin nil
+              chinese-default-input-method 'pinyin)
      (colors :variables
              colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
@@ -97,6 +97,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages
    '(
      exec-path-from-shell
+     posframe
      )
 
    ;; A list of packages that cannot be updated.
@@ -552,6 +553,16 @@ before packages are loaded."
     (setq dired-use-ls-dired t
         insert-directory-program "/usr/local/bin/gls"
         dired-listing-switches "-aBhl --group-directories-first")
+
+    ;; Configuration for pyim
+    (setq load-path (cons (file-truename "~/.spacemacs.d/") load-path))
+    (require 'liberime)
+    (setq default-input-method "pyim")
+    (setq pyim-page-tooltip 'posframe)
+    (setq pyim-page-length 8)
+    (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport" (file-truename "~/Library/Rime"))
+    (liberime-select-schema "double_pinyin_flypy")
+    (setq pyim-default-scheme 'rime)
     )
 
   (setq org-todo-keywords
