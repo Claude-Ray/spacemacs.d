@@ -82,7 +82,7 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      syntax-checking
      treemacs
-	   typescript
+     typescript
      ;; version-control
      yaml
      )
@@ -551,8 +551,8 @@ before packages are loaded."
 
     ;; use gls instead of ls
     (setq dired-use-ls-dired t
-        insert-directory-program "/usr/local/bin/gls"
-        dired-listing-switches "-aBhl --group-directories-first")
+          insert-directory-program "/usr/local/bin/gls"
+          dired-listing-switches "-aBhl --group-directories-first")
 
     ;; Configuration for pyim
     (setq load-path (cons (file-truename "~/.spacemacs.d/") load-path))
@@ -560,7 +560,8 @@ before packages are loaded."
     (setq default-input-method "pyim")
     (setq pyim-page-tooltip 'posframe)
     (setq pyim-page-length 8)
-    (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport" (file-truename "~/Library/Rime"))
+    (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
+                    (file-truename "~/Library/Rime"))
     (liberime-select-schema "double_pinyin_flypy")
     (setq pyim-default-scheme 'rime)
     )
