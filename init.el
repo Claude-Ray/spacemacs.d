@@ -531,16 +531,16 @@ before packages are loaded."
   ;; Language settings for dap-mode
   (require 'dap-node)
 
-  ;; Update treemacs theme with all-the-icons (via doom-themes)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-
   (when (memq window-system '(mac ns x))
     (exec-path-from-shell-initialize)
 
     ;; Disable menu-bar in OSX GUI by default
     (menu-bar-mode -1)
     ;; (setq ns-auto-hide-menu-bar t)
+
+    ;; Update treemacs theme with all-the-icons (via doom-themes)
+    (setq doom-themes-treemacs-theme "doom-colors")
+    (doom-themes-treemacs-config)
 
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
@@ -572,8 +572,7 @@ before packages are loaded."
         '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
            "* TODO %?\n %i\n %a")
           ("w" "Work" entry (file+headline "~/org/work.org" "Works")
-           "* TODO %?\n %i\n %U"
-           :empty-lines 1)
+           "* TODO %?\n %i\n %U")
           ("i" "Idea" entry (file+headline "~/org/note.org" "Ideas")
            "* TODO %?\n %i\n %U")
           ("m" "Mark" entry (file+headline "~/org/note.org" "Marks")
