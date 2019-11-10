@@ -1,0 +1,38 @@
+#+TITLE: telega layer
+
+* Table of Contents                                       :TOC_5_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+  - [[#layer][Layer]]
+  - [[#macos][macOS]]
+    - [[#building-tdlib][Building tdlib]]
+    - [[#building-telega-server][Building telega-server]]
+- [[#manual][Manual]]
+
+* Description
+Layer for [[https://github.com/zevlg/telega.el][telega.el chat]].
+
+Start with =M-x telega RET=.
+
+* Install
+** Layer
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =claude-telega= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+** macOS
+*** Building tdlib
+    TDLib is the library for building Telegram clients. 
+    #+begin_src bash
+      brew install tdlib
+    #+end_src
+*** Building telega-server
+    Build the telega-server and move into the =$HOME/.telega= with:
+    #+begin_src bash
+      git clone https://github.com/zevlg/telega.el --depth=1
+      cd telega.el && make && make install
+    #+end_src
+    Or just let telega ask you at the first start and do the job.
+
+* Manual
+   Read the [[https://github.com/zevlg/telega.el][telega.el manual]].
