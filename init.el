@@ -85,6 +85,10 @@ This function should only modify configuration layer settings."
                  typescript-backend 'tide)
      ;; version-control
      yaml
+     ;; ----------------------------------------------------------------
+     ;; Private layers
+     ;; ----------------------------------------------------------------
+     claude-telega
      )
 
    ;; List of additional packages that will be installed without being
