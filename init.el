@@ -535,7 +535,7 @@ before packages are loaded."
   ;; Language settings for dap-mode
   (require 'dap-node)
 
-  (when (memq window-system '(mac ns x))
+  (when (spacemacs/window-system-is-mac)
     (exec-path-from-shell-initialize)
 
     ;; Disable menu-bar in OSX GUI by default
@@ -549,8 +549,10 @@ before packages are loaded."
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
     (cancel-timer recentf-auto-save-timer)
+    )
 
-    ;; use gls instead of ls
+  (when (spacemacs/system-is-mac)
+    ;; Use gls instead of ls
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
           dired-listing-switches "-aBhl --group-directories-first")
