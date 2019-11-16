@@ -561,8 +561,10 @@ before packages are loaded."
     (setq load-path (cons (file-truename "~/.spacemacs.d/") load-path))
     (require 'liberime)
     (setq default-input-method "pyim")
-    (setq pyim-page-tooltip 'posframe)
-    (setq pyim-page-length 8)
+    ;; Use postframe in GUI
+    (when (display-graphic-p)
+      (setq pyim-page-tooltip 'posframe))
+    (setq pyim-page-length 9)
     (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
                     (file-truename "~/Library/Rime"))
     (liberime-select-schema "double_pinyin_flypy")
