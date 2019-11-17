@@ -39,10 +39,10 @@ Happy hacking!
   brew install ripgrep
 #+end_src
 *** font
-    
-#+begin_src bash
-  brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
-#+end_src
+    #+begin_src bash
+      brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
+    #+end_src
+    Moreover, for the GUI version, run =brew cask install font-sarasa-gothic= or install [[https://github.com/be5invis/Sarasa-Gothic][Sarasa Gothic]] manually to fix the problem about chinese font alignment in org-table.
 *** Input Method
     Rime(Squirrel) with pyim is recommended.
 #+begin_src bash
