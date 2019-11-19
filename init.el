@@ -102,6 +102,8 @@ This function should only modify configuration layer settings."
    '(
      exec-path-from-shell
      posframe
+     all-the-icons-dired
+     diredfl
      )
 
    ;; A list of packages that cannot be updated.
@@ -535,6 +537,9 @@ before packages are loaded."
   ;; Language settings for dap-mode
   (require 'dap-node)
 
+  ;; Colorful dired
+  (diredfl-global-mode 1)
+
   (when (spacemacs/window-system-is-mac)
     (exec-path-from-shell-initialize)
 
@@ -545,6 +550,9 @@ before packages are loaded."
     ;; Update treemacs theme with all-the-icons (via doom-themes)
     (setq doom-themes-treemacs-theme "doom-colors")
     (doom-themes-treemacs-config)
+
+    ;; Show dired icons
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
 
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
