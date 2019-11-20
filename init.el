@@ -73,6 +73,9 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      org
+     (plantuml :variables
+               plantuml-default-exec-mode 'executable
+               plantuml-jar-path "/usr/local/bin/plantuml")
      (rust :variables
            rust-backend 'lsp)
      ;; (shell :variables
