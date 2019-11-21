@@ -75,7 +75,9 @@ This function should only modify configuration layer settings."
      org
      (plantuml :variables
                plantuml-default-exec-mode 'executable
-               plantuml-jar-path "/usr/local/bin/plantuml")
+               plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
+               plantuml-executable-path "/usr/local/bin/plantuml"
+               org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
      (rust :variables
            rust-backend 'lsp)
      ;; (shell :variables
