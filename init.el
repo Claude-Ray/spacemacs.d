@@ -108,7 +108,7 @@ This function should only modify configuration layer settings."
    '(
      all-the-icons-dired
      diredfl
-     exec-path-from-shell
+     ;; exec-path-from-shell
      posframe
      )
 
@@ -541,13 +541,14 @@ before packages are loaded."
   (setq sp-escape-quotes-after-insert nil)
 
   ;; Language settings for dap-mode
-  (require 'dap-node)
+  ;; (require 'dap-node)
 
   ;; Colorful dired
   (diredfl-global-mode 1)
 
   (when (spacemacs/window-system-is-mac)
-    (exec-path-from-shell-initialize)
+    ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
+    ;; (exec-path-from-shell-initialize)
 
     ;; Disable menu-bar in OSX GUI by default
     (menu-bar-mode -1)
