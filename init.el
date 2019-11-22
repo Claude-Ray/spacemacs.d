@@ -80,15 +80,16 @@ This function should only modify configuration layer settings."
                org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
      (rust :variables
            rust-backend 'lsp)
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
+     (shell :variables
+            shell-default-shell 'vterm)
      ;; spell-checking
      syntax-checking
      treemacs
      (typescript :variables
                  typescript-backend 'tide)
-     ;; version-control
+     (version-control :variables
+                      version-control-diff-tool 'diff-hl
+                      version-control-diff-side 'left)
      yaml
      ;; ----------------------------------------------------------------
      ;; Private layers
@@ -105,10 +106,10 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages
    '(
-     exec-path-from-shell
-     posframe
      all-the-icons-dired
      diredfl
+     exec-path-from-shell
+     posframe
      )
 
    ;; A list of packages that cannot be updated.
