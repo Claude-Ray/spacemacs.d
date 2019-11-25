@@ -544,7 +544,7 @@ before packages are loaded."
   (setq sp-escape-quotes-after-insert nil)
 
   ;; Language settings for dap-mode
-  ;; (require 'dap-node)
+  (add-hook 'js2-mode-hook (lambda () (require 'dap-node)))
 
   ;; Colorful dired
   (diredfl-global-mode 1)
