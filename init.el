@@ -73,6 +73,9 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      org
+     (osx :variables
+          osx-command-as 'super
+          osx-use-dictionary-app nil)
      (plantuml :variables
                plantuml-default-exec-mode 'executable
                plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
