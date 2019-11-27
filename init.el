@@ -51,8 +51,9 @@ This function should only modify configuration layer settings."
      (chinese :variables
               chinese-enable-avy-pinyin nil
               chinese-default-input-method 'pinyin)
-     (colors :variables
-             colors-enable-nyan-cat-progress-bar (display-graphic-p))
+     ;; The local nyan-mode doesn't work well with doom-modeline
+     ;; (colors :variables
+     ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
      emacs-lisp
      git
@@ -124,12 +125,13 @@ This function should only modify configuration layer settings."
    '(tern
      company-tern
      magit-gitflow
-     doom-modeline
      org-download
      org-present
      find-by-pinyin-dired
      ace-pinyin
      chinese-conv
+     spaceline
+     spaceline-all-the-icons
      )
 
    ;; Defines the behaviour of Spacemacs when installing packages.
@@ -259,7 +261,7 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
-   dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   dotspacemacs-mode-line-theme '(doom)
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -548,6 +550,11 @@ before packages are loaded."
 
   ;; Colorful dired
   (diredfl-global-mode 1)
+
+  ;; Configuration for doom-modeline
+  ;; Don’t compact font caches during GC.
+  (setq inhibit-compacting-font-caches t)
+  (setq doom-modeline-buffer-file-name-style 'relative-from-project)
 
   (when (spacemacs/window-system-is-mac)
     ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
