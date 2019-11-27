@@ -28,4 +28,6 @@
     (setq telega-proxies
           (list '(:server "127.0.0.1" :port 1082 :enable t
                      :type (:@type "proxyTypeSocks5"))))
+    (define-key telega-msg-button-map (kbd "k") nil)
+    (define-key telega-msg-button-map (kbd "l") nil)
     ))
