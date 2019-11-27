@@ -56,7 +56,8 @@ This function should only modify configuration layer settings."
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
      emacs-lisp
-     git
+     (git :variables
+          git-magit-status-fullscreen t)
      helm
      (javascript :variables
                  javascript-backend 'lsp
@@ -130,6 +131,10 @@ This function should only modify configuration layer settings."
      find-by-pinyin-dired
      ace-pinyin
      chinese-conv
+     git-gutter
+     git-gutter+
+     git-gutter-fringe
+     git-gutter-fringe+
      spaceline
      spaceline-all-the-icons
      )
@@ -550,6 +555,10 @@ before packages are loaded."
 
   ;; Colorful dired
   (diredfl-global-mode 1)
+
+  ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
+  ;; and it's available in both terminal and GUI
+  (run-with-idle-timer 1 nil 'diff-hl-margin-mode)
 
   ;; Configuration for doom-modeline
   ;; Don’t compact font caches during GC.
