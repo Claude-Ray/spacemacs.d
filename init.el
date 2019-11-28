@@ -89,7 +89,8 @@ This function should only modify configuration layer settings."
             shell-default-shell 'vterm)
      ;; spell-checking
      syntax-checking
-     treemacs
+     (treemacs :variables
+               treemacs-lock-width t)
      (typescript :variables
                  typescript-backend 'tide)
      (version-control :variables
