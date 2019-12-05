@@ -585,17 +585,8 @@ before packages are loaded."
     ;; You can call recentf-save-list manually to save recent files.
     (cancel-timer recentf-auto-save-timer)
 
-    ;; Configuration for chinese fonts in org-table
-    (with-eval-after-load 'org
-      (set-face-attribute 'org-link nil :font "Sarasa Mono T SC 16")
-      (set-face-attribute 'org-table nil
-                          :font "Sarasa Mono T SC 16"
-                          ;; Avoid getting errors because font can't be found
-                          ;; :fontset
-                          ;; (create-fontset-from-fontset-spec
-                          ;;  (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable"
-                          ;;          ",han:Sarasa Mono T SC:size=16"))
-                          ))
+    ;; Configuration for chinese font
+    (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18)
     )
 
   (when (spacemacs/system-is-mac)

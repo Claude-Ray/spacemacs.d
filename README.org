@@ -26,6 +26,7 @@ Happy hacking!
     - [[#2-include-c-headers][2. Include C++ headers]]
   - [[#how-to-troubleshoot-the-emacsdcacherecentf-locked-by-xxx-warning-message][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
   - [[#how-to-ignore-paths-such-as-node_modules-when-using-spc-][How to ignore paths such as "node_modules" when using =SPC /=?]]
+  - [[#how-to-fix-chinese-font-alignment-in-emacs-gui][How to fix chinese font alignment in Emacs GUI?]]
 
 * Setup
 ** Dependencies
@@ -41,7 +42,6 @@ Happy hacking!
     #+begin_src bash
       brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
     #+end_src
-    Moreover, for the GUI version, run =brew cask install font-sarasa-gothic= or install [[https://github.com/be5invis/Sarasa-Gothic][Sarasa Gothic]] manually to fix the problem about chinese font alignment in org-table.
 *** Input Method
     Rime(Squirrel) with pyim is recommended.
 #+begin_src bash
@@ -151,3 +151,14 @@ Further more, =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefaul
    Adding =-/node_modules= to the =.projectile= file under your project root directory will fix it.
    A better approach is to install =rg= with =brew install ripgrep=, then helm-ag will use rg as =dotspacemacs-search-tools= instead of ag.
    (dotspacemacs-search-tools uses the first installed tool of the list =("rg" "ag" "pt" "ack" "grep")=.)
+** How to fix chinese font alignment in Emacs GUI?
+   It is recommended to call =spacemacs//set-monospaced-font= to set chinese and english fonts respectively.
+
+   Alternatively, you can fix the alignment problem in org-table only. For example:
+   #+begin_src elisp
+    (with-eval-after-load 'org
+      (set-face-attribute 'org-link nil :font "Sarasa Mono T SC 16")
+      (set-face-attribute 'org-table nil
+                          :font "Sarasa Mono T SC 16"))
+   #+end_src
+   Font [[https://github.com/be5invis/Sarasa-Gothic][Sarasa Gothic]] can be installed by running =brew cask install font-sarasa-gothic=.
