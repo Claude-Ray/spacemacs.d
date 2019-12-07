@@ -64,9 +64,7 @@ This function should only modify configuration layer settings."
                  javascript-repl `nodejs
                  js-indent-level 2
                  js2-basic-offset 2
-                 js2-include-node-externs t
-                 js2-mode-show-strict-warnings nil
-                 js2-mode-show-parse-errors nil)
+                 js2-include-node-externs t)
      (lsp :variables
           lsp-ui-doc-enable t
           lsp-ui-sideline-enable nil)
