@@ -41,6 +41,7 @@ This function should only modify configuration layer settings."
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-sort-by-usage t
+                      auto-completion-idle-delay 0.5
                       auto-completion-tab-key-behavior 'complete
                       :disabled-for org markdown)
      better-defaults
@@ -125,8 +126,6 @@ This function should only modify configuration layer settings."
    '(tern
      company-tern
      magit-gitflow
-     org-download
-     org-present
      find-by-pinyin-dired
      ace-pinyin
      chinese-conv
@@ -524,6 +523,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (setq exec-path-from-shell-check-startup-files nil)
   )
 
 (defun dotspacemacs/user-load ()
