@@ -101,6 +101,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      claude
      claude-telega
+     claude-ui
      )
 
    ;; List of additional packages that will be installed without being
@@ -378,7 +379,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil the frame is undecorated when Emacs starts up. Combine this
    ;; variable with `dotspacemacs-maximized-at-startup' in OSX to obtain
    ;; borderless fullscreen. (default nil)
-   dotspacemacs-undecorated-at-startup nil
+   dotspacemacs-undecorated-at-startup t
 
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -523,6 +524,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (setq spacemacs-buffer-logo-title
+        "This is GNU Emacs, one component of the GNU operating system.")
   (setq exec-path-from-shell-check-startup-files nil)
   )
 
@@ -572,20 +575,9 @@ before packages are loaded."
     (menu-bar-mode -1)
     ;; (setq ns-auto-hide-menu-bar t)
 
-    ;; Update treemacs theme with all-the-icons (via doom-themes)
-    (setq doom-themes-treemacs-theme "doom-colors")
-    (doom-themes-treemacs-config)
-
-    ;; Show dired icons
-    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
-
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
-    (cancel-timer recentf-auto-save-timer)
-
-    ;; Configuration for chinese font
-    (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18)
-    )
+    (cancel-timer recentf-auto-save-timer))
 
   (when (spacemacs/system-is-mac)
     ;; Use gls instead of ls

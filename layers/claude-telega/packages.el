@@ -12,13 +12,13 @@
 (defconst claude-telega-packages
   '(
     (telega :location
-             (recipe :fetcher github
-                     :repo "zevlg/telega.el"
-                     :branch "master"
-                     :files (:defaults "etc" "server" "Makefile")))
+            (recipe :fetcher github
+                    :repo "zevlg/telega.el"
+                    :branch "master"
+                    :files (:defaults "etc" "server" "Makefile")))
     ))
 
-(defun claude-telega/init-telega()
+(defun claude-telega/init-telega ()
   (use-package telega
     :commands (telega)
     :defer t
