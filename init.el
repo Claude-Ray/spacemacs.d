@@ -92,6 +92,8 @@ This function should only modify configuration layer settings."
                treemacs-lock-width t)
      (typescript :variables
                  typescript-backend 'tide)
+     (unicode-fonts :variables
+                    unicode-fonts-force-multi-color-on-mac t)
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left)
@@ -115,7 +117,6 @@ This function should only modify configuration layer settings."
    '(
      all-the-icons-dired
      diredfl
-     ;; exec-path-from-shell
      posframe
      )
 

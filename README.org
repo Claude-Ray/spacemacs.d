@@ -7,6 +7,7 @@ Happy hacking!
 - [[#setup][Setup]]
   - [[#dependencies][Dependencies]]
   - [[#installation][Installation]]
+    - [[#formulae][Formulae]]
     - [[#tools][Tools]]
     - [[#fonts][Fonts]]
     - [[#input-method][Input Method]]
@@ -34,6 +35,10 @@ Happy hacking!
 - Emacs 26.2+
 
 ** Installation
+*** Formulae
+    #+begin_src bash
+      brew tap d12frosted/emacs-plus && brew install emacs-plus --without-spacemacs-icon
+    #+end_src
 *** Tools
     #+begin_src bash
       brew install coreutils ripgrep plantuml libvterm
