@@ -36,6 +36,10 @@
                                         (length build-rhs)))
       (insert "\n"))))
 
+;; Ligature
+(when (eq window-system 'mac)
+  (mac-auto-operator-composition-mode))
+
 ;; misc
 (when (display-graphic-p)
   ;; Configuration for chinese font

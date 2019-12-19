@@ -362,7 +362,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
 
    ;; If non-nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
@@ -544,6 +544,8 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; (spacemacs/toggle-transparency)
+
+  (spacemacs/toggle-which-key-off)
 
   (global-pangu-spacing-mode 0)
 
