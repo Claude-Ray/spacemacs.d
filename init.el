@@ -102,6 +102,7 @@ This function should only modify configuration layer settings."
      ;; Private layers
      ;; ----------------------------------------------------------------
      claude
+     claude-beancount
      claude-telega
      claude-ui
      )
