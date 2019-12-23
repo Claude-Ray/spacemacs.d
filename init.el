@@ -82,6 +82,10 @@ This function should only modify configuration layer settings."
                plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
                plantuml-executable-path "/usr/local/bin/plantuml"
                org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+     (python :variables
+             python-backend 'lsp
+             python-lsp-server 'mspyls
+             python-lsp-git-root "~/git/python-language-server")
      (rust :variables
            rust-backend 'lsp)
      (shell :variables
