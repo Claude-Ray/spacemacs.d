@@ -10,6 +10,7 @@
 ;;; License: GPLv3
 
 (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+(define-key evil-insert-state-map (kbd "M-i") 'yas-insert-snippet)
 
 (with-eval-after-load 'company
   (let ((map company-active-map))
@@ -24,6 +25,7 @@
 ;; (define-key key-translation-map (kbd "C-p") (kbd "C-k"))
 
 (when (spacemacs/window-system-is-mac)
+  (global-set-key (kbd "s-/") 'comment-line)
   (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
   (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
