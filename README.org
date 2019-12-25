@@ -44,6 +44,8 @@ Happy hacking!
       brew install coreutils ripgrep plantuml libvterm
     #+end_src
 *** Fonts
+    - PragmataPro
+    - Source Code Pro
     #+begin_src bash
       brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
     #+end_src
