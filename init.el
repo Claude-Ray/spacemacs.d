@@ -133,6 +133,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-excluded-packages
    '(tern
      company-tern
+     exec-path-from-shell
      magit-gitflow
      find-by-pinyin-dired
      ace-pinyin
@@ -533,7 +534,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq spacemacs-buffer-logo-title
         "This is GNU Emacs, one component of the GNU operating system.")
-  (setq exec-path-from-shell-check-startup-files nil)
+  ;; (setq exec-path-from-shell-check-startup-files nil)
   )
 
 (defun dotspacemacs/user-load ()

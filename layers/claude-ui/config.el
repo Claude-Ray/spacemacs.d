@@ -37,8 +37,8 @@
       (insert "\n"))))
 
 ;; Ligature
-(when (eq window-system 'mac)
-  (mac-auto-operator-composition-mode))
+;; (when (eq window-system 'mac)
+;;   (mac-auto-operator-composition-mode))
 
 ;; misc
 (when (display-graphic-p)
