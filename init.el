@@ -107,6 +107,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      claude
      claude-beancount
+     claude-pyim
      claude-telega
      claude-ui
      )
@@ -122,7 +123,6 @@ This function should only modify configuration layer settings."
    '(
      all-the-icons-dired
      diredfl
-     posframe
      )
 
    ;; A list of packages that cannot be updated.
@@ -591,21 +591,7 @@ before packages are loaded."
     ;; Use gls instead of ls
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
-          dired-listing-switches "-aBhl --group-directories-first")
-
-    ;; Configuration for pyim
-    (setq load-path (cons (file-truename "~/.spacemacs.d/") load-path))
-    (require 'liberime)
-    (setq default-input-method "pyim")
-    ;; Use postframe in GUI
-    (when (display-graphic-p)
-      (setq pyim-page-tooltip 'posframe))
-    (setq pyim-page-length 9)
-    (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
-                    (file-truename "~/Library/Rime"))
-    (liberime-select-schema "double_pinyin_flypy")
-    (setq pyim-default-scheme 'rime)
-    )
+          dired-listing-switches "-aBhl --group-directories-first"))
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
