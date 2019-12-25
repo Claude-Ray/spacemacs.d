@@ -122,8 +122,7 @@ This function should only modify configuration layer settings."
    ;; Also include the dependencies as they will not be resolved automatically.
    dotspacemacs-additional-packages
    '(
-     all-the-icons-dired
-     diredfl
+     ;; manage-minor-mode
      )
 
    ;; A list of packages that cannot be updated.
@@ -234,7 +233,7 @@ It should only modify the values of Spacemacs settings."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner "~/.spacemacs.d/banners/emacs.png"
 
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
@@ -280,8 +279,8 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 15
+   dotspacemacs-default-font '("PragmataPro"
+                               :size 16
                                :weight normal
                                :width normal)
 
@@ -565,25 +564,9 @@ before packages are loaded."
   ;; Language settings for dap-mode
   (add-hook 'js2-mode-hook (lambda () (require 'dap-node)))
 
-  ;; Colorful dired
-  (diredfl-global-mode 1)
-
-  ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
-  ;; and it's available in both terminal and GUI
-  (run-with-idle-timer 1 nil 'diff-hl-margin-mode)
-
-  ;; Configuration for doom-modeline
-  ;; Don’t compact font caches during GC.
-  (setq inhibit-compacting-font-caches t)
-  (setq doom-modeline-buffer-file-name-style 'relative-from-project)
-
   (when (spacemacs/window-system-is-mac)
     ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
     ;; (exec-path-from-shell-initialize)
-
-    ;; Disable menu-bar in OSX GUI by default
-    (menu-bar-mode -1)
-    ;; (setq ns-auto-hide-menu-bar t)
 
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.

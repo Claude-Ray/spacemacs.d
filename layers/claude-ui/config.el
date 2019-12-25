@@ -40,14 +40,12 @@
 ;; (when (eq window-system 'mac)
 ;;   (mac-auto-operator-composition-mode))
 
+;; Configuration for chinese font
+;; (when (display-graphic-p)
+;;   (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18))
+
 ;; misc
-(when (display-graphic-p)
-  ;; Configuration for chinese font
-  (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18)
-
-  ;; Update treemacs theme with all-the-icons (via doom-themes)
-  (setq doom-themes-treemacs-theme "doom-colors")
-  (doom-themes-treemacs-config)
-
-  ;; Show dired icons
-  (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))
+(when (spacemacs/window-system-is-mac)
+  ;; Disable menu-bar in OSX GUI by default
+  ;; (setq ns-auto-hide-menu-bar t)
+  (menu-bar-mode -1))
