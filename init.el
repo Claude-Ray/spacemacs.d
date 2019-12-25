@@ -49,9 +49,10 @@ This function should only modify configuration layer settings."
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-ccls
             c-c++-lsp-executable (file-truename "/usr/local/bin/ccls"))
-     (chinese :variables
+     (chinese :packages (not pyim)
+              :variables
               chinese-enable-avy-pinyin nil
-              chinese-default-input-method 'pinyin)
+              chinese-default-input-method nil)
      ;; The local nyan-mode doesn't work well with doom-modeline
      ;; (colors :variables
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))

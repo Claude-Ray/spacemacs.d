@@ -29,13 +29,18 @@
   (use-package posframe
     :defer t))
 
-(defun claude-pyim/post-init-pyim()
+(defun claude-pyim/init-pyim ()
   (use-package pyim
-    :config
+    :defer t
+    :init
     (setq default-input-method "pyim")
+    :config
+    (setq pyim-directory (expand-file-name "pyim/" spacemacs-cache-directory)
+          pyim-dcache-directory (expand-file-name "dcache/" pyim-directory)
+          pyim-page-length 9)
+    (evilified-state-evilify pyim-dm-mode pyim-dm-mode-map)
     (when (display-graphic-p)
       (setq pyim-page-tooltip 'posframe))
     (let ((map pyim-mode-map))
       (define-key map (kbd "C-n") 'pyim-page-next-page)
-      (define-key map (kbd "C-p") 'pyim-page-previous-page))
-    (setq pyim-page-length 9)))
+      (define-key map (kbd "C-p") 'pyim-page-previous-page))))
