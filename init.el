@@ -60,7 +60,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (git :variables
           git-magit-status-fullscreen t)
-     helm
+     ivy
      (javascript :variables
                  javascript-backend 'lsp
                  javascript-repl `nodejs

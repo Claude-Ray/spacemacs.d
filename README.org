@@ -154,7 +154,7 @@ Further more, =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefaul
 ** How to ignore paths such as "node_modules" when using =SPC /=?
    This is a bug of projectile. Related issue - [[https://github.com/bbatsov/projectile/issues/1075][Projectile does not ignore contents in .gitignore after opening respective the file directly]].
    Adding =-/node_modules= to the =.projectile= file under your project root directory will fix it.
-   A better approach is to install =rg= with =brew install ripgrep=, then helm-ag will use rg as =dotspacemacs-search-tools= instead of ag.
+   A better approach is to install =rg= with =brew install ripgrep=, then helm/ivy will use rg as =dotspacemacs-search-tools= instead of ag.
    (dotspacemacs-search-tools uses the first installed tool of the list =("rg" "ag" "pt" "ack" "grep")=.)
 ** How to fix chinese font alignment in Emacs GUI?
    It is recommended to call =spacemacs//set-monospaced-font= to set chinese and english fonts respectively.
