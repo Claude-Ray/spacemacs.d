@@ -58,8 +58,7 @@ This function should only modify configuration layer settings."
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
      emacs-lisp
-     (git :variables
-          git-magit-status-fullscreen t)
+     git
      ivy
      (javascript :variables
                  javascript-backend 'lsp
