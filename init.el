@@ -552,6 +552,10 @@ before packages are loaded."
 
   (spacemacs/toggle-which-key-off)
 
+  ;; Remove default "^"
+  (setq ivy-initial-inputs-alist '((Man-completion-table . "^")
+                                   (woman . "^")))
+
   (global-pangu-spacing-mode 0)
 
   ;; undo-in-region is known to cause undo history corruption
