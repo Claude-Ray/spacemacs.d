@@ -60,6 +60,8 @@ This function should only modify configuration layer settings."
      emacs-lisp
      git
      ivy
+     (java :variables
+           java-backend 'lsp)
      (javascript :variables
                  javascript-backend 'lsp
                  javascript-repl `nodejs
@@ -140,6 +142,7 @@ This function should only modify configuration layer settings."
      git-gutter+
      git-gutter-fringe
      git-gutter-fringe+
+     meghanada
      spaceline
      spaceline-all-the-icons
      )
