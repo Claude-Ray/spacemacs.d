@@ -26,12 +26,9 @@
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))))
 
 (defun claude-ui/post-init-diff-hl ()
-  (use-package diff-hl
-    :defer t
-    :config
-    ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
-    ;; and it's available in both terminal and GUI.
-    (run-with-idle-timer 1 nil 'diff-hl-margin-mode)))
+  ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
+  ;; and it's available in both terminal and GUI.
+  (run-with-idle-timer 1 nil 'diff-hl-margin-mode))
 
 (defun claude-ui/init-diredfl ()
   (use-package diredfl
@@ -40,12 +37,9 @@
     (diredfl-global-mode 1)))
 
 (defun claude-ui/post-init-doom-modeline ()
-  (use-package doom-modeline
-    :defer t
-    :config
-    ;; Don’t compact font caches during GC.
-    (setq inhibit-compacting-font-caches t)
-    (setq doom-modeline-buffer-file-name-style 'relative-from-project)))
+  ;; Don’t compact font caches during GC.
+  (setq inhibit-compacting-font-caches t)
+  (setq doom-modeline-buffer-file-name-style 'relative-from-project))
 
 (defun claude-ui/init-doom-themes ()
   (use-package doom-themes

@@ -46,6 +46,9 @@
 
 ;; misc
 (when (spacemacs/window-system-is-mac)
+  ;; Maximize frames fully
+  (setq frame-resize-pixelwise t)
+
   ;; Disable menu-bar in OSX GUI by default
   ;; (setq ns-auto-hide-menu-bar t)
   (menu-bar-mode -1))
