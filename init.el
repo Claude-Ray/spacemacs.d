@@ -57,6 +57,8 @@ This function should only modify configuration layer settings."
      ;; (colors :variables
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
+     (dash :variables
+           dash-autoload-common-docsets nil)
      emacs-lisp
      git
      ivy
