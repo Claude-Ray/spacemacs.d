@@ -9,6 +9,10 @@
 ;;
 ;;; License: GPLv3
 
+;; Always split two windows horizontally
+(setq split-height-threshold nil)
+;; (setq split-width-threshold 160)
+
 ;; Modify the startup footer
 (with-eval-after-load 'all-the-icons
   (setq dashboard-footer-icon

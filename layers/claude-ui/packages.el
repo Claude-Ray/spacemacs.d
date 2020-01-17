@@ -16,6 +16,7 @@
     diredfl
     doom-modeline
     doom-themes
+    writeroom-mode
     ))
 
 (defun claude-ui/init-all-the-icons-dired ()
@@ -49,3 +50,6 @@
     (when (display-graphic-p)
       (setq doom-themes-treemacs-theme "doom-colors")
       (doom-themes-treemacs-config))))
+
+(defun claude-ui/post-init-writeroom-mode ()
+  (setq writeroom-width 120))
