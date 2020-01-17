@@ -562,6 +562,10 @@ before packages are loaded."
   (setq ivy-initial-inputs-alist '((Man-completion-table . "^")
                                    (woman . "^")))
 
+  ;; Fix counsel-find-file TAB completion by replacing ivy-partial-or-done
+  ;; with ivy-alt-done. (https://github.com/syl20bnr/spacemacs/issues/7516)
+  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-alt-done)
+
   (global-pangu-spacing-mode 0)
 
   ;; undo-in-region is known to cause undo history corruption
