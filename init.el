@@ -112,6 +112,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      claude
      claude-beancount
+     claude-edit
      claude-org
      claude-pyim
      claude-telega
@@ -570,14 +571,6 @@ before packages are loaded."
 
   (global-pangu-spacing-mode 0)
 
-  ;; undo-in-region is known to cause undo history corruption
-  (setq undo-tree-enable-undo-in-region nil)
-
-  ;; Replace smartparens
-  (electric-pair-mode t)
-  (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-  ;; Disabled for typing a single quote instead of \'\' in smartparens-mode.
-  (setq sp-escape-quotes-after-insert nil)
 
   ;; Language settings for dap-mode
   (add-hook 'js2-mode-hook (lambda () (require 'dap-node)))
