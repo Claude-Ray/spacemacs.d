@@ -77,7 +77,8 @@ This function should only modify configuration layer settings."
      markdown
      multiple-cursors
      nginx
-     org
+     (org :variables
+          org-want-todo-bindings t)
      (osx :variables
           osx-command-as 'super
           osx-use-dictionary-app nil)
@@ -111,6 +112,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      claude
      claude-beancount
+     claude-org
      claude-pyim
      claude-telega
      claude-ui
@@ -593,27 +595,6 @@ before packages are loaded."
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
           dired-listing-switches "-aBhl --group-directories-first"))
-
-  (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
-
-  (setq org-agenda-files (list "~/org"))
-
-  (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
-           "* TODO %?\n %i\n %a")
-          ("w" "Work" entry (file+headline "~/org/work.org" "Works")
-           "* TODO %?\n %i\n %U")
-          ("i" "Idea" entry (file+headline "~/org/note.org" "Ideas")
-           "* TODO %?\n %i\n %U")
-          ("m" "Mark" entry (file+headline "~/org/note.org" "Marks")
-           "* %?\n %i\n %U %a")
-          ("n" "Note" entry (file+headline "~/org/note.org" "Notes")
-           "* %?\n %i\n %U")
-          ("j" "Journal" entry (file+headline "~/org/journal.org" "Journals")
-           "* %?\n %i\n %U"
-           :empty-lines 1)
-          ))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
