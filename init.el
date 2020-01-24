@@ -61,7 +61,7 @@ This function should only modify configuration layer settings."
            dash-autoload-common-docsets nil)
      emacs-lisp
      git
-     ivy
+     (ivy :packages (not ivy-rich))
      (java :variables
            java-backend 'lsp)
      (javascript :variables
@@ -113,6 +113,7 @@ This function should only modify configuration layer settings."
      claude
      claude-beancount
      claude-edit
+     claude-ivy
      claude-org
      claude-pyim
      claude-telega
@@ -561,16 +562,7 @@ before packages are loaded."
 
   (spacemacs/toggle-which-key-off)
 
-  ;; Remove default "^"
-  (setq ivy-initial-inputs-alist '((Man-completion-table . "^")
-                                   (woman . "^")))
-
-  ;; Fix counsel-find-file TAB completion by replacing ivy-partial-or-done
-  ;; with ivy-alt-done. (https://github.com/syl20bnr/spacemacs/issues/7516)
-  (define-key ivy-minibuffer-map (kbd "TAB") 'ivy-alt-done)
-
   (global-pangu-spacing-mode 0)
-
 
   ;; Language settings for dap-mode
   (add-hook 'js2-mode-hook (lambda () (require 'dap-node)))
