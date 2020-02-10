@@ -144,10 +144,6 @@ This function should only modify configuration layer settings."
      find-by-pinyin-dired
      ace-pinyin
      chinese-conv
-     git-gutter
-     git-gutter+
-     git-gutter-fringe
-     git-gutter-fringe+
      meghanada
      smartparens
      spaceline

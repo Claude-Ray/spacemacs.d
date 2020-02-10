@@ -27,6 +27,7 @@
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))))
 
 (defun claude-ui/post-init-diff-hl ()
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
   ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
   ;; and it's available in both terminal and GUI.
   (run-with-idle-timer 1 nil 'diff-hl-margin-mode))
