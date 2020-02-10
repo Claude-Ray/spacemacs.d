@@ -49,7 +49,7 @@
                           :type (:@type "proxyTypeSocks5"))))
     (setq telega-chat-button-width 28
           telega-chat-fill-column 47
-          telega-root-fill-column 47)
+          telega-root-fill-column 48)
     (with-eval-after-load 'all-the-icons
       (add-to-list 'all-the-icons-mode-icon-alist
                    '(telega-root-mode all-the-icons-fileicon "telegram"
