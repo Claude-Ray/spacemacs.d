@@ -12,6 +12,8 @@
 (defconst claude-ui-packages
   '(
     all-the-icons-dired
+    all-the-icons-ibuffer
+    all-the-icons-ivy-rich
     diff-hl
     diredfl
     doom-modeline
@@ -25,6 +27,16 @@
     ;; Show dired icons.
     (when (display-graphic-p)
       (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))))
+
+(defun claude-ui/init-all-the-icons-ibuffer ()
+  (use-package all-the-icons-ibuffer
+    :after ivy-rich
+    :init (all-the-icons-ibuffer-mode 1)))
+
+(defun claude-ui/init-all-the-icons-ivy-rich ()
+  (use-package all-the-icons-ivy-rich
+    :after ivy-rich
+    :init (all-the-icons-ivy-rich-mode 1)))
 
 (defun claude-ui/post-init-diff-hl ()
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
