@@ -36,7 +36,10 @@
 (defun claude-ui/init-all-the-icons-ivy-rich ()
   (use-package all-the-icons-ivy-rich
     :after ivy-rich
-    :init (all-the-icons-ivy-rich-mode 1)))
+    :init (all-the-icons-ivy-rich-mode 1)
+    :config
+    ;; This hook is messing up the text alignment
+    (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich--align-icons)))
 
 (defun claude-ui/post-init-diff-hl ()
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
