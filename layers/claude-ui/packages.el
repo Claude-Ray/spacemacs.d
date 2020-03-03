@@ -39,7 +39,7 @@
     :init (all-the-icons-ivy-rich-mode 1)
     :config
     (defun all-the-icons-ivy-rich--format-icon (icon)
-      "Add two spaces before the icon to support ivy-avy.
+      "Add support for ivy-avy by adding a space before the icon.
 PATCHED: Add one more space because of the alignment issue."
       (format "  %s"
               (propertize
