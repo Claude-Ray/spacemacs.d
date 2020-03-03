@@ -38,8 +38,19 @@
     :after ivy-rich
     :init (all-the-icons-ivy-rich-mode 1)
     :config
+    (defun all-the-icons-ivy-rich--format-icon (icon)
+      "Add two spaces before the icon to support ivy-avy.
+PATCHED: Add one more space because of the alignment issue."
+      (format "  %s"
+              (propertize
+               icon
+               'face `(:inherit ,(get-text-property 0 'face icon)
+                                :height ,(if (numberp all-the-icons-ivy-rich-icon-size)
+                                             all-the-icons-ivy-rich-icon-size
+                                           1.0))
+               'display '(raise -0.05))))
     ;; This hook is messing up the text alignment
-    (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich--align-icons)))
+    (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich-align-icons)))
 
 (defun claude-ui/post-init-diff-hl ()
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
