@@ -10,7 +10,6 @@ Happy hacking!
     - [[#formulae][Formulae]]
     - [[#tools][Tools]]
     - [[#fonts][Fonts]]
-    - [[#input-method][Input Method]]
     - [[#nodejs][Node.js]]
       - [[#formatters--linters][formatters && linters]]
     - [[#c-c][C-C++]]
@@ -50,13 +49,6 @@ Happy hacking!
     #+begin_src bash
       brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
     #+end_src
-*** Input Method
-    Rime(Squirrel) with pyim is recommended.
-#+begin_src bash
-  # after building liberime.so
-  sudo cp /Library/Input\ Methods/Squirrel.app/Contents/Frameworks/librime.1.dylib /usr/local/lib
-#+end_src
-    Read [[https://manateelazycat.github.io/emacs/2019/07/24/use-rime-in-emacs.html][Use Rime In Emacs]] written by manateelazycat for more details.
 *** Node.js
 **** formatters && linters
 #+begin_src bash

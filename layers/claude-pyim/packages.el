@@ -11,19 +11,26 @@
 
 (defconst claude-pyim-packages
   '(
-    (liberime :location local)
+    (liberime :location
+              (recipe :fetcher github
+                      :repo "merrickluo/liberime"
+                      :files ("CMakeLists.txt" "Makefile" "src" "liberime.el" "liberime-config.el")))
     posframe
     pyim
     ))
 
 (defun claude-pyim/init-liberime ()
   (use-package liberime
-    :after pyim
+    :init
+    (setq liberime-user-data-dir (expand-file-name "~/Library/Rime/emacs/"))
+    (setq default-input-method "pyim")
+    (setq pyim-titles '("ㄓ " "PYIM-EN " "PYIM-AU "))
+    (add-hook 'after-init-hook #'liberime-sync)
     :config
-    (liberime-start "/Library/Input Methods/Squirrel.app/Contents/SharedSupport"
-                    (file-truename "~/Library/Rime/emacs"))
-    (liberime-select-schema "double_pinyin_flypy")
-    (setq pyim-default-scheme 'rime)))
+    (unless (file-exists-p (concat (liberime-get-library-directory)
+                                   "build/liberime-core"
+                                   module-file-suffix))
+      (liberime-build))))
 
 (defun claude-pyim/init-posframe ()
   (use-package posframe
@@ -32,10 +39,10 @@
 (defun claude-pyim/init-pyim ()
   (use-package pyim
     :defer t
-    :init
-    (setq default-input-method "pyim")
+    :after liberime
     :config
-    (setq pyim-directory (expand-file-name "pyim/" spacemacs-cache-directory)
+    (setq pyim-default-scheme 'rime
+          pyim-directory (expand-file-name "pyim/" spacemacs-cache-directory)
           pyim-dcache-directory (expand-file-name "dcache/" pyim-directory)
           pyim-page-length 9)
     (evilified-state-evilify pyim-dm-mode pyim-dm-mode-map)

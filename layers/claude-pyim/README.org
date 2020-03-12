@@ -1,0 +1,54 @@
+#+TITLE: pyim layer
+
+* Table of Contents                                       :TOC_5_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+  - [[#layer][Layer]]
+  - [[#build-librime][Build librime]]
+    - [[#clone-modules][Clone modules]]
+    - [[#build-on-linux][Build On Linux]]
+    - [[#build-on-darwin][Build On Darwin]]
+  - [[#setup-env][Setup Env]]
+
+* Description
+  Layer for [[https://github.com/tumashu/pyim][pyim]] and [[https://github.com/merrickluo/liberime][librime]].
+
+  Start with ~C-\~ (or =M-x toggle-input-method=).
+
+* Install
+** Layer
+   To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+   add =claude-pyim= to the existing =dotspacemacs-configuration-layers= list in this
+   file.
+
+** Build librime
+   On its first run, =liberime= will automatically compile its dynamic library with =librime=.
+
+   So it's necessary to setup librime first.
+
+*** Clone modules
+    #+begin_src bash
+      git clone --recursive https://github.com/rime/librime.git --depth=1
+    #+end_src
+
+*** Build On Linux
+    https://github.com/merrickluo/liberime/blob/master/README.org#build-on-linux
+
+*** Build On Darwin
+    https://github.com/merrickluo/liberime/blob/master/README.org#build-on-darwin
+
+    However, it's recommended to just copy the existing librime.dylib from Squirrel.app
+    without building steps.
+
+    #+begin_src bash
+      mkdir -p ~/librime/build/lib/Release/
+      cp /Library/Input\ Methods/Squirrel.app/Contents/Frameworks/librime.1.dylib ~/librime/build/lib/Release/librime.dylib
+    #+end_src
+
+    # Read [[https://manateelazycat.github.io/emacs/2019/07/24/use-rime-in-emacs.html][Use Rime In Emacs]] written by manateelazycat for more details.
+
+** Setup Env
+   Setup environment variable =RIME_PATH= to librime project dir, for example:
+   #+begin_src bash
+     export RIME_PATH=~/librime
+   #+end_src
