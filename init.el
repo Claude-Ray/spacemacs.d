@@ -105,6 +105,7 @@ This function should only modify configuration layer settings."
                  typescript-backend 'tide)
      (unicode-fonts :variables
                     unicode-fonts-force-multi-color-on-mac t)
+     vue
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left)
