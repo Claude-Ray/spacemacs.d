@@ -41,7 +41,7 @@ Happy hacking!
     #+end_src
 *** Tools
     #+begin_src bash
-      brew install coreutils ripgrep plantuml libvterm
+      brew install coreutils ripgrep plantuml libvterm mu offlineimap
     #+end_src
 *** Fonts
     - PragmataPro

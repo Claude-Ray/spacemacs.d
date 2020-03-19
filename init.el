@@ -75,6 +75,17 @@ This function should only modify configuration layer settings."
           lsp-ui-sideline-enable nil)
      lua
      markdown
+     (mu4e :variables
+           ;; Custom
+           mu4e-drafts-folder "/Drafts"
+           mu4e-refile-folder "/Archive"
+           mu4e-sent-folder "/Sent Items"
+           mu4e-trash-folder "/Trash"
+           ;; Layer
+           mu4e-get-mail-command "offlineimap"
+           mu4e-enable-mode-line t
+           ;; ln -snf /usr/local/Cellar/mu/1.2.0_1/share/emacs/site-lisp/mu/mu4e /usr/local/Cellar/mu/mu4e
+           mu4e-installation-path "/usr/local/Cellar/mu/mu4e")
      multiple-cursors
      nginx
      (org :variables
