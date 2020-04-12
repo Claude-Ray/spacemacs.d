@@ -12,8 +12,6 @@ Happy hacking!
     - [[#fonts][Fonts]]
     - [[#nodejs][Node.js]]
       - [[#formatters--linters][formatters && linters]]
-    - [[#c-c][C-C++]]
-      - [[#backend][backend]]
 - [[#faq][FAQ]]
   - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when Spacemacs starts up?]]
     - [[#remote-server-is-using-zsh][Remote server is using zsh]]
@@ -21,9 +19,6 @@ Happy hacking!
     - [[#recentf][recentf]]
   - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
   - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning "missing ; after statement"?]]
-  - [[#some-cc-headers-are-not-recognized][Some C/C++ headers are not recognized]]
-    - [[#1-install-c-headers][1. Install C headers]]
-    - [[#2-include-c-headers][2. Include C++ headers]]
   - [[#how-to-troubleshoot-the-emacsdcacherecentf-locked-by-xxx-warning-message][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
   - [[#how-to-ignore-paths-such-as-node_modules-when-using-spc-][How to ignore paths such as "node_modules" when using =SPC /=?]]
   - [[#how-to-fix-chinese-font-alignment-in-emacs-gui][How to fix chinese font alignment in Emacs GUI?]]
@@ -41,7 +36,7 @@ Happy hacking!
     #+end_src
 *** Tools
     #+begin_src bash
-      brew install coreutils ripgrep plantuml libvterm mu offlineimap
+      brew install coreutils ripgrep plantuml libvterm mu offlineimap ccls
     #+end_src
 *** Fonts
     - PragmataPro
@@ -54,13 +49,6 @@ Happy hacking!
 #+begin_src bash
   npm install -g js-beautify typescript typescript-language-server tslint eslint
 #+end_src
-*** C-C++
-**** backend
-#+begin_src bash
-  brew install ccls
-#+end_src
-
-Read on [[#some-cc-headers-are-not-recognized][FAQ]] if C/C++ headers are not recognized.
 
 * FAQ 
 ** Why tramp hangs when Spacemacs starts up?
@@ -97,42 +85,6 @@ The warning comes from JS2 Mode which implements its own parser for Javascript a
 As noted in the other answer the particular warning you observed is controlled by the user option =js2-strict-missing-semi-warning= which you can set to nil in your init file or via M-x customize so as to turn off the warning.
 
 When using JS2 Mode together with Flycheck we generally recommend to turn off all warnings of JS2 Mode by setting the variables =js2-mode-show-parse-errors= and =js2-mode-show-strict-warnings= to nil as in almost all cases Flycheck's syntax checking provides superior error reporting.
-
-** Some C/C++ headers are not recognized
-*** 1. Install C headers
-MacOS Majavo 10.14
-#+begin_src bash
-  open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
-#+end_src
-
-MacOS Catalina 10.15
-#+begin_src bash
-  # Install Xcode command line tool
-  xcode-select --install
-  # Create symlinks to /user/local/include for C headers
-  ln -s /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/* /usr/local/include/
-  # Reinstall ccls and its dependencies if the headers are not working correctly
-#+end_src
-
-*** 2. Include C++ headers
-First you need to get the absolute path to =/usr/local/bin/ccls=, depending on the version you installed. And my path is =/usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls=.
-
-#+begin_src bash
-  ls -l /usr/local/bin/ccls
-  # optionally back up the symbolic link installed by homebrew
-  mv /usr/local/bin/ccls /usr/local/bin/ccls.brew
-  # create a new executable file
-  touch /usr/local/bin/ccls
-  chmod +x /usr/local/bin/ccls
-#+end_src
-
-Putting this shell in =/usr/local/bin/ccls=.
-#+begin_src bash
-  #!/bin/sh
-  exec /usr/local/Cellar/ccls/HEAD-8b03321/bin/ccls -init='{"clang":{"extraArgs":["-isystem", "/Library/Developer/CommandLineTools/usr/include/c++/v1"]}}' "$@"
-#+end_src
-
-Further more, =/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1= can also be used as =-isystem= on MacOS Catalina.
 
 ** How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?
    #+begin_example

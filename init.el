@@ -592,6 +592,14 @@ before packages are loaded."
     (cancel-timer recentf-auto-save-timer))
 
   (when (spacemacs/system-is-mac)
+    ;; C++ headers
+    (with-eval-after-load 'ccls
+      (setq ccls-initialization-options
+            `(:clang ,(list :extraArgs ["-isystem/Library/Developer/CommandLineTools/usr/include/c++/v1"
+                                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
+                                        "-isystem/usr/local/include"]
+                            :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))
+
     ;; Use gls instead of ls
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
