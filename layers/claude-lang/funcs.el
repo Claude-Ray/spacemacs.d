@@ -1,0 +1,15 @@
+;;; funcs.el --- claude-lang Layer functions File for Spacemacs
+;;
+;; Copyright (c) 2020 claude-ray
+;;
+;; Author: Claude <yunleiqi@gmail.com>
+;; URL: https://github.com/Claude-Ray/spacemacs.d
+;;
+;; This file is not part of GNU Emacs.
+;;
+;;; License: GPLv3
+
+(defun claude-lang//js2-mode-hook ()
+  (progn
+    (setq forward-sexp-function nil)
+    (set (make-local-variable 'semantic-mode) nil)))

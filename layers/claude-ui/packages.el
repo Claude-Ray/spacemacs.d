@@ -68,6 +68,7 @@ PATCHED: Add one more space because of the alignment issue."
   ;; Don’t compact font caches during GC.
   (setq inhibit-compacting-font-caches t)
   (setq doom-modeline-mu4e t
+        doom-modeline-buffer-state-icon nil
         doom-modeline-buffer-file-name-style 'relative-from-project))
 
 (defun claude-ui/init-doom-themes ()

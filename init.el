@@ -47,8 +47,7 @@ This function should only modify configuration layer settings."
      better-defaults
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
-            c-c++-backend 'lsp-ccls
-            c-c++-lsp-executable (file-truename "/usr/local/bin/ccls"))
+            c-c++-backend 'lsp-ccls)
      (chinese :packages (not pyim)
               :variables
               chinese-enable-avy-pinyin nil
@@ -128,6 +127,7 @@ This function should only modify configuration layer settings."
      claude-beancount
      claude-edit
      claude-ivy
+     claude-lang
      claude-org
      claude-pyim
      claude-telega
@@ -581,9 +581,6 @@ before packages are loaded."
 
   (global-pangu-spacing-mode 0)
 
-  ;; Language settings for dap-mode
-  (add-hook 'js2-mode-hook (lambda () (require 'dap-node)))
-
   (when (spacemacs/window-system-is-mac)
     ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
     ;; (exec-path-from-shell-initialize)
@@ -593,14 +590,6 @@ before packages are loaded."
     (cancel-timer recentf-auto-save-timer))
 
   (when (spacemacs/system-is-mac)
-    ;; C++ headers
-    (with-eval-after-load 'ccls
-      (setq ccls-initialization-options
-            `(:clang ,(list :extraArgs ["-isystem/Library/Developer/CommandLineTools/usr/include/c++/v1"
-                                        "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
-                                        "-isystem/usr/local/include"]
-                            :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))
-
     ;; Use gls instead of ls
     (setq dired-use-ls-dired t
           insert-directory-program "/usr/local/bin/gls"
