@@ -124,14 +124,6 @@ This function should only modify configuration layer settings."
      ;; Private layers
      ;; ----------------------------------------------------------------
      claude
-     claude-beancount
-     claude-edit
-     claude-ivy
-     claude-lang
-     claude-org
-     claude-pyim
-     claude-telega
-     claude-ui
      )
 
    ;; List of additional packages that will be installed without being
