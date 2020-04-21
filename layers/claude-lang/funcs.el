@@ -11,5 +11,7 @@
 
 (defun claude-lang//js2-mode-hook ()
   (progn
+    (define-key js2-mode-map "@" 'js-doc-insert-tag)
+    (setq mode-name "JS2")
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
