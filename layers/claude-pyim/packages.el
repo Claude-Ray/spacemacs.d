@@ -15,8 +15,7 @@
               (recipe :fetcher github
                       :repo "merrickluo/liberime"
                       :files ("CMakeLists.txt" "Makefile" "src" "liberime.el" "liberime-config.el")))
-    posframe
-    pyim
+    (pyim :requires posframe)
     ))
 
 (defun claude-pyim/init-liberime ()
@@ -31,10 +30,6 @@
                                    "build/liberime-core"
                                    module-file-suffix))
       (liberime-build))))
-
-(defun claude-pyim/init-posframe ()
-  (use-package posframe
-    :defer t))
 
 (defun claude-pyim/init-pyim ()
   (use-package pyim
