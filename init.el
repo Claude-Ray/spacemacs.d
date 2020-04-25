@@ -110,7 +110,9 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      syntax-checking
      (treemacs :variables
-               treemacs-lock-width t)
+               treemacs-lock-width t
+               ;; all-the-icons-dired is better
+               treemacs-use-icons-dired nil)
      (typescript :variables
                  typescript-backend 'tide)
      (unicode-fonts :variables
