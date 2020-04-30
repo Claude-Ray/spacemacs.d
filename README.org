@@ -47,7 +47,7 @@ Happy hacking!
 *** Node.js
 **** formatters && linters
 #+begin_src bash
-  npm install -g js-beautify typescript typescript-language-server tslint eslint
+  npm install -g js-beautify typescript typescript-language-server tslint eslint eslint_d
 #+end_src
 
 * FAQ 

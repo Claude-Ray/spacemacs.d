@@ -14,7 +14,7 @@
    claude-beancount
    claude-edit
    claude-ivy
-   claude-lang
+   claude-prog
    claude-org
    claude-pyim
    claude-telega

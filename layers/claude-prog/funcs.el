@@ -1,4 +1,4 @@
-;;; funcs.el --- claude-lang Layer functions File for Spacemacs
+;;; funcs.el --- claude-prog Layer functions File for Spacemacs
 ;;
 ;; Copyright (c) 2020 claude-ray
 ;;
@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(defun claude-lang//js2-mode-hook ()
+(defun claude-prog//js2-mode-hook ()
   (progn
     (define-key js2-mode-map "@" 'js-doc-insert-tag)
     (setq mode-name "JS2")

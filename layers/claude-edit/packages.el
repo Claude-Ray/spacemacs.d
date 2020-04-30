@@ -20,5 +20,5 @@
   (setq undo-tree-enable-undo-in-region nil))
 
 (defun claude-edit/post-init-smartparens()
-  ;; Disabled for typing a single quote instead of \'\' in smartparens-mode.
+  ;; Typing a single quote instead of \'\' in smartparens-mode.
   (setq sp-escape-quotes-after-insert nil))

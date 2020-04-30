@@ -65,10 +65,7 @@ This function should only modify configuration layer settings."
            java-backend 'lsp)
      (javascript :variables
                  javascript-backend 'lsp
-                 javascript-repl `nodejs
-                 js-indent-level 2
-                 js2-basic-offset 2
-                 js2-include-node-externs t)
+                 javascript-repl `nodejs)
      (lsp :variables
           lsp-ui-doc-enable t
           lsp-ui-sideline-enable nil)
