@@ -65,6 +65,7 @@ This function should only modify configuration layer settings."
            java-backend 'lsp)
      (javascript :variables
                  javascript-backend 'lsp
+                 javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (lsp :variables
           lsp-ui-doc-enable t
@@ -111,7 +112,8 @@ This function should only modify configuration layer settings."
                ;; all-the-icons-dired is better
                treemacs-use-icons-dired nil)
      (typescript :variables
-                 typescript-backend 'tide)
+                 typescript-backend 'tide
+                 typescript-lsp-linter nil)
      (unicode-fonts :variables
                     unicode-fonts-force-multi-color-on-mac t)
      vue
