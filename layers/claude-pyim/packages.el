@@ -27,7 +27,7 @@
     (add-hook 'after-init-hook #'liberime-sync)
     :config
     (unless (file-exists-p (concat (liberime-get-library-directory)
-                                   "build/liberime-core"
+                                   "src/liberime-core"
                                    module-file-suffix))
       (liberime-build))))
 
