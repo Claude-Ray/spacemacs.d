@@ -21,6 +21,9 @@
 
   (setq org-agenda-files (list "~/org"))
 
+  ;; Only show today's task in overview display.
+  (setq org-agenda-span 'day)
+
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
            "* TODO %?\n %i\n %a")
