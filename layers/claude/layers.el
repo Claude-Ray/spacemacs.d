@@ -18,5 +18,6 @@
    claude-org
    claude-pyim
    claude-telega
+   claude-term
    claude-ui
    ))
