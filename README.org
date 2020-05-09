@@ -1,32 +1,11 @@
 * Personal Spacemacs Configuration
   
-Happy hacking!
-
-* Table of Contents                                                     :TOC:
-- [[#personal-spacemacs-configuration][Personal Spacemacs Configuration]]
-- [[#setup][Setup]]
-  - [[#dependencies][Dependencies]]
-  - [[#installation][Installation]]
-    - [[#formulae][Formulae]]
-    - [[#tools][Tools]]
-    - [[#fonts][Fonts]]
-    - [[#nodejs][Node.js]]
-      - [[#formatters--linters][formatters && linters]]
-- [[#faq][FAQ]]
-  - [[#why-tramp-hangs-when-spacemacs-starts-up][Why tramp hangs when Spacemacs starts up?]]
-    - [[#remote-server-is-using-zsh][Remote server is using zsh]]
-    - [[#helm-using-tramp-which-tries-to-figure-out-some-sshdns-settings-at-startup][Helm using Tramp which tries to figure out some SSH/DNS settings at startup]]
-    - [[#recentf][recentf]]
-  - [[#how-to-set-up-nodejs-autocompletion][How to set up Node.js autocompletion?]]
-  - [[#why-js2-mode-always-warning-missing--after-statement][Why js2-mode always warning "missing ; after statement"?]]
-  - [[#how-to-troubleshoot-the-emacsdcacherecentf-locked-by-xxx-warning-message][How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?]]
-  - [[#how-to-ignore-paths-such-as-node_modules-when-using-spc-][How to ignore paths such as "node_modules" when using =SPC /=?]]
-  - [[#how-to-fix-chinese-font-alignment-in-emacs-gui][How to fix chinese font alignment in Emacs GUI?]]
+  Happy hacking!
 
 * Setup
 ** Dependencies
-- MacOS 10.14+
-- Emacs 26.2+
+   - MacOS 10.14+
+   - Emacs 26.2+
 
 ** Installation
 *** Formulae
@@ -46,71 +25,6 @@ Happy hacking!
     #+end_src
 *** Node.js
 **** formatters && linters
-#+begin_src bash
-  npm install -g js-beautify typescript typescript-language-server tslint eslint eslint_d
-#+end_src
-
-* FAQ 
-** Why tramp hangs when Spacemacs starts up?
-After I tried tramp for ssh connecting remote server, Spacemacs hangs with error =Tramp: Waiting for prompts from remote shell= each time I start it up.
-*** Remote server is using zsh
-https://www.emacswiki.org/emacs/TrampMode#toc9
-Maybe zsh of remote server is the root problem.
-*** Helm using Tramp which tries to figure out some SSH/DNS settings at startup
-https://github.com/syl20bnr/spacemacs/blob/develop/doc/FAQ.org#why-is-spacemacs-hanging-on-startup
-
-I have tried to add these settings to =user-init=, but it didn't work.
-#+begin_src elisp
-(setq tramp-ssh-controlmaster-options
-      "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-#+end_src
-
-Editing =~/.ssh/config=, no effect either.
-#+begin_src
-Host *
-ControlMaster auto
-ControlPath ~/.ssh/master -%r@%h:%p
-ControlPersist = no
-#+end_src
-
-*** recentf
-Try =M-x recentf-edit-list= to remove ssh files from the list. Fix it!
-Further more, clear all the records of this ssh connection from files in =.emacs.d/.cache/= —— =tramp=, =savehist=, =recentf= etc.
-** How to set up Node.js autocompletion?
-Does it work after applying the steps of tern's documents? If not, give lsp-mode a try.
-** Why js2-mode always warning "missing ; after statement"?
-Reference from [[https://emacs.stackexchange.com/questions/26949/can-i-turn-off-or-switch-the-syntax-checker-for-js2-mode][lunaryorn's answer]]:
-
-The warning comes from JS2 Mode which implements its own parser for Javascript and warns about a couple of issues.
-As noted in the other answer the particular warning you observed is controlled by the user option =js2-strict-missing-semi-warning= which you can set to nil in your init file or via M-x customize so as to turn off the warning.
-
-When using JS2 Mode together with Flycheck we generally recommend to turn off all warnings of JS2 Mode by setting the variables =js2-mode-show-parse-errors= and =js2-mode-show-strict-warnings= to nil as in almost all cases Flycheck's syntax checking provides superior error reporting.
-
-** How to troubleshoot the "...emacs.d/.cache/recentf locked by xxx" warning message?
-   #+begin_example
-   Please type q, s, or p; or ? for help
-   ...emacs.d/.cache/recentf locked by claude@ray (pid 5647): (s, q, p, ?)? 
-   #+end_example
-   It occurs frequently on Mac OSX. According to this [[https://github.com/syl20bnr/spacemacs/issues/5186][issue]], the bug still hasn't been solved compeletely. But it can be avoided. 
-   You could clear the auto-save timer of recentf by adding the following into =(dotspacemacs/user-config)=:
-   #+begin_src elisp
-     (cancel-timer recentf-auto-save-timer)
-   #+end_src
-   Then you have to call =recentf-save-list= manually to save recent files.
-
-** How to ignore paths such as "node_modules" when using =SPC /=?
-   This is a bug of projectile. Related issue - [[https://github.com/bbatsov/projectile/issues/1075][Projectile does not ignore contents in .gitignore after opening respective the file directly]].
-   Adding =-/node_modules= to the =.projectile= file under your project root directory will fix it.
-   A better approach is to install =rg= with =brew install ripgrep=, then helm/ivy will use rg as =dotspacemacs-search-tools= instead of ag.
-   (dotspacemacs-search-tools uses the first installed tool of the list =("rg" "ag" "pt" "ack" "grep")=.)
-** How to fix chinese font alignment in Emacs GUI?
-   It is recommended to call =spacemacs//set-monospaced-font= to set chinese and english fonts respectively.
-
-   Alternatively, you can fix the alignment problem in org-table only. For example:
-   #+begin_src elisp
-    (with-eval-after-load 'org
-      (set-face-attribute 'org-link nil :font "Sarasa Mono T SC 16")
-      (set-face-attribute 'org-table nil
-                          :font "Sarasa Mono T SC 16"))
-   #+end_src
-   Font [[https://github.com/be5invis/Sarasa-Gothic][Sarasa Gothic]] can be installed by running =brew cask install font-sarasa-gothic=.
+     #+begin_src bash
+       npm install -g js-beautify typescript typescript-language-server tslint eslint eslint_d
+     #+end_src
