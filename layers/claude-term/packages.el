@@ -18,6 +18,8 @@
   ;; Open vterm in insert state
   (evil-set-initial-state 'vterm-mode 'insert)
 
+  (add-hook 'vterm-exit-functions #'claude-term//vterm-kill-buffer-on-exit)
+
   ;; Enable some parts of terminal shortcuts in evil insert state
   (with-eval-after-load 'vterm
     (evil-define-key 'insert vterm-mode-map (kbd "C-a") 'vterm-send-C-a)
