@@ -69,7 +69,7 @@ PATCHED: Add one more space because of the alignment issue."
     (add-to-list 'all-the-icons-mode-icon-alist
                  '(spacemacs-buffer-mode all-the-icons-faicon "home"
                                          :v-adjust -0.1
-                                         :face 'font-lock-keyword-face)))
+                                         :face font-lock-keyword-face)))
   ;; Don’t compact font caches during GC.
   (setq inhibit-compacting-font-caches t)
   (setq doom-modeline-mu4e t
