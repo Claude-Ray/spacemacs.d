@@ -21,15 +21,11 @@
 (defun claude-pyim/init-liberime ()
   (use-package liberime
     :init
+    (setq liberime-auto-build t)
     (setq liberime-user-data-dir (expand-file-name "~/Library/Rime/emacs/"))
     (setq default-input-method "pyim")
     (setq pyim-titles '("ㄓ " "PYIM-EN " "PYIM-AU "))
-    (add-hook 'after-init-hook #'liberime-sync)
-    :config
-    (unless (file-exists-p (concat (liberime-get-library-directory)
-                                   "src/liberime-core"
-                                   module-file-suffix))
-      (liberime-build))))
+    (add-hook 'after-init-hook #'liberime-sync)))
 
 (defun claude-pyim/init-pyim ()
   (use-package pyim
