@@ -12,6 +12,7 @@
 (defconst claude-packages
   '(
     tramp
+    which-key
     ))
 
 (defun claude/init-tramp ()
@@ -26,3 +27,6 @@
                    (tramp-remote-shell "/bin/sh")
                    (tramp-remote-shell-args ("-c"))
                    (tramp-connection-timeout 10)))))
+
+(defun claude/post-init-which-key ()
+  (define-key global-map "\C-h\C-m" 'which-key-show-major-mode))
