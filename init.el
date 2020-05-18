@@ -144,8 +144,7 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages
-   '(tern
-     company-tern
+   '(
      exec-path-from-shell
      magit-gitflow
      find-by-pinyin-dired
