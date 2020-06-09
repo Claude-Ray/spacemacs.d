@@ -12,6 +12,9 @@
 (defconst claude-org-packages
   '(
     (org :location built-in)
+    (valign :location (recipe
+                       :fetcher github
+                       :repo "casouri/valign"))
     ))
 
 (defun claude-org/post-init-org ()
@@ -57,3 +60,9 @@
   (setq org-refile-target-verify-function 'claude-org//verify-refile-target)
 
   (setq org-archive-location "%s_archive::* Archived Tasks"))
+
+(defun claude-org/init-valign ()
+  "Properly align org tables that contain variable-pitch font,
+CJK characters and images."
+  (use-package valign
+    :hook (org-mode . valign-mode)))
