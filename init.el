@@ -52,12 +52,14 @@ This function should only modify configuration layer settings."
               :variables
               chinese-enable-avy-pinyin nil
               chinese-default-input-method nil)
+     csv
      ;; The local nyan-mode doesn't work well with doom-modeline
      ;; (colors :variables
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
      dap
      (dash :variables
            dash-autoload-common-docsets nil)
+     deft
      emacs-lisp
      git
      (ivy :packages (not ivy-rich))
@@ -106,6 +108,7 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-shell 'vterm)
      ;; spell-checking
+     sql
      syntax-checking
      (treemacs :variables
                treemacs-lock-width t
@@ -137,6 +140,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages
    '(
      ;; manage-minor-mode
+     memory-usage
      )
 
    ;; A list of packages that cannot be updated.
