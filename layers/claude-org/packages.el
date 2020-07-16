@@ -27,6 +27,10 @@
   ;; Only show today's task in overview display.
   (setq org-agenda-span 'day)
 
+  (setq org-agenda-start-with-log-mode t)
+
+  (setq org-agenda-log-mode-items '(closed clock state))
+
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
            "* TODO %?\n %i\n %a")

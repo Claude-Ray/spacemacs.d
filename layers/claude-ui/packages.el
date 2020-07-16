@@ -67,6 +67,10 @@ PATCHED: Add one more space because of the alignment issue."
 (defun claude-ui/post-init-doom-modeline ()
   (with-eval-after-load 'all-the-icons
     (add-to-list 'all-the-icons-mode-icon-alist
+                 '(calendar-mode all-the-icons-faicon "calendar"
+                                         :v-adjust -0.1
+                                         :face all-the-icons-red))
+    (add-to-list 'all-the-icons-mode-icon-alist
                  '(spacemacs-buffer-mode all-the-icons-faicon "home"
                                          :v-adjust -0.1
                                          :face font-lock-keyword-face)))

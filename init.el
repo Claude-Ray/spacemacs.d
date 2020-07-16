@@ -59,7 +59,9 @@ This function should only modify configuration layer settings."
      dap
      (dash :variables
            dash-autoload-common-docsets nil)
-     deft
+     (deft :variables
+       deft-directory "~/Documents/Note"
+       deft-recursive t)
      emacs-lisp
      git
      (ivy :packages (not ivy-rich))
