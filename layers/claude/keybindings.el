@@ -33,6 +33,7 @@
   (global-set-key (kbd "s-c") 'evil-yank)
   (global-set-key (kbd "s-a") 'mark-whole-buffer)
   (global-set-key (kbd "s-s") 'save-buffer)
+  (global-set-key (kbd "s-q") (if (daemonp) 'delete-frame 'save-buffers-kill-terminal))
   (global-set-key (kbd "s-w") 'delete-window)
   (global-set-key (kbd "s-W") 'delete-frame)
   (global-set-key (kbd "s-n") 'make-frame)
