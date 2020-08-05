@@ -72,6 +72,7 @@ This function should only modify configuration layer settings."
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (lsp :variables
+          lsp-modeline-code-actions-enable nil
           lsp-ui-doc-enable t
           lsp-ui-sideline-enable nil)
      lua
