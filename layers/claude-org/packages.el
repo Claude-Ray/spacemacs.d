@@ -69,4 +69,6 @@
   "Properly align org tables that contain variable-pitch font,
 CJK characters and images."
   (use-package valign
-    :hook (org-mode . valign-mode)))
+    ;; :hook (org-mode . valign-mode)
+    :config
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode "Tv" 'valign-mode)))
