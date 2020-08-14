@@ -10,4 +10,5 @@
 ;;; License: GPLv3
 
 (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
-  "SPC" 'spacemacs/org-agenda-transient-state/body)
+  "SPC" 'spacemacs/org-agenda-transient-state/body
+  "sb" 'claude-org/org-agenda-tree-to-indirect-buffer)
