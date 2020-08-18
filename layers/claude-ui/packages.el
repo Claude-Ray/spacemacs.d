@@ -18,6 +18,7 @@
     diredfl
     doom-modeline
     doom-themes
+    ranger
     writeroom-mode
     ))
 
@@ -88,6 +89,10 @@ PATCHED: Add one more space because of the alignment issue."
     (when (display-graphic-p)
       (setq doom-themes-treemacs-theme "doom-colors")
       (doom-themes-treemacs-config))))
+
+(defun claude-ui/post-init-ranger ()
+  (with-eval-after-load 'ranger
+    (define-key ranger-mode-map (kbd "C-h") nil)))
 
 (defun claude-ui/post-init-writeroom-mode ()
   (setq writeroom-width 120))

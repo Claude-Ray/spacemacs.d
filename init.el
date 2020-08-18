@@ -106,6 +106,8 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-lsp-server 'mspyls
              python-lsp-git-root "~/git/python-language-server")
+     (ranger :variables
+             ranger-enter-with-minus nil)
      (rust :variables
            rust-backend 'lsp)
      (shell :variables
