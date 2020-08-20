@@ -63,6 +63,8 @@ This function should only modify configuration layer settings."
        deft-directory "~/Documents/Note"
        deft-recursive t)
      emacs-lisp
+     (evil-snipe :variables
+                 evil-snipe-enable-alternate-f-and-t-behaviors t)
      git
      (ivy :packages (not ivy-rich))
      (java :variables
@@ -107,7 +109,8 @@ This function should only modify configuration layer settings."
              python-lsp-server 'mspyls
              python-lsp-git-root "~/git/python-language-server")
      (ranger :variables
-             ranger-enter-with-minus nil)
+             ranger-enter-with-minus nil
+             ranger-override-dired 'ranger)
      (rust :variables
            rust-backend 'lsp)
      (shell :variables
