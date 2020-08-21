@@ -12,11 +12,11 @@
 (configuration-layer/declare-layers
  '(
    claude-beancount
+   claude-chinese
    claude-edit
    claude-ivy
    claude-prog
    claude-org
-   claude-pyim
    claude-telega
    claude-term
    claude-ui
