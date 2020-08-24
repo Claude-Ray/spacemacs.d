@@ -99,7 +99,10 @@
                                    (rime--candidate-separator-char))))
             (setq idx (1+ idx))))
         result))
-    (set-face-attribute 'rime-highlight-candidate-face nil :foreground "DodgerBlue")
+    (set-face-attribute 'rime-highlight-candidate-face nil
+                        :foreground "White"
+                        :background "DodgerBlue"
+                        :bold nil)
     (setq default-input-method "rime"
           rime-librime-root "~/.emacs.d/librime/dist"
           rime-show-preedit 'inline
