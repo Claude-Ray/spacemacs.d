@@ -1,0 +1,81 @@
+#+TITLE: Chinese layer
+
+* Table of Contents                                       :TOC_5_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+  - [[#build-librime-for-rime][Build librime for rime]]
+    - [[#linux][Linux]]
+    - [[#darwin][Darwin]]
+  - [[#build-librime-for-pyim][Build librime for pyim]]
+    - [[#linux-1][Linux]]
+    - [[#darwin-1][Darwin]]
+- [[#configuration][Configuration]]
+  - [[#default-input-method][Default input method]]
+
+* Description
+  Layer for rime input method via [[https://github.com/DogLooksGood/emacs-rime][emacs-rime]].
+
+  Start with ~C-\~ (or =M-x toggle-input-method=).
+
+* Install
+  To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+  add =claude-chinese= to the existing =dotspacemacs-configuration-layers= list in this
+  file.
+
+** Build librime for rime
+*** Linux
+    https://github.com/DogLooksGood/emacs-rime#linux
+
+    #+begin_src bash
+      sudo pacman -S librime
+    #+end_src
+
+*** Darwin
+    https://github.com/DogLooksGood/emacs-rime#macos
+
+    1. Install [[https://github.com/rime/squirrel][Squirrel.app]]
+    2. Download the latest release from [[https://github.com/rime/librime/releases][librime]]
+       #+begin_src bash
+         curl -OJ  https://github.com/rime/librime/releases/download/1.5.3/rime-1.5.3-osx.zip
+         unzip rime-1.5.3-osx.zip -d ~/.emacs.d/librime
+         rm -rf rime-1.5.3-osx.zip
+       #+end_src
+** Build librime for pyim
+   On its first run, =liberime= will automatically compile its dynamic library with =librime=.
+
+   So it's necessary to setup librime first.
+
+   Clone librime and setup environment variable =RIME_PATH= to librime project dir, for example:
+
+   #+begin_src bash
+     git clone --recursive https://github.com/rime/librime.git --depth=1
+     export RIME_PATH=~/librime
+   #+end_src
+
+*** Linux
+    https://github.com/merrickluo/liberime/blob/master/README.org#build-on-linux
+
+*** Darwin
+    https://github.com/merrickluo/liberime/blob/master/README.org#build-on-darwin
+
+    However, it's recommended to just copy the existing librime.dylib from Squirrel.app
+    without building steps.
+
+    #+begin_src bash
+      mkdir -p ~/librime/build/lib/Release/
+      cp /Library/Input\ Methods/Squirrel.app/Contents/Frameworks/librime.1.dylib ~/librime/build/lib/Release/librime.dylib
+    #+end_src
+
+    # Read [[https://manateelazycat.github.io/emacs/2019/07/24/use-rime-in-emacs.html][Use Rime In Emacs]] written by manateelazycat for more details.
+
+* Configuration
+** Default input method
+   To define the default input method you can set the layer variable
+   =claude/chinese-default-input-method= to the following variables:
+   - =rime= (default)
+   - =pyim=
+
+   #+BEGIN_SRC emacs-lisp
+     (setq-default dotspacemacs-configuration-layers '(
+       (claude-chinese :variables claude/chinese-default-input-method 'pyim)))
+   #+END_SRC
