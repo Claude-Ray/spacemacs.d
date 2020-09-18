@@ -4,8 +4,8 @@
 
 * Setup
 ** Dependencies
-   - MacOS 10.14+
-   - Emacs 26.2+
+   - MacOS 10.15+
+   - Emacs 27.1+
 
 ** Installation
 *** Formulae

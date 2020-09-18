@@ -74,6 +74,8 @@ This function should only modify configuration layer settings."
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (lsp :variables
+          lsp-auto-guess-root t
+          lsp-enable-file-watchers nil
           lsp-modeline-code-actions-enable nil
           lsp-ui-doc-enable t
           lsp-ui-sideline-enable nil)
@@ -107,8 +109,7 @@ This function should only modify configuration layer settings."
      protobuf
      (python :variables
              python-backend 'lsp
-             python-lsp-server 'mspyls
-             python-lsp-git-root "~/git/python-language-server")
+             python-lsp-server 'pyright)
      (ranger :variables
              ranger-enter-with-minus nil
              ranger-override-dired 'ranger)
