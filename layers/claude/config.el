@@ -9,6 +9,8 @@
 ;;
 ;;; License: GPLv3
 
+(setq auto-window-vscroll nil)
+
 (when (display-graphic-p)
   ;; Ask for confirmation when leaving Emacs.
   (setq confirm-kill-emacs '(lambda (prompt) (y-or-n-p-with-timeout prompt 10 "y"))))

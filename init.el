@@ -77,7 +77,7 @@ This function should only modify configuration layer settings."
           lsp-auto-guess-root t
           lsp-enable-file-watchers nil
           lsp-modeline-code-actions-enable nil
-          lsp-ui-doc-enable t
+          lsp-ui-doc-enable nil
           lsp-ui-sideline-enable nil)
      lua
      markdown
