@@ -45,7 +45,7 @@
     ;; NOTE: Fix mode line by resetting width
     (doom-modeline--set-char-widths doom-modeline-rhs-icons-alist)
     (setq telega-proxies
-          (list '(:server "127.0.0.1" :port 1082 :enable t
+          (list '(:server "127.0.0.1" :port 7891 :enable t
                           :type (:@type "proxyTypeSocks5"))))
     (setq telega-chat-button-width 28
           telega-chat-fill-column 47

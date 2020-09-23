@@ -103,12 +103,15 @@
                         :foreground "White"
                         :background "DodgerBlue"
                         :bold nil)
+    (when (spacemacs/system-is-mac)
+      (setq rime-librime-root "~/.emacs.d/librime/dist"
+            rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
+    (when (spacemacs/system-is-linux)
+      (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
     (setq default-input-method "rime"
-          rime-librime-root "~/.emacs.d/librime/dist"
           rime-show-preedit 'inline
           rime-posframe-style 'simple
           rime-posframe-properties
           (list :left-fringe 0
                 :right-fringe 0)
-          rime-show-candidate 'posframe
-          rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/"))))
+          rime-show-candidate 'posframe)))
