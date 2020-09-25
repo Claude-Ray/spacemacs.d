@@ -107,6 +107,8 @@
       (setq rime-librime-root "~/.emacs.d/librime/dist"
             rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
     (when (spacemacs/system-is-linux)
+      ;; F13 = XF86Tools
+      (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
       (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
     (setq default-input-method "rime"
           rime-show-preedit 'inline
