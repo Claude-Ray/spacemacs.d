@@ -18,10 +18,14 @@
   ;; Open vterm in insert state
   (evil-set-initial-state 'vterm-mode 'insert)
 
+  ;; Modeline serves no purpose in vterm
+  (add-hook 'vterm-mode-hook #'doom-themes-hide-modeline)
+
   (add-hook 'vterm-exit-functions #'claude-term//vterm-kill-buffer-on-exit)
 
   ;; Enable some parts of terminal shortcuts in evil insert state
   (with-eval-after-load 'vterm
+    (evil-define-key 'insert vterm-mode-map (kbd "C-\\") 'toggle-input-method)
     (evil-define-key 'insert vterm-mode-map (kbd "C-a") 'vterm-send-C-a)
     (evil-define-key 'insert vterm-mode-map (kbd "C-b") 'vterm-send-C-b)
     (evil-define-key 'insert vterm-mode-map (kbd "C-c") 'vterm-send-C-c)
