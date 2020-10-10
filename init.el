@@ -222,7 +222,8 @@ It should only modify the values of Spacemacs settings."
    ;; This is an advanced option and should not be changed unless you suspect
    ;; performance issues due to garbage collection operations.
    ;; (default '(100000000 0.1))
-   dotspacemacs-gc-cons '(800000 0.1)
+   ;; NOTE: Decrease this when freezing. Increase this when stuttering.
+   dotspacemacs-gc-cons '(16777216 0.1)
 
    ;; If non-nil then Spacelpa repository is the primary source to install
    ;; a locked version of packages. If nil then Spacemacs will install the
@@ -587,8 +588,7 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   ;; (spacemacs/toggle-transparency)
-
-  (spacemacs/toggle-which-key-off)
+  ;; (spacemacs/toggle-which-key-off)
 
   (global-pangu-spacing-mode 0)
 
