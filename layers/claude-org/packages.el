@@ -33,6 +33,12 @@
 
   (setq org-agenda-log-mode-items '(closed clock state))
 
+  (setq claude--org-inbox-file org-default-notes-file
+        claude--org-journal-file (expand-file-name "journal.org" org-directory)
+        claude--org-note-file (expand-file-name "note.org" org-directory)
+        claude--org-todo-file (expand-file-name "todo.org" org-directory)
+        claude--org-work-file (expand-file-name "work.org" org-directory))
+
   (setq org-agenda-custom-commands
         '(("n" "Agenda and all TODOs"
            ((agenda "")
@@ -44,15 +50,18 @@
           ("ff" "Work Agenda"
            ((agenda ""
                     ((org-agenda-tag-filter-preset '("+WORK"))
-                     (org-agenda-clockreport-mode t)))))
+                     (org-agenda-clockreport-mode t)
+                     (org-agenda-files (list claude--org-work-file))))))
           ("ft" "Work TODOs"
            ((tags-todo "WORK"
-                       ((org-agenda-overriding-header "Work Tasks")))))
+                       ((org-agenda-overriding-header "Work Tasks")
+                        (org-agenda-files (list claude--org-work-file))))))
           ("fd" "Work Agenda and TODOs"
            ((agenda "")
             (tags-todo "WORK"))
            ((org-agenda-tag-filter-preset '("+WORK"))
-            (org-agenda-start-with-clockreport-mode t)))
+            (org-agenda-start-with-clockreport-mode t)
+            (org-agenda-files (list claude--org-work-file))))
           ("j" . "Personal Review")
           ("jj" "Personal Agenda"
            ((agenda ""
@@ -63,17 +72,17 @@
            ((org-agenda-tag-filter-preset '("-WORK"))))))
 
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
+        '(("t" "Todo" entry (file+headline claude--org-inbox-file "Tasks")
            "* TODO %?\n %i\n %a")
-          ("w" "Work" entry (file+headline "~/org/work.org" "Works")
+          ("w" "Work" entry (file+headline claude--org-inbox-file "Works")
            "* TODO %?\n %i\n %U")
-          ("i" "Idea" entry (file+headline "~/org/note.org" "Ideas")
+          ("i" "Idea" entry (file+headline claude--org-inbox-file "Ideas")
            "* TODO %?\n %i\n %U")
-          ("m" "Mark" entry (file+headline "~/org/note.org" "Marks")
+          ("m" "Mark" entry (file+headline claude--org-inbox-file "Marks")
            "* %?\n %i\n %U %a")
-          ("n" "Note" entry (file+headline "~/org/note.org" "Notes")
+          ("n" "Note" entry (file+headline claude--org-inbox-file "Notes")
            "* %?\n %i\n %U")
-          ("j" "Journal" entry (file+headline "~/org/journal.org" "Journals")
+          ("j" "Journal" entry (file+headline claude--org-journal-file "Journals")
            "* %?\n %i\n %U"
            :empty-lines 1)
           ))
