@@ -18,11 +18,13 @@
     ))
 
 (defun claude-org/post-init-org ()
+  (setq org-directory "~/Documents/Org"
+        org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
 
-  (setq org-agenda-files (list "~/org"))
+  (setq org-agenda-files (list org-directory))
 
   ;; Only show today's task in overview display.
   (setq org-agenda-span 'day)
@@ -30,6 +32,35 @@
   (setq org-agenda-start-with-log-mode t)
 
   (setq org-agenda-log-mode-items '(closed clock state))
+
+  (setq org-agenda-custom-commands
+        '(("n" "Agenda and all TODOs"
+           ((agenda "")
+            (alltodo "")))
+          (" " "Agenda"
+           ((agenda ""
+                    ((org-agenda-clockreport-mode t)))))
+          ("f" . "Work Review")
+          ("ff" "Work Agenda"
+           ((agenda ""
+                    ((org-agenda-tag-filter-preset '("+WORK"))
+                     (org-agenda-clockreport-mode t)))))
+          ("ft" "Work TODOs"
+           ((tags-todo "WORK"
+                       ((org-agenda-overriding-header "Work Tasks")))))
+          ("fd" "Work Agenda and TODOs"
+           ((agenda "")
+            (tags-todo "WORK"))
+           ((org-agenda-tag-filter-preset '("+WORK"))
+            (org-agenda-start-with-clockreport-mode t)))
+          ("j" . "Personal Review")
+          ("jj" "Personal Agenda"
+           ((agenda ""
+                    ((org-agenda-tag-filter-preset '("-WORK"))))))
+          ("jk" "Personal Agenda and TODOs"
+           ((agenda "")
+            (tags-todo "-WORK"))
+           ((org-agenda-tag-filter-preset '("-WORK"))))))
 
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline "~/org/todo.org" "Tasks")
