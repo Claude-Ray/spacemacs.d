@@ -42,10 +42,7 @@
 
 (when (spacemacs/system-is-linux)
   (when (display-graphic-p)
-    (global-set-key (kbd "s-/") 'comment-line)
-    (global-set-key (kbd "s-+") 'spacemacs/scale-up-font)
+    (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
     (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
-    (global-set-key (kbd "s-=") 'spacemacs/reset-font-size)
-    (global-set-key (kbd "s-s") 'save-buffer)
-    (global-set-key (kbd "s-z") 'undo-tree-undo)
-    (global-set-key (kbd "s-Z") 'undo-tree-redo)))
+    (global-set-key (kbd "s-/") 'comment-line)
+    (global-set-key (kbd "s-s") 'save-buffer)))
