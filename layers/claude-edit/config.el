@@ -10,7 +10,7 @@
 ;;; License: GPLv3
 
 ;; Replace smartparens
-(electric-pair-mode t)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+;; (electric-pair-mode t)
+;; (setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
 
 (remove-hook 'text-mode-hook #'auto-fill-mode)

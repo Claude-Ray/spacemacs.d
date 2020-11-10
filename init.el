@@ -165,7 +165,6 @@ This function should only modify configuration layer settings."
      ace-pinyin
      chinese-conv
      meghanada
-     smartparens
      spaceline
      spaceline-all-the-icons
      )
