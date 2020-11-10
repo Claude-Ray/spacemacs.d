@@ -11,6 +11,7 @@
 
 (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
 (define-key evil-insert-state-map (kbd "M-i") 'yas-insert-snippet)
+(define-key evil-insert-state-map (kbd "s-s") 'claude-edit/save-and-evil-exit-insert-state)
 
 (with-eval-after-load 'company
   (let ((map company-active-map))
@@ -25,14 +26,9 @@
 ;; (define-key key-translation-map (kbd "C-p") (kbd "C-k"))
 
 (when (spacemacs/window-system-is-mac)
-  (global-set-key (kbd "s-/") 'comment-line)
-  (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
-  (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
-  (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
   (global-set-key (kbd "s-v") 'yank)
   (global-set-key (kbd "s-c") 'evil-yank)
   (global-set-key (kbd "s-a") 'mark-whole-buffer)
-  (global-set-key (kbd "s-s") 'save-buffer)
   (global-set-key (kbd "s-q") (if (daemonp) 'delete-frame 'save-buffers-kill-terminal))
   (global-set-key (kbd "s-w") 'delete-window)
   (global-set-key (kbd "s-W") 'delete-frame)
@@ -40,10 +36,9 @@
   (global-set-key (kbd "s-z") 'undo-tree-undo)
   (global-set-key (kbd "s-Z") 'undo-tree-redo))
 
-(when (spacemacs/system-is-linux)
-  (when (display-graphic-p)
-    (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
-    (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
-    (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
-    (global-set-key (kbd "s-/") 'comment-line)
-    (global-set-key (kbd "s-s") 'save-buffer)))
+(when (display-graphic-p)
+  (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
+  (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
+  (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
+  (global-set-key (kbd "s-/") 'comment-line)
+  (global-set-key (kbd "s-s") 'save-buffer))
