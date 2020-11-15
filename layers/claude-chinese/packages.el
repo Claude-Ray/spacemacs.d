@@ -11,6 +11,7 @@
 
 (defconst claude-chinese-packages
   '(
+    go-translate
     (liberime :location
               (recipe :fetcher github
                       :repo "merrickluo/liberime"
@@ -20,6 +21,16 @@
           :toggle (eq claude/chinese-default-input-method 'pyim))
     (rime :toggle (eq claude/chinese-default-input-method 'rime))
     ))
+
+(defun claude-chinese/init-go-translate ()
+  (use-package go-translate
+    :config
+    ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
+    (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
+
+    (setq go-translate-buffer-follow-p t
+          go-translate-inputs-function #'go-translate-inputs-current-or-prompt
+          go-translate-local-language "zh-CN")))
 
 (defun claude-chinese/init-liberime ()
   (use-package liberime
