@@ -29,6 +29,9 @@
     (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
 
     (setq go-translate-buffer-follow-p t
+          go-translate-buffer-window-config '((display-buffer-reuse-window
+                                               display-buffer-in-side-window)
+                                              (side . bottom))
           go-translate-inputs-function #'go-translate-inputs-current-or-prompt
           go-translate-local-language "zh-CN")))
 
