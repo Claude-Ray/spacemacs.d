@@ -86,6 +86,7 @@ PATCHED: Add one more space because of the alignment issue."
   (use-package doom-themes
     :defer t
     :config
+    (setq doom-gruvbox-dark-variant "soft")
     ;; Update treemacs theme with all-the-icons.
     (when (display-graphic-p)
       (setq doom-themes-treemacs-theme "doom-colors")
