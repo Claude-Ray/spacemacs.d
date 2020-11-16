@@ -28,10 +28,10 @@
     ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
     (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
 
+    (add-hook 'go-translate-after-render-hook (lambda (req resp) (help-mode)))
     (setq go-translate-buffer-follow-p t
-          go-translate-buffer-window-config '((display-buffer-reuse-window
-                                               display-buffer-in-side-window)
-                                              (side . bottom))
+          ;; Output translation to the help buffer
+          go-translate-buffer-name "*Help*"
           go-translate-inputs-function #'go-translate-inputs-current-or-prompt
           go-translate-local-language "zh-CN")))
 
