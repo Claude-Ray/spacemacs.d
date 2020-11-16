@@ -24,6 +24,7 @@
 
 (defun claude-chinese/init-go-translate ()
   (use-package go-translate
+    :defer t
     :config
     ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
     (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
