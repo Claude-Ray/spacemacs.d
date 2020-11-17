@@ -25,12 +25,13 @@
 (defun claude-chinese/init-go-translate ()
   (use-package go-translate
     :defer t
+    :init
+    (global-set-key (kbd "C-c t") 'go-translate)
+    (global-set-key (kbd "C-c T") 'go-translate-popup)
     :config
     ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
     (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
 
-    (global-set-key (kbd "C-c t") 'go-translate)
-    (global-set-key (kbd "C-c T") 'go-translate-popup)
     (add-hook 'go-translate-after-render-hook (lambda (req resp) (help-mode)))
     (setq go-translate-buffer-follow-p t
           ;; Output translation to the help buffer
