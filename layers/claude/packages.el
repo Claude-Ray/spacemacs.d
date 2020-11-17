@@ -11,9 +11,16 @@
 
 (defconst claude-packages
   '(
+    (recentf :location built-in)
     tramp
     which-key
     ))
+
+(defun claude/post-init-recentf ()
+  (when (spacemacs/window-system-is-mac)
+    ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
+    ;; You can call recentf-save-list manually to save recent files.
+    (cancel-timer recentf-auto-save-timer)))
 
 (defun claude/init-tramp ()
   (use-package tramp

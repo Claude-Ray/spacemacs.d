@@ -17,6 +17,7 @@
                       :repo "merrickluo/liberime"
                       :files ("CMakeLists.txt" "Makefile" "src" "liberime.el" "liberime-config.el"))
               :toggle (eq claude/chinese-default-input-method 'pyim))
+    pangu-spacing
     (pyim :requires posframe
           :toggle (eq claude/chinese-default-input-method 'pyim))
     (rime :toggle (eq claude/chinese-default-input-method 'rime))
@@ -38,6 +39,9 @@
           go-translate-buffer-name "*Help*"
           go-translate-inputs-function #'go-translate-inputs-current-or-prompt
           go-translate-local-language "zh-CN")))
+
+(defun claude-chinese/post-init-pangu-spacing ()
+  (global-pangu-spacing-mode -1))
 
 (defun claude-chinese/init-liberime ()
   (use-package liberime

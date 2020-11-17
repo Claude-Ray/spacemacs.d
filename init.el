@@ -74,9 +74,6 @@ This function should only modify configuration layer settings."
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (lsp :variables
-          lsp-auto-guess-root t
-          lsp-enable-file-watchers nil
-          lsp-modeline-code-actions-enable nil
           lsp-ui-doc-enable nil
           lsp-ui-sideline-enable nil)
      lua
@@ -633,21 +630,9 @@ before packages are loaded."
   ;; (spacemacs/toggle-transparency)
   ;; (spacemacs/toggle-which-key-off)
 
-  (global-pangu-spacing-mode 0)
-
-  (when (spacemacs/window-system-is-mac)
-    ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
-    ;; (exec-path-from-shell-initialize)
-
-    ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
-    ;; You can call recentf-save-list manually to save recent files.
-    (cancel-timer recentf-auto-save-timer))
-
-  (when (spacemacs/system-is-mac)
-    ;; Use gls instead of ls
-    (setq dired-use-ls-dired t
-          insert-directory-program "/usr/local/bin/gls"
-          dired-listing-switches "-aBhl --group-directories-first"))
+  ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
+  ;; (when (spacemacs/window-system-is-mac)
+  ;;   (exec-path-from-shell-initialize))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

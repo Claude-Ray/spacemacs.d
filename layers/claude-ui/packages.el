@@ -15,6 +15,7 @@
     all-the-icons-ibuffer
     all-the-icons-ivy-rich
     diff-hl
+    (dired :location built-in)
     diredfl
     doom-modeline
     doom-themes
@@ -59,6 +60,13 @@ PATCHED: Add one more space because of the alignment issue."
   ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
   ;; and it's available in both terminal and GUI.
   (run-with-idle-timer 1 nil 'diff-hl-margin-mode))
+
+(defun claude-ui/post-init-dired ()
+  (when (spacemacs/system-is-mac)
+    ;; Use gls instead of ls
+    (setq dired-use-ls-dired t
+          insert-directory-program "/usr/local/bin/gls"
+          dired-listing-switches "-aBhl --group-directories-first")))
 
 (defun claude-ui/init-diredfl ()
   (use-package diredfl

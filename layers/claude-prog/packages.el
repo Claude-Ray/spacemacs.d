@@ -31,20 +31,21 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (defun claude-prog/post-init-lsp-mode ()
-  ;; Disable lsp checker by default
-  (setq lsp-diagnostic-package :none)
-
-  ;; Lean on flycheck-check-syntax-automatically
-  (setq lsp-flycheck-live-reporting nil)
-
-  ;; Disable formatting on the fly
-  (setq lsp-enable-on-type-formatting nil)
-
-  ;; Disable lsp region formatting
-  (setq lsp-enable-indentation nil)
-
-  ;; Auto kill lsp server
-  (setq lsp-keep-workspace-alive nil))
+  (setq lsp-auto-guess-root t
+        ;; Disable lsp checker by default
+        lsp-diagnostic-package :none
+        ;; Disable watching files by default
+        lsp-enable-file-watchers nil
+        ;; Disable formatting on the fly
+        lsp-enable-on-type-formatting nil
+        ;; Disable lsp region formatting
+        lsp-enable-indentation nil
+        ;; Lean on flycheck-check-syntax-automatically
+        lsp-flycheck-live-reporting nil
+        ;; Auto kill lsp server
+        lsp-keep-workspace-alive nil
+        ;; Disable code actions on modeline
+        lsp-modeline-code-actions-enable nil))
 
 (defun claude-prog/post-init-js2-mode ()
   (setq-default js-indent-level 2
