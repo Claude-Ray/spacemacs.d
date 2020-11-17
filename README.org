@@ -4,7 +4,7 @@
 
 * Setup
 ** Dependencies
-   - MacOS 10.15+
+   - MacOS 10.15+ or GNU Linux
    - Emacs 27.1+
 
 ** Installation
