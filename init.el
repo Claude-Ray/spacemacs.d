@@ -325,10 +325,18 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
 
    ;; Default font or prioritized list of fonts.
-   dotspacemacs-default-font '("PragmataPro"
+   dotspacemacs-default-font '(("PragmataPro"
                                :size 16
                                :weight normal
                                :width normal)
+                               ("Jetbrains Mono"
+                                :size 15
+                                :weight normal
+                                :width normal)
+                               ("Source Code Pro"
+                                :size 15
+                                :weight normal
+                                :width normal))
 
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
