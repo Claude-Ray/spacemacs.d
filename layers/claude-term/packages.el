@@ -25,19 +25,20 @@
 
   ;; Enable some parts of terminal shortcuts in evil insert state
   (with-eval-after-load 'vterm
-    (evil-define-key 'insert vterm-mode-map (kbd "C-\\") 'toggle-input-method)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-a") 'vterm-send-C-a)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-b") 'vterm-send-C-b)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-c") 'vterm-send-C-c)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-d") 'vterm-send-C-d)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-e") 'vterm-send-C-e)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-f") 'vterm-send-C-f)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-g") 'vterm-send-C-g)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-k") 'vterm-send-C-k)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-l") 'vterm-send-C-l)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-n") 'vterm-send-C-n)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-p") 'vterm-send-C-p)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-r") 'vterm-send-C-r)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-s") 'vterm-send-C-s)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-t") 'vterm-send-C-t)
-    (evil-define-key 'insert vterm-mode-map (kbd "C-u") 'vterm-send-C-u)))
+    (evil-define-key 'insert vterm-mode-map
+      (kbd "C-\\") 'toggle-input-method
+      (kbd "C-a") 'vterm-send-C-a
+      (kbd "C-b") 'vterm-send-C-b
+      (kbd "C-c") 'vterm-send-C-c
+      (kbd "C-d") 'vterm-send-C-d
+      (kbd "C-e") 'vterm-send-C-e
+      (kbd "C-f") 'vterm-send-C-f
+      (kbd "C-g") 'vterm-send-C-g
+      (kbd "C-k") 'vterm-send-C-k
+      (kbd "C-l") 'vterm-send-C-l
+      (kbd "C-n") 'vterm-send-C-n
+      (kbd "C-p") 'vterm-send-C-p
+      (kbd "C-r") 'vterm-send-C-r
+      (kbd "C-s") 'vterm-send-C-s
+      (kbd "C-t") 'vterm-send-C-t
+      (kbd "C-u") 'vterm-send-C-u)))

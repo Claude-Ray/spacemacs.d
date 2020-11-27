@@ -11,9 +11,22 @@
 
 (defconst claude-edit-packages
   '(
+    evil-pinyin
+    evil-snipe
     undo-tree
     smartparens
     ))
+
+(defun claude-edit/init-evil-pinyin ()
+  (use-package evil-pinyin
+    :init (setq evil-pinyin-scheme 'simplified-xiaohe-all)
+    :config (global-evil-pinyin-mode)))
+
+(defun claude-edit/post-init-evil-snipe ()
+  (setq evil-snipe-scope 'visible)
+  (evil-define-key 'visual evil-snipe-local-mode-map
+    "z" 'evil-snipe-s
+    "Z" 'evil-snipe-S))
 
 (defun claude-edit/post-init-undo-tree ()
   ;; undo-in-region is known to cause undo history corruption
