@@ -9,7 +9,7 @@ This function should only modify configuration layer settings."
    ;; Base distribution to use. This is a layer contained in the directory
    ;; `+distribution'. For now available distributions are `spacemacs-base'
    ;; or `spacemacs'. (default 'spacemacs)
-   dotspacemacs-distribution 'spacemacs
+   dotspacemacs-distribution 'spacemacs-base
 
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
@@ -34,6 +34,22 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
      ;; ----------------------------------------------------------------
+     ;; Distribution layers
+     ;; ----------------------------------------------------------------
+     (spacemacs-completion :packages default-ivy-config)
+     (spacemacs-layouts :variables spacemacs-layouts-restrict-spc-tab t)
+     (spacemacs-editing :packages (not clean-aindent-mode lorem-ipsum))
+     spacemacs-editing-visual
+     spacemacs-evil
+     ;; spacemacs-language
+     spacemacs-misc
+     (spacemacs-modeline :packages doom-modeline)
+     spacemacs-navigation
+     spacemacs-org
+     spacemacs-project
+     spacemacs-purpose
+     spacemacs-visual
+     ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
@@ -48,7 +64,10 @@ This function should only modify configuration layer settings."
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-ccls)
-     (chinese :packages (not pyim)
+     (chinese :packages (not pyim
+                             find-by-pinyin-dired
+                             ace-pinyin
+                             chinese-conv)
               :variables
               chinese-enable-avy-pinyin nil
               chinese-default-input-method nil)
@@ -65,9 +84,10 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
-     git
+     (git :packages (not magit-gitflow))
      (ivy :packages (not ivy-rich))
-     (java :variables
+     (java :packages (not meghanada)
+           :variables
            java-backend 'lsp)
      (javascript :variables
                  javascript-backend 'lsp
@@ -155,17 +175,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages
-   '(
-     exec-path-from-shell
-     magit-gitflow
-     find-by-pinyin-dired
-     ace-pinyin
-     chinese-conv
-     meghanada
-     spaceline
-     spaceline-all-the-icons
-     )
+   dotspacemacs-excluded-packages '()
 
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
