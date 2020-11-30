@@ -42,16 +42,20 @@
     :init (all-the-icons-ivy-rich-mode 1)
     :config
     (defun all-the-icons-ivy-rich--format-icon (icon)
-      "Add support for ivy-avy by adding a space before the icon.
+      "Format ICON'.
+Add support for ivy-avy by adding a space before the icon.
 PATCHED: Add one more space because of the alignment issue."
-      (format "  %s"
-              (propertize
-               icon
-               'face `(:inherit ,(get-text-property 0 'face icon)
-                                :height ,(if (numberp all-the-icons-ivy-rich-icon-size)
-                                             all-the-icons-ivy-rich-icon-size
-                                           1.0))
-               'display '(raise -0.05))))
+      (when icon
+        (format "  %s"
+                (let* ((props (get-text-property 0 'face icon))
+                       (family (plist-get props :family))
+                       (face (if all-the-icons-ivy-rich-color-icon
+                                 (or (plist-get props :inherit) props)
+                               'all-the-icons-ivy-rich-icon-face))
+                       (new-face `(:inherit ,face
+                                            :family ,family
+                                            :height ,all-the-icons-ivy-rich-icon-size)))
+                  (propertize icon 'face new-face)))))
     ;; This hook is messing up the text alignment
     (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich-align-icons)))
 
