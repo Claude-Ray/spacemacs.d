@@ -11,10 +11,17 @@
 
 (defconst claude-packages
   '(
+    memory-usage
     (recentf :location built-in)
     tramp
     which-key
     ))
+
+(defun claude/init-memory-usage ()
+  (use-package memory-usage
+    :defer t
+    :config
+    (advice-add 'memory-usage :after #'help-mode)))
 
 (defun claude/post-init-recentf ()
   (when (spacemacs/window-system-is-mac)

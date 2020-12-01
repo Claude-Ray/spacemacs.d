@@ -40,16 +40,15 @@
                                         (length build-rhs)))
       (insert "\n"))))
 
-;; Ligature
-;; (when (eq window-system 'mac)
-;;   (mac-auto-operator-composition-mode))
-
 ;; Configuration for chinese font
 ;; (when (display-graphic-p)
 ;;   (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18))
 
 ;; misc
 (when (spacemacs/window-system-is-mac)
+  ;; Ligature
+  ;; (mac-auto-operator-composition-mode)
+
   ;; Maximize frames fully
   (setq frame-resize-pixelwise t)
 
