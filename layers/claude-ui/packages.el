@@ -105,6 +105,8 @@ PATCHED: Add one more space because of the alignment issue."
       (doom-themes-treemacs-config))))
 
 (defun claude-ui/post-init-pdf-tools ()
+  (remove-hook 'pdf-view-mode-hook #'doom-modeline-set-pdf-modeline)
+  (add-hook 'pdf-view-mode-hook #'doom-themes-hide-modeline)
   (with-eval-after-load 'pdf-tools
     (spacemacs/set-leader-keys-for-major-mode 'pdf-view-mode
       "," 'pdf-view-fit-page-to-window)))

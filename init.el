@@ -91,6 +91,7 @@ This function should only modify configuration layer settings."
            java-backend 'lsp)
      (javascript :variables
                  javascript-backend 'lsp
+                 javascript-fmt-tool 'prettier
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (lsp :variables
@@ -166,7 +167,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(sicp)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
