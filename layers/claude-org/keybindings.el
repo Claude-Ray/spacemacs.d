@@ -12,3 +12,6 @@
 (spacemacs/set-leader-keys-for-major-mode 'org-agenda-mode
   "SPC" 'spacemacs/org-agenda-transient-state/body
   "sb" 'claude-org/org-agenda-tree-to-indirect-buffer)
+
+(spacemacs/set-leader-keys-for-major-mode 'org-mode
+  "Cs" 'claude-org/org-clock-schedule)

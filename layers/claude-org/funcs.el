@@ -21,3 +21,19 @@ instead of creating a new window at the bottom."
   (interactive)
   (org-agenda-goto)
   (org-tree-to-indirect-buffer))
+
+(defun claude-org/org-clock-schedule ()
+  "Schedule a clock on the current item.
+
+Prompt for two dates/times and insert a resolved clock."
+  (interactive)
+  (let ((default-start-time (org-current-time 30)))
+    (let ((start-time (org-read-date
+                       t t nil nil default-start-time)))
+      (org-clock-in nil start-time)
+      (let ((default-end-time (time-add
+                               start-time
+                               (seconds-to-time 1800))))
+        (let ((end-time (org-read-date
+                         t t nil nil default-end-time)))
+          (org-clock-out nil t end-time))))))
