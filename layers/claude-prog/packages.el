@@ -31,15 +31,19 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (defun claude-prog/post-init-lsp-mode ()
+  ;; Turn off for better performance
+  (setq lsp-enable-file-watchers nil
+        lsp-enable-folding nil
+        lsp-enable-indentation nil           ; no region formatting
+        lsp-enable-links nil                 ; no clickable links
+        lsp-enable-on-type-formatting nil    ; no formatting on the fly
+        lsp-enable-snippet nil               ; handle yasnippet manually
+        lsp-enable-symbol-highlighting nil
+        lsp-enable-text-document-color nil)
+
   (setq lsp-auto-guess-root t
-        ;; Disable lsp checker by default
+        ;; Disable lsp checker
         lsp-diagnostic-package :none
-        ;; Disable watching files by default
-        lsp-enable-file-watchers nil
-        ;; Disable formatting on the fly
-        lsp-enable-on-type-formatting nil
-        ;; Disable lsp region formatting
-        lsp-enable-indentation nil
         ;; Lean on flycheck-check-syntax-automatically
         lsp-flycheck-live-reporting nil
         ;; Auto kill lsp server
