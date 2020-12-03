@@ -95,6 +95,7 @@ This function should only modify configuration layer settings."
                  javascript-repl `nodejs)
      (lsp :variables
           lsp-ui-doc-enable nil
+          lsp-ui-imenu-enable nil
           lsp-ui-sideline-enable nil)
      lua
      markdown

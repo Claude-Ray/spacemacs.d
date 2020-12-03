@@ -48,8 +48,10 @@
         lsp-flycheck-live-reporting nil
         ;; Auto kill lsp server
         lsp-keep-workspace-alive nil
-        ;; Disable code actions on modeline
-        lsp-modeline-code-actions-enable nil))
+        ;; Clean modeline
+        lsp-modeline-code-actions-enable nil
+        lsp-modeline-diagnostics-enable nil
+        lsp-modeline-workspace-status-enable nil))
 
 (defun claude-prog/post-init-js2-mode ()
   (setq-default js-indent-level 2
