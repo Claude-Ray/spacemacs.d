@@ -12,9 +12,11 @@
 (defconst claude-prog-packages
   '(
     ccls
+    company
     flycheck
     lsp-mode
     js2-mode
+    quickrun
     ))
 
 (defun claude-prog/post-init-ccls ()
@@ -64,3 +66,23 @@
 
   (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook)
   (add-hook 'js2-mode-hook (lambda () (require 'dap-node))))
+
+(defun claude-prog/post-init-company ()
+  (with-eval-after-load 'company
+    (setq company-transformers nil
+          company-show-numbers t)))
+
+(defun claude-prog/init-quickrun ()
+  (use-package quickrun
+    :config
+    (setq quickrun-focus-p nil)
+    (define-key prog-mode-map (kbd "s-r") 'quickrun)
+    ;; Open *quickrun* in insert state
+    (evil-set-initial-state 'quickrun-mode 'insert)
+    (push '("*quickrun*"
+            :dedicated t
+            :position bottom
+            :stick t
+            :noselect t
+            :height 0.3)
+          popwin:special-display-config)))
