@@ -334,14 +334,10 @@ It should only modify the values of Spacemacs settings."
 
    ;; Default font or prioritized list of fonts.
    dotspacemacs-default-font '(("PragmataPro"
-                               :size 16
-                               :weight normal
-                               :width normal)
-                               ("Jetbrains Mono"
-                                :size 15
+                                :size 16
                                 :weight normal
                                 :width normal)
-                               ("Source Code Pro"
+                               ("Jetbrains Mono"
                                 :size 15
                                 :weight normal
                                 :width normal))

@@ -31,7 +31,7 @@
     (global-set-key (kbd "C-c T") 'go-translate-popup)
     :config
     ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
-    (defun go-translate-token--extract-tkk () (cons 430675 2721866130))
+    (setq go-translate-token-current (cons 430675 2721866130))
 
     (add-hook 'go-translate-after-render-hook (lambda (req resp) (help-mode)))
     (setq go-translate-buffer-follow-p t

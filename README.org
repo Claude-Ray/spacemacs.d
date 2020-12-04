@@ -15,16 +15,11 @@
     #+end_src
 *** Tools
     #+begin_src bash
-      brew install coreutils ripgrep plantuml libvterm mu offlineimap ccls
+      brew install coreutils ripgrep plantuml libvterm mu offlineimap ccls pandoc poppler automake
+    #+end_src
+*** Formatters && Linters
+    #+begin_src bash
+      npm install -g prettier typescript typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright
     #+end_src
 *** Fonts
-    - PragmataPro
-    - Source Code Pro
-    #+begin_src bash
-      brew tap homebrew/cask-fonts && brew cask install font-source-code-pro
-    #+end_src
-*** Node.js
-**** formatters && linters
-     #+begin_src bash
-       npm install -g js-beautify typescript typescript-language-server tslint eslint eslint_d
-     #+end_src
+    PragmataPro
