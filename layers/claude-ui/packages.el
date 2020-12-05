@@ -26,6 +26,7 @@
 
 (defun claude-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
+    :after dired
     :config
     ;; Show dired icons.
     (when (display-graphic-p)
@@ -74,6 +75,7 @@ PATCHED: Add one more space because of the alignment issue."
 
 (defun claude-ui/init-diredfl ()
   (use-package diredfl
+    :after dired
     :config
     ;; Colorful dired.
     (diredfl-global-mode 1)))

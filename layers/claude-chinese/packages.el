@@ -93,6 +93,16 @@
 
 (defun claude-chinese/init-rime ()
   (use-package rime
+    :defer t
+    :init
+    (setq default-input-method "rime")
+    (when (spacemacs/system-is-mac)
+      (setq rime-librime-root "~/.emacs.d/librime/dist"
+            rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
+    (when (spacemacs/system-is-linux)
+      ;; F13 = XF86Tools
+      (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
+      (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
     :config
     (defun rime--build-candidate-content ()
       "Custom candidate_format."
@@ -125,15 +135,7 @@
                         :foreground "White"
                         :background "DodgerBlue"
                         :bold nil)
-    (when (spacemacs/system-is-mac)
-      (setq rime-librime-root "~/.emacs.d/librime/dist"
-            rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
-    (when (spacemacs/system-is-linux)
-      ;; F13 = XF86Tools
-      (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
-      (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
-    (setq default-input-method "rime"
-          rime-show-preedit 'inline
+    (setq rime-show-preedit 'inline
           rime-posframe-style 'simple
           rime-posframe-properties
           (list :left-fringe 0

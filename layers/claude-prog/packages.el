@@ -29,6 +29,13 @@
                                         "-isystem/usr/local/include"]
                             :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))))
 
+(defun claude-prog/post-init-company ()
+  (advice-add 'dotspacemacs/user-config
+              :after #'claude-prog//company-active-navigation)
+  (with-eval-after-load 'company
+    (setq company-transformers nil
+          company-show-numbers t)))
+
 (defun claude-prog/post-init-flycheck ()
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
@@ -67,16 +74,13 @@
   (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook)
   (add-hook 'js2-mode-hook (lambda () (require 'dap-node))))
 
-(defun claude-prog/post-init-company ()
-  (with-eval-after-load 'company
-    (setq company-transformers nil
-          company-show-numbers t)))
-
 (defun claude-prog/init-quickrun ()
   (use-package quickrun
+    :defer t
+    :init
+    (define-key prog-mode-map (kbd "s-r") 'quickrun)
     :config
     (setq quickrun-focus-p nil)
-    (define-key prog-mode-map (kbd "s-r") 'quickrun)
     ;; Open *quickrun* in insert state
     (evil-set-initial-state 'quickrun-mode 'insert)
     (push '("*quickrun*"
