@@ -73,7 +73,6 @@ This function should only modify configuration layer settings."
      ;; The local nyan-mode doesn't work well with doom-modeline
      ;; (colors :variables
      ;;         colors-enable-nyan-cat-progress-bar (display-graphic-p))
-     dap
      (dash :variables
            dash-autoload-common-docsets nil)
      (deft :variables

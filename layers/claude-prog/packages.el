@@ -71,8 +71,7 @@
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil)
 
-  (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook)
-  (add-hook 'js2-mode-hook (lambda () (require 'dap-node))))
+  (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook))
 
 (defun claude-prog/init-quickrun ()
   (use-package quickrun
