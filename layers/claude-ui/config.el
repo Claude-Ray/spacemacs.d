@@ -46,9 +46,6 @@
 
 ;; misc
 (when (spacemacs/window-system-is-mac)
-  ;; Ligature
-  ;; (mac-auto-operator-composition-mode)
-
   ;; Maximize frames fully
   (setq frame-resize-pixelwise t)
 

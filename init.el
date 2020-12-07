@@ -136,7 +136,7 @@ This function should only modify configuration layer settings."
             shell-default-shell 'vterm)
      ;; spell-checking
      sql
-     syntax-checking
+     (syntax-checking :packages (not flycheck-pos-tip))
      (treemacs :variables
                treemacs-lock-width t
                ;; all-the-icons-dired is better
@@ -268,7 +268,7 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil show the version string in the Spacemacs buffer. It will
    ;; appear as (spacemacs version)@(emacs version)
    ;; (default t)
-   dotspacemacs-startup-buffer-show-version t
+   dotspacemacs-startup-buffer-show-version nil
 
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
@@ -314,7 +314,6 @@ It should only modify the values of Spacemacs settings."
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(doom-gruvbox
-                         doom-vibrant
                          doom-solarized-light)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
