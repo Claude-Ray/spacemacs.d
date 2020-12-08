@@ -9,6 +9,13 @@
 ;;
 ;;; License: GPLv3
 
+;; Don't generate backups or lockfiles while auto-save is enabled
+(setq create-lockfiles nil
+      make-backup-files nil
+      ;; Don't clobber links
+      backup-by-copying t)
+
+;; Reduce cursor lag
 (setq auto-window-vscroll nil)
 
 (when (display-graphic-p)
