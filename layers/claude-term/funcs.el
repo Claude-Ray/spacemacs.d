@@ -9,6 +9,10 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-term//projectile-shell-pop (func &rest args)
+  (let ((shell-pop-autocd-to-working-dir t))
+    (apply func args)))
+
 (defun claude-term//vterm-kill-buffer-on-exit (buffer &optional event)
   "Kill vterm buffer when `exit'"
   (when buffer

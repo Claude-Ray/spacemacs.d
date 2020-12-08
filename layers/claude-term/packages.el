@@ -11,8 +11,14 @@
 
 (defconst claude-term-packages
   '(
+    shell-pop
     vterm
     ))
+
+(defun claude-term/post-init-shell-pop ()
+  (setq shell-pop-autocd-to-working-dir nil)
+  (advice-add 'spacemacs/projectile-shell-pop
+              :around #'claude-term//projectile-shell-pop))
 
 (defun claude-term/post-init-vterm ()
   ;; Open vterm in insert state
