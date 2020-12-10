@@ -38,7 +38,9 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      (spacemacs-completion :packages default-ivy-config)
      (spacemacs-layouts :variables spacemacs-layouts-restrict-spc-tab t)
-     (spacemacs-editing :packages (not clean-aindent-mode lorem-ipsum))
+     (spacemacs-editing :packages (not clean-aindent-mode
+                                       dired-quick-sort
+                                       lorem-ipsum))
      spacemacs-editing-visual
      spacemacs-evil
      ;; spacemacs-language

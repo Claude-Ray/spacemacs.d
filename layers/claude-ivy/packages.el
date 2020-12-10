@@ -32,4 +32,10 @@
     (progn
       (setq ivy-rich-path-style 'abbrev
             ivy-virtual-abbreviate 'full))
-    :config (ivy-rich-mode)))
+    :config
+    ;; Fix lag in ivy-switch-buffer when ivy-rich-mode is enabled
+    (advice-add 'ivy-rich--ivy-switch-buffer-transformer
+                :around 'claude-ivy//ivy-rich-cache-lookup)
+    (advice-add 'ivy-switch-buffer
+                :after 'claude-ivy//ivy-rich-cache-rebuild-trigger)
+    (ivy-rich-mode)))
