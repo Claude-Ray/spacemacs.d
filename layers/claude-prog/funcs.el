@@ -31,11 +31,36 @@
     (delete-window (get-buffer-window buffer))
     (kill-buffer buffer)))
 
+(defvar claude--contest-extname ".js"
+  "File extension for a programming language.")
+
+(defun claude-prog/contest ()
+  "Create a file named by the prompt."
+  (interactive)
+  (let ((text (string-trim (read-from-minibuffer "title or URL:"))))
+    (if (zerop (length text))
+        (user-error "No URL"))
+    (string-match "\\`.*?/?\\([a-zA-Z0-9-]*\\)\\(\\.\\w+\\)?/?\\'" text)
+    (let ((title (match-string 1 text))
+          (extname (match-string 2 text)))
+      (if (zerop (length title))
+          (user-error "No title matched"))
+      (let ((file (expand-file-name
+                   (concat title
+                           (if (zerop (length extname))
+                               claude--contest-extname
+                             extname)))))
+        (if (file-exists-p file)
+            (message "Aborting, file already exists: %s" file)
+          (let ((buffer (find-file-noselect file)))
+            (with-current-buffer buffer
+              (switch-to-buffer buffer))))))))
+
 (defun claude-prog/quick-run ()
   "Compile the program including the current buffer."
   (interactive)
   (save-buffer)
   (cond ((or (eq major-mode 'js-mode)
-            (eq major-mode 'js2-mode))
+             (eq major-mode 'js2-mode))
          (compile (concat "node " (file-relative-name buffer-file-name)))))
   (add-hook 'kill-buffer-hook 'claude-prog//kill-compilation-hook nil t))
