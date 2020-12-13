@@ -42,7 +42,8 @@ This function should only modify configuration layer settings."
                                        dired-quick-sort
                                        lorem-ipsum))
      spacemacs-editing-visual
-     spacemacs-evil
+     (spacemacs-evil :packages (not evil-escape
+                                    evil-goggles))
      ;; spacemacs-language
      spacemacs-misc
      (spacemacs-modeline :packages doom-modeline)
@@ -84,6 +85,7 @@ This function should only modify configuration layer settings."
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
      (git :packages (not magit-gitflow))
+     (html :variables web-fmt-tool 'prettier)
      (ivy :packages (not ivy-rich))
      (java :packages (not meghanada)
            :variables
@@ -93,6 +95,9 @@ This function should only modify configuration layer settings."
                  javascript-fmt-tool 'prettier
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
+     (json :variables
+           json-backend 'lsp
+           json-fmt-tool 'prettier)
      (lsp :variables
           lsp-ui-doc-enable nil
           lsp-ui-imenu-enable nil
@@ -132,6 +137,7 @@ This function should only modify configuration layer settings."
      (ranger :variables
              ranger-enter-with-minus nil
              ranger-override-dired 'ranger)
+     react
      (rust :variables
            rust-backend 'lsp)
      (shell :variables
