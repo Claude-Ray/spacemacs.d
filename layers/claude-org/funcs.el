@@ -27,13 +27,13 @@ instead of creating a new window at the bottom."
 
 Prompt for two dates/times and insert a resolved clock."
   (interactive)
-  (let ((default-start-time (org-current-time 30)))
-    (let ((start-time (org-read-date
-                       t t nil nil default-start-time)))
-      (org-clock-in nil start-time)
-      (let ((default-end-time (time-add
-                               start-time
-                               (seconds-to-time 1800))))
-        (let ((end-time (org-read-date
-                         t t nil nil default-end-time)))
-          (org-clock-out nil t end-time))))))
+  (let* ((default-start-time (org-current-time 30))
+         (start-time (org-read-date
+                      t t nil nil default-start-time)))
+    (org-clock-in nil start-time)
+    (let* ((default-end-time (time-add
+                             start-time
+                             (seconds-to-time 1800)))
+           (end-time (org-read-date
+                      t t nil nil default-end-time)))
+      (org-clock-out nil t end-time))))
