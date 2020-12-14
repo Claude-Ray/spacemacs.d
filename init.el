@@ -44,9 +44,7 @@ This function should only modify configuration layer settings."
      spacemacs-editing-visual
      (spacemacs-evil :packages (not evil-escape
                                     evil-goggles))
-     ;; spacemacs-language
      spacemacs-misc
-     (spacemacs-modeline :packages doom-modeline)
      spacemacs-navigation
      spacemacs-org
      spacemacs-project

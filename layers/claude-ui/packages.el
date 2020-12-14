@@ -80,21 +80,28 @@ PATCHED: Add one more space because of the alignment issue."
     ;; Colorful dired.
     (diredfl-global-mode 1)))
 
-(defun claude-ui/post-init-doom-modeline ()
-  (with-eval-after-load 'all-the-icons
-    (add-to-list 'all-the-icons-mode-icon-alist
-                 '(calendar-mode all-the-icons-faicon "calendar"
-                                         :v-adjust -0.1
-                                         :face all-the-icons-red))
-    (add-to-list 'all-the-icons-mode-icon-alist
-                 '(spacemacs-buffer-mode all-the-icons-faicon "home"
-                                         :v-adjust -0.1
-                                         :face font-lock-keyword-face)))
-  ;; Don’t compact font caches during GC.
-  (setq inhibit-compacting-font-caches t)
-  (setq doom-modeline-mu4e t
-        doom-modeline-buffer-state-icon nil
-        doom-modeline-buffer-file-name-style 'relative-from-project))
+(defun claude-ui/init-doom-modeline ()
+  ;; doom modeline depends on `display-graphic-p' so we delay its initialization
+  ;; as when dumping we don't know yet wether we are using a graphical emacs or
+  ;; not.
+  (spacemacs|unless-dumping-and-eval-after-loaded-dump doom-modeline
+    (use-package doom-modeline
+      :defer t
+      :init (doom-modeline-mode)
+      :config
+      (add-to-list 'all-the-icons-mode-icon-alist
+                   '(calendar-mode all-the-icons-faicon "calendar"
+                                   :v-adjust -0.1
+                                   :face all-the-icons-red))
+      (add-to-list 'all-the-icons-mode-icon-alist
+                   '(spacemacs-buffer-mode all-the-icons-faicon "home"
+                                           :v-adjust -0.1
+                                           :face font-lock-keyword-face))
+      ;; Don’t compact font caches during GC.
+      (setq inhibit-compacting-font-caches t)
+      (setq doom-modeline-mu4e t
+            doom-modeline-buffer-state-icon nil
+            doom-modeline-buffer-file-name-style 'relative-from-project))))
 
 (defun claude-ui/init-doom-themes ()
   (use-package doom-themes
