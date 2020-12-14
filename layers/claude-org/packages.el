@@ -12,9 +12,7 @@
 (defconst claude-org-packages
   '(
     (org :location built-in)
-    (valign :location (recipe
-                       :fetcher github
-                       :repo "casouri/valign"))
+    valign
     ))
 
 (defun claude-org/post-init-org ()
@@ -110,6 +108,9 @@
 CJK characters and images."
   (use-package valign
     :defer t
-    ;; :hook (org-mode . valign-mode)
     :init
+    (when claude--org-enable-valign
+        (add-hook 'org-mode-hook 'valign-mode))
+    (add-hook 'valign-mode-hook (lambda () (unless valign-mode
+                                             (valign-remove-advice))))
     (spacemacs/set-leader-keys-for-major-mode 'org-mode "Tv" 'valign-mode)))

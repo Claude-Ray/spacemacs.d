@@ -37,7 +37,7 @@ This function should only modify configuration layer settings."
      ;; Distribution layers
      ;; ----------------------------------------------------------------
      (spacemacs-completion :packages default-ivy-config)
-     (spacemacs-layouts :variables spacemacs-layouts-restrict-spc-tab t)
+     spacemacs-layouts
      (spacemacs-editing :packages (not clean-aindent-mode
                                        dired-quick-sort
                                        lorem-ipsum))
@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
                                     evil-goggles))
      spacemacs-misc
      spacemacs-navigation
-     spacemacs-org
+     (spacemacs-org :packages (not valign))
      spacemacs-project
      spacemacs-purpose
      spacemacs-visual
