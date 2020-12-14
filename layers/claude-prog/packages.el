@@ -30,8 +30,7 @@
                             :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))))
 
 (defun claude-prog/post-init-company ()
-  (advice-add 'dotspacemacs/user-config
-              :after #'claude-prog//company-active-navigation)
+  (advice-add 'dotspacemacs/user-config :after #'claude-prog//company-advice)
   (with-eval-after-load 'company
     (setq company-transformers nil
           company-show-numbers t)))

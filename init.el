@@ -335,7 +335,9 @@ It should only modify the values of Spacemacs settings."
    ;; (default t)
    dotspacemacs-colorize-cursor-according-to-state t
 
-   ;; Default font or prioritized list of fonts.
+   ;; Default font or prioritized list of fonts. The `:size' can be specified as
+   ;; a non-negative integer (pixel size), or a floating-point (point size).
+   ;; Point size is recommended, because it's device independent. (default 10.0)
    dotspacemacs-default-font '(("PragmataPro"
                                 :size 16
                                 :weight normal
@@ -642,13 +644,6 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (spacemacs|disable-company org-mode)
-  ;; (spacemacs/toggle-transparency)
-  ;; (spacemacs/toggle-which-key-off)
-
-  ;; Use .spacemacs.env which can be updated by M-x spacemacs/force-init-spacemacs-env
-  ;; (when (spacemacs/window-system-is-mac)
-  ;;   (exec-path-from-shell-initialize))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

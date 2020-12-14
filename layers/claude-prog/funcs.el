@@ -9,8 +9,9 @@
 ;;
 ;;; License: GPLv3
 
-(defun claude-prog//company-active-navigation ()
+(defun claude-prog//company-advice ()
   "Things only work after dotspacemacs/user-config."
+  (spacemacs|disable-company org-mode)
   (with-eval-after-load 'company
     (define-key company-active-map
       (kbd "C-n") 'company-select-next-if-tooltip-visible-or-complete-selection)))
