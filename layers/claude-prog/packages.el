@@ -56,6 +56,8 @@
         lsp-flycheck-live-reporting nil
         ;; Auto kill lsp server
         lsp-keep-workspace-alive nil
+        ;; Clean headerline
+        lsp-headerline-breadcrumb-enable
         ;; Clean modeline
         lsp-modeline-code-actions-enable nil
         lsp-modeline-diagnostics-enable nil
