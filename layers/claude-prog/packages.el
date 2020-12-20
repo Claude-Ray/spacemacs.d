@@ -57,7 +57,7 @@
         ;; Auto kill lsp server
         lsp-keep-workspace-alive nil
         ;; Clean headerline
-        lsp-headerline-breadcrumb-enable
+        lsp-headerline-breadcrumb-enable nil
         ;; Clean modeline
         lsp-modeline-code-actions-enable nil
         lsp-modeline-diagnostics-enable nil
