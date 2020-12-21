@@ -27,7 +27,7 @@
 (defun claude-ivy/init-ivy-rich ()
   (use-package ivy-rich
     ;; if `counsel' loads after `ivy-rich', it overrides some of `ivy-rich''s transformers
-    :after (counsel counsel-projectile)
+    :after counsel
     :init
     (progn
       (setq ivy-rich-path-style 'abbrev
