@@ -49,6 +49,10 @@
   ;; Maximize frames fully
   (setq frame-resize-pixelwise t)
 
+  ;; Make undecorated frame resizable by dragging its internal borders
+  (add-to-list 'default-frame-alist '(drag-internal-border . 1))
+  (add-to-list 'default-frame-alist '(internal-border-width . 5))
+
   ;; Disable menu-bar in OSX GUI by default
   ;; (setq ns-auto-hide-menu-bar t)
   (menu-bar-mode -1))
