@@ -33,5 +33,10 @@
   (setq undo-tree-enable-undo-in-region nil))
 
 (defun claude-edit/post-init-smartparens()
+  (with-eval-after-load 'smartparens
+    (dolist (pair '("(" "[" "{" "\"" "'" "`"))
+      (sp-pair pair nil
+               :unless '(sp-point-before-same-p
+                         sp-point-before-word-p))))
   ;; Typing a single quote instead of \'\' in smartparens-mode.
   (setq sp-escape-quotes-after-insert nil))
