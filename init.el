@@ -151,6 +151,12 @@ This function should only modify configuration layer settings."
                  typescript-backend 'tide
                  typescript-lsp-linter nil)
      (unicode-fonts :variables
+                    unicode-fonts-enable-ligatures t
+                    ;; XXX: Bug in Emacs 27.1
+                    unicode-fonts-ligature-modes
+                    (if (eq window-system 'mac)
+                        '(prog-mode)
+                      '(js2-mode typescript-mode))
                     unicode-fonts-force-multi-color-on-mac t)
      vue
      (version-control :variables
@@ -338,7 +344,7 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '(("PragmataPro"
+   dotspacemacs-default-font '(("PragmataPro Mono Liga"
                                 :size 16
                                 :weight normal
                                 :width normal)
