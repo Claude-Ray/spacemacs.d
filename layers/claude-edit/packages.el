@@ -34,7 +34,13 @@
 
 (defun claude-edit/post-init-smartparens()
   (with-eval-after-load 'smartparens
-    (dolist (pair '("(" "[" "{" "\"" "'" "`"))
+    (dolist (pair '("\"" "'" "`"))
+      (sp-pair pair nil
+               :unless '(claude-edit//sp-point-after-same-p
+                         sp-point-after-word-p
+                         sp-point-before-same-p
+                         sp-point-before-word-p)))
+    (dolist (pair '("(" "[" "{"))
       (sp-pair pair nil
                :unless '(sp-point-before-same-p
                          sp-point-before-word-p))))

@@ -15,3 +15,11 @@
   (when (evil-insert-state-p)
     (evil-normal-state))
   (save-buffer))
+
+(defun claude-edit//sp-point-after-same-p (id action _context)
+  "Return t if point is led by ID, nil otherwise.
+This predicate is only tested on \"insert\" action."
+  (when (eq action 'insert)
+    (save-excursion
+      (backward-char 1)
+      (sp--looking-back-p (regexp-quote id)))))
