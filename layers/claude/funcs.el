@@ -29,7 +29,7 @@
     (if (zerop (length text))
         (user-error "Empty input"))
     (let* ((today (format-time-string "%Y%m%d"))
-           (user-name (magit-call-git "config" "user.name"))
+           (user-name (magit-git-string "config" "user.name"))
            (start-point "master")
            (branch-suffix (format "%s_%s_%s" text user-name today))
            (dev-branch (concat "dev_" branch-suffix))
