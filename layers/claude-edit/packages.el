@@ -13,6 +13,7 @@
   '(
     evil-pinyin
     evil-snipe
+    paredit
     undo-tree
     smartparens
     ))
@@ -27,6 +28,10 @@
   (evil-define-key 'visual evil-snipe-local-mode-map
     "z" 'evil-snipe-s
     "Z" 'evil-snipe-S))
+
+(defun claude-edit/init-paredit ()
+  (use-package paredit
+    :hook (emacs-lisp-mode . paredit-mode)))
 
 (defun claude-edit/post-init-undo-tree ()
   ;; undo-in-region is known to cause undo history corruption
