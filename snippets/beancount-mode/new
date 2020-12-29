@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: new entry
+# key: n
+# --
+`(format-time-string "%Y-%m-%d")` * "$1" "$2"
+  $0

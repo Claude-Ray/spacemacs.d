@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: t -*-
+# name: require
+# key: req
+# --
+const ${2:moduleName} = require('${1:module}')$0

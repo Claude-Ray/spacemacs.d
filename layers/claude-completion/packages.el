@@ -36,4 +36,7 @@
   (define-key evil-insert-state-map (kbd "M-TAB") 'yas-expand)
   (define-key evil-insert-state-map (kbd "M-i") 'ivy-yasnippet)
   (with-eval-after-load 'yasnippet
+    ;; FIXME: Not sure will smartparens mess snippets expanded by `hippie-expand`.
+    (remove-hook 'yas-before-expand-snippet-hook
+              #'spacemacs//smartparens-disable-before-expand-snippet)
     (evil-define-key 'insert yas-minor-mode-map (kbd "TAB") yas-maybe-expand)))
