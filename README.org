@@ -10,8 +10,8 @@
 ** Installation
 *** Formulae
     #+begin_src bash
-      brew tap railwaycat/emacsmacport && brew install emacs-mac --with-modules --with-rsvg
-      brew tap d12frosted/emacs-plus && brew install emacs-plus --without-spacemacs-icon
+      brew tap d12frosted/emacs-plus && brew install emacs-plus --with-modern-icon --with-xwidgets --HEAD
+      brew tap railwaycat/emacsmacport && brew install emacs-mac --with-rsvg
     #+end_src
 *** Tools
     #+begin_src bash

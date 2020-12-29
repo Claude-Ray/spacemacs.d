@@ -154,7 +154,7 @@ This function should only modify configuration layer settings."
                     unicode-fonts-enable-ligatures t
                     ;; XXX: Bug in Emacs 27.1
                     unicode-fonts-ligature-modes
-                    (if (eq window-system 'mac)
+                    (if (spacemacs/window-system-is-mac)
                         '(prog-mode)
                       '(js2-mode typescript-mode))
                     unicode-fonts-force-multi-color-on-mac t)

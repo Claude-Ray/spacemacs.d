@@ -38,7 +38,7 @@
                    (tramp-login-program "yadm")
                    (tramp-login-args (("enter")))
                    (tramp-login-env (("SHELL") ("/bin/bash")))
-                   (tramp-remote-shell "/bin/sh")
+                   (tramp-remote-shell "/bin/bash")
                    (tramp-remote-shell-args ("-c"))
                    (tramp-connection-timeout 10)))))
 
