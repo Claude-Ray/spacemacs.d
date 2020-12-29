@@ -10,20 +10,7 @@
 ;;; License: GPLv3
 
 (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
-(define-key evil-insert-state-map (kbd "M-i") 'yas-insert-snippet)
 (define-key evil-insert-state-map (kbd "s-s") 'claude-edit/save-and-evil-exit-insert-state)
-
-(with-eval-after-load 'company
-  (let ((map company-active-map))
-    (define-key map (kbd "C-n") 'company-select-next)
-    (define-key map (kbd "C-p") 'company-select-previous)
-    (define-key map (kbd "C-d") 'company-next-page)
-    (define-key map (kbd "C-u") 'company-previous-page)
-    (define-key map (kbd "C-h") 'company-show-doc-buffer)
-    ))
-
-;; (define-key key-translation-map (kbd "C-n") (kbd "C-j"))
-;; (define-key key-translation-map (kbd "C-p") (kbd "C-k"))
 
 (when (spacemacs/window-system-is-mac)
   (global-set-key (kbd "s-q") (if (daemonp) 'delete-frame 'save-buffers-kill-terminal))

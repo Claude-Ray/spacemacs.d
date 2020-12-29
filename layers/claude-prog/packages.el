@@ -12,7 +12,6 @@
 (defconst claude-prog-packages
   '(
     ccls
-    company
     flycheck
     lsp-mode
     js2-mode
@@ -28,12 +27,6 @@
                                         "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
                                         "-isystem/usr/local/include"]
                             :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))))
-
-(defun claude-prog/post-init-company ()
-  (advice-add 'dotspacemacs/user-config :after #'claude-prog//company-advice)
-  (with-eval-after-load 'company
-    (setq company-transformers nil
-          company-show-numbers t)))
 
 (defun claude-prog/post-init-flycheck ()
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))

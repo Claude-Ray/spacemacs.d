@@ -13,6 +13,7 @@
  '(
    claude-beancount
    claude-chinese
+   claude-completion
    claude-edit
    claude-ivy
    claude-prog
