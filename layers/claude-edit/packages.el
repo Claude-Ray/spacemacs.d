@@ -47,6 +47,8 @@
                          sp-point-before-word-p)))
     (dolist (pair '("(" "[" "{"))
       (sp-pair pair nil
+               :post-handlers
+               '(:add (spacemacs/smartparens-pair-newline-and-indent "RET"))
                :unless '(sp-point-before-same-p
                          sp-point-before-word-p))))
   ;; Typing a single quote instead of \'\' in smartparens-mode.
