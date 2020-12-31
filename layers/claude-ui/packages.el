@@ -133,6 +133,8 @@ PATCHED: Add one more space because of the alignment issue."
     :commands realign-mode
     :init (run-with-idle-timer 1 nil 'realign-mode)
     :config
+    ;; FIXME: Update width threshold according to the display
+    (setq split-width-threshold 150)
     (push #'claude-ui//realign-ignore-window-p
           realign-ignore-window-predicates)))
 
