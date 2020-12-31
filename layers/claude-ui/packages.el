@@ -61,10 +61,10 @@ PATCHED: Add one more space because of the alignment issue."
     (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich-align-icons)))
 
 (defun claude-ui/post-init-diff-hl ()
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode)
-  ;; diff-hl-margin-mode works better with treemacs than diff-hl-mode,
-  ;; and it's available in both terminal and GUI.
-  (run-with-idle-timer 1 nil 'diff-hl-margin-mode))
+  ;; Display diff-hl between margins and buffer text
+  (setq fringes-outside-margins nil)
+  (setq diff-hl-draw-borders nil)
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
 
 (defun claude-ui/post-init-dired ()
   (when (spacemacs/system-is-mac)
@@ -125,4 +125,6 @@ PATCHED: Add one more space because of the alignment issue."
     (define-key ranger-mode-map (kbd "C-h") nil)))
 
 (defun claude-ui/post-init-writeroom-mode ()
-  (setq writeroom-width 120))
+  (setq writeroom-fringes-outside-margins nil
+        writeroom-fullscreen-effect 'maximized
+        writeroom-width 120))
