@@ -21,6 +21,9 @@
     doom-themes
     pdf-tools
     ranger
+    (realign-mode :location
+                  (recipe :fetcher github
+                          :repo "amosbird/realign-mode.el"))
     writeroom-mode
     ))
 
@@ -123,6 +126,15 @@ PATCHED: Add one more space because of the alignment issue."
 (defun claude-ui/post-init-ranger ()
   (with-eval-after-load 'ranger
     (define-key ranger-mode-map (kbd "C-h") nil)))
+
+(defun claude-ui/init-realign-mode ()
+  (use-package realign-mode
+    :defer t
+    :commands realign-mode
+    :init (run-with-idle-timer 1 nil 'realign-mode)
+    :config
+    (push #'claude-ui//realign-ignore-window-p
+          realign-ignore-window-predicates)))
 
 (defun claude-ui/post-init-writeroom-mode ()
   (setq writeroom-fringes-outside-margins nil
