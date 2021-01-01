@@ -38,6 +38,7 @@
   (setq undo-tree-enable-undo-in-region nil))
 
 (defun claude-edit/post-init-smartparens()
+  (show-smartparens-global-mode -1)
   (with-eval-after-load 'smartparens
     (dolist (pair '("\"" "'" "`"))
       (sp-pair pair nil
