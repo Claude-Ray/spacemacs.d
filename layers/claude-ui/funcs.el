@@ -19,8 +19,6 @@
         (equal (with-current-buffer buffer major-mode) 'mu4e-view-mode)
         (equal (with-current-buffer buffer major-mode) 'mu4e-compose-mode))))
 
-(defun claude-ui//realign-need-padding-advice (func window)
-  "Advice around `realign-need-padding-p'. No padding window in narrow frame."
-  (let ((result (funcall func window)))
-    (and result
-         (> (frame-width) split-width-threshold))))
+(defun claude-ui//realign-need-padding-p (window)
+  "No padding in narrow frame."
+  (> (frame-width) split-width-threshold))
