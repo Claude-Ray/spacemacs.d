@@ -13,7 +13,14 @@
   (let* ((buffer (window-buffer window))
          (buffname (string-trim (buffer-name buffer))))
     (or (equal buffname "*spacemacs*")
+        (equal buffname "*rime-posframe*")
         (equal buffname "*flycheck-posframe-buffer*")
         (equal buffname "*Ediff Control Panel*")
         (equal (with-current-buffer buffer major-mode) 'mu4e-view-mode)
         (equal (with-current-buffer buffer major-mode) 'mu4e-compose-mode))))
+
+(defun claude-ui//realign-need-padding-advice (func window)
+  "Advice around `realign-need-padding-p'. No padding window in narrow frame."
+  (let ((result (funcall func window)))
+    (and result
+         (> (frame-width) split-width-threshold))))
