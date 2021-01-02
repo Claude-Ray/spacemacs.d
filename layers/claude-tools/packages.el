@@ -1,4 +1,4 @@
-;;; packages.el --- claude-beancount Layer packages file for Spacemacs
+;;; packages.el --- claude-tools layer packages file for Spacemacs.
 ;;
 ;; Copyright (c) 2019 claude-ray
 ;;
@@ -9,12 +9,15 @@
 ;;
 ;;; License: GPLv3
 
-(defconst claude-beancount-packages
+(defconst claude-tools-packages
   '(
-    (beancount :location local)
+    (beancount :location
+               (recipe :fetcher github
+                       :repo "beancount/beancount-mode"
+                       :files ("beancount.el")))
     ))
 
-(defun claude-beancount/init-beancount ()
+(defun claude-tools/init-beancount ()
   (use-package beancount
     :mode ("\\.beancount\\'" . beancount-mode)
     :config
@@ -22,5 +25,4 @@
       (add-to-list 'all-the-icons-mode-icon-alist
                    '(beancount-mode all-the-icons-octicon "file-text"
                                     :v-adjust 0.0
-                                    :face all-the-icons-orange)))
-    ))
+                                    :face all-the-icons-orange)))))

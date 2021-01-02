@@ -1,4 +1,4 @@
-#+TITLE: Beancount layer
+#+TITLE: Tools layer
 
 * Table of Contents                                       :TOC_5_gh:noexport:
 - [[#description][Description]]
@@ -7,12 +7,13 @@
   - [[#beancount][Beancount]]
 
 * Description
-Layer for [[http://furius.ca/beancount/][Beancount]].
+Layer for tools.
 
 * Install
 ** Layer
 To use this configuration layer, add it to your =~/.spacemacs=. You will need to
 add =claude-beancount= to the existing =dotspacemacs-configuration-layers= list in this
 file.
+
 ** Beancount
-[[http://furius.ca/beancount/doc/install][Installing guide]].
+[[https://beancount.github.io/docs/][Manual]].
