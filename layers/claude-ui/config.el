@@ -9,7 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-;; Always split two windows horizontally
+;; Always split two windows vertically
 (setq split-height-threshold nil)
 ;; (setq split-width-threshold 160)
 
