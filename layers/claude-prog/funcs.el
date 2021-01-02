@@ -21,8 +21,9 @@
 
 (defun claude-prog//kill-compilation-hook ()
   "Kill *complication* buffer and window automatically."
-  (let ((buffer (compilation-find-buffer)))
-    (delete-window (get-buffer-window buffer))
+  (let* ((buffer (compilation-find-buffer))
+         (window (get-buffer-window buffer)))
+    (when window (delete-window window))
     (kill-buffer buffer)))
 
 (defvar claude--contest-extname ".js"
@@ -32,13 +33,13 @@
   "Create a file named by the prompt."
   (interactive)
   (let ((text (string-trim (read-from-minibuffer "title or URL:"))))
-    (if (zerop (length text))
-        (user-error "No URL"))
+    (when (zerop (length text))
+      (user-error "No URL"))
     (string-match "\\`.*?/?\\([a-zA-Z0-9-]*\\)\\(\\.\\w+\\)?/?\\'" text)
     (let ((title (match-string 1 text))
           (extname (match-string 2 text)))
-      (if (zerop (length title))
-          (user-error "No title matched"))
+      (when (zerop (length title))
+        (user-error "No title matched"))
       (let ((file (expand-file-name
                    (concat title
                            (if (zerop (length extname))
