@@ -11,7 +11,6 @@
 
 (configuration-layer/declare-layers
  '(
-   claude-beancount
    claude-chinese
    claude-completion
    claude-edit
@@ -20,5 +19,6 @@
    claude-org
    claude-telega
    claude-term
+   claude-tools
    claude-ui
    ))
