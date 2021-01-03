@@ -104,38 +104,13 @@
       (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
       (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
     :config
-    (defun rime--build-candidate-content ()
-      "Custom candidate_format."
-      (let* ((context (rime-lib-get-context))
-             (candidates (alist-get 'candidates (alist-get 'menu context)))
-             (menu (alist-get 'menu context))
-             (highlighted-candidate-index (alist-get 'highlighted-candidate-index menu))
-             (idx 1)
-             (result ""))
-        (when (and (rime--has-composition context) candidates)
-          (dolist (c candidates)
-            (let* ((curr (equal (1- idx) highlighted-candidate-index))
-                   (candidates-text (concat
-                                     (propertize
-                                      (format "%d " idx)
-                                      'face
-                                      'rime-candidate-num-face)
-                                     (if curr
-                                         (propertize (car c) 'face 'rime-highlight-candidate-face)
-                                       (propertize (car c) 'face 'rime-default-face))
-                                     (if-let (comment (cdr c))
-                                         (propertize (format " %s" comment) 'face 'rime-comment-face)
-                                       ""))))
-              (setq result (concat result
-                                   candidates-text
-                                   (rime--candidate-separator-char))))
-            (setq idx (1+ idx))))
-        result))
     (set-face-attribute 'rime-highlight-candidate-face nil
                         :foreground "White"
                         :background "DodgerBlue"
                         :bold nil)
-    (setq rime-show-preedit 'inline
+    (setq rime-candidate-num-format-function
+          #'claude-chinese//rime-candidate-num-format
+          rime-show-preedit 'inline
           rime-posframe-style 'simple
           rime-posframe-properties
           (list :left-fringe 0
