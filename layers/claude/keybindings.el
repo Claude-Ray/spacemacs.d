@@ -29,3 +29,7 @@
   (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
   (global-set-key (kbd "s-/") 'comment-line)
   (global-set-key (kbd "s-s") 'save-buffer))
+
+(with-eval-after-load 'magit
+  (define-key magit-mode-map (kbd ",i") 'claude/gitlab-init-feature)
+  (define-key magit-mode-map (kbd ",m") 'claude/gitlab-merge-request))
