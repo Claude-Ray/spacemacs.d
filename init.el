@@ -40,14 +40,13 @@ This function should only modify configuration layer settings."
      spacemacs-layouts
      (spacemacs-editing :packages (not clean-aindent-mode
                                        dired-quick-sort
-                                       lorem-ipsum))
-     spacemacs-editing-visual
-     (spacemacs-evil :packages (not evil-escape
-                                    evil-goggles))
+                                       lorem-ipsum
+                                       password-generator))
+     (spacemacs-editing-visual :packages (not column-enforce-mode))
+     (spacemacs-evil :packages (not evil-escape evil-goggles))
      spacemacs-misc
-     spacemacs-navigation
-     (spacemacs-org :packages (not org-superstar
-                                   valign))
+     (spacemacs-navigation :packages (not ace-window open-junk-file))
+     (spacemacs-org :packages (not org-superstar valign))
      spacemacs-project
      spacemacs-purpose
      spacemacs-visual
