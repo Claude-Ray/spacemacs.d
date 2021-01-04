@@ -22,4 +22,5 @@
 
 (defun claude-ui//realign-need-padding-p (window)
   "No padding in narrow frame."
-  (> (frame-width) split-width-threshold))
+  (and (numberp split-width-threshold)
+       (> (frame-width) split-width-threshold)))
