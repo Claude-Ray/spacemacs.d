@@ -15,7 +15,9 @@
     flycheck
     lsp-mode
     js2-mode
+    python
     quickrun
+    typescript-mode
     ))
 
 (defun claude-prog/post-init-ccls ()
@@ -60,12 +62,16 @@
   (setq-default js-indent-level 2
                 js2-basic-offset 2)
 
-  (setq js2-include-node-externs t
+  (setq js2-idle-timer-delay 0.5
+        js2-include-node-externs t
         ;; Let flycheck handle errors
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil)
 
   (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook))
+
+(defun claude-prog/post-init-python ()
+  (setq python-indent-guess-indent-offset-verbose nil))
 
 (defun claude-prog/init-quickrun ()
   (use-package quickrun
@@ -83,3 +89,6 @@
             :noselect t
             :height 0.3)
           popwin:special-display-config)))
+
+(defun claude-prog/post-init-typescript-mode ()
+  (setq-default typescript-indent-level 2))
