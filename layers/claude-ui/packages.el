@@ -66,7 +66,7 @@ PATCHED: Add one more space because of the alignment issue."
   ;; Display diff-hl between margins and buffer text
   (setq fringes-outside-margins nil)
   (setq diff-hl-draw-borders nil)
-  (add-hook 'dired-mode-hook 'diff-hl-dired-mode))
+  (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote))
 
 (defun claude-ui/post-init-dired ()
   (when (spacemacs/system-is-mac)
