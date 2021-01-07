@@ -9,6 +9,14 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-edit/evil-mc-keyboard-quit ()
+  "Delete all cursors when doing keyboard-quit."
+  (interactive)
+  (setq this-command 'keyboard-quit)
+  (if (evil-mc-has-cursors-p)
+      (evil-mc-undo-all-cursors))
+  (keyboard-quit))
+
 (defun claude-edit/save-and-evil-exit-insert-state ()
   "Save current buffer, then exit evil insert state."
   (interactive)

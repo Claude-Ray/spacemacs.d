@@ -11,12 +11,18 @@
 
 (defconst claude-edit-packages
   '(
+    evil-mc
     evil-pinyin
     evil-snipe
     paredit
     undo-tree
     smartparens
     ))
+
+(defun claude-edit/post-init-evil-mc ()
+  (with-eval-after-load 'evil-mc
+    (evil-define-key 'normal evil-mc-key-map
+      (kbd "C-g") #'claude-edit/evil-mc-keyboard-quit)))
 
 (defun claude-edit/init-evil-pinyin ()
   (use-package evil-pinyin
