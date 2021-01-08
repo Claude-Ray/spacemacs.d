@@ -133,8 +133,7 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-lsp-server 'pyright)
      (ranger :variables
-             ranger-enter-with-minus nil
-             ranger-override-dired 'ranger)
+             ranger-enter-with-minus nil)
      react
      (rust :variables
            rust-backend 'lsp)

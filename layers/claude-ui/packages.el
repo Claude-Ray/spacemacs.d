@@ -116,7 +116,9 @@ PATCHED: Add one more space because of the alignment issue."
       (doom-themes-treemacs-config))))
 
 (defun claude-ui/post-init-ranger ()
-  (setq ranger-hidden-regexp '("^\\.\\|^node_modules$"))
+  (setq ranger-footer-delay nil ; remove footer
+        ranger-hidden-regexp '("^\\.\\|^node_modules$")
+        ranger-override-dired 'ranger)
   (with-eval-after-load 'ranger
     (define-key ranger-mode-map (kbd "C-h") nil)))
 
