@@ -17,6 +17,7 @@
     js2-mode
     python
     quickrun
+    sqlfmt
     typescript-mode
     ))
 
@@ -89,6 +90,16 @@
             :noselect t
             :height 0.3)
           popwin:special-display-config)))
+
+(defun claude-prog/post-init-sqlfmt ()
+  (push '("*sqlfmt*"
+          :dedicated t
+          :position bottom
+          :stick t
+          :noselect t
+          :height 0.3)
+        popwin:special-display-config)
+  (advice-add 'sqlfmt-buffer :around #'claude-prog//sqlfmt-buffer-advice))
 
 (defun claude-prog/post-init-typescript-mode ()
   (setq-default typescript-indent-level 2))
