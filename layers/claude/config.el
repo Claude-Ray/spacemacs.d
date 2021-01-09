@@ -9,6 +9,9 @@
 ;;
 ;;; License: GPLv3
 
+(setq user-full-name "Claude Ray"
+      user-mail-address "yunleiqi@gmail.com")
+
 ;; Don't generate backups or lockfiles while auto-save is enabled
 (setq create-lockfiles nil
       make-backup-files nil
