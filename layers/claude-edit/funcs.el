@@ -17,6 +17,26 @@
       (evil-mc-undo-all-cursors))
   (keyboard-quit))
 
+(defun claude-edit//evil-mc-before-created ()
+  "Actions to be executed before any cursors are created.
+
+This function should be hooked to `evil-mc-before-cursors-created'."
+  ;; Make \\[C-g] delete clear all multi-cursors
+  ;; Use evil-define-key instead of global-set-key for better compatibility
+  ;; with keyboard-quit in spacemacs-purpose.
+  ;; (global-set-key [remap keyboard-quit] #'claude-edit/evil-mc-keyboard-quit)
+  ;; (global-set-key [remap keyboard-quit] nil)
+  (evil-define-key 'normal evil-mc-key-map
+    (kbd "C-g") #'claude-edit/evil-mc-keyboard-quit))
+
+(defun claude-edit//evil-mc-after-deleted ()
+  "Actions to be executed after all cursors are deleted.
+
+This function should be hooked to `evil-mc-after-cursors-deleted'."
+  ;; No more multi-cursors, revert \\[C-g] to `keyboard-quit'
+  (evil-define-key 'normal evil-mc-key-map
+    (kbd "C-g") #'keyboard-quit))
+
 (defun claude-edit/save-and-evil-exit-insert-state ()
   "Save current buffer, then exit evil insert state."
   (interactive)

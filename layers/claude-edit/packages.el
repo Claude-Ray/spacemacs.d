@@ -20,9 +20,10 @@
     ))
 
 (defun claude-edit/post-init-evil-mc ()
-  (with-eval-after-load 'evil-mc
-    (evil-define-key 'normal evil-mc-key-map
-      (kbd "C-g") #'claude-edit/evil-mc-keyboard-quit)))
+  (add-hook 'evil-mc-before-cursors-created
+            #'claude-edit//evil-mc-before-created)
+  (add-hook 'evil-mc-after-cursors-deleted
+            #'claude-edit//evil-mc-after-deleted))
 
 (defun claude-edit/init-evil-pinyin ()
   (use-package evil-pinyin
