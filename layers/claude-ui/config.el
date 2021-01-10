@@ -44,6 +44,9 @@
 ;; (when (display-graphic-p)
 ;;   (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18))
 
+;; Set larger font face for Info mode
+(add-hook 'Info-mode-hook 'claude-ui//larger-buffer-face-mode)
+
 ;; misc
 (when (spacemacs/window-system-is-mac)
   ;; Maximize frames fully

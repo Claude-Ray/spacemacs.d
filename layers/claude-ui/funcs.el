@@ -9,6 +9,11 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-ui//larger-buffer-face ()
+  "Sets a larger font in current buffer"
+  (setq-local buffer-face-mode-face '(:height 160))
+  (buffer-face-mode))
+
 (defun claude-ui//realign-ignore-window-p (window)
   (let* ((buffer (window-buffer window))
          (buffname (string-trim (buffer-name buffer))))
