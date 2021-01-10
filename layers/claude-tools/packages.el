@@ -16,6 +16,7 @@
                        :repo "beancount/beancount-mode"
                        :files ("beancount.el")))
     pdf-tools
+    sicp
     ))
 
 (defun claude-tools/init-beancount ()
@@ -34,3 +35,12 @@
   (with-eval-after-load 'pdf-tools
     (spacemacs/set-leader-keys-for-major-mode 'pdf-view-mode
       "," 'pdf-view-fit-page-to-window)))
+
+(defun claude-tools/init-sicp ()
+  (use-package sicp
+    :defer t
+    :init
+    (defun info-sicp ()
+      "Display the SICP in Info mode."
+      (interactive)
+      (info "sicp"))))
