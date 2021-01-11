@@ -22,7 +22,7 @@
   (setq tab-always-indent t))
 
 (defun claude-completion/post-init-company ()
-  (advice-add 'dotspacemacs/user-config :after #'claude-completion//company-advice)
+  (spacemacs/defer-until-after-user-config #'claude-completion//company-advice)
   (with-eval-after-load 'company
     (let ((map company-active-map))
       (define-key map (kbd "C-n") 'company-select-next)
@@ -34,8 +34,8 @@
           company-transformers nil)))
 
 (defun claude-completion/post-init-smartparens ()
-  (advice-add 'dotspacemacs/user-config
-              :after #'claude-completion//smartparens-advice))
+  (spacemacs/defer-until-after-user-config
+   #'claude-completion//smartparens-advice))
 
 (defun claude-completion/post-init-yasnippet ()
   (define-key evil-insert-state-map (kbd "M-TAB") 'yas-expand)
