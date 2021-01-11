@@ -13,13 +13,7 @@
   "Manage yadm files with Magit and TRAMP."
   (interactive)
   (require 'tramp)
-  (let ((magit-mode-hook
-         (-cons*
-          (lambda () (projectile-mode -1))
-          (lambda () (when (fboundp #'magit-todos-mode) (magit-todos-mode -1)))
-          magit-mode-hook)))
-    (setenv "SHELL" "/bin/bash")
-    (magit-status "/yadm::")))
+  (magit-status "/yadm::"))
 
 (defun claude/gitlab-init-feature ()
   "Create and checkout new branches with feature name by the prompt."
