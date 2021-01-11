@@ -29,3 +29,7 @@
   "No padding in narrow frame."
   (and (numberp split-width-threshold)
        (> (frame-width) split-width-threshold)))
+
+(defun claude-ui//theme-enabled-p (theme)
+  "Return t if theme is currently loaded."
+  (equal (spacemacs//get-theme-name theme) spacemacs--cur-theme))

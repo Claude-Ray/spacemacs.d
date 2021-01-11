@@ -14,6 +14,7 @@
     all-the-icons-dired
     all-the-icons-ibuffer
     all-the-icons-ivy-rich
+    circadian
     diff-hl
     (dired :location built-in)
     diredfl
@@ -61,6 +62,16 @@ PATCHED: Add one more space because of the alignment issue."
                   (propertize icon 'face new-face)))))
     ;; This hook is messing up the text alignment
     (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich-align-icons)))
+
+(defun claude-ui/init-circadian ()
+  (use-package circadian
+    :if (display-graphic-p)
+    :init
+    (setq circadian-themes '(("8:00" . doom-solarized-light)
+                             ("18:00" . doom-gruvbox)))
+    (advice-add 'circadian-enable-theme
+                :before-until #'claude-ui//theme-enabled-p)
+    (run-with-idle-timer 1 nil 'circadian-setup)))
 
 (defun claude-ui/post-init-diff-hl ()
   ;; Display diff-hl between margins and buffer text
