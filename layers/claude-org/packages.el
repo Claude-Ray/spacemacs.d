@@ -22,14 +22,11 @@
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
 
-  (setq org-agenda-files (list org-directory))
-
-  ;; Only show today's task in overview display.
-  (setq org-agenda-span 'day)
-
-  (setq org-agenda-start-with-log-mode t)
-
-  (setq org-agenda-log-mode-items '(closed clock state))
+  ;; org-agenda
+  (setq org-agenda-files (list org-directory)
+        org-agenda-log-mode-items '(closed clock state)
+        org-agenda-span 'day
+        org-agenda-start-with-log-mode t)
 
   (setq claude--org-inbox-file org-default-notes-file
         claude--org-journal-file (expand-file-name "journal.org" org-directory)
@@ -69,6 +66,7 @@
             (tags-todo "-WORK"))
            ((org-agenda-tag-filter-preset '("-WORK"))))))
 
+  ;; org-capture
   (setq org-capture-templates
         '(("t" "Todo" entry (file+headline claude--org-inbox-file "Tasks")
            "* TODO %?\n %i\n %a")
@@ -82,25 +80,17 @@
            "* %?\n %i\n %U")
           ("j" "Journal" entry (file+headline claude--org-journal-file "Journals")
            "* %?\n %i\n %U"
-           :empty-lines 1)
-          ))
+           :empty-lines 1)))
 
-  ;; Targets include this file and any file contributing to the agenda - up to 3 levels deep
-  (setq org-refile-targets (quote ((nil :maxlevel . 3)
-                                   (org-agenda-files :maxlevel . 2))))
+  ;; org-refile
+  (setq org-outline-path-complete-in-steps nil
+        org-refile-allow-creating-parent-nodes 'confirm
+        org-refile-use-outline-path 'file
+        org-refile-targets '((nil :maxlevel . 3)
+                             (org-agenda-files :maxlevel . 2))
+        org-refile-target-verify-function 'claude-org//verify-refile-target)
 
-  ;; Use full outline paths for refile targets - we file directly with IDO
-  (setq org-refile-use-outline-path 'file)
-
-  ;; Targets complete directly with IDO
-  (setq org-outline-path-complete-in-steps nil)
-
-  ;; Allow refile to create parent tasks with confirmation
-  (setq org-refile-allow-creating-parent-nodes 'confirm)
-
-  ;; Exclude DONE state tasks from refile targets
-  (setq org-refile-target-verify-function 'claude-org//verify-refile-target)
-
+  ;; org-archive
   (setq org-archive-location "%s_archive::* Archived Tasks"))
 
 (defun claude-org/init-valign ()
@@ -110,7 +100,7 @@ CJK characters and images."
     :defer t
     :init
     (when claude--org-enable-valign
-        (add-hook 'org-mode-hook 'valign-mode))
+      (add-hook 'org-mode-hook 'valign-mode))
     (add-hook 'valign-mode-hook (lambda () (unless valign-mode
                                              (valign-remove-advice))))
     (spacemacs/set-leader-keys-for-major-mode 'org-mode "Tv" 'valign-mode)))
