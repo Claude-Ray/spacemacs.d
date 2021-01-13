@@ -20,7 +20,13 @@
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "NEXT(n!)" "WAIT(w@/!)" "|" "DONE(d)" "CANCELED(c@)")))
+        '((sequence "TODO(t)" "NEXT(n!)" "WIP(i!)" "WAIT(w@/!)")
+          (sequence "|" "DONE(d)" "CANCELED(c@)")))
+  (setq org-todo-keyword-faces
+        '(("WIP" . (:foreground "DodgerBlue" :weight bold))
+          ("NEXT" :foreground "SeaGreen" :weight bold)
+          ("WAIT" :foreground "DarkGoldenrod" :weight bold)
+          ("CANCELED" . (:foreground "DarkGray" :weight bold))))
 
   ;; org-agenda
   (setq org-agenda-files (list org-directory)

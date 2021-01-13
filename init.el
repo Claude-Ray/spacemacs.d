@@ -116,6 +116,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      (org :variables
+          org-projectile-file "TODO.org"
           org-want-todo-bindings t)
      (osx :variables
           osx-command-as 'super
