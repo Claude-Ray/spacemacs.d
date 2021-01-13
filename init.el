@@ -116,6 +116,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      nginx
      (org :variables
+          org-enable-roam-support t
           org-projectile-file "TODO.org"
           org-want-todo-bindings t)
      (osx :variables
@@ -528,7 +529,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil, start an Emacs server if one is not already running.
    ;; (default nil)
-   dotspacemacs-enable-server nil
+   dotspacemacs-enable-server t
 
    ;; Set the emacs server socket location.
    ;; If nil, uses whatever the Emacs default is, otherwise a directory path

@@ -12,10 +12,15 @@
 (defconst claude-org-packages
   '(
     (org :location built-in)
+    org-roam
+    org-roam-server
     valign
     ))
 
 (defun claude-org/post-init-org ()
+  (with-eval-after-load 'org
+    (add-to-list 'org-modules 'org-protocol t))
+
   (setq org-directory "~/Documents/Org"
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
@@ -98,6 +103,29 @@
 
   ;; org-archive
   (setq org-archive-location "%s_archive::* Archived Tasks"))
+
+(defun claude-org/post-init-org-roam ()
+  (use-package org-roam-protocol
+    :after org-protocol)
+
+  ;; Make org-roam buffer sticky
+  (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t))
+        org-roam-completion-system 'ivy
+        org-roam-db-gc-threshold most-positive-fixnum
+        org-roam-db-location (expand-file-name
+                              "org-roam.db" spacemacs-cache-directory)
+        org-roam-directory (expand-file-name "roam" org-directory)
+        org-roam-verbose nil))
+
+(defun claude-org/init-org-roam-server ()
+  (use-package org-roam-server
+    :defer t
+    :init
+    (spacemacs/set-leader-keys "aors" 'org-roam-server-mode)
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      "rs" 'org-roam-server-mode)
+    :config
+    (setq org-roam-server-port 9090)))
 
 (defun claude-org/init-valign ()
   "Properly align org tables that contain variable-pitch font,
