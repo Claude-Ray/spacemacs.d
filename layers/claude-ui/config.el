@@ -13,6 +13,11 @@
 (setq split-height-threshold nil)
 ;; (setq split-width-threshold 160)
 
+;; Disable annoying highlight where the mouse is on
+(setq goto-address-mail-mouse-face nil
+      goto-address-url-mouse-face nil
+      widget-mouse-face nil)
+
 ;; Modify the startup footer
 (with-eval-after-load 'all-the-icons
   (setq dashboard-footer-icon

@@ -125,7 +125,7 @@
     (spacemacs/set-leader-keys-for-major-mode 'org-mode
       "rs" 'org-roam-server-mode)
     :config
-    (setq org-roam-server-port 9090)))
+    (setq org-roam-server-port 9000)))
 
 (defun claude-org/init-valign ()
   "Properly align org tables that contain variable-pitch font,
