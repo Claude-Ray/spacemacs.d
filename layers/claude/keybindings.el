@@ -9,9 +9,6 @@
 ;;
 ;;; License: GPLv3
 
-(define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
-(define-key evil-insert-state-map (kbd "s-s") 'claude-edit/save-and-evil-exit-insert-state)
-
 (when (spacemacs/window-system-is-mac)
   (global-set-key (kbd "s-q") (if (daemonp) 'delete-frame 'save-buffers-kill-terminal))
   (global-set-key (kbd "s-w") 'delete-window)

@@ -11,6 +11,7 @@
 
 (defconst claude-edit-packages
   '(
+    evil
     evil-mc
     evil-pinyin
     evil-snipe
@@ -18,6 +19,12 @@
     undo-tree
     smartparens
     ))
+
+(defun claude-edit/post-init-evil ()
+  (setq evil-ex-search-vim-style-regexp t)
+  (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
+  (define-key evil-insert-state-map (kbd "s-s")
+    'claude-edit/save-and-evil-exit-insert-state))
 
 (defun claude-edit/post-init-evil-mc ()
   (add-hook 'evil-mc-before-cursors-created
