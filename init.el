@@ -61,7 +61,6 @@ This function should only modify configuration layer settings."
                       :disabled-for org markdown)
      better-defaults
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode
             c-c++-backend 'lsp-ccls)
      (chinese :packages (not pyim
                              find-by-pinyin-dired
