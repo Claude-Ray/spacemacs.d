@@ -46,7 +46,7 @@ This function should only modify configuration layer settings."
      (spacemacs-evil :packages (not evil-escape evil-goggles))
      spacemacs-misc
      (spacemacs-navigation :packages (not ace-window open-junk-file))
-     (spacemacs-org :packages (not org-superstar valign))
+     (spacemacs-org :packages (not org-superstar))
      spacemacs-project
      spacemacs-purpose
      spacemacs-visual
@@ -115,7 +115,8 @@ This function should only modify configuration layer settings."
            mu4e-installation-path "/usr/local/Cellar/mu/mu4e")
      multiple-cursors
      nginx
-     (org :variables
+     (org :packages (not valign)
+          :variables
           org-enable-roam-support t
           org-projectile-file "TODO.org"
           org-want-todo-bindings t)
