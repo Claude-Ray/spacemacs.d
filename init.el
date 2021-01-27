@@ -167,8 +167,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Private layers
      ;; ----------------------------------------------------------------
-     claude
-     )
+     claude)
 
    ;; List of additional packages that will be installed without being wrapped
    ;; in a layer (generally the packages are installed only and should still be
@@ -634,9 +633,7 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq spacemacs-buffer-logo-title
-        "This is GNU Emacs, one component of the GNU operating system.")
-  ;; (setq exec-path-from-shell-check-startup-files nil)
-  )
+        "This is GNU Emacs, one component of the GNU operating system."))
 
 (defun dotspacemacs/user-load ()
   "Library to load while dumping.
