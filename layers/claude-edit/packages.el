@@ -11,6 +11,7 @@
 
 (defconst claude-edit-packages
   '(
+    edit-indirect
     evil
     evil-mc
     evil-pinyin
@@ -19,6 +20,11 @@
     undo-tree
     smartparens
     ))
+
+(defun claude-edit/init-edit-indirect ()
+  "Used by `markdown-mode'"
+  (use-package edit-indirect
+    :defer t))
 
 (defun claude-edit/post-init-evil ()
   (setq evil-ex-search-vim-style-regexp t)
