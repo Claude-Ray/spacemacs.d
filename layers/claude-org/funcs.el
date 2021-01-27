@@ -37,3 +37,9 @@ Prompt for two dates/times and insert a resolved clock."
            (end-time (org-read-date
                       t t nil nil default-end-time)))
       (org-clock-out nil t end-time))))
+
+(defun claude-org/org-indent-block (arg &optional block-regexp)
+  "Indent the block around point."
+  (interactive "p")
+  (org-previous-block arg block-regexp)
+  (org-indent-block))
