@@ -41,5 +41,13 @@ Prompt for two dates/times and insert a resolved clock."
 (defun claude-org/org-indent-block (arg &optional block-regexp)
   "Indent the block around point."
   (interactive "p")
-  (org-previous-block arg block-regexp)
-  (org-indent-block))
+  (let ((current-point (point)))
+    (org-previous-block arg block-regexp)
+    (org-indent-block)
+    (goto-char current-point)))
+
+(defun claude-org//org-cycle-advice (func &optional arg)
+  "Advice around `org-cycle'."
+  (if (org-in-block-p '("src"))
+      (claude-org/org-indent-block arg)
+    (funcall func arg)))

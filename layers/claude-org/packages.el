@@ -102,7 +102,9 @@
         org-refile-target-verify-function 'claude-org//verify-refile-target)
 
   ;; org-archive
-  (setq org-archive-location "%s_archive::* Archived Tasks"))
+  (setq org-archive-location "%s_archive::* Archived Tasks")
+
+  (advice-add 'org-cycle :around #'claude-org//org-cycle-advice))
 
 (defun claude-org/post-init-org-roam ()
   (use-package org-roam-protocol
