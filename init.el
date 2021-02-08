@@ -69,6 +69,7 @@ This function should only modify configuration layer settings."
               :variables
               chinese-enable-avy-pinyin nil
               chinese-default-input-method nil)
+     confluence
      csv
      ;; The local nyan-mode doesn't work well with doom-modeline
      ;; (colors :variables
@@ -137,6 +138,7 @@ This function should only modify configuration layer settings."
      (ranger :variables
              ranger-enter-with-minus nil)
      react
+     restclient
      (rust :variables
            rust-backend 'lsp)
      (shell :variables
@@ -144,6 +146,7 @@ This function should only modify configuration layer settings."
      ;; spell-checking
      sql
      (syntax-checking :packages (not flycheck-pos-tip))
+     systemd
      (treemacs :variables
                treemacs-lock-width t
                ;; all-the-icons-dired is better
@@ -238,7 +241,7 @@ It should only modify the values of Spacemacs settings."
    ;; performance issues due to garbage collection operations.
    ;; (default '(100000000 0.1))
    ;; NOTE: Decrease this when freezing. Increase this when stuttering.
-   dotspacemacs-gc-cons '(16777216 0.1)
+   dotspacemacs-gc-cons '(33554432 0.1)
 
    ;; Set `read-process-output-max' when startup finishes.
    ;; This defines how much data is read from a foreign process.
@@ -630,6 +633,7 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("melpa-qq" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq tramp-ssh-controlmaster-options
