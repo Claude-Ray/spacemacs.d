@@ -93,7 +93,9 @@ This function should only modify configuration layer settings."
                  javascript-fmt-tool 'prettier
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
-     (json :variables
+     (json :packages (not prettier-js ; Use json-reformat instead
+                          web-beautify)
+           :variables
            json-backend 'lsp
            json-fmt-tool 'prettier)
      (lsp :variables
