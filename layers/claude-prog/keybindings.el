@@ -10,6 +10,6 @@
 ;;; License: GPLv3
 
 (with-eval-after-load 'js2-mode
-  (define-key js-mode-map (kbd "s-r") 'claude-prog/quick-run))
+  (define-key js-mode-map (kbd "s-r") #'claude-prog/quick-run))
 
-(spacemacs/set-leader-keys ",c" 'claude-prog/contest)
+(spacemacs/set-leader-keys ",c" #'claude-prog/contest)

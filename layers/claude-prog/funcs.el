@@ -58,7 +58,7 @@
   (cond ((or (eq major-mode 'js-mode)
              (eq major-mode 'js2-mode))
          (compile (concat "node " (file-relative-name buffer-file-name)))))
-  (add-hook 'kill-buffer-hook 'claude-prog//kill-compilation-hook nil t))
+  (add-hook 'kill-buffer-hook #'claude-prog//kill-compilation-hook nil t))
 
 (defun claude-prog//sqlfmt-buffer-advice (func)
   "Advice around `sqlfmt-buffer', display the *sqlfmt* buffer when error occurs."

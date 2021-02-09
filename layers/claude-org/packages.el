@@ -99,7 +99,7 @@
         org-refile-use-outline-path 'file
         org-refile-targets '((nil :maxlevel . 3)
                              (org-agenda-files :maxlevel . 2))
-        org-refile-target-verify-function 'claude-org//verify-refile-target)
+        org-refile-target-verify-function #'claude-org//verify-refile-target)
 
   ;; org-archive
   (setq org-archive-location "%s_archive::* Archived Tasks")

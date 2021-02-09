@@ -50,7 +50,7 @@
 ;;   (spacemacs//set-monospaced-font "Source Code Pro" "Kaiti TC" 15 18))
 
 ;; Set larger font face for Info mode
-(add-hook 'Info-mode-hook 'claude-ui//larger-buffer-face)
+(add-hook 'Info-mode-hook #'claude-ui//larger-buffer-face)
 
 ;; misc
 (when (spacemacs/window-system-is-mac)

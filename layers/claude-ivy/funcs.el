@@ -27,4 +27,4 @@
 
 (defun claude-ivy//ivy-rich-cache-rebuild-trigger ()
   (clrhash claude--ivy-rich-cache)
-  (run-with-idle-timer 1 nil 'claude-ivy//ivy-rich-cache-rebuild))
+  (run-with-idle-timer 1 nil #'claude-ivy//ivy-rich-cache-rebuild))

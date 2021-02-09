@@ -69,7 +69,7 @@
         js2-mode-show-parse-errors nil
         js2-mode-show-strict-warnings nil)
 
-  (add-hook 'js2-mode-hook 'claude-prog//js2-mode-hook))
+  (add-hook 'js2-mode-hook #'claude-prog//js2-mode-hook))
 
 (defun claude-prog/post-init-python ()
   (setq python-indent-guess-indent-offset-verbose nil))
