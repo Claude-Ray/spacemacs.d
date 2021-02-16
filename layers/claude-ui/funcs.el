@@ -33,3 +33,10 @@
 (defun claude-ui//theme-enabled-p (theme)
   "Return t if theme is currently loaded."
   (equal (spacemacs//get-theme-name theme) spacemacs--cur-theme))
+
+(defun claude-ui/toggle-undecorated (&optional frame)
+  "Toggle whether or not the selected frame is undecorated."
+  (interactive)
+  (set-frame-parameter
+   frame 'undecorated
+   (not (frame-parameter nil 'undecorated))))
