@@ -24,6 +24,8 @@
   (setq org-directory "~/Documents/Org"
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
+	(setq org-startup-folded t)
+
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WIP(i!)" "WAIT(w@/!)" "|")
           (sequence "|" "DONE(d)" "CANCELED(c@)")))
