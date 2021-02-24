@@ -108,9 +108,40 @@
 
   (advice-add 'org-cycle :around #'claude-org//org-cycle-advice))
 
-(defun claude-org/post-init-org-roam ()
+(defun claude-org/init-org-roam ()
   (use-package org-roam-protocol
     :after org-protocol)
+
+  (use-package org-roam
+    :defer t
+    :commands (org-roam-buffer-toggle-display
+               org-roam-dailies-find-yesterday
+               org-roam-dailies-find-today
+               org-roam-dailies-find-tomorrow
+               org-roam-dailies-find-date
+               org-roam-tag-add
+               org-roam-tag-delete)
+    :init
+    (progn
+      (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
+      (spacemacs/declare-prefix-for-mode 'org-mode "mrd" "org-roam-dailies")
+      (spacemacs/declare-prefix-for-mode 'org-mode "mrt" "org-roam-tags")
+      (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "rb" 'org-roam-switch-to-buffer
+        "rdy" 'org-roam-dailies-find-yesterday
+        "rdt" 'org-roam-dailies-find-today
+        "rdT" 'org-roam-dailies-find-tomorrow
+        "rdd" 'org-roam-dailies-find-date
+        "rf" 'org-roam-find-file
+        "rg" 'org-roam-graph
+        "ri" 'org-roam-insert
+        "rI" 'org-roam-insert-immediate
+        "rl" 'org-roam-buffer-toggle-display
+        "rta" 'org-roam-tag-add
+        "rtd" 'org-roam-tag-delete))
+    :config
+    (progn
+      (spacemacs|hide-lighter org-roam-mode)))
 
   ;; Make org-roam buffer sticky
   (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t))

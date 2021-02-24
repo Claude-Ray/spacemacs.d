@@ -117,7 +117,7 @@ This function should only modify configuration layer settings."
            mu4e-installation-path "/usr/local/Cellar/mu/mu4e")
      multiple-cursors
      nginx
-     (org :packages (not valign)
+     (org :packages (not valign org-roam)
           :variables
           org-enable-roam-support t
           org-projectile-file "TODO.org"
@@ -635,7 +635,7 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ("melpa-qq" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
+          ;; ("melpa-qq" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq tramp-ssh-controlmaster-options
