@@ -41,7 +41,8 @@ This function should only modify configuration layer settings."
      (spacemacs-editing :packages (not clean-aindent-mode
                                        dired-quick-sort
                                        lorem-ipsum
-                                       password-generator))
+                                       password-generator
+                                       string-edit))
      (spacemacs-editing-visual :packages (not column-enforce-mode))
      (spacemacs-evil :packages (not evil-escape evil-goggles))
      spacemacs-misc
