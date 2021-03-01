@@ -24,7 +24,8 @@
   (setq org-directory "~/Documents/Org"
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
-	(setq org-startup-folded t)
+  (setq org-adapt-indentation 'headline-data ; no leading spaces
+	      org-startup-folded t)
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WIP(i!)" "WAIT(w@/!)" "|")
