@@ -24,8 +24,10 @@
   (setq org-directory "~/Documents/Org"
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
-  (setq org-adapt-indentation 'headline-data ; no leading spaces
-	      org-startup-folded t)
+  (setq org-adapt-indentation nil ; no leading spaces
+        org-startup-folded t
+        org-startup-indented t
+        org-startup-truncated nil)
 
   (setq org-todo-keywords
         '((sequence "TODO(t)" "NEXT(n!)" "WIP(i!)" "WAIT(w@/!)" "|")
