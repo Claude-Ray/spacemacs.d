@@ -12,11 +12,8 @@
 (defconst claude-telega-packages
   '(
     popwin
-    (telega :location
-            (recipe :fetcher github
-                    :repo "zevlg/telega.el"
-                    :branch "master"
-                    :files (:defaults "etc" "server" "Makefile")))))
+    telega
+    ))
 
 (defun claude-telega/post-init-popwin ()
   (push '("*Telega Root*"
