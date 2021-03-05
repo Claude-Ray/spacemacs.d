@@ -141,6 +141,8 @@ PATCHED: Add one more space because of the alignment issue."
     :config
     ;; FIXME: Update width threshold according to the display
     (setq split-width-threshold 150)
+    (advice-add 'realign-turn-on :after #'claude-ui//realign-turn-on)
+    (advice-add 'realign-turn-off :after #'claude-ui//realign-turn-off)
     (push #'claude-ui//realign-need-padding-p
           realign-need-padding-predicates)
     (push #'claude-ui//realign-ignore-window-p
