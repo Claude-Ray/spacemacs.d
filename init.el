@@ -186,7 +186,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   ;; XXX: BUG https://github.com/Fuco1/smartparens/issues/1077
+   dotspacemacs-frozen-packages '(smartparens)
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
