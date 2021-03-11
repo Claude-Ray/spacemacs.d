@@ -1,6 +1,6 @@
-;;; funcs.el --- claude Layer functions File for Spacemacs
+;;; funcs.el --- claude-git layer functions file for Spacemacs.
 ;;
-;; Copyright (c) 2020 claude-ray
+;; Copyright (c) 2021 claude-ray
 ;;
 ;; Author: Claude <yunleiqi@gmail.com>
 ;; URL: https://github.com/Claude-Ray/spacemacs.d
@@ -9,13 +9,13 @@
 ;;
 ;;; License: GPLv3
 
-(defun claude/yadm-magit-status ()
+(defun claude-git/yadm-magit-status ()
   "Manage yadm files with Magit and TRAMP."
   (interactive)
   (require 'tramp)
   (magit-status "/yadm::"))
 
-(defun claude/gitlab-init-feature ()
+(defun claude-git/gitlab-init-feature ()
   "Create and checkout new branches with feature name by the prompt."
   (interactive)
   (require 'magit-process)
@@ -38,7 +38,7 @@
       (magit-call-git "checkout" "-b" dev-branch)
       (message "Switched to branch '%s'" dev-branch))))
 
-(defun claude/gitlab-merge-request ()
+(defun claude-git/gitlab-merge-request ()
   "Open merge request with current develop branch in browse-url."
   (interactive)
   (require 'browse-at-remote)

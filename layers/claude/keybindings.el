@@ -27,11 +27,6 @@
   (global-set-key (kbd "s-/") 'comment-line)
   (global-set-key (kbd "s-s") 'save-buffer))
 
-(with-eval-after-load 'magit
-  (define-key magit-mode-map (kbd ",i") #'claude/gitlab-init-feature)
-  (define-key magit-mode-map (kbd ",m") #'claude/gitlab-merge-request))
-
 (spacemacs/set-leader-keys
   (kbd "bB") 'ivy-switch-buffer-other-window
-  (kbd "fF") 'find-file-other-window
-  (kbd "gh") 'vc-region-history)
+  (kbd "fF") 'find-file-other-window)

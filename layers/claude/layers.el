@@ -14,6 +14,7 @@
    claude-chinese
    claude-completion
    claude-edit
+   claude-git
    claude-ivy
    claude-prog
    claude-org
