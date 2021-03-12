@@ -143,17 +143,15 @@
         "rta" 'org-roam-tag-add
         "rtd" 'org-roam-tag-delete))
     :config
-    (progn
-      (spacemacs|hide-lighter org-roam-mode)))
-
-  ;; Make org-roam buffer sticky
-  (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t))
-        org-roam-completion-system 'ivy
-        org-roam-db-gc-threshold most-positive-fixnum
-        org-roam-db-location (expand-file-name
-                              "org-roam.db" spacemacs-cache-directory)
-        org-roam-directory (expand-file-name "roam" org-directory)
-        org-roam-verbose nil))
+    (spacemacs|hide-lighter org-roam-mode)
+    ;; Make org-roam buffer sticky
+    (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t))
+          org-roam-completion-system 'ivy
+          org-roam-db-gc-threshold most-positive-fixnum
+          org-roam-db-location (expand-file-name
+                                "org-roam.db" spacemacs-cache-directory)
+          org-roam-directory (expand-file-name "roam" org-directory)
+          org-roam-verbose nil)))
 
 (defun claude-org/init-org-roam-server ()
   (use-package org-roam-server
