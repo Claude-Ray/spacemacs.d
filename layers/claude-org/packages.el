@@ -25,6 +25,8 @@
         org-default-notes-file (expand-file-name "inbox.org" org-directory))
 
   (setq org-adapt-indentation nil ; no leading spaces
+        org-edit-src-content-indentation 0
+        org-src-preserve-indentation t ; no leading spaces before src blocks
         org-startup-folded t
         org-startup-indented t
         org-startup-truncated nil)
