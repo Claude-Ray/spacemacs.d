@@ -78,11 +78,13 @@
   (use-package quickrun
     :defer t
     :init
-    (define-key prog-mode-map (kbd "s-r") 'quickrun)
+    (define-key prog-mode-map (kbd "s-r") #'claude-prog/quickrun)
+    (define-key prog-mode-map (kbd "s-R") #'claude-prog/quickrun-pop)
     :config
     (setq quickrun-focus-p nil)
     ;; Open *quickrun* in insert state
-    (evil-set-initial-state 'quickrun-mode 'insert)
+    (evil-set-initial-state 'quickrun--mode 'insert)
+    (evil-define-key 'normal quickrun--mode-map (kbd "q") 'quit-window)
     (push '("*quickrun*"
             :dedicated t
             :position bottom

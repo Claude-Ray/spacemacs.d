@@ -51,7 +51,20 @@
             (with-current-buffer buffer
               (switch-to-buffer buffer))))))))
 
-(defun claude-prog/quick-run ()
+(defun claude-prog/quickrun (&rest plist)
+  "Run commands `quickrun' for current buffer."
+  (interactive)
+  (save-buffer)
+  (add-hook 'kill-buffer-hook #'quickrun--kill-quickrun-buffer nil t)
+  (quickrun plist))
+
+(defun claude-prog/quickrun-pop (&rest plist)
+  "Run commands `quickrun' for current buffer with quickrun-focus-p."
+  (interactive)
+  (let ((quickrun-focus-p t))
+    (claude-prog/quickrun plist)))
+
+(defun claude-prog/smart-run ()
   "Compile the program including the current buffer."
   (interactive)
   (save-buffer)
@@ -59,6 +72,12 @@
              (eq major-mode 'js2-mode))
          (compile (concat "node " (file-relative-name buffer-file-name)))))
   (add-hook 'kill-buffer-hook #'claude-prog//kill-compilation-hook nil t))
+
+(defun claude-prog/smart-run-pop ()
+  "Compile the program including the current buffer then pop to *compilation*."
+  (interactive)
+  (claude-prog/smart-run)
+  (pop-to-buffer "*compilation*"))
 
 (defun claude-prog//sqlfmt-buffer-advice (func)
   "Advice around `sqlfmt-buffer', display the *sqlfmt* buffer when error occurs."
