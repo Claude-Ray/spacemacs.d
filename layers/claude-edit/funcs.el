@@ -51,3 +51,31 @@ This predicate is only tested on \"insert\" action."
     (save-excursion
       (backward-char 1)
       (sp--looking-back-p (regexp-quote id)))))
+
+(defun claude-edit//electric-pair-inhibit (char)
+  "Predicate to prevent insertion of a matching pair."
+  (or (minibufferp)
+      (claude-edit//point-before-same-p char)
+      (claude-edit//point-before-word-p)
+      (when (memq char '(?\" ?\' ?\`))
+        (or (claude-edit//point-after-same-p char)
+            (claude-edit//point-after-word-p)))))
+
+(defun claude-edit//point-before-same-p (char)
+  "Return t if point is followed by the same char, nil otherwise."
+  (eq char (char-after)))
+
+(defun claude-edit//point-after-same-p (char)
+  "Return t if point is after the same char, nil otherwise."
+  (and (eq char (char-before))
+	     (eq char (char-before (1- (point))))))
+
+(defun claude-edit//point-before-word-p ()
+  "Return t if point is followed by a word, nil otherwise."
+  ;; (eq (char-syntax (following-char)) ?w)
+  (memq (char-syntax (following-char)) '(?w ?_)))
+
+(defun claude-edit//point-after-word-p ()
+  "Return t if point is after a word, nil otherwise."
+	(backward-char 1)
+  (memq (char-syntax (preceding-char)) '(?w ?_)))

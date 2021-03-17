@@ -11,6 +11,6 @@
 
 ;; Replace smartparens
 (electric-pair-mode t)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
+(setq electric-pair-inhibit-predicate #'claude-edit//electric-pair-inhibit)
 
 (remove-hook 'text-mode-hook #'auto-fill-mode)
