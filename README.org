@@ -15,7 +15,7 @@
     #+end_src
 *** Tools
     #+begin_src bash
-      brew install coreutils ripgrep plantuml libvterm mu offlineimap ccls pandoc poppler automake
+      brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap ccls pandoc poppler automake
     #+end_src
 *** Formatters && Linters
     #+begin_src bash
