@@ -84,6 +84,7 @@ This function should only modify configuration layer settings."
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
      (git :packages (not magit-gitflow))
+     graphviz
      (html :variables web-fmt-tool 'prettier)
      (ivy :packages (not ivy-rich))
      (java :packages (not meghanada)
