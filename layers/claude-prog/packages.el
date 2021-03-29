@@ -32,6 +32,9 @@
                             :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))))
 
 (defun claude-prog/post-init-flycheck ()
+  ;; Allow flycheck to use eslint instead of eslint_d by .dir-locals.el
+  (add-to-list 'safe-local-variable-values
+               (cons 'flycheck-javascript-eslint-executable nil))
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (defun claude-prog/post-init-lsp-mode ()
