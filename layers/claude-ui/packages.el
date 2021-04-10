@@ -43,25 +43,7 @@
 (defun claude-ui/init-all-the-icons-ivy-rich ()
   (use-package all-the-icons-ivy-rich
     :after ivy-rich
-    :init (all-the-icons-ivy-rich-mode 1)
-    :config
-    (defun all-the-icons-ivy-rich--format-icon (icon)
-      "Format ICON'.
-Add support for ivy-avy by adding a space before the icon.
-PATCHED: Add one more space because of the alignment issue."
-      (when icon
-        (format "  %s"
-                (let* ((props (get-text-property 0 'face icon))
-                       (family (plist-get props :family))
-                       (face (if all-the-icons-ivy-rich-color-icon
-                                 (or (plist-get props :inherit) props)
-                               'all-the-icons-ivy-rich-icon-face))
-                       (new-face `(:inherit ,face
-                                            :family ,family
-                                            :height ,all-the-icons-ivy-rich-icon-size)))
-                  (propertize icon 'face new-face)))))
-    ;; This hook is messing up the text alignment
-    (remove-hook 'minibuffer-setup-hook #'all-the-icons-ivy-rich-align-icons)))
+    :init (all-the-icons-ivy-rich-mode 1)))
 
 (defun claude-ui/init-circadian ()
   (use-package circadian
