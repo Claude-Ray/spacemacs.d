@@ -12,6 +12,7 @@
 (defconst claude-org-packages
   '(
     (org :location built-in)
+    org-present
     org-roam
     org-roam-server
     valign
@@ -112,6 +113,20 @@
   (setq org-archive-location "%s_archive::* Archived Tasks")
 
   (advice-add 'org-cycle :around #'claude-org//org-cycle-advice))
+
+(defun claude-org/post-init-org-present ()
+  (with-eval-after-load 'org-present
+    (defun org-present ()
+      "Init `org-present-narrow' after `org-present-mode-hook'.
+Make sure images are shown inline in all slides.
+
+Waiting for pending PR https://github.com/rlister/org-present/pull/31"
+      (interactive)
+      (setq org-present-mode t)
+      (org-present-add-overlays)
+      (run-hooks 'org-present-mode-hook)
+      (org-present-narrow)
+      (org-present-run-after-navigate-functions))))
 
 (defun claude-org/init-org-roam ()
   (use-package org-roam-protocol
