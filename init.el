@@ -100,6 +100,7 @@ This function should only modify configuration layer settings."
            :variables
            json-backend 'lsp
            json-fmt-tool 'prettier)
+     latex
      (lsp :variables
           lsp-ui-doc-enable nil
           lsp-ui-imenu-enable nil
