@@ -32,8 +32,8 @@ Prompt for two dates/times and insert a resolved clock."
                       t t nil nil default-start-time)))
     (org-clock-in nil start-time)
     (let* ((default-end-time (time-add
-                             start-time
-                             (seconds-to-time 1800)))
+                              start-time
+                              (seconds-to-time 1800)))
            (end-time (org-read-date
                       t t nil nil default-end-time)))
       (org-clock-out nil t end-time))))
@@ -48,6 +48,7 @@ Prompt for two dates/times and insert a resolved clock."
 
 (defun claude-org//org-cycle-advice (func &optional arg)
   "Advice around `org-cycle'."
-  (if (org-in-block-p '("src"))
+  (if (and (not (org-at-block-p))
+           (org-in-src-block-p))
       (claude-org/org-indent-block arg)
     (funcall func arg)))
