@@ -36,6 +36,7 @@ This function should only modify configuration layer settings."
      ;; ----------------------------------------------------------------
      ;; Distribution layers
      ;; ----------------------------------------------------------------
+     (spacemacs-defaults :packages (not quickrun))
      (spacemacs-completion :packages default-ivy-config)
      spacemacs-layouts
      (spacemacs-editing :packages (not clean-aindent-mode
