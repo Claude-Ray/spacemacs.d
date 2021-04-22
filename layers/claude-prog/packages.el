@@ -41,6 +41,7 @@
   ;; Turn off for better performance
   (setq lsp-enable-file-watchers nil
         lsp-enable-folding nil
+        lsp-enable-imenu nil
         lsp-enable-indentation nil           ; no region formatting
         lsp-enable-links nil                 ; no clickable links
         lsp-enable-on-type-formatting nil    ; no formatting on the fly
