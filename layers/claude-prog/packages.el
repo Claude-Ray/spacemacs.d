@@ -38,8 +38,12 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (defun claude-prog/post-init-lsp-mode ()
-  ;; Turn off for better performance
-  (setq lsp-enable-file-watchers nil
+  (setq lsp-auto-execute-action nil
+        lsp-auto-guess-root t
+
+        ;; Turn off for better performance
+        lsp-enable-dap-auto-configure nil
+        lsp-enable-file-watchers nil
         lsp-enable-folding nil
         lsp-enable-imenu nil
         lsp-enable-indentation nil           ; no region formatting
@@ -47,15 +51,18 @@
         lsp-enable-on-type-formatting nil    ; no formatting on the fly
         lsp-enable-snippet nil               ; handle yasnippet manually
         lsp-enable-symbol-highlighting nil
-        lsp-enable-text-document-color nil)
+        lsp-enable-text-document-color nil
 
-  (setq lsp-auto-guess-root t
         ;; Disable lsp checker
         lsp-diagnostic-package :none
         ;; Lean on flycheck-check-syntax-automatically
         lsp-flycheck-live-reporting nil
         ;; Auto kill lsp server
         lsp-keep-workspace-alive nil
+
+        ;; Prune minibuffer
+        lsp-signature-doc-lines 5
+        lsp-signature-render-documentation nil
         ;; Clean headerline
         lsp-headerline-breadcrumb-enable nil
         ;; Clean modeline
