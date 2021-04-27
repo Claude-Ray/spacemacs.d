@@ -19,6 +19,7 @@
     quickrun
     sqlfmt
     typescript-mode
+    web-mode
     ))
 
 (defun claude-prog/post-init-ccls ()
@@ -116,3 +117,11 @@
 
 (defun claude-prog/post-init-typescript-mode ()
   (setq-default typescript-indent-level 2))
+
+(defun claude-prog/post-init-web-mode ()
+  (setq-default
+   css-indent-offset 2
+   web-mode-attr-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-markup-indent-offset 2))
