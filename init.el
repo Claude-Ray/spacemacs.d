@@ -58,7 +58,7 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      (auto-completion :variables
-                      auto-completion-idle-delay 0.5
+                      auto-completion-idle-delay 0.2
                       auto-completion-tab-key-behavior 'complete
                       :disabled-for org markdown)
      better-defaults
@@ -85,6 +85,9 @@ This function should only modify configuration layer settings."
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
      (git :packages (not magit-gitflow))
+     (go :variables
+         go-backend 'lsp
+         go-tab-width 4)
      graphviz
      (html :variables web-fmt-tool 'prettier)
      (ivy :packages (not ivy-rich))
