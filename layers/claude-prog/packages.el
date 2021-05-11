@@ -18,6 +18,7 @@
     python
     quickrun
     sqlfmt
+    tide
     typescript-mode
     web-mode
     ))
@@ -115,8 +116,12 @@
         popwin:special-display-config)
   (advice-add 'sqlfmt-buffer :around #'claude-prog//sqlfmt-buffer-advice))
 
+(defun claude-prog/post-init-tide ()
+  (setq tide-format-options '(:tabSize 2 :indentSize 2)))
+
 (defun claude-prog/post-init-typescript-mode ()
-  (setq-default typescript-indent-level 2))
+  (setq-default typescript-indent-level 2)
+  (add-hook 'typescript-tsx-mode-hook #'claude-prog//tsx-mode-hook))
 
 (defun claude-prog/post-init-web-mode ()
   (setq-default

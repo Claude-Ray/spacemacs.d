@@ -19,6 +19,12 @@
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
+(defun claude-prog//tsx-mode-hook ()
+  "Append electric-pair for typescript-tsx-mode"
+  (setq-local electric-pair-pairs `(,@electric-pair-pairs
+                                    (?' . ?')
+                                    (?` . ?`))))
+
 (defun claude-prog//kill-compilation-hook ()
   "Kill *complication* buffer and window automatically."
   (let* ((buffer (compilation-find-buffer))
