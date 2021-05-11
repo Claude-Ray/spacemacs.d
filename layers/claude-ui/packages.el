@@ -29,11 +29,11 @@
 
 (defun claude-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
+    :if (display-graphic-p)
     :after dired
     :config
-    ;; Show dired icons.
-    (when (display-graphic-p)
-      (add-hook 'dired-mode-hook 'all-the-icons-dired-mode))))
+    (setq all-the-icons-dired-monochrome nil)
+    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)))
 
 (defun claude-ui/init-all-the-icons-ibuffer ()
   (use-package all-the-icons-ibuffer
