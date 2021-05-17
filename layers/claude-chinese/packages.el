@@ -102,7 +102,10 @@
     (when (spacemacs/system-is-linux)
       ;; F13 = XF86Tools
       (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
-      (setq rime-user-data-dir (expand-file-name "~/.config/fcitx/rime")))
+      (setq rime-user-data-dir
+            (expand-file-name (if (executable-find "fcitx5")
+                                  "~/.local/share/fcitx5/rime"
+                                "~/.config/fcitx/rime"))))
     :config
     (set-face-attribute 'rime-highlight-candidate-face nil
                         :foreground "White"
