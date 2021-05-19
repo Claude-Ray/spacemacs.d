@@ -367,12 +367,12 @@ It should only modify the values of Spacemacs settings."
    ;; Default font or prioritized list of fonts. The `:size' can be specified as
    ;; a non-negative integer (pixel size), or a floating-point (point size).
    ;; Point size is recommended, because it's device independent. (default 10.0)
-   dotspacemacs-default-font '(("PragmataPro Mono Liga"
-                                :size 16
+   dotspacemacs-default-font `(("PragmataPro Mono Liga"
+                                :size ,(if (eq window-system 'x) 12.0 16)
                                 :weight normal
                                 :width normal)
                                ("Jetbrains Mono"
-                                :size 15
+                                :size ,(if (eq window-system 'x) 11.0 15)
                                 :weight normal
                                 :width normal))
 
