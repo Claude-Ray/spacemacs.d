@@ -104,8 +104,8 @@
       (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
       (setq rime-user-data-dir
             (expand-file-name (if (executable-find "fcitx5")
-                                  "~/.local/share/fcitx5/rime"
-                                "~/.config/fcitx/rime"))))
+                                  "~/.local/share/fcitx5/rime/emacs"
+                                "~/.config/fcitx/rime/emacs"))))
     :config
     (set-face-attribute 'rime-highlight-candidate-face nil
                         :foreground "White"
