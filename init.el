@@ -120,8 +120,11 @@ This function should only modify configuration layer settings."
            ;; Layer
            mu4e-get-mail-command "offlineimap"
            mu4e-enable-mode-line t
-           ;; ln -snf /usr/local/Cellar/mu/1.2.0_1/share/emacs/site-lisp/mu/mu4e /usr/local/Cellar/mu/mu4e
-           mu4e-installation-path "/usr/local/Cellar/mu/mu4e")
+           mu4e-installation-path
+           (if (spacemacs/system-is-mac)
+               ;; ln /usr/local/Cellar/mu/*/share/emacs/site-lisp/mu/mu4e
+               "/usr/local/Cellar/mu/mu4e"
+             "/usr/share/emacs/site-lisp/mu4e"))
      multiple-cursors
      nginx
      (org :packages (not valign
@@ -137,11 +140,7 @@ This function should only modify configuration layer settings."
      pandoc
      (pdf :variables
           pdf-view-use-scaling t)
-     (plantuml :variables
-               plantuml-default-exec-mode 'executable
-               plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
-               plantuml-executable-path "/usr/local/bin/plantuml"
-               org-plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar")
+     plantuml
      protobuf
      (python :variables
              python-backend 'lsp

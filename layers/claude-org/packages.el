@@ -15,6 +15,7 @@
     org-present
     org-roam
     org-roam-server
+    plantuml-mode
     valign
     ))
 
@@ -179,6 +180,18 @@ Waiting for pending PR https://github.com/rlister/org-present/pull/31"
       "rs" 'org-roam-server-mode)
     :config
     (setq org-roam-server-port 9000)))
+
+(defun claude-org/post-init-plantuml-mode ()
+  (with-eval-after-load 'plantuml-mode
+    (cond
+     ((spacemacs/system-is-mac)
+      (setq plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
+            plantuml-executable-path "/usr/local/bin/plantuml"))
+     ((spacemacs/system-is-linux)
+      (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
+            plantuml-executable-path "/usr/bin/plantuml")))
+    (setq plantuml-default-exec-mode 'executable
+          org-plantuml-jar-path plantuml-jar-path)))
 
 (defun claude-org/init-valign ()
   "Properly align org tables that contain variable-pitch font,
