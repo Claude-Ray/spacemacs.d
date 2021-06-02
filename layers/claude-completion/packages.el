@@ -30,7 +30,8 @@
       (define-key map (kbd "C-d") 'company-next-page)
       (define-key map (kbd "C-u") 'company-previous-page)
       (define-key map (kbd "C-h") 'company-show-doc-buffer))
-    (setq company-show-numbers t
+    (setq company-format-margin-function nil
+          company-show-numbers t
           company-transformers nil)))
 
 (defun claude-completion/post-init-smartparens ()
