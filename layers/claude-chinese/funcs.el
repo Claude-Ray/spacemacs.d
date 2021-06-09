@@ -9,5 +9,7 @@
 ;;
 ;;; License: GPLv3
 
-(defun claude-chinese//rime-candidate-num-format (num)
-  (format "%d." num))
+(defun claude-chinese//rime-candidate-num-format (num select-labels)
+  (if select-labels
+      (format "%s." (nth (1- num) select-labels))
+    (format "%d." num)))
