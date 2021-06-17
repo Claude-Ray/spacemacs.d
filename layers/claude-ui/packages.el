@@ -111,7 +111,8 @@
 (defun claude-ui/post-init-ranger ()
   (setq ranger-footer-delay nil ; remove footer
         ranger-hidden-regexp '("^\\.\\|^node_modules$")
-        ranger-override-dired 'ranger)
+        ranger-override-dired 'ranger
+        ranger-show-literal nil)
   (with-eval-after-load 'ranger
     (define-key ranger-mode-map (kbd "C-h") nil)))
 
