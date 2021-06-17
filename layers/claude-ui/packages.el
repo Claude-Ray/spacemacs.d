@@ -122,8 +122,9 @@
     :commands realign-mode
     :init (run-with-idle-timer 1 nil 'realign-mode)
     :config
-    ;; FIXME: Update width threshold according to the display
-    (setq split-width-threshold 150)
+    ;; Resize width threshold to the golden ratio.
+    ;; FIXME: It only depends on the current screen.
+    (setq split-width-threshold (truncate (* (frame-width) .618)))
     (advice-add 'realign-turn-on :after #'claude-ui//realign-turn-on)
     (advice-add 'realign-turn-off :after #'claude-ui//realign-turn-off)
     (push #'claude-ui//realign-need-padding-p
