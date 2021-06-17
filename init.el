@@ -81,6 +81,7 @@ This function should only modify configuration layer settings."
      (deft :variables
        deft-directory "~/Documents/Note"
        deft-recursive t)
+     docker
      emacs-lisp
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
@@ -89,6 +90,7 @@ This function should only modify configuration layer settings."
          go-backend 'lsp
          go-tab-width 4)
      graphviz
+     graphql
      (html :variables web-fmt-tool 'prettier)
      (ivy :packages (not ivy-rich))
      (java :packages (not meghanada)
