@@ -34,6 +34,8 @@
   (use-package devdocs-browser
     :defer t
     :init
+    (setq devdocs-browser-cache-directory
+          (expand-file-name "devdocs-browser" spacemacs-cache-directory))
     (global-set-key (kbd "C-c b") 'devdocs-browser-open)
     (global-set-key (kbd "C-c B") 'devdocs-browser-open-in)))
 
