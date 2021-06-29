@@ -100,8 +100,10 @@
       (setq rime-librime-root "~/.emacs.d/librime/dist"
             rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
     (when (spacemacs/system-is-linux)
-      ;; F13 = XF86Tools
+      ;; F13 = XF86Tools = 269025153(keysym)
       (define-key global-map (kbd "<XF86Tools>") 'toggle-input-method)
+      (define-key global-map (kbd "<269025153>") 'toggle-input-method)
+
       (setq rime-user-data-dir
             (expand-file-name (if (executable-find "fcitx5")
                                   "~/.local/share/fcitx5/rime/emacs"
