@@ -670,6 +670,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
           ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
           ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
+  (setq native-comp-deferred-compilation nil
+        native-comp-async-report-warnings-errors 'silent)
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
   (setq spacemacs-buffer-logo-title
