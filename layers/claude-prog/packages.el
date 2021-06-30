@@ -12,6 +12,7 @@
 (defconst claude-prog-packages
   '(
     ccls
+    citre
     flycheck
     lsp-mode
     js2-mode
@@ -32,6 +33,14 @@
                                         "-isystem/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include"
                                         "-isystem/usr/local/include"]
                             :resourceDir (string-trim (shell-command-to-string "clang -print-resource-dir"))))))))
+
+(defun claude-prog/init-citre ()
+  (use-package citre
+    :defer t
+    :init
+    (require 'citre-config)
+    :config
+    (setq citre-project-root-function #'projectile-project-root)))
 
 (defun claude-prog/post-init-flycheck ()
   ;; Allow flycheck to use eslint instead of eslint_d by .dir-locals.el
