@@ -25,9 +25,8 @@
   (evil-set-initial-state 'vterm-mode 'insert)
 
   ;; Modeline serves no purpose in vterm
-  (add-hook 'vterm-mode-hook #'doom-themes-hide-modeline)
-
-  (add-hook 'vterm-exit-functions #'claude-term//vterm-kill-buffer-on-exit)
+  (add-hook 'vterm-mode-hook #'claude-term//hide-modeline-on-entry)
+  (add-hook 'vterm-exit-functions #'claude-term//kill-buffer-on-exit)
 
   ;; Enable some parts of terminal shortcuts in evil insert state
   (with-eval-after-load 'vterm

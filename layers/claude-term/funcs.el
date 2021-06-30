@@ -13,7 +13,11 @@
   (let ((shell-pop-autocd-to-working-dir t))
     (apply func args)))
 
-(defun claude-term//vterm-kill-buffer-on-exit (buffer &optional event)
-  "Kill vterm buffer when `exit'"
+(defun claude-term//hide-modeline-on-entry ()
+  "Hide modeline in terminal."
+  (setq mode-line-format nil))
+
+(defun claude-term//kill-buffer-on-exit (buffer &optional event)
+  "Kill terminal buffer when `exit'."
   (when buffer
     (kill-buffer buffer)))
