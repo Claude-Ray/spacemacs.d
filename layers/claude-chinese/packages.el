@@ -30,6 +30,8 @@
     (global-set-key (kbd "C-c t") 'go-translate)
     (global-set-key (kbd "C-c T") 'go-translate-popup)
     :config
+    ;; FIXME: void facemenu-add-face
+    (require 'facemenu)
     ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
     (setq go-translate-token-current (cons 430675 2721866130))
 
