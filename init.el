@@ -195,7 +195,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   ;; XXX: https://github.com/jcs-elpa/auto-highlight-symbol/issues/7
+   dotspacemacs-frozen-packages '(auto-highlight-symbol)
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
