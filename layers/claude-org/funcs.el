@@ -52,3 +52,12 @@ Prompt for two dates/times and insert a resolved clock."
            (org-in-src-block-p))
       (claude-org/org-indent-block arg)
     (funcall func arg)))
+
+(defun claude-org//org-refile-advice (func &rest args)
+  "Advice around `org-refile'."
+  (when (derived-mode-p 'org-mode)
+    (save-excursion
+      (apply func args)
+      (previous-line)
+      (org-back-to-heading)
+      (org-update-parent-todo-statistics))))

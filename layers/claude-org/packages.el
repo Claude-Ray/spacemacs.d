@@ -111,6 +111,10 @@
         org-refile-targets '((nil :maxlevel . 3)
                              (org-agenda-files :maxlevel . 2))
         org-refile-target-verify-function #'claude-org//verify-refile-target)
+  ;; Update statistics cookies where the item was refiled to.
+  (add-hook 'org-after-refile-insert-hook 'org-update-parent-todo-statistics)
+  ;; Update statistics cookies where the item was refiled from.
+  (advice-add 'org-refile :around #'claude-org//org-refile-advice)
 
   ;; org-archive
   (setq org-archive-location "%s_archive::* Archived Tasks")
