@@ -56,8 +56,8 @@ Prompt for two dates/times and insert a resolved clock."
 (defun claude-org//org-refile-advice (func &rest args)
   "Advice around `org-refile'."
   (when (derived-mode-p 'org-mode)
-    (save-excursion
-      (apply func args)
-      (previous-line)
-      (org-back-to-heading)
-      (org-update-parent-todo-statistics))))
+    (let ((up-heading-pos (save-excursion (outline-up-heading 1 t) (point))))
+      (save-excursion
+        (apply func args)
+        (goto-char up-heading-pos)
+        (org-update-statistics-cookies nil)))))
