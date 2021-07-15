@@ -58,8 +58,31 @@ Prompt for two dates/times and insert a resolved clock."
   (if (or (<= (or (org-current-level) 0) 1)
           (not (derived-mode-p 'org-mode)))
       (apply func args)
-    (let ((up-heading-pos (save-excursion (outline-up-heading 1 t) (point))))
+    (let ((up-heading-pos (save-excursion (outline-up-heading 1 t) (point)))
+          target-file target-pos region-start region-end)
+      (defun claude-org//update-statistics-after-kill
+          (fn &optional prompt default-buffer new-nodes)
+        (setq it (funcall fn prompt default-buffer new-nodes))
+	      (setq target-file (nth 1 it)
+		          target-pos (nth 3 it))
+        it)
+      (defun claude-org//get-region-markers (fn beg end)
+        (setq region-start beg
+              region-end end)
+        (funcall fn beg end))
       (save-excursion
+        (advice-add 'org-refile-get-location
+                    :around #'claude-org//update-statistics-after-kill)
+        (advice-add 'org-save-markers-in-region
+                    :around #'claude-org//get-region-markers)
         (apply func args)
+        (advice-remove 'org-refile-get-location
+                       #'claude-org//update-statistics-after-kill)
+        (advice-remove 'org-save-markers-in-region
+                       #'claude-org//get-region-markers)
+        (when (and (equal (buffer-file-name) target-file)
+                   (<= target-pos up-heading-pos))
+          (setq up-heading-pos (+ up-heading-pos
+                                  (- region-end region-start))))
         (goto-char up-heading-pos)
         (org-update-statistics-cookies nil)))))
