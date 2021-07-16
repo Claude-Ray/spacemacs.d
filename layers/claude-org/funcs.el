@@ -60,7 +60,7 @@ Prompt for two dates/times and insert a resolved clock."
       (apply func args)
     (let ((up-heading-pos (save-excursion (outline-up-heading 1 t) (point)))
           target-file target-pos region-start region-end)
-      (defun claude-org//update-statistics-after-kill
+      (defun claude-org//get-refile-target
           (fn &optional prompt default-buffer new-nodes)
         (setq it (funcall fn prompt default-buffer new-nodes))
 	      (setq target-file (nth 1 it)
@@ -72,7 +72,7 @@ Prompt for two dates/times and insert a resolved clock."
         (funcall fn beg end))
       (save-excursion
         (advice-add 'org-refile-get-location
-                    :around #'claude-org//update-statistics-after-kill)
+                    :around #'claude-org//get-refile-target)
         (advice-add 'org-save-markers-in-region
                     :around #'claude-org//get-region-markers)
         (apply func args)
