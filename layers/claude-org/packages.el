@@ -136,41 +136,39 @@ Waiting for pending PR https://github.com/rlister/org-present/pull/31"
       (org-present-run-after-navigate-functions))))
 
 (defun claude-org/init-org-roam ()
-  (use-package org-roam-protocol
-    :after org-protocol)
-
   (use-package org-roam
     :defer t
-    :commands (org-roam-buffer-toggle-display
-               org-roam-dailies-find-yesterday
-               org-roam-dailies-find-today
-               org-roam-dailies-find-tomorrow
-               org-roam-dailies-find-date
+    :commands (org-roam-buffer-toggle
+               org-roam-dailies-goto-yesterday
+               org-roam-dailies-goto-today
+               org-roam-dailies-goto-tomorrow
+               org-roam-dailies-goto-date
                org-roam-tag-add
-               org-roam-tag-delete)
+               org-roam-tag-remove)
     :init
     (progn
+      (setq org-roam-v2-ack t)
       (spacemacs/declare-prefix-for-mode 'org-mode "mr" "org-roam")
       (spacemacs/declare-prefix-for-mode 'org-mode "mrd" "org-roam-dailies")
       (spacemacs/declare-prefix-for-mode 'org-mode "mrt" "org-roam-tags")
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
-        "rb" 'org-roam-switch-to-buffer
-        "rdy" 'org-roam-dailies-find-yesterday
-        "rdt" 'org-roam-dailies-find-today
-        "rdT" 'org-roam-dailies-find-tomorrow
-        "rdd" 'org-roam-dailies-find-date
-        "rf" 'org-roam-find-file
+        "rc" 'org-roam-capture
+        "rb" 'org-roam-buffer
+        "rf" 'org-roam-node-find
         "rg" 'org-roam-graph
-        "ri" 'org-roam-insert
-        "rI" 'org-roam-insert-immediate
-        "rl" 'org-roam-buffer-toggle-display
+        "ri" 'org-roam-node-insert
+        "rl" 'org-roam-buffer-toggle
+        "rdc" 'org-roam-dailies-capture-today
+        "rdy" 'org-roam-dailies-goto-yesterday
+        "rdt" 'org-roam-dailies-goto-today
+        "rdT" 'org-roam-dailies-goto-tomorrow
+        "rdd" 'org-roam-dailies-goto-date
         "rta" 'org-roam-tag-add
-        "rtd" 'org-roam-tag-delete))
+        "rtr" 'org-roam-tag-remove))
     :config
+    (require 'org-roam-protocol)
     (spacemacs|hide-lighter org-roam-mode)
-    ;; Make org-roam buffer sticky
-    (setq org-roam-buffer-window-parameters '((no-delete-other-windows . t))
-          org-roam-completion-system 'ivy
+    (setq org-roam-list-files-commands '(fd fdfind rg find)
           org-roam-db-gc-threshold most-positive-fixnum
           org-roam-db-location (expand-file-name
                                 "org-roam.db" spacemacs-cache-directory)
