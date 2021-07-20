@@ -24,7 +24,8 @@
         (equal buffname "*Ediff Control Panel*")
         (equal (with-current-buffer buffer major-mode) 'telega-chat-mode)
         (equal (with-current-buffer buffer major-mode) 'mu4e-view-mode)
-        (equal (with-current-buffer buffer major-mode) 'mu4e-compose-mode))))
+        (equal (with-current-buffer buffer major-mode) 'mu4e-compose-mode)
+        (with-current-buffer buffer (bound-and-true-p writeroom-mode)))))
 
 (defun claude-ui//realign-need-padding-p (window)
   "Check if left padding is needed for given WINDOW.
@@ -39,7 +40,7 @@ This function can be used to update the window-margins dynamically."
 (defun claude-ui//realign-turn-on ()
   "Advice after `realign-turn-on'."
   (add-hook 'org-present-mode-hook #'realign-windows)
-  ;; The quit-hooks will run before quitting org-present-mode
+  ;; The quit-hooks will be run before quitting org-present-mode
   (add-hook 'org-present-mode-quit-hook
             (lambda (&optional frame)
               (let ((org-present-mode nil))
