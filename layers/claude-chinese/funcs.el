@@ -13,3 +13,13 @@
   (if select-labels
       (format "%s." (nth (1- num) select-labels))
     (format "%d." num)))
+
+(defun claude-chinese//rime-uninit-hook-default ()
+  "Uninit for command `rime-active-mode'."
+  (remove-hook 'post-self-insert-hook 'rime--redisplay t)
+  (rime--redisplay))
+
+(defun claude-chinese//rime-uninit-hook-vterm ()
+  "Rime finalize for vterm-mode."
+  (advice-remove 'vterm--redraw 'rime--redisplay)
+  (rime--redisplay))
