@@ -14,6 +14,9 @@
   (setq-local buffer-face-mode-face '(:height 160))
   (buffer-face-mode))
 
+(defvar-local claude--realign-p t
+  "This is used to toggle `realign-mode' padding effect buffer-local.")
+
 (defun claude-ui//realign-ignore-window-p (window)
   "Check if WINDOW needs to run `realign-windows'."
   (let* ((buffer (window-buffer window))
@@ -32,7 +35,9 @@
 
 This function can be used to update the window-margins dynamically."
   (let* ((buffer (window-buffer window)))
-    (and (with-current-buffer buffer (not (bound-and-true-p org-present-mode)))
+    (and (with-current-buffer buffer
+           (and (bound-and-true-p claude--realign-p)
+                (not (bound-and-true-p org-present-mode))))
          ;; No padding in narrow frame
          (and (numberp split-width-threshold)
               (> (frame-width) split-width-threshold)))))
@@ -50,6 +55,13 @@ This function can be used to update the window-margins dynamically."
   "Advice after `realign-turn-off'."
   (remove-hook 'org-present-mode-hook #'realign-windows)
   (remove-hook 'org-present-mode-quit-hook #'realign-windows))
+
+(defun claude-ui/toggle-realign-padding ()
+  "Toggle the realign padding effect in current buffer."
+  (interactive)
+  (setq-local claude--realign-p
+              (not claude--realign-p))
+  (realign-windows))
 
 (defun claude-ui//theme-enabled-p (theme)
   "Return t if theme is currently loaded."
