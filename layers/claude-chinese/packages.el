@@ -111,13 +111,6 @@
                                   "~/.local/share/fcitx5/rime/emacs"
                                 "~/.config/fcitx/rime/emacs"))))
     :config
-    ;; HACK: Remove rime hooks when input-method is deactivated
-    ;; Waiting for pending PR https://github.com/DogLooksGood/emacs-rime/pull/171
-    (advice-add 'rime--uninit-hook-default
-                :after #'claude-chinese//rime-uninit-hook-default)
-    (advice-add 'rime--uninit-hook-vterm
-                :after #'claude-chinese//rime-uninit-hook-vterm)
-
     (set-face-attribute 'rime-highlight-candidate-face nil
                         :foreground "White"
                         :background "DodgerBlue"
