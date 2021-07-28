@@ -13,7 +13,6 @@
   '(
     (org :location built-in)
     org-roam
-    org-roam-server
     plantuml-mode
     valign
     ))
@@ -159,16 +158,6 @@
                                 "org-roam.db" spacemacs-cache-directory)
           org-roam-directory (expand-file-name "roam" org-directory)
           org-roam-verbose nil)))
-
-(defun claude-org/init-org-roam-server ()
-  (use-package org-roam-server
-    :defer t
-    :init
-    (spacemacs/set-leader-keys "aors" 'org-roam-server-mode)
-    (spacemacs/set-leader-keys-for-major-mode 'org-mode
-      "rs" 'org-roam-server-mode)
-    :config
-    (setq org-roam-server-port 9000)))
 
 (defun claude-org/post-init-plantuml-mode ()
   (with-eval-after-load 'plantuml-mode
