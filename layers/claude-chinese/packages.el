@@ -122,4 +122,6 @@
           rime-posframe-properties
           (list :left-fringe 0
                 :right-fringe 0)
-          rime-show-candidate 'posframe)))
+          rime-show-candidate
+          ;; Both posframe and popup have performance issues in native-comp
+          (if (version<= "28" emacs-version) 'minibuffer 'posframe))))
