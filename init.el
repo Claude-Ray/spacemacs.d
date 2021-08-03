@@ -169,7 +169,7 @@ This function should only modify configuration layer settings."
      (unicode-fonts :variables
                     ;; Chars are converted to full-width in native-comp somehow
                     unicode-fonts-enable-ligatures
-                    (version<= "28" emacs-version)
+                    (version< emacs-version "28")
                     ;; XXX: Bug in Emacs 27.1
                     unicode-fonts-ligature-modes
                     (if (spacemacs/window-system-is-mac)
