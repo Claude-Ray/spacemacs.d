@@ -40,7 +40,8 @@
     :init
     (require 'citre-config)
     :config
-    (setq citre-project-root-function #'projectile-project-root)))
+    (setq citre-auto-enable-citre-mode-modes '(prog-mode)
+          citre-project-root-function #'projectile-project-root)))
 
 (defun claude-prog/post-init-flycheck ()
   ;; Allow flycheck to use eslint instead of eslint_d by .dir-locals.el
