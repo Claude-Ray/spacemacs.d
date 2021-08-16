@@ -109,7 +109,7 @@ This function should only modify configuration layer settings."
           lsp-ui-imenu-enable nil
           lsp-ui-sideline-enable nil)
      lua
-     markdown
+     (markdown :packages (not valign))
      (mu4e :variables
            ;; Custom
            mu4e-drafts-folder "/Drafts"
