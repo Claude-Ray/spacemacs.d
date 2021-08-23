@@ -89,7 +89,8 @@ This function should only modify configuration layer settings."
      graphviz
      graphql
      (html :variables web-fmt-tool 'prettier)
-     (ivy :packages (not ivy-rich))
+     (ivy :packages (not ivy-rich
+                         all-the-icons-ivy-rich))
      (java :packages (not meghanada)
            :variables
            java-backend 'lsp)
