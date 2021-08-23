@@ -37,5 +37,6 @@
     (advice-add 'ivy-switch-buffer
                 :after #'claude-ivy//ivy-rich-cache-rebuild-trigger)
     (ivy-rich-mode)
+    (ivy-rich-project-root-cache-mode)
     (unless (fboundp 'ivy-rich--ivy-switch-buffer-transformer)
       (error "ivy-rich--ivy-switch-buffer-transformer does not exists"))))
