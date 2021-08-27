@@ -109,7 +109,9 @@ This function should only modify configuration layer settings."
           lsp-ui-doc-enable nil
           lsp-ui-imenu-enable nil
           lsp-ui-sideline-enable nil)
-     lua
+     (lua :variables
+          lua-backend 'lsp
+          lua-lsp-server 'lua-language-server)
      (markdown :packages (not valign))
      (mu4e :variables
            ;; Custom
