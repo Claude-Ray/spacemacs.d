@@ -34,3 +34,32 @@ https://github.com/emacs-ess/ESS/issues/1115"
   (dotimes (_ arg)
     (newline nil t)
     (indent-according-to-mode)))
+
+(with-eval-after-load 'sh-script
+  (defun sh-smie--default-backward-token ()
+    "FIXME:
+Indentation in shell function is broken in Emacs 28.
+This issue can be fixed by reverting the commit below.
+https://github.com/emacs-mirror/emacs/commit/6392bc37ab3b7eb83465d9b2248d21173373ae73"
+    (forward-comment (- (point)))
+    (let ((pos (point))
+          (n (skip-syntax-backward ".")))
+      (if (or (zerop n)
+              (and (eq n -1)
+                   (let ((p (point)))
+                     (if (eq -1 (% (skip-syntax-backward "\\") 2))
+                         t
+                       (goto-char p)
+                       nil))))
+          (while
+              (progn (skip-syntax-backward ".w_'")
+                     (or (not (zerop (skip-syntax-backward "\\")))
+                         (when (eq ?\\ (char-before (1- (point))))
+                           (let ((p (point)))
+                             (forward-char -1)
+                             (if (eq -1 (% (skip-syntax-backward "\\") 2))
+                                 t
+                               (goto-char p)
+                               nil))))))
+        (goto-char (- (point) (% (skip-syntax-backward "\\") 2))))
+      (buffer-substring-no-properties (point) pos))))
