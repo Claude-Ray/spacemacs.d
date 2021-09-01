@@ -65,9 +65,8 @@
         lsp-enable-symbol-highlighting nil
         lsp-enable-text-document-color nil
 
-        ;; Disable lsp checker
-        lsp-diagnostic-package :none
-        ;; Lean on flycheck-check-syntax-automatically
+        ;; Disable lsp checker, lean on flycheck-check-syntax-automatically
+        lsp-diagnostics-provider :none
         lsp-flycheck-live-reporting nil
         ;; Auto kill lsp server
         lsp-keep-workspace-alive nil
