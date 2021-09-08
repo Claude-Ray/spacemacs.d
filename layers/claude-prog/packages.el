@@ -15,6 +15,7 @@
     citre
     flycheck
     lsp-mode
+    lua-mode
     js2-mode
     python
     quickrun
@@ -80,6 +81,18 @@
         lsp-modeline-code-actions-enable nil
         lsp-modeline-diagnostics-enable nil
         lsp-modeline-workspace-status-enable nil))
+
+(defun claude-prog/post-init-lua-mode ()
+  (when (spacemacs/system-is-linux)
+    (with-eval-after-load 'lua-mode
+      (setq lsp-clients-lua-language-server-bin
+            (expand-file-name
+             "lsp/lua-language-server/bin/Linux/lua-language-server"
+             spacemacs-cache-directory)
+            lsp-clients-lua-language-server-main-location
+            (expand-file-name
+             "lsp/lua-language-server/main.lua"
+             spacemacs-cache-directory)))))
 
 (defun claude-prog/post-init-js2-mode ()
   (setq-default js-indent-level 2
