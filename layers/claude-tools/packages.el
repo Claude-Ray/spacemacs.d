@@ -15,6 +15,7 @@
                (recipe :fetcher github
                        :repo "beancount/beancount-mode"
                        :files ("beancount.el")))
+    cal-china-x
     devdocs-browser
     pdf-tools
     sicp
@@ -29,6 +30,17 @@
                    '(beancount-mode all-the-icons-octicon "file-text"
                                     :v-adjust 0.0
                                     :face all-the-icons-orange)))))
+
+(defun claude-tools/init-cal-china-x ()
+  (use-package cal-china-x
+    :after calendar
+    :init
+    (setq calendar-mark-holidays-flag t)
+    :config
+    (setq cal-china-x-important-holidays cal-china-x-chinese-holidays)
+    (setq calendar-holidays
+          (append cal-china-x-important-holidays
+                  cal-china-x-general-holidays))))
 
 (defun claude-tools/init-devdocs-browser ()
   (use-package devdocs-browser
