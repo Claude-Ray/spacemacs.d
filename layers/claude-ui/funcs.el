@@ -45,6 +45,7 @@ This function can be used to update the window-margins dynamically."
 
 (defun claude-ui//realign-turn-on ()
   "Advice after `realign-turn-on'."
+  (add-hook 'calendar-initial-window-hook #'realign-windows)
   (add-hook 'org-present-mode-hook #'realign-windows)
   ;; The quit-hooks will be run before quitting org-present-mode
   (add-hook 'org-present-mode-quit-hook
@@ -54,6 +55,7 @@ This function can be used to update the window-margins dynamically."
 
 (defun claude-ui//realign-turn-off ()
   "Advice after `realign-turn-off'."
+  (remove-hook 'calendar-initial-window-hook #'realign-windows)
   (remove-hook 'org-present-mode-hook #'realign-windows)
   (remove-hook 'org-present-mode-quit-hook #'realign-windows))
 
