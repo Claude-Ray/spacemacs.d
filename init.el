@@ -196,7 +196,8 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
-   dotspacemacs-frozen-packages '()
+   ;; XXX: Freeze go-translate since the new gts breaks old autoloads.
+   dotspacemacs-frozen-packages '(go-translate)
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
