@@ -36,7 +36,9 @@
            :picker (gts-noprompt-picker)
            :engines (gts-google-engine)
            :render (gts-buffer-render))
-          gts-translate-list '(("en" "zh")))))
+          gts-translate-list '(("en" "zh")))
+    (advice-add 'gts-buffer-display-or-focus-buffer
+                :after #'claude-chinese//gts-display-buffer)))
 
 (defun claude-chinese/post-init-pangu-spacing ()
   (global-pangu-spacing-mode -1))

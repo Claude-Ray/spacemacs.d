@@ -13,3 +13,8 @@
   (if select-labels
       (format "%s." (nth (1- num) select-labels))
     (format "%d." num)))
+
+(defun claude-chinese//gts-display-buffer (buffer)
+  "Advice after `gts-buffer-display-or-focus-buffer'."
+  (with-current-buffer buffer
+    (help-mode)))
