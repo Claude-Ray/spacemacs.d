@@ -27,20 +27,16 @@
   (use-package go-translate
     :defer t
     :init
-    (global-set-key (kbd "C-c t") 'go-translate)
-    (global-set-key (kbd "C-c T") 'go-translate-popup)
+    (global-set-key (kbd "C-c t") 'gts-do-translate)
     :config
-    ;; FIXME: void facemenu-add-face
-    (require 'facemenu)
-    ;; Fix tkk https://github.com/atykhonov/google-translate/issues/137
-    (setq go-translate-token-current (cons 430675 2721866130))
-
-    (add-hook 'go-translate-after-render-hook (lambda (req resp) (help-mode)))
-    (setq go-translate-buffer-follow-p t
-          ;; Output translation to the help buffer
-          go-translate-buffer-name "*Help*"
-          go-translate-inputs-function #'go-translate-inputs-current-or-prompt
-          go-translate-local-language "zh-CN")))
+    (setq gts-buffer-follow-p t
+          gts-buffer-name "*Help*"
+          gts-default-translator
+          (gts-translator
+           :picker (gts-noprompt-picker)
+           :engines (gts-google-engine)
+           :render (gts-buffer-render))
+          gts-translate-list '(("en" "zh")))))
 
 (defun claude-chinese/post-init-pangu-spacing ()
   (global-pangu-spacing-mode -1))
