@@ -94,7 +94,8 @@ This function should only modify configuration layer settings."
      (java :packages (not meghanada)
            :variables
            java-backend 'lsp)
-     (javascript :variables
+     (javascript :packages (not dap-mode)
+                 :variables
                  javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
                  javascript-lsp-linter nil
