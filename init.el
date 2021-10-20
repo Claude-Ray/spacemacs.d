@@ -166,14 +166,6 @@ This function should only modify configuration layer settings."
                  typescript-backend 'tide
                  typescript-lsp-linter nil)
      (unicode-fonts :variables
-                    ;; Chars are converted to full-width in native-comp somehow
-                    unicode-fonts-enable-ligatures
-                    (version< emacs-version "28")
-                    ;; XXX: Bug in Emacs 27.1
-                    unicode-fonts-ligature-modes
-                    (if (spacemacs/window-system-is-mac)
-                        '(prog-mode)
-                      '(js2-mode typescript-mode))
                     unicode-fonts-force-multi-color-on-mac t)
      vue
      (version-control :variables

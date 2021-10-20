@@ -20,8 +20,7 @@
     diredfl
     doom-modeline
     doom-themes
-    (pragmatapro :location local
-                 :toggle (version< "28" emacs-version))
+    (pragmatapro :location local)
     ranger
     (realign-mode :location
                   (recipe :fetcher github

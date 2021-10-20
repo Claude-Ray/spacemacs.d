@@ -22,4 +22,4 @@
       npm install -g prettier typescript typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright
     #+end_src
 *** Fonts
-    PragmataPro
+    PragmataPro 0.829
