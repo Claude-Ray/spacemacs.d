@@ -20,6 +20,8 @@
     diredfl
     doom-modeline
     doom-themes
+    (pragmatapro :location local
+                 :toggle (version< "28" emacs-version))
     ranger
     (realign-mode :location
                   (recipe :fetcher github
@@ -107,6 +109,11 @@
     (when (display-graphic-p)
       (setq doom-themes-treemacs-theme "doom-colors")
       (doom-themes-treemacs-config))))
+
+(defun claude-ui/init-pragmatapro ()
+  (when (display-graphic-p)
+    (require 'pragmatapro-prettify-symbols)
+    (add-hook 'prog-mode-hook 'pragmatapro-prettify-symbols-hook)))
 
 (defun claude-ui/post-init-ranger ()
   (setq ranger-footer-delay nil ; remove footer
