@@ -63,7 +63,7 @@ This function should only modify configuration layer settings."
                       :disabled-for org markdown)
      better-defaults
      (c-c++ :variables
-            c-c++-backend 'lsp-ccls)
+            c-c++-backend 'lsp-clangd)
      (chinese :packages (not pyim
                              find-by-pinyin-dired
                              ace-pinyin
