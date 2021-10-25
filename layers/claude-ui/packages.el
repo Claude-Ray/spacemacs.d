@@ -60,6 +60,9 @@
   ;; Display diff-hl between margins and buffer text
   (setq fringes-outside-margins nil)
   (setq diff-hl-draw-borders nil)
+  ;; Display diff-hl on the margin in GUI mode.
+  (unless (display-graphic-p)
+    (run-with-idle-timer 1 nil 'diff-hl-margin-mode))
   (add-hook 'dired-mode-hook 'diff-hl-dired-mode-unless-remote))
 
 (defun claude-ui/post-init-dired ()
