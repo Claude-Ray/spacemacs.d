@@ -1,25 +1,36 @@
 * Personal Spacemacs Configuration
-  
+
   Happy hacking!
 
 * Setup
 ** Dependencies
-   - MacOS 10.15+ or GNU Linux
-   - Emacs 27.1+
+- GNU Linux or MacOS 10.15+
+- Emacs 27.2+
 
 ** Installation
 *** Formulae
-    #+begin_src bash
-      brew tap d12frosted/emacs-plus && brew install emacs-plus --with-modern-icon --with-xwidgets --HEAD
-      brew tap railwaycat/emacsmacport && brew install emacs-mac --with-rsvg
-    #+end_src
+**** Arch Linux
+#+begin_src bash
+yay --editmenu -S emacs-pgtk-native-comp-git
+#+end_src
+**** MacOS
+#+begin_src bash
+  brew tap d12frosted/emacs-plus && brew install emacs-plus --with-modern-icon --with-xwidgets --HEAD
+  brew tap railwaycat/emacsmacport && brew install emacs-mac --with-rsvg
+#+end_src
 *** Tools
-    #+begin_src bash
-      brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap ccls pandoc poppler automake mactex
-    #+end_src
+**** Arch Linux
+#+begin_src bash
+sudo pacman -S ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake texlive-bin texlive-core texlive-langchinese ctags rust-analyzer
+yay -S sqlfmt
+#+end_src
+**** MacOS
+#+begin_src bash
+brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake mactex rust-analyzer
+#+end_src
 *** Formatters && Linters
-    #+begin_src bash
-      npm install -g prettier typescript typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright
-    #+end_src
+#+begin_src bash
+npm install -g prettier typescript typescript-formatter typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright vls dockerfile-language-server-nodejs
+#+end_src
 *** Fonts
-    PragmataPro 0.829
+PragmataPro 0.829
