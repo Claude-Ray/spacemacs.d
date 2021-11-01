@@ -21,3 +21,12 @@
     (local-unset-key (kbd "q"))
     (local-unset-key (kbd "C-g"))
     (help-mode)))
+
+(defun claude-chinese/gts-prompt-translate ()
+  "Do the translate with `gts-prompt-picker'."
+  (interactive)
+  (let ((gts-translate-list '(("en" "zh") ("zh" "en"))))
+    (gts-translate (gts-translator
+                    :picker (gts-prompt-picker)
+                    :engines (gts-google-engine)
+                    :render (gts-buffer-render)))))
