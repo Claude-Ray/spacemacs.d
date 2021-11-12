@@ -16,6 +16,8 @@
                        :repo "beancount/beancount-mode"
                        :files ("beancount.el")))
     cal-china-x
+    (calfw :toggle claude-enable-calfw)
+    (calfw-org :toggle claude-enable-calfw)
     devdocs-browser
     pdf-tools
     sicp
@@ -41,6 +43,22 @@
     (setq calendar-holidays
           (append cal-china-x-important-holidays
                   cal-china-x-general-holidays))))
+
+(defun claude-tools/init-calfw ()
+  (use-package calfw
+    :defer t
+    :config
+    (evil-set-initial-state 'cfw:calendar-mode 'normal)
+    (add-hook 'cfw:calendar-mode-hook #'claude-ui/toggle-realign-padding)))
+
+(defun claude-tools/init-calfw-org ()
+  (use-package calfw-org
+    :defer t
+    :commands cfw:open-org-calendar
+    :config
+    (let ((map cfw:org-schedule-map))
+      (define-key map (kbd "TAB") 'cfw:org-open-agenda-day)
+      (evil-define-key 'normal map (kbd "q") 'bury-buffer))))
 
 (defun claude-tools/init-devdocs-browser ()
   (use-package devdocs-browser
