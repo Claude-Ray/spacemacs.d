@@ -58,17 +58,25 @@
               (switch-to-buffer buffer))))))))
 
 (defun claude-prog/quickrun (&rest plist)
-  "Run commands `quickrun' for current buffer."
+  "Run `quickrun' for current buffer."
   (interactive)
   (save-buffer)
   (add-hook 'kill-buffer-hook #'quickrun--kill-quickrun-buffer nil t)
   (quickrun plist))
 
 (defun claude-prog/quickrun-pop (&rest plist)
-  "Run commands `quickrun' for current buffer with quickrun-focus-p."
+  "Run `quickrun' for current buffer with quickrun-focus-p."
   (interactive)
   (let ((quickrun-focus-p t))
     (claude-prog/quickrun plist)))
+
+(defun claude-prog/quickrun-shell ()
+  "Run `quickrun-shell' for current buffer with quickrun-focus-p."
+  (interactive)
+  (let ((quickrun-focus-p t))
+    (save-buffer)
+    (add-hook 'kill-buffer-hook #'quickrun--kill-quickrun-buffer nil t)
+    (quickrun-shell)))
 
 (defun claude-prog/smart-run ()
   "Compile the program including the current buffer."

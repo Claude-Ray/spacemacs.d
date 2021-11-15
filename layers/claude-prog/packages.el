@@ -115,11 +115,17 @@
     :init
     (define-key prog-mode-map (kbd "s-r") #'claude-prog/quickrun)
     (define-key prog-mode-map (kbd "s-R") #'claude-prog/quickrun-pop)
+    (define-key prog-mode-map (kbd "s-C-r") #'claude-prog/quickrun-shell)
     :config
     (setq quickrun-focus-p nil)
-    ;; Open *quickrun* in insert state
-    (evil-set-initial-state 'quickrun--mode 'insert)
     (evil-define-key 'normal quickrun--mode-map (kbd "q") 'quit-window)
+    (push '("*eshell-quickrun*"
+            :dedicated t
+            :position bottom
+            :stick t
+            :noselect t
+            :height 0.3)
+          popwin:special-display-config)
     (push '("*quickrun*"
             :dedicated t
             :position bottom
