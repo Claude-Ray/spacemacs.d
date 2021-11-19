@@ -13,6 +13,7 @@
   '(
     edit-indirect
     evil
+    evil-goggles
     evil-mc
     evil-pinyin
     evil-snipe
@@ -32,6 +33,22 @@
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (define-key evil-insert-state-map (kbd "s-s")
     #'claude-edit/save-and-evil-exit-insert-state))
+
+(defun claude-edit/post-init-evil-goggles ()
+  (setq evil-goggles-enable-delete nil
+        evil-goggles-enable-yank t
+        evil-goggles-enable-change nil
+        evil-goggles-enable-indent nil
+        evil-goggles-enable-join nil
+        evil-goggles-enable-fill-and-move nil
+        evil-goggles-enable-shift nil
+        evil-goggles-enable-surround nil
+        evil-goggles-enable-commentary nil
+        evil-goggles-enable-nerd-commenter nil
+        evil-goggles-enable-replace-with-register nil
+        evil-goggles-enable-set-marker t
+        evil-goggles-enable-record-macro nil
+        evil-goggles-enable-paste nil))
 
 (defun claude-edit/post-init-evil-mc ()
   (add-hook 'evil-mc-before-cursors-created

@@ -45,7 +45,9 @@ This function should only modify configuration layer settings."
                                        password-generator
                                        string-edit))
      (spacemacs-editing-visual :packages (not column-enforce-mode))
-     (spacemacs-evil :packages (not evil-escape evil-goggles))
+     (spacemacs-evil :packages (not evil-escape)
+                     :variables
+                     vim-style-visual-feedback t)
      spacemacs-misc
      (spacemacs-navigation :packages (not ace-window open-junk-file))
      (spacemacs-org :packages (not org-superstar))
