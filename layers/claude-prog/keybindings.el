@@ -14,3 +14,10 @@
   (define-key js-mode-map (kbd "s-R") #'claude-prog/smart-run-pop))
 
 (spacemacs/set-leader-keys ",c" #'claude-prog/contest)
+
+(spacemacs/set-leader-keys-for-minor-mode 'citre-mode
+  "gj" 'citre-jump
+  "gJ" 'citre-jump-back
+  "gp" 'citre-peek
+  "gP" 'citre-ace-peek
+  "gu" 'citre-update-this-tags-file)
