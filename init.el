@@ -82,6 +82,7 @@ This function should only modify configuration layer settings."
        deft-recursive t)
      docker
      emacs-lisp
+     evil-better-jumper
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
      (git :packages (not magit-gitflow))

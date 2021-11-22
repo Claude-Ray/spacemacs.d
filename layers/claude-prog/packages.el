@@ -42,7 +42,13 @@
     (require 'citre-config)
     :config
     (setq citre-auto-enable-citre-mode-modes '(prog-mode)
-          citre-project-root-function #'projectile-project-root)))
+          citre-project-root-function #'projectile-project-root)
+    (add-hook 'citre-mode-hook #'claude-prog//citre-set-jump-handler)
+    (advice-add 'spacemacs//setup-lsp-jump-handler
+                :around #'claude-prog//setup-lsp-jump-handler)
+    (advice-add 'citre-jump :around 'evil-better-jumper/set-jump-a)
+    (advice-add 'citre-jump-back :around 'evil-better-jumper/set-jump-a)
+    (advice-add 'citre-peek-jump :around 'evil-better-jumper/set-jump-a)))
 
 (defun claude-prog/post-init-flycheck ()
   ;; Allow flycheck to use eslint instead of eslint_d by .dir-locals.el

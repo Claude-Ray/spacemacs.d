@@ -25,6 +25,17 @@
                                     (?' . ?')
                                     (?` . ?`))))
 
+(defun claude-prog//citre-set-jump-handler ()
+  "Set jump handlers for citre."
+  (add-to-list 'spacemacs-jump-handlers 'citre-jump))
+
+(defun claude-prog//setup-lsp-jump-handler (func)
+  "Advice around `spacemacs//setup-lsp-jump-handler'.
+Set jump handler for LSP without async."
+  (if citre-mode
+      (add-to-list 'spacemacs-jump-handlers 'lsp-ui-peek-find-definitions)
+    (funcall func)))
+
 (defun claude-prog//kill-compilation-hook ()
   "Kill *complication* buffer and window automatically."
   (let* ((buffer (compilation-find-buffer))

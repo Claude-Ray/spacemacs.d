@@ -20,4 +20,5 @@
   "gJ" 'citre-jump-back
   "gp" 'citre-peek
   "gP" 'citre-ace-peek
+  "gR" 'citre-peek-references
   "gu" 'citre-update-this-tags-file)
