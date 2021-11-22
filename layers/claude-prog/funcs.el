@@ -25,6 +25,12 @@
                                     (?' . ?')
                                     (?` . ?`))))
 
+(defun claude-prog//citre-peek-hook ()
+  "Recenter the current window after `citre-peek'."
+  (recenter)
+  ;; Force reloading citre-peek-keymap
+  (evil-normal-state))
+
 (defun claude-prog//citre-set-jump-handler ()
   "Set jump handlers for citre."
   (add-to-list 'spacemacs-jump-handlers 'citre-jump))

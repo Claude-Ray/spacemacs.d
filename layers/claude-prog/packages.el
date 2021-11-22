@@ -42,8 +42,10 @@
     (require 'citre-config)
     :config
     (setq citre-auto-enable-citre-mode-modes '(prog-mode)
+          citre-peek-file-content-height 20
           citre-project-root-function #'projectile-project-root)
     (add-hook 'citre-mode-hook #'claude-prog//citre-set-jump-handler)
+    (add-hook 'citre-peek--mode-hook #'claude-prog//citre-peek-hook)
     (advice-add 'spacemacs//setup-lsp-jump-handler
                 :around #'claude-prog//setup-lsp-jump-handler)
     (advice-add 'citre-jump :around 'evil-better-jumper/set-jump-a)
