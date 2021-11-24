@@ -21,12 +21,12 @@ yay --editmenu -S emacs-pgtk-native-comp-git
 *** Tools
 **** Arch Linux
 #+begin_src bash
-sudo pacman -S ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake texlive-bin texlive-core texlive-langchinese ctags rust-analyzer
+sudo pacman -S ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake texlive-bin texlive-core texlive-langchinese ctags global rust-analyzer
 yay -S sqlfmt
 #+end_src
 **** MacOS
 #+begin_src bash
-brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake mactex rust-analyzer
+brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake mactex ctags global rust-analyzer
 #+end_src
 *** Formatters && Linters
 #+begin_src bash
