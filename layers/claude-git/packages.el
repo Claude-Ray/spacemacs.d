@@ -26,7 +26,8 @@
   (setq magit-commit-show-diff nil
         magit-diff-refine-hunk t
         magit-revision-insert-related-refs nil)
-  ;; Replaced by `claude-git//magit-commit-diff'
-  (remove-hook 'server-switch-hook 'magit-commit-diff)
-  (transient-append-suffix 'magit-commit "c"
-    '("d" "Commit with diff" claude-git/magit-commit-with-diff)))
+  (with-eval-after-load 'magit
+    ;; Replaced by `claude-git//magit-commit-diff'
+    (remove-hook 'server-switch-hook 'magit-commit-diff)
+    (transient-append-suffix 'magit-commit "c"
+      '("d" "Commit with diff" claude-git/magit-commit-with-diff))))
