@@ -58,3 +58,15 @@
                         (concat "?merge_request[source_branch]=" source
                                 "&merge_request[target_branch]=" target)))))
     (browse-url url)))
+
+(defun claude-git/magit-commit-with-diff (&optional args)
+  "Show the relevant diff while committing."
+  (interactive)
+  (add-hook 'server-switch-hook 'claude-git//magit-commit-diff)
+  (magit-commit-create args))
+
+(defun claude-git//magit-commit-diff ()
+  "One-time hook function for `server-switch-hook' to run `magit-commit-diff'."
+  (let ((magit-commit-show-diff t))
+    (magit-commit-diff))
+  (remove-hook 'server-switch-hook #'claude-git//magit-commit-diff))
