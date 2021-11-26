@@ -70,3 +70,14 @@
   (let ((magit-commit-show-diff t))
     (magit-commit-diff))
   (remove-hook 'server-switch-hook #'claude-git//magit-commit-diff))
+
+(defvar claude--magit-section-max-len 10
+  "Truncate the children of magit-section.")
+
+(defun claude-git//magit-section-show-advice (section)
+  "Hide the oversized children of the current section."
+  (when (oref section hidden)
+    (when-let ((children (oref section children))
+               (len claude--magit-section-max-len))
+      (dolist (child (-slice children len))
+        (oset child hidden t)))))

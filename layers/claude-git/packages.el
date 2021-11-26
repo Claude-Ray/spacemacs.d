@@ -26,6 +26,8 @@
   (setq magit-commit-show-diff nil
         magit-diff-refine-hunk t
         magit-revision-insert-related-refs nil)
+  (advice-add 'magit-section-show
+              :before #'claude-git//magit-section-show-advice)
   (with-eval-after-load 'magit
     ;; Replaced by `claude-git//magit-commit-diff'
     (remove-hook 'server-switch-hook 'magit-commit-diff)
