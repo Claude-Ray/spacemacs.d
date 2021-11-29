@@ -17,6 +17,7 @@
     lsp-mode
     lua-mode
     js2-mode
+    npm-mode
     python
     quickrun
     sqlfmt
@@ -113,6 +114,22 @@
         js2-mode-show-strict-warnings nil)
 
   (add-hook 'js2-mode-hook #'claude-prog//js2-mode-hook))
+
+(defun claude-prog/post-init-npm-mode ()
+  (add-hook 'typescript-mode-hook #'npm-mode)
+  (spacemacs/declare-prefix-for-mode 'typescript-mode "mn" "npm")
+  (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
+    "nc" 'npm-mode-npm-clean
+    "ni" 'npm-mode-npm-install
+    "nr" 'npm-mode-npm-run
+    "ns" 'npm-mode-npm-install-save
+    "nd" 'npm-mode-npm-install-save-dev
+    "nn" 'npm-mode-npm-init
+    "nu" 'npm-mode-npm-uninstall
+    "nl" 'npm-mode-npm-list
+    "np" 'npm-mode-visit-project-file)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+    "nc" 'npm-mode-npm-clean))
 
 (defun claude-prog/post-init-python ()
   (setq python-indent-guess-indent-offset-verbose nil))
