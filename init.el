@@ -103,11 +103,10 @@ This function should only modify configuration layer settings."
                  javascript-fmt-tool 'prettier
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
-     (json :packages (not prettier-js ; Use json-reformat instead
-                          web-beautify)
-           :variables
+     (json :variables
            json-backend 'lsp
-           json-fmt-tool 'prettier)
+           ;; Use json-reformat instead
+           json-fmt-tool nil)
      latex
      (lsp :variables
           lsp-ui-doc-enable nil
