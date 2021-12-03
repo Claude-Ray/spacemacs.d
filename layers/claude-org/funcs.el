@@ -77,7 +77,7 @@ Prompt for two dates/times and insert a resolved clock."
                     :around #'claude-org//get-region-markers)
         (apply func args)
         (advice-remove 'org-refile-get-location
-                       #'claude-org//update-statistics-after-kill)
+                       #'claude-org//get-refile-target)
         (advice-remove 'org-save-markers-in-region
                        #'claude-org//get-region-markers)
         (when (and (equal (buffer-file-name) target-file)
