@@ -23,13 +23,9 @@
                  '("git.guahao-inc.com" git-link-commit-github))))
 
 (defun claude-git/post-init-magit ()
-  (setq magit-commit-show-diff nil
-        magit-diff-refine-hunk t
-        magit-revision-insert-related-refs nil)
+  (setq magit-revision-insert-related-refs nil)
   (advice-add 'magit-section-show
               :before #'claude-git//magit-section-show-advice)
   (with-eval-after-load 'magit
-    ;; Replaced by `claude-git//magit-commit-diff'
-    (remove-hook 'server-switch-hook 'magit-commit-diff)
     (transient-append-suffix 'magit-commit "c"
-      '("d" "Commit with diff" claude-git/magit-commit-with-diff))))
+      '("d" "Commit without diff" claude-git/magit-commit-without-diff))))
