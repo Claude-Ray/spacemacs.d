@@ -33,7 +33,9 @@
 
 (defun claude-prog//citre-set-jump-handler ()
   "Set jump handlers for citre."
-  (add-to-list 'spacemacs-jump-handlers 'citre-jump))
+  ;; FIXME: tide-jump-to-definition is incompatible with citre-jump
+  (unless (bound-and-true-p tide-mode)
+    (add-to-list 'spacemacs-jump-handlers 'citre-jump)))
 
 (defun claude-prog//setup-lsp-jump-handler (func)
   "Advice around `spacemacs//setup-lsp-jump-handler'.
