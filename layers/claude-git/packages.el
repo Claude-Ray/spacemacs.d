@@ -17,8 +17,7 @@
     ))
 
 (defun claude-git/pre-init-forge ()
-  (setq forge-add-default-sections nil
-        forge-add-default-bindings nil))
+  (setq forge-add-default-bindings nil))
 
 (defun claude-git/post-init-git-link ()
   (with-eval-after-load 'git-link
