@@ -82,3 +82,14 @@
                (len claude--magit-section-max-len))
       (dolist (child (-slice children len))
         (oset child hidden t)))))
+
+(defun claude-git/magit-section-show-full (section)
+  "Show the full children of the current section.
+
+Alternative to `magit-section-cycle-diffs'."
+  (interactive (list (magit-current-section)))
+  (let ((children (oref section children))
+        (claude--magit-section-max-len nil))
+    (dolist (child children)
+      (oset child hidden nil))
+    (magit-section-show section)))
