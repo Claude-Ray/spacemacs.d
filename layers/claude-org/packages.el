@@ -18,6 +18,9 @@
     ))
 
 (defun claude-org/post-init-org ()
+  (spacemacs|disable-company org-mode)
+  (spacemacs|disable-company markdown-mode)
+
   (with-eval-after-load 'org
     (add-to-list 'org-modules 'org-protocol t))
 
