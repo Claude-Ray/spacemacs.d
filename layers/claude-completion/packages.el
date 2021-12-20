@@ -22,10 +22,11 @@
   (setq tab-always-indent t))
 
 (defun claude-completion/post-init-company ()
-  (spacemacs/defer-until-after-user-config #'claude-completion//company-advice)
+  (advice-add 'company-mode :around #'claude-completion//company-advice)
   (with-eval-after-load 'company
     (let ((map company-active-map))
-      (define-key map (kbd "C-n") 'company-select-next)
+      (define-key map (kbd "C-n")
+        'company-select-next-if-tooltip-visible-or-complete-selection)
       (define-key map (kbd "C-p") 'company-select-previous)
       (define-key map (kbd "C-d") 'company-next-page)
       (define-key map (kbd "C-u") 'company-previous-page)

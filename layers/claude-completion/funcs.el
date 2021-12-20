@@ -9,12 +9,28 @@
 ;;
 ;;; License: GPLv3
 
-(defun claude-completion//company-advice ()
-  "Things only work after dotspacemacs/user-config."
-  (spacemacs|disable-company org-mode)
-  (with-eval-after-load 'company
-    (define-key company-active-map
-      (kbd "C-n") 'company-select-next-if-tooltip-visible-or-complete-selection)))
+(defvar claude--company-advice-p t
+  "If non nil then company-advice is enabled.")
+
+(defun claude-completion//company-advice (func &rest args)
+  "Disable `company-mode' for specific modes.
+
+Adding advice around company-mode, since `spacemacs|disable-company'
+and `:disabled-for' are not working as expected.
+https://github.com/syl20bnr/spacemacs/issues/14835"
+  (unless (and claude--company-advice-p
+           (or (eq major-mode 'markdown-mode)
+               (eq major-mode 'org-mode)))
+    (apply func args)))
+
+(defun claude-completion/toggle-company-mode ()
+  "Toggle `company-mode' in current buffer regardless of whether
+the company-advice is enabled or not."
+  (interactive)
+  (let ((claude--company-advice-p nil))
+    (if company-mode
+        (company-mode -1)
+      (company-mode))))
 
 (defun claude-completion//smartparens-advice ()
   "Things only work after dotspacemacs/user-config."
