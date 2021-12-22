@@ -662,10 +662,8 @@ If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
         '(("melpa" . "https://melpa.org/packages/")
           ;; ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ;; ("melpa-qq" . "http://mirrors.cloud.tencent.com/elpa/melpa/")
-          ("org-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
           ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-          ("nongnu"   . "https://elpa.nongnu.org/nongnu/")))
+          ("nongnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
   (setq native-comp-deferred-compilation nil
         native-comp-async-report-warnings-errors 'silent)
   (setq tramp-ssh-controlmaster-options
