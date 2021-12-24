@@ -661,9 +661,9 @@ It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
   (setq configuration-layer-elpa-archives
         '(("melpa" . "https://melpa.org/packages/")
-          ;; ("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-          ("gnu-cn"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-          ("nongnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+          ;; ("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ("gnu-cn"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+          ("nongnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
   (setq native-comp-deferred-compilation nil
         native-comp-async-report-warnings-errors 'silent)
   (setq tramp-ssh-controlmaster-options
