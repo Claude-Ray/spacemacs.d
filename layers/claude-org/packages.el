@@ -70,13 +70,15 @@
           ("ft" "Work TODOs"
            ((tags-todo "WORK"
                        ((org-agenda-overriding-header "Work Tasks")
-                        (org-agenda-files (list claude--org-work-file))))))
+                        (org-agenda-files (list claude--org-work-file
+                                                claude--org-inbox-file))))))
           ("fd" "Work Agenda and TODOs"
            ((agenda "")
             (tags-todo "WORK"))
            ((org-agenda-tag-filter-preset '("+WORK"))
             (org-agenda-start-with-clockreport-mode t)
-            (org-agenda-files (list claude--org-work-file))))
+            (org-agenda-files (list claude--org-work-file
+                                    claude--org-inbox-file))))
           ("j" . "Personal Review")
           ("jj" "Personal Agenda"
            ((agenda ""
