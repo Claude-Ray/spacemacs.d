@@ -117,7 +117,7 @@
   (advice-add 'org-refile :around #'claude-org//org-refile-advice)
 
   ;; org-archive
-  (setq org-archive-location "%s_archive::* Archived Tasks")
+  (setq org-archive-location "archive/%s::* Archived Tasks")
 
   (advice-add 'org-cycle :around #'claude-org//org-cycle-advice))
 
