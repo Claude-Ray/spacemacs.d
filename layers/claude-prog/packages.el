@@ -174,7 +174,13 @@
 
 (defun claude-prog/post-init-typescript-mode ()
   (setq-default typescript-indent-level 2)
-  (add-hook 'typescript-tsx-mode-hook #'claude-prog//tsx-mode-hook))
+  (add-hook 'typescript-tsx-mode-hook #'claude-prog//tsx-mode-hook)
+  (dolist (value '(tide typescript-formatter prettier))
+    (add-to-list 'safe-local-variable-values
+                 (cons 'typescript-fmt-tool value)))
+  (dolist (value '(tslint eslint ))
+    (add-to-list 'safe-local-variable-values
+                 (cons 'typescript-linter value))))
 
 (defun claude-prog/post-init-web-mode ()
   (setq-default
