@@ -22,6 +22,12 @@ instead of creating a new window at the bottom."
   (org-agenda-goto)
   (org-tree-to-indirect-buffer))
 
+(defun claude-org/org-format ()
+  "Format the current org buffer."
+  (interactive)
+  (whitespace-cleanup)
+  (pangu-spacing-space-current-buffer))
+
 (defun claude-org/org-clock-schedule ()
   "Schedule a clock on the current item.
 
