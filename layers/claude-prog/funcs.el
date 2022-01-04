@@ -19,6 +19,12 @@
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
+(defun claude-prog//typescript-mode-config (func mode)
+  "Advice around `spacemacs/typescript-mode-config'.
+Force the typescript-format keybinding to `,=='."
+  (let ((typescript-backend 'lsp))
+    (funcall func mode)))
+
 (defun claude-prog//tsx-mode-hook ()
   "Append electric-pair for typescript-tsx-mode"
   (setq-local electric-pair-pairs `(,@electric-pair-pairs

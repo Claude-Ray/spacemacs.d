@@ -174,6 +174,8 @@
 
 (defun claude-prog/post-init-typescript-mode ()
   (setq-default typescript-indent-level 2)
+  (advice-add 'spacemacs/typescript-mode-config
+              :around #'claude-prog//typescript-mode-config)
   (add-hook 'typescript-tsx-mode-hook #'claude-prog//tsx-mode-hook)
   (dolist (value '(tide typescript-formatter prettier))
     (add-to-list 'safe-local-variable-values
