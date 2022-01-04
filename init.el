@@ -161,6 +161,7 @@ This function should only modify configuration layer settings."
      sql
      (syntax-checking :packages (not flycheck-pos-tip))
      systemd
+     tree-sitter
      (treemacs :variables
                treemacs-lock-width t
                ;; all-the-icons-dired is better
