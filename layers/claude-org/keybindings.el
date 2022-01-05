@@ -14,5 +14,8 @@
   "sb" #'claude-org/org-agenda-tree-to-indirect-buffer)
 
 (spacemacs/set-leader-keys-for-major-mode 'org-mode
-  "==" #'claude-org/org-format
   "Cs" #'claude-org/org-clock-schedule)
+
+(dolist (mode '(org-mode markdown-mode text-mode))
+  (spacemacs/set-leader-keys-for-major-mode mode
+    "==" #'claude-org/text-format))
