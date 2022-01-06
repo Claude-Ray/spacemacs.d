@@ -89,4 +89,7 @@
 (defun claude-tools/post-init-tree-sitter ()
   ;; XXX: Turn on tree-sitter without deferring
   (when tree-sitter-syntax-highlight-enable
+    (custom-set-faces
+     '(font-lock-constant-face ((t (:weight normal))))
+     '(tree-sitter-hl-face:function.call ((t (:weight normal)))))
     (run-with-idle-timer 1 nil 'global-tree-sitter-mode)))
