@@ -21,6 +21,7 @@
     devdocs-browser
     pdf-tools
     sicp
+    tree-sitter
     ))
 
 (defun claude-tools/init-beancount ()
@@ -84,3 +85,8 @@
       "Display the SICP in Info mode."
       (interactive)
       (info "sicp"))))
+
+(defun claude-tools/post-init-tree-sitter ()
+  ;; XXX: Turn on tree-sitter without deferring
+  (when tree-sitter-syntax-highlight-enable
+    (run-with-idle-timer 1 nil 'global-tree-sitter-mode)))
