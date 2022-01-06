@@ -111,7 +111,8 @@ This function should only modify configuration layer settings."
      (lsp :variables
           lsp-ui-doc-enable nil
           lsp-ui-imenu-enable nil
-          lsp-ui-sideline-enable nil)
+          lsp-ui-sideline-enable nil
+          lsp-use-upstream-bindings nil)
      (lua :variables
           lua-backend 'lsp
           lua-lsp-server 'lua-language-server)
