@@ -20,6 +20,7 @@
     (calfw-org :toggle claude-enable-calfw)
     devdocs-browser
     pdf-tools
+    restclient
     sicp
     tree-sitter
     ))
@@ -76,6 +77,13 @@
   (with-eval-after-load 'pdf-tools
     (spacemacs/set-leader-keys-for-major-mode 'pdf-view-mode
       "," 'pdf-view-fit-page-to-window)))
+
+(defun claude-tools/post-init-restclient ()
+  ;; Avoid `tree-sitter' throwing an error when parsing
+  ;; decoded-http-response-buffer until `restclient-prettify-response' is done.
+  (when tree-sitter-syntax-highlight-enable
+    (advice-add 'restclient-decode-response
+                :before #'claude-tools//restclient-clear-response)))
 
 (defun claude-tools/init-sicp ()
   (use-package sicp
