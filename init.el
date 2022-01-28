@@ -81,6 +81,8 @@ This function should only modify configuration layer settings."
        deft-directory "~/Documents/Note"
        deft-recursive t)
      docker
+     (elfeed :variables
+             rmh-elfeed-org-files (list "~/Documents/RSS/elfeed.org"))
      emacs-lisp
      evil-better-jumper
      (evil-snipe :variables
