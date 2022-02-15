@@ -45,6 +45,7 @@
     (setq citre-auto-enable-citre-mode-modes '(prog-mode)
           citre-peek-file-content-height 20
           citre-project-root-function #'projectile-project-root)
+    (setq-default citre-enable-xref-integration nil)
     (add-hook 'citre-mode-hook #'claude-prog//citre-set-jump-handler)
     (add-hook 'citre-peek--mode-hook #'claude-prog//citre-peek-hook)
     (advice-add 'spacemacs//setup-lsp-jump-handler
