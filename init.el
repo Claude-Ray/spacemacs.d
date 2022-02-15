@@ -174,7 +174,9 @@ This function should only modify configuration layer settings."
                  typescript-lsp-linter nil)
      (unicode-fonts :variables
                     unicode-fonts-force-multi-color-on-mac t)
-     vue
+     (vue :variables
+          lsp-vetur-ignore-project-warning t
+          vue-backend 'lsp)
      (version-control :variables
                       version-control-diff-tool 'diff-hl
                       version-control-diff-side 'left)
@@ -220,6 +222,10 @@ It should only modify the values of Spacemacs settings."
    ;; If non-nil then enable support for the portable dumper. You'll need
    ;; to compile Emacs 27 from source following the instructions in file
    ;; EXPERIMENTAL.org at to root of the git repository.
+   ;;
+   ;; WARNING: pdumper does not work with Native Compilation, so it's disabled
+   ;; regardless of the following setting when native compilation is in effect.
+   ;;
    ;; (default nil)
    dotspacemacs-enable-emacs-pdumper nil
 
