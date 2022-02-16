@@ -171,6 +171,7 @@ This function should only modify configuration layer settings."
                treemacs-use-icons-dired nil)
      (typescript :variables
                  typescript-backend 'tide
+                 typescript-fmt-tool 'prettier
                  typescript-lsp-linter nil)
      (unicode-fonts :variables
                     unicode-fonts-force-multi-color-on-mac t)

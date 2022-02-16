@@ -30,7 +30,7 @@ brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc 
 #+end_src
 *** Formatters && Linters
 #+begin_src bash
-npm install -g prettier typescript typescript-formatter typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright vls dockerfile-language-server-nodejs
+npm install -g prettier typescript typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright vls dockerfile-language-server-nodejs
 #+end_src
 *** Fonts
 PragmataPro 0.829
