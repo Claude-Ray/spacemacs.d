@@ -34,3 +34,7 @@ https://github.com/emacs-ess/ESS/issues/1115"
   (dotimes (_ arg)
     (newline nil t)
     (indent-according-to-mode)))
+
+(defun claude//spacemacs-scratch-mode-hook ()
+  "Disable confirmation prompt when killing the scratch buffer."
+  (remove-hook 'kill-buffer-hook #'spacemacs//confirm-kill-buffer t))

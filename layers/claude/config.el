@@ -30,3 +30,5 @@
       '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|10.*\\)")
         ("http" . "127.0.0.1:7890")
         ("https" . "127.0.0.1:7890")))
+
+(add-hook 'spacemacs-scratch-mode-hook #'claude//spacemacs-scratch-mode-hook)
