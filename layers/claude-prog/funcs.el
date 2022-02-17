@@ -13,8 +13,6 @@
   (progn
     (define-key js2-mode-map "@" 'js-doc-insert-tag)
     (define-key js2-mode-map "\C-ci" 'js-doc-insert-function-doc)
-    (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-      "i" 'js-doc-insert-function-doc)
     (setq mode-name "JS2")
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))

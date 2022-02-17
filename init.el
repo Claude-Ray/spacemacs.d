@@ -94,6 +94,7 @@ This function should only modify configuration layer settings."
      graphviz
      graphql
      (html :variables web-fmt-tool 'prettier)
+     import-js
      (ivy :packages (not ivy-rich
                          all-the-icons-ivy-rich))
      (java :packages (not meghanada)
@@ -103,6 +104,7 @@ This function should only modify configuration layer settings."
                  :variables
                  javascript-backend 'lsp
                  javascript-fmt-tool 'prettier
+                 javascript-import-tool 'import-js
                  javascript-lsp-linter nil
                  javascript-repl `nodejs)
      (json :variables
