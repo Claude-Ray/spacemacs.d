@@ -677,6 +677,31 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (defun spacemacs-buffer//insert-recent-files (list-size)
+    "Use `org-agenda-files' variable instead of function,
+since calling (org-agenda-files) could slow down startup a lot.
+FIXME: https://github.com/syl20bnr/spacemacs/issues/15366."
+    (unless recentf-mode (recentf-mode))
+    (setq spacemacs-buffer//recent-files-list
+          (let ((agenda-files (if (boundp 'org-agenda-files)
+                                  (if (listp org-agenda-files)
+                                      org-agenda-files
+                                    (list org-agenda-files))
+                                nil)))
+            (cl-delete-if (lambda (x)
+                            (or (when (and (bound-and-true-p org-directory) (file-exists-p org-directory))
+                                  (member x (directory-files org-directory t)))
+                                (member x agenda-files)))
+                          recentf-list)))
+    (setq spacemacs-buffer//recent-files-list
+          (spacemacs//subseq spacemacs-buffer//recent-files-list 0 list-size))
+    (when (spacemacs-buffer//insert-file-list
+           (spacemacs-buffer||propertize-heading
+            (all-the-icons-octicon "history" :face 'font-lock-keyword-face :v-adjust -0.05)
+            "Recent Files:" "r")
+           spacemacs-buffer//recent-files-list)
+      (spacemacs-buffer||add-shortcut "r" "Recent Files:"))
+    (insert spacemacs-buffer-list-separator))
   (setq configuration-layer-elpa-archives
         '(("melpa" . "https://melpa.org/packages/")
           ;; ("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
