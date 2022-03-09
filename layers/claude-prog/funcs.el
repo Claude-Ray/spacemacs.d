@@ -9,6 +9,9 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-prog//c-c++-setup-lsp-advice ()
+  (setq-local lsp-diagnostics-provider :auto))
+
 (defun claude-prog//js2-mode-hook ()
   (progn
     (define-key js2-mode-map "@" 'js-doc-insert-tag)

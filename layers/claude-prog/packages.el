@@ -11,6 +11,7 @@
 
 (defconst claude-prog-packages
   '(
+    cc-mode
     ccls
     citre
     flycheck
@@ -25,6 +26,10 @@
     typescript-mode
     web-mode
     ))
+
+(defun claude-prog/post-init-cc-mode ()
+  (advice-add 'spacemacs//c-c++-setup-lsp-clangd
+              :before #'claude-prog//c-c++-setup-lsp-advice))
 
 (defun claude-prog/post-init-ccls ()
   (when (spacemacs/system-is-mac)
