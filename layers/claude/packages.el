@@ -24,6 +24,7 @@
     (advice-add 'memory-usage :after #'help-mode)))
 
 (defun claude/post-init-recentf ()
+  (setq recentf-max-saved-items 5000)
   (when (spacemacs/window-system-is-mac)
     ;; Disabled for "...emacs.d/.cache/recentf locked by xxx".
     ;; You can call recentf-save-list manually to save recent files.
