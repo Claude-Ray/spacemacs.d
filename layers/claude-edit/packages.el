@@ -72,8 +72,9 @@
     :hook (emacs-lisp-mode . paredit-mode)))
 
 (defun claude-edit/post-init-undo-tree ()
-  ;; undo-in-region is known to cause undo history corruption
-  (setq undo-tree-enable-undo-in-region nil))
+  (setq undo-tree-auto-save-history nil
+        ;; undo-in-region is known to cause undo history corruption
+        undo-tree-enable-undo-in-region nil))
 
 (defun claude-edit/post-init-smartparens()
   (show-smartparens-global-mode -1)
