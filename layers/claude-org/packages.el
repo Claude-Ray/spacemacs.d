@@ -159,6 +159,8 @@
           org-roam-db-location (expand-file-name
                                 "org-roam.db" spacemacs-cache-directory)
           org-roam-directory (expand-file-name "roam" org-directory)
+          ;; FIXME: Workaround for searching tags #issues/1728
+          org-roam-node-display-template "${title} ${tags}"
           org-roam-verbose nil)))
 
 (defun claude-org/post-init-plantuml-mode ()
