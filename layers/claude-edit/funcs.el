@@ -79,3 +79,11 @@ This predicate is only tested on \"insert\" action."
   "Return t if point is after a word, nil otherwise."
 	(backward-char 1)
   (memq (char-syntax (preceding-char)) '(?w ?_)))
+
+(defun claude-edit//electric-pair-inhibit-angle-brackets ()
+  "Prevent `electric-pair-mode' from matching `<' with a `>'."
+  (setq-local electric-pair-inhibit-predicate
+              `(lambda (c)
+	               (if (char-equal c ?\<)
+                     t
+                   (,electric-pair-inhibit-predicate c)))))
