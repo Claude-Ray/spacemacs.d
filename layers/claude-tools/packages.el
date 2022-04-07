@@ -95,6 +95,11 @@
       (info "sicp"))))
 
 (defun claude-tools/post-init-tree-sitter ()
+  (with-eval-after-load 'tree-sitter
+    (when (file-exists-p (concat (tree-sitter-cli-bin-directory) "vue.so"))
+      (tree-sitter-load 'vue "vue")
+      (add-to-list 'tree-sitter-major-mode-language-alist '(vue-mode . vue))
+      (add-to-list 'tree-sitter-major-mode-language-alist '(web-mode . vue))))
   ;; XXX: Turn on tree-sitter without deferring
   (when tree-sitter-syntax-highlight-enable
     (custom-set-faces
