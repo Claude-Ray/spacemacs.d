@@ -15,13 +15,14 @@
 
 (spacemacs/set-leader-keys ",c" #'claude-prog/contest)
 
-(spacemacs/set-leader-keys-for-minor-mode 'citre-mode
-  "gj" 'citre-jump
-  "gJ" 'citre-jump-back
-  "gp" 'citre-peek
-  "gP" 'citre-ace-peek
-  "gR" 'citre-peek-references
-  "gu" 'citre-update-this-tags-file)
+(with-eval-after-load 'citre-mode
+  (spacemacs/set-leader-keys-for-minor-mode 'citre-mode
+    "gj" 'citre-jump
+    "gJ" 'citre-jump-back
+    "gp" 'citre-peek
+    "gP" 'citre-ace-peek
+    "gR" 'citre-peek-references
+    "gu" 'citre-update-this-tags-file))
 
 (setq citre-peek-keymap
       (let ((map (make-sparse-keymap)))

@@ -47,7 +47,7 @@ Force the typescript-format keybinding to `,=='."
 (defun claude-prog//setup-lsp-jump-handler (func)
   "Advice around `spacemacs//setup-lsp-jump-handler'.
 Set jump handler for LSP without async."
-  (if citre-mode
+  (if (bound-and-true-p citre-mode)
       (add-to-list 'spacemacs-jump-handlers 'lsp-ui-peek-find-definitions)
     (funcall func)))
 
