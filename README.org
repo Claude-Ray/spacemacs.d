@@ -5,7 +5,7 @@
 * Setup
 ** Dependencies
 - GNU Linux or MacOS 10.15+
-- Emacs 27.2+
+- Emacs 28.1+
 
 ** Installation
 *** Formulae
@@ -28,9 +28,16 @@ yay -S sqlfmt
 #+begin_src bash
 brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc poppler automake mactex ctags global rust-analyzer
 #+end_src
-*** Formatters && Linters
+*** Node.js Modules
 #+begin_src bash
-npm install -g prettier typescript typescript-language-server tslint eslint eslint_d vscode-json-languageserver pyright vls dockerfile-language-server-nodejs
+npm install -g \
+    eslint eslint_d tslint \
+    prettier import-js \
+    typescript typescript-language-server \
+    vscode-json-languageserver \
+    vls \
+    pyright \
+    dockerfile-language-server-nodejs
 #+end_src
 *** Fonts
 PragmataPro 0.829
