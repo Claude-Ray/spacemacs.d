@@ -12,6 +12,7 @@
 (defconst claude-org-packages
   '(
     (org :location built-in)
+    org-present
     org-roam
     plantuml-mode
     valign
@@ -120,6 +121,14 @@
   (setq org-archive-location "archive/%s::* Archived Tasks")
 
   (advice-add 'org-cycle :around #'claude-org//org-cycle-advice))
+
+(defun claude-org/post-init-org-present ()
+  (add-hook 'org-present-mode-hook #'spacemacs/toggle-mode-line-off)
+  (add-hook 'org-present-mode-hook #'spacemacs/toggle-fullscreen-frame-on)
+  (add-hook 'org-present-mode-hook #'claude-ui/toggle-maximize-buffer-on)
+  (add-hook 'org-present-mode-quit-hook #'spacemacs/toggle-mode-line-on)
+  (add-hook 'org-present-mode-quit-hook #'spacemacs/toggle-fullscreen-frame-off)
+  (add-hook 'org-present-mode-quit-hook #'claude-ui/toggle-maximize-buffer-off))
 
 (defun claude-org/init-org-roam ()
   (use-package org-roam

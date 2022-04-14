@@ -79,3 +79,19 @@ This function can be used to update the window-margins dynamically."
   (set-frame-parameter
    frame 'undecorated
    (not (frame-parameter nil 'undecorated))))
+
+(defvar-local claude--maximize-buffer-p nil
+  "Whether the current buffer has been temporarily maximized.")
+
+(defun claude-ui/toggle-maximize-buffer-on ()
+  (interactive)
+  (unless (one-window-p t)
+    (setq-local claude--maximize-buffer-p t)
+    (spacemacs/toggle-maximize-buffer)))
+
+(defun claude-ui/toggle-maximize-buffer-off ()
+  (interactive)
+  (when (and (bound-and-true-p claude--maximize-buffer-p)
+             (one-window-p t))
+    (setq-local claude--maximize-buffer-p nil)
+    (spacemacs/toggle-maximize-buffer)))
