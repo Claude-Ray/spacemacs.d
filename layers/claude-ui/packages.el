@@ -11,6 +11,7 @@
 
 (defconst claude-ui-packages
   '(
+    all-the-icons
     all-the-icons-dired
     all-the-icons-ibuffer
     all-the-icons-ivy-rich
@@ -27,6 +28,21 @@
                           :repo "amosbird/realign-mode.el"))
     writeroom-mode
     ))
+
+(defun claude-ui/post-init-all-the-icons ()
+  (with-eval-after-load 'all-the-icons
+    (dolist (icon
+             '(("bat"  all-the-icons-alltheicon "terminal" :face all-the-icons-lsilver)
+               ("cmd"  all-the-icons-alltheicon "terminal" :face all-the-icons-lsilver)
+               ("conf" all-the-icons-octicon "settings" :v-adjust 0.0 :face all-the-icons-yellow)
+               ("epub" all-the-icons-faicon "book" :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
+               ("exe"  all-the-icons-octicon "file-binary" :v-adjust 0.0 :face all-the-icons-dsilver)
+               ("http" all-the-icons-material "http" :face all-the-icons-blue)
+               ("mjs" all-the-icons-alltheicon "javascript" :height 1.0 :v-adjust 0.0 :face all-the-icons-yellow)
+               ("mobi" all-the-icons-faicon "book" :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
+               ("plantuml" all-the-icons-material "border_color" :face all-the-icons-green)
+               ("toml" all-the-icons-octicon "settings" :v-adjust 0.0 :face all-the-icons-yellow)))
+      (add-to-list 'all-the-icons-extension-icon-alist icon))))
 
 (defun claude-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
