@@ -42,7 +42,9 @@
                ("mobi" all-the-icons-faicon "book" :height 1.0 :v-adjust -0.1 :face all-the-icons-green)
                ("plantuml" all-the-icons-material "border_color" :face all-the-icons-green)
                ("toml" all-the-icons-octicon "settings" :v-adjust 0.0 :face all-the-icons-yellow)))
-      (add-to-list 'all-the-icons-extension-icon-alist icon))))
+      (add-to-list 'all-the-icons-extension-icon-alist icon))
+    (add-to-list 'all-the-icons-regexp-icon-alist
+                 '("persp-auto-save" all-the-icons-fileicon "elisp" :v-adjust -0.2 :face all-the-icons-dsilver))))
 
 (defun claude-ui/init-all-the-icons-dired ()
   (use-package all-the-icons-dired
