@@ -91,18 +91,20 @@
 
   ;; org-capture
   (setq org-capture-templates
-        '(("t" "Todo" entry (file+headline claude--org-inbox-file "Tasks")
-           "* TODO %?\n %i\n %a")
+        '(("c" "Today" entry (file+headline claude--org-work-file "Today")
+           "* TODO [#A] %?\n%i\n%U")
+          ("t" "Todo" entry (file+headline claude--org-inbox-file "Tasks")
+           "* TODO %?\n%i\n%U")
           ("w" "Work" entry (file+headline claude--org-inbox-file "Works")
-           "* TODO %?\n %i\n %U")
+           "* TODO [#C] %?\n%i\n%U")
           ("i" "Idea" entry (file+headline claude--org-inbox-file "Ideas")
-           "* TODO %?\n %i\n %U")
+           "* TODO %?\n%i\n%U")
           ("m" "Mark" entry (file+headline claude--org-inbox-file "Marks")
-           "* %?\n %i\n %U %a")
+           "* %?\n %i\n%U%a")
           ("n" "Note" entry (file+headline claude--org-inbox-file "Notes")
-           "* %?\n %i\n %U")
+           "* %?\n%i\n%U")
           ("j" "Journal" entry (file+headline claude--org-journal-file "Journals")
-           "* %?\n %i\n %U"
+           "* %?\n%i\n%U"
            :empty-lines 1)))
 
   ;; org-refile
