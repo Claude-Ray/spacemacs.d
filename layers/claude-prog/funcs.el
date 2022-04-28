@@ -110,7 +110,8 @@ Set jump handler for LSP without async."
   (save-buffer)
   (cond ((or (eq major-mode 'js-mode)
              (eq major-mode 'js2-mode))
-         (compile (concat "node " (file-relative-name buffer-file-name)))))
+         (compile (concat "node " (shell-quote-argument
+                                   (file-relative-name buffer-file-name))))))
   (add-hook 'kill-buffer-hook #'claude-prog//kill-compilation-hook nil t))
 
 (defun claude-prog/smart-run-pop ()
