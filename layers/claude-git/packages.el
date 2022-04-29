@@ -21,10 +21,15 @@
 
 (defun claude-git/post-init-git-link ()
   (with-eval-after-load 'git-link
-    (add-to-list 'git-link-remote-alist
-                 '("git.guahao-inc.com" git-link-gitlab))
-    (add-to-list 'git-link-commit-remote-alist
-                 '("git.guahao-inc.com" git-link-commit-github))))
+    (require 'auth-source)
+    (dolist (p (auth-source-search
+                :user "gitlab-host" :require '(:host)))
+      (let* ((host (plist-get p :host))
+             (gitlab-host (if (functionp host) (funcall host) host)))
+        (add-to-list 'git-link-remote-alist
+                     `(,gitlab-host git-link-gitlab))
+        (add-to-list 'git-link-commit-remote-alist
+                     `(,gitlab-host git-link-commit-github))))))
 
 (defun claude-git/post-init-magit ()
   (setq magit-revision-insert-related-refs nil)

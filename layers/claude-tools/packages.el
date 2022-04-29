@@ -18,6 +18,7 @@
     cal-china-x
     (calfw :toggle claude-enable-calfw)
     (calfw-org :toggle claude-enable-calfw)
+    confluence
     devdocs-browser
     pdf-tools
     restclient
@@ -61,6 +62,16 @@
     (let ((map cfw:org-schedule-map))
       (define-key map (kbd "TAB") 'cfw:org-open-agenda-day)
       (evil-define-key 'normal map (kbd "q") 'bury-buffer))))
+
+(defun claude-tools/post-init-confluence ()
+  (setq confluence-save-credentials t)
+  (with-eval-after-load 'confluence
+    (require 'auth-source)
+    (let* ((p (car (auth-source-search
+                    :max 1 :user "confluence-url" :require '(:host))))
+           (host (plist-get p :host))
+           (url (if (functionp host) (funcall host) host)))
+      (setq confluence-url url))))
 
 (defun claude-tools/init-devdocs-browser ()
   (use-package devdocs-browser
