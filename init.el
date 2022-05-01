@@ -73,7 +73,7 @@ This function should only modify configuration layer settings."
               :variables
               chinese-enable-avy-pinyin nil
               chinese-default-input-method nil)
-     confluence
+     (confluence :packages (not confluence))
      csv
      (dash :variables
            dash-autoload-common-docsets nil)

@@ -18,7 +18,7 @@
     cal-china-x
     (calfw :toggle claude-enable-calfw)
     (calfw-org :toggle claude-enable-calfw)
-    confluence
+    (confluence :location local)
     devdocs-browser
     pdf-tools
     restclient
@@ -63,15 +63,32 @@
       (define-key map (kbd "TAB") 'cfw:org-open-agenda-day)
       (evil-define-key 'normal map (kbd "q") 'bury-buffer))))
 
-(defun claude-tools/post-init-confluence ()
-  (setq confluence-save-credentials t)
-  (with-eval-after-load 'confluence
-    (require 'auth-source)
-    (let* ((p (car (auth-source-search
-                    :max 1 :user "confluence-url" :require '(:host))))
-           (host (plist-get p :host))
+(defun claude-tools/init-confluence ()
+  (use-package confluence
+    :defer t
+    :commands (confluence-get-page confluence-search)
+    :config
+    (progn
+      ;; remove the hook on buffer save that automatically store the buffer
+      ;; in confluence, it creates a lot of useless revision in a page history.
+      (advice-add 'confluence-base-mode-init
+                  :after 'spacemacs//confluence-remove-save-hook)
+      (dolist (mode '(confluence-mode
+                      confluence-xml-mode
+                      confluence-search-mode))
+        (spacemacs/set-leader-keys-for-major-mode mode
+          "s" 'spacemacs/confluence-save-to-confluence-minor-edit)
+        (spacemacs/set-leader-keys-for-major-mode mode
+          "S" 'spacemacs/confluence-save-to-confluence-major-edit)
+        (spacemacs/set-leader-keys-for-major-mode mode
+          "TAB" 'confluence-toggle-page-content-type))
+      (setq confluence-save-credentials t)
+      (require 'auth-source)
+      (let* ((p (car (auth-source-search
+                      :max 1 :user "confluence-url" :require '(:host))))
+             (host (plist-get p :host))
            (url (if (functionp host) (funcall host) host)))
-      (setq confluence-url url))))
+        (setq confluence-url url)))))
 
 (defun claude-tools/init-devdocs-browser ()
   (use-package devdocs-browser
