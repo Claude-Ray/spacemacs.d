@@ -34,7 +34,7 @@ npm install -g \
     eslint eslint_d tslint \
     prettier import-js \
     typescript typescript-language-server \
-    vscode-json-languageserver \
+    vscode-langservers-extracted \
     vls \
     pyright \
     dockerfile-language-server-nodejs
