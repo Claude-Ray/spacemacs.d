@@ -15,7 +15,11 @@
                    (append prettify-symbols-alist
                            pragmatapro-prettify-symbols-alist)
                  (append pragmatapro-prettify-symbols-alist
-                         prettify-symbols-alist))))
+                         ;; XXX: Since "||" is not in pragmatapro alist,
+                         ;; it looks weird when "||" is composed as `?∨'
+                         ;; in a different style than "&&".
+                         (delq (assoc "||" prettify-symbols-alist)
+                               prettify-symbols-alist)))))
     (setq prettify-symbols-alist alist)))
 
 (defun claude-ui//larger-buffer-face ()
