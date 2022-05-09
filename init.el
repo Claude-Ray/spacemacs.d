@@ -137,6 +137,7 @@ This function should only modify configuration layer settings."
              "/usr/share/emacs/site-lisp/mu4e"))
      multiple-cursors
      nginx
+     ocaml
      (org :packages (not valign
                          org-roam
                          org-roam-server)
@@ -147,6 +148,7 @@ This function should only modify configuration layer settings."
      (osx :variables
           osx-command-as 'super
           osx-use-dictionary-app nil)
+     pass
      pandoc
      (pdf :variables
           pdf-view-use-scaling t)
