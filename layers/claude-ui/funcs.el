@@ -9,6 +9,12 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-ui//append-pragmatapro-prettify-symbols-alist ()
+  "Append pragmatapro to prettify-symbols-alist instead of a full reset."
+  (setq prettify-symbols-alist
+        (append pragmatapro-prettify-symbols-alist
+                prettify-symbols-alist)))
+
 (defun claude-ui//larger-buffer-face ()
   "Sets a larger font in current buffer"
   (setq-local buffer-face-mode-face '(:height 160))

@@ -190,6 +190,7 @@
 (defun claude-prog/post-init-tuareg ()
   (setq tuareg-opam-insinuate t
         tuareg-prettify-symbols-full t)
+  (add-hook 'tuareg-mode-hook 'turn-on-prettify-symbols-mode)
   (with-eval-after-load 'tuareg
     (tuareg-opam-update-env (tuareg-opam-current-compiler))))
 

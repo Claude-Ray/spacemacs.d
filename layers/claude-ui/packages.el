@@ -143,6 +143,8 @@
 (defun claude-ui/init-pragmatapro ()
   (when (display-graphic-p)
     (require 'pragmatapro-prettify-symbols)
+    (advice-add 'add-pragmatapro-prettify-symbols-alist
+                :override #'claude-ui//append-pragmatapro-prettify-symbols-alist)
     (add-hook 'prog-mode-hook 'pragmatapro-prettify-symbols-hook)))
 
 (defun claude-ui/post-init-ranger ()
