@@ -19,10 +19,12 @@
     lua-mode
     js2-mode
     npm-mode
+    ocp-indent
     python
     quickrun
     sqlfmt
     tide
+    tuareg
     typescript-mode
     web-mode
     ))
@@ -137,6 +139,13 @@
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode
     "nc" 'npm-mode-npm-clean))
 
+(defun claude-prog/post-init-ocp-indent ()
+  (with-eval-after-load 'ocp-indent
+    (defun ocp-indent-buffer ()
+      "FIXME: Args out of range: 0 since emacs 28"
+      (interactive nil)
+      (ocp-indent-region 1 (buffer-size)))))
+
 (defun claude-prog/post-init-python ()
   (setq python-indent-guess-indent-offset-verbose nil))
 
@@ -177,6 +186,12 @@
 
 (defun claude-prog/post-init-tide ()
   (setq tide-format-options '(:tabSize 2 :indentSize 2)))
+
+(defun claude-prog/post-init-tuareg ()
+  (setq tuareg-opam-insinuate t
+        tuareg-prettify-symbols-full t)
+  (with-eval-after-load 'tuareg
+    (tuareg-opam-update-env (tuareg-opam-current-compiler))))
 
 (defun claude-prog/post-init-typescript-mode ()
   (setq-default typescript-indent-level 2)
