@@ -11,9 +11,12 @@
 
 (defun claude-ui//append-pragmatapro-prettify-symbols-alist ()
   "Append pragmatapro to prettify-symbols-alist instead of a full reset."
-  (setq prettify-symbols-alist
-        (append pragmatapro-prettify-symbols-alist
-                prettify-symbols-alist)))
+  (let ((alist (if (eq major-mode 'tuareg-mode)
+                   (append prettify-symbols-alist
+                           pragmatapro-prettify-symbols-alist)
+                 (append pragmatapro-prettify-symbols-alist
+                         prettify-symbols-alist))))
+    (setq prettify-symbols-alist alist)))
 
 (defun claude-ui//larger-buffer-face ()
   "Sets a larger font in current buffer"
