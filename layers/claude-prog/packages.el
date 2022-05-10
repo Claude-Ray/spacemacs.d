@@ -188,9 +188,7 @@
   (setq tide-format-options '(:tabSize 2 :indentSize 2)))
 
 (defun claude-prog/post-init-tuareg ()
-  (setq tuareg-opam-insinuate t
-        tuareg-prettify-symbols-full t)
-  (add-hook 'tuareg-mode-hook 'turn-on-prettify-symbols-mode)
+  (setq tuareg-opam-insinuate t)
   (with-eval-after-load 'tuareg
     (tuareg-opam-update-env (tuareg-opam-current-compiler))))
 
