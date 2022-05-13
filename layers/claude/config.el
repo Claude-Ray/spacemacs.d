@@ -32,8 +32,3 @@
         ("https" . "127.0.0.1:7890")))
 
 (add-hook 'spacemacs-scratch-mode-hook #'claude//spacemacs-scratch-mode-hook)
-
-(advice-add 'spacemacs/set-leader-keys-for-major-mode
-            :around #'claude//set-leader-keys-after-mode-load)
-(advice-add 'spacemacs/set-leader-keys-for-minor-mode
-            :around #'claude//set-leader-keys-after-mode-load)
