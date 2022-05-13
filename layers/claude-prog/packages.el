@@ -19,6 +19,7 @@
     lua-mode
     js2-mode
     npm-mode
+    ocamlformat
     ocp-indent
     python
     quickrun
@@ -139,8 +140,23 @@
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode
     "nc" 'npm-mode-npm-clean))
 
-(defun claude-prog/post-init-ocp-indent ()
-  (with-eval-after-load 'ocp-indent
+(defun claude-prog/init-ocamlformat ()
+  (use-package ocamlformat
+    :defer t
+    :commands ocamlformat
+    :init
+    (add-hook 'tuareg-mode-hook #'claude-prog//ocaml-fmt-before-save-hook)
+    :config
+    (setq ocamlformat-enable 'enable-outside-detected-project)))
+
+(defun claude-prog/init-ocp-indent ()
+  (use-package ocp-indent
+    :defer t
+    :init
+    (add-hook 'tuareg-mode-hook 'ocp-indent-caml-mode-setup)
+    (spacemacs/set-leader-keys-for-major-mode 'tuareg-mode
+      "==" 'ocp-indent-buffer)
+    :config
     (defun ocp-indent-buffer ()
       "FIXME: Args out of range: 0 since emacs 28"
       (interactive nil)

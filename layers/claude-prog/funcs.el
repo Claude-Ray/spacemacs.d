@@ -125,3 +125,6 @@ Set jump handler for LSP without async."
   (unless (ignore-errors
             (funcall func))
     (display-buffer "*sqlfmt*")))
+
+(defun claude-prog//ocaml-fmt-before-save-hook ()
+  (add-hook 'before-save-hook 'ocamlformat nil t))

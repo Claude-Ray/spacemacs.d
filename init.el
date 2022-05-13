@@ -137,7 +137,7 @@ This function should only modify configuration layer settings."
              "/usr/share/emacs/site-lisp/mu4e"))
      multiple-cursors
      nginx
-     ocaml
+     (ocaml :packages (not ocamlformat ocp-indent))
      (org :packages (not valign
                          org-roam
                          org-roam-server)
