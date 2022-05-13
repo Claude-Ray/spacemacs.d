@@ -38,3 +38,11 @@ https://github.com/emacs-ess/ESS/issues/1115"
 (defun claude//spacemacs-scratch-mode-hook ()
   "Disable confirmation prompt when killing the scratch buffer."
   (remove-hook 'kill-buffer-hook #'spacemacs//confirm-kill-buffer t))
+
+(defun claude//set-leader-keys-after-mode-load (func &rest args)
+  "Adivce around `spacemacs/set-leader-keys-for-major-mode' and
+`spacemacs/set-leader-keys-for-minor-mode'.
+Fix the `Symbol’s value as variable is void`."
+  (let ((mode (car args)))
+    (with-eval-after-load mode
+      (apply func args))))
