@@ -29,4 +29,5 @@
 
 (spacemacs/set-leader-keys
   (kbd "bB") 'ivy-switch-buffer-other-window
-  (kbd "fF") 'find-file-other-window)
+  (kbd "fF") 'find-file-other-window
+  (kbd "fz") 'counsel-fzf)
