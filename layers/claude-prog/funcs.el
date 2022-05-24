@@ -128,3 +128,8 @@ Set jump handler for LSP without async."
 
 (defun claude-prog//ocaml-fmt-before-save-hook ()
   (add-hook 'before-save-hook 'ocamlformat nil t))
+
+(defun claude-prog/web-format-buffer ()
+  (interactive)
+  (prettier-js)
+  (lsp-eslint-apply-all-fixes))

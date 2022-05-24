@@ -13,6 +13,10 @@
   (define-key js-mode-map (kbd "s-r") #'claude-prog/smart-run)
   (define-key js-mode-map (kbd "s-R") #'claude-prog/smart-run-pop))
 
+(with-eval-after-load 'web-mode
+  (spacemacs/set-leader-keys-for-major-mode 'vue-mode
+    "==" 'claude-prog/vue-format-buffer))
+
 (spacemacs/set-leader-keys ",c" #'claude-prog/contest)
 
 (with-eval-after-load 'citre-mode
