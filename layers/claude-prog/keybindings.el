@@ -15,7 +15,9 @@
 
 (with-eval-after-load 'web-mode
   (spacemacs/set-leader-keys-for-major-mode 'vue-mode
-    "==" 'claude-prog/vue-format-buffer))
+    "==" #'claude-prog/web-format-buffer)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+    "=e" #'claude-prog/web-format-buffer))
 
 (spacemacs/set-leader-keys ",c" #'claude-prog/contest)
 
