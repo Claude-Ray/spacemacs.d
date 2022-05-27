@@ -370,7 +370,7 @@ It should only modify the values of Spacemacs settings."
    ;; with 2 themes variants, one dark and one light)
    ;; NOTE: Automatic switching themes on time of day via `circadian'
    dotspacemacs-themes (if (display-graphic-p)
-                           '(doom-solarized-light doom-gruvbox)
+                           '(doom-solarized-light zenburn)
                          '(doom-gruvbox))
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',

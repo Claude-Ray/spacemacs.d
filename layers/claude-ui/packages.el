@@ -27,6 +27,7 @@
                   (recipe :fetcher github
                           :repo "amosbird/realign-mode.el"))
     writeroom-mode
+    zenburn-theme
     ))
 
 (defun claude-ui/post-init-all-the-icons ()
@@ -69,7 +70,7 @@
     :if (display-graphic-p)
     :init
     (setq circadian-themes '(("8:00" . doom-solarized-light)
-                             ("18:00" . doom-gruvbox)))
+                             ("18:00" . zenburn)))
     (advice-add 'circadian-enable-theme
                 :before-until #'claude-ui//theme-enabled-p)
     (run-with-idle-timer 1 nil 'circadian-setup)))
@@ -173,3 +174,7 @@
   (setq writeroom-fringes-outside-margins nil
         writeroom-fullscreen-effect 'maximized
         writeroom-width 120))
+
+(defun claude-ui/init-zenburn-theme ()
+  (use-package zenburn-theme
+    :defer t))
