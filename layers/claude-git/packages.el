@@ -14,6 +14,7 @@
     forge
     git-link
     magit
+    vc
     ))
 
 (defun claude-git/pre-init-forge ()
@@ -38,3 +39,8 @@
   (with-eval-after-load 'magit
     (transient-append-suffix 'magit-commit "c"
       '("d" "Commit without diff" claude-git/magit-commit-without-diff))))
+
+(defun claude-git/post-init-vc ()
+  ;; XXX: Symbol’s value as variable is void: vc-svn-log-view-mode-map
+  (with-eval-after-load 'log-view
+    (require 'vc-svn)))
