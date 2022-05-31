@@ -161,7 +161,8 @@ This function should only modify configuration layer settings."
              ranger-enter-with-minus nil)
      react
      restclient
-     (rust :variables
+     (rust :packages (not dap-mode)
+           :variables
            rust-backend 'lsp)
      (shell :variables
             shell-default-shell 'vterm)
