@@ -11,13 +11,13 @@
 
 (with-eval-after-load 'js2-mode
   (define-key js-mode-map (kbd "s-r") #'claude-prog/smart-run)
-  (define-key js-mode-map (kbd "s-R") #'claude-prog/smart-run-pop))
+  (define-key js-mode-map (kbd "s-R") #'claude-prog/smart-run-pop)
+  (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+    "=e" #'claude-prog/web-format-buffer))
 
 (with-eval-after-load 'web-mode
   (spacemacs/set-leader-keys-for-major-mode 'vue-mode
-    "==" #'claude-prog/web-format-buffer)
-  (spacemacs/set-leader-keys-for-major-mode 'js2-mode
-    "=e" #'claude-prog/web-format-buffer))
+    "==" #'claude-prog/web-format-buffer))
 
 (spacemacs/set-leader-keys ",c" #'claude-prog/contest)
 

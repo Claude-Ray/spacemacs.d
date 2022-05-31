@@ -154,7 +154,11 @@ This function should only modify configuration layer settings."
           pdf-view-use-scaling t)
      plantuml
      protobuf
-     (python :variables
+     (python :packages
+             ;; XXX: mapcar: Symbol’s value as variable is void: code-cells-mode
+             ;; when calling keybinding set by set-leader-keys
+             (not code-cells)
+             :variables
              python-backend 'lsp
              python-lsp-server 'pyright)
      (ranger :variables
