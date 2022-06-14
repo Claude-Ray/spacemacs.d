@@ -64,3 +64,7 @@
   ;; Disable menu-bar in OSX GUI by default
   ;; (setq ns-auto-hide-menu-bar t)
   (menu-bar-mode -1))
+
+;; Reset `fixed-pitch' to make faces fallback to the `dotspacemacs-default-font'.
+;; This ensures that the fonts in different regions are the same.
+(custom-set-faces '(fixed-pitch ((t (:family nil)))))
