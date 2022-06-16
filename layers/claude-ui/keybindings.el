@@ -10,3 +10,6 @@
 ;;; License: GPLv3
 
 (spacemacs/set-leader-keys "wcf" #'claude-ui/toggle-realign-padding)
+
+(spacemacs/set-leader-keys "Tp"
+  'spacemacs/theme-transient-state/spacemacs/cycle-spacemacs-theme-backward)
