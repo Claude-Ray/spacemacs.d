@@ -30,4 +30,5 @@
 (spacemacs/set-leader-keys
   (kbd "bB") 'ivy-switch-buffer-other-window
   (kbd "fF") 'find-file-other-window
+  (kbd "fp") 'projectile-find-file-in-directory
   (kbd "fz") 'counsel-fzf)
