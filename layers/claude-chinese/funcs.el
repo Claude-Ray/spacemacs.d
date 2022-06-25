@@ -28,5 +28,8 @@
   (let ((gts-translate-list '(("en" "zh") ("zh" "en"))))
     (gts-translate (gts-translator
                     :picker (gts-prompt-picker)
-                    :engines (gts-google-engine)
+                    :engines (list (gts-google-engine)
+                                   (gts-google-rpc-engine
+                                    :url "https://translate.google.com")
+                                   (gts-bing-engine))
                     :render (gts-buffer-render)))))

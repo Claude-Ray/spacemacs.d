@@ -35,7 +35,10 @@
           gts-default-translator
           (gts-translator
            :picker (gts-noprompt-picker)
-           :engines (gts-google-engine)
+           :engines (list (gts-google-engine)
+                          (gts-google-rpc-engine
+                           :url "https://translate.google.com")
+                          (gts-bing-engine))
            :render (gts-buffer-render))
           gts-translate-list '(("en" "zh")))
     (advice-add 'gts-buffer-display-or-focus-buffer
