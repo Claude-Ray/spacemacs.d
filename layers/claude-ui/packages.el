@@ -151,6 +151,8 @@
         ranger-hidden-regexp '("^\\.\\|^node_modules$")
         ranger-override-dired 'ranger
         ranger-show-literal nil)
+  (when ranger-override-dired
+    (spacemacs/set-leader-keys "fj" ranger-override-dired))
   (with-eval-after-load 'ranger
     (define-key ranger-mode-map (kbd "C-h") nil)))
 
