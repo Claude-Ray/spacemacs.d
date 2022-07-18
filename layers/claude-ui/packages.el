@@ -151,10 +151,10 @@
         ranger-hidden-regexp '("^\\.\\|^node_modules$")
         ranger-override-dired 'ranger
         ranger-show-literal nil)
-  (add-hook 'magit-mode-hook #'claude-ui/ranger-minimal)
   (when ranger-override-dired
     (spacemacs/set-leader-keys "fj" ranger-override-dired))
   (with-eval-after-load 'ranger
+    (add-hook 'magit-mode-hook #'claude-ui/ranger-minimal)
     (define-key ranger-mode-map (kbd "C-h") nil)))
 
 (defun claude-ui/init-realign-mode ()
