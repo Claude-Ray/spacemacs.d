@@ -95,3 +95,11 @@ This function can be used to update the window-margins dynamically."
              (one-window-p t))
     (setq-local claude--maximize-buffer-p nil)
     (spacemacs/toggle-maximize-buffer)))
+
+(defun claude-ui/ranger-minimal ()
+  "Toggle minimal (deer) when opening magit in ranger."
+  (interactive)
+  (when (or (ranger-windows-exists-p)
+            (ranger-frame-exists-p))
+    (unless (r--fget ranger-minimal)
+      (ranger-minimal-toggle))))
