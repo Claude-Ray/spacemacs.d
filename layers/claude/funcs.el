@@ -38,3 +38,9 @@ https://github.com/emacs-ess/ESS/issues/1115"
 (defun claude//spacemacs-scratch-mode-hook ()
   "Disable confirmation prompt when killing the scratch buffer."
   (remove-hook 'kill-buffer-hook #'spacemacs//confirm-kill-buffer t))
+
+(defun spacemacs/find-user-init-file ()
+  "Edit the `user-init-file', in the current window.
+FIXME: Compatibility fix for chemacs."
+  (interactive)
+  (find-file-existing (expand-file-name "init.el" user-emacs-directory)))
