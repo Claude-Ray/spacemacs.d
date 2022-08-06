@@ -44,3 +44,18 @@ https://github.com/emacs-ess/ESS/issues/1115"
 FIXME: Compatibility fix for chemacs."
   (interactive)
   (find-file-existing (expand-file-name "init.el" user-emacs-directory)))
+
+(defun unicode-fonts//setup-fonts (frame)
+  "Setup `unicode-fonts' package for FRAME.
+
+This functions setups `unicode-fonts' right away when starting a GUI Emacs.
+But if Emacs is running in a daemon, it postpone the setup until a GUI frame
+is opened.
+
+FIXME: Symbol’s function definition is void: unicode-fonts//setup-fonts."
+  (if (and frame (display-graphic-p frame))
+      (with-selected-frame frame
+        (require 'unicode-fonts)
+        (unicode-fonts-setup)
+        (remove-hook 'after-make-frame-functions #'unicode-fonts//setup-fonts))
+    (add-hook 'after-make-frame-functions #'unicode-fonts//setup-fonts)))
