@@ -59,6 +59,22 @@
                                 "&merge_request[target_branch]=" target)))))
     (browse-url url)))
 
+(defun claude-git/gitlab-review-dashboard ()
+  "Review merge requests in browser."
+  (interactive)
+  (require 'auth-source)
+  (dolist (p (auth-source-search :user "gitlab-host"
+                                 :require '(:host :secret)))
+    (let* ((host (plist-get p :host))
+           (user (plist-get p :secret))
+           (gitlab-host (if (functionp host) (funcall host) host))
+           (gitlab-user (if (functionp user) (funcall user) user))
+           (url (concat "https://"
+                        gitlab-host
+                        "/dashboard/merge_requests?assignee_username="
+                        gitlab-user)))
+      (browse-url url))))
+
 (defun claude-git/magit-commit-without-diff (&optional args)
   "Don't show the relevant diff while committing."
   (interactive)

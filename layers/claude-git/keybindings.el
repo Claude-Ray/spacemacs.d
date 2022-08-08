@@ -12,6 +12,7 @@
 (with-eval-after-load 'magit
   (define-key magit-mode-map (kbd "h") #'magit-diff-toggle-refine-hunk)
   (define-key magit-mode-map (kbd ",i") #'claude-git/gitlab-init-feature)
-  (define-key magit-mode-map (kbd ",m") #'claude-git/gitlab-merge-request))
+  (define-key magit-mode-map (kbd ",m") #'claude-git/gitlab-merge-request)
+  (define-key magit-mode-map (kbd ",r") #'claude-git/gitlab-review-dashboard))
 
 (spacemacs/set-leader-keys (kbd "gh") 'vc-region-history)
