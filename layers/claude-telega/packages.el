@@ -39,8 +39,6 @@
     :init
     (unless (display-graphic-p) (setq telega-use-images nil))
     :config
-    ;; NOTE: Fix mode line by resetting width
-    (doom-modeline--set-char-widths doom-modeline-rhs-icons-alist)
     (setq telega-proxies
           (list '(:server "127.0.0.1" :port 7891 :enable t
                           :type (:@type "proxyTypeSocks5"))))
