@@ -20,6 +20,7 @@
     (calfw-org :toggle claude-enable-calfw)
     (confluence :location local)
     devdocs-browser
+    eww
     pdf-tools
     restclient
     sicp
@@ -87,7 +88,7 @@
       (let* ((p (car (auth-source-search
                       :max 1 :user "confluence-url" :require '(:host))))
              (host (plist-get p :host))
-           (url (if (functionp host) (funcall host) host)))
+             (url (if (functionp host) (funcall host) host)))
         (setq confluence-url url)))))
 
 (defun claude-tools/init-devdocs-browser ()
@@ -98,6 +99,34 @@
           (expand-file-name "devdocs-browser" spacemacs-cache-directory))
     (global-set-key (kbd "C-c b") 'devdocs-browser-open)
     (global-set-key (kbd "C-c B") 'devdocs-browser-open-in)))
+
+(defun claude-tools/init-eww ()
+  (use-package eww
+    :defer t
+    :config
+    (let ((mode 'eww-mode))
+      (spacemacs/declare-prefix-for-mode mode "mv" "view")
+      (spacemacs/declare-prefix-for-mode mode "ml" "list")
+      (spacemacs/set-leader-keys-for-major-mode mode
+        "o" 'browse-web
+        "r" 'eww-reload
+        "h" 'eww-list-histories
+        "a" 'eww-add-bookmark
+        "lb" 'eww-list-buffers
+        "lo" 'eww-list-bookmarks
+        "vx" 'eww-browse-with-external-browser
+        "vf" 'eww-toggle-fonts
+        "vr" 'eww-readable
+        "vs" 'eww-view-source)
+      (evil-define-key 'normal eww-mode-map
+        "J" 'eww-back-url
+        "K" 'eww-forward-url
+        "H" 'eww-back-url
+        "L" 'eww-forward-url
+        "[" 'eww-previous-url
+        "]" 'eww-next-url
+        (kbd "C-j") 'shr-next-link
+        (kbd "C-k") 'shr-previous-link))))
 
 (defun claude-tools/post-init-pdf-tools ()
   (remove-hook 'pdf-view-mode-hook #'doom-modeline-set-pdf-modeline)
