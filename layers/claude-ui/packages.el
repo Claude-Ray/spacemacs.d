@@ -70,6 +70,8 @@
     :if (display-graphic-p)
     :init
     (setq circadian-themes '(("8:00" . doom-solarized-light)
+                             ("11:25" . spacemacs-light)
+                             ("13:25" . doom-solarized-light)
                              ("18:00" . zenburn)))
     (advice-add 'circadian-enable-theme
                 :before-until #'claude-ui//theme-enabled-p)
