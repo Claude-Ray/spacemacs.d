@@ -18,3 +18,11 @@ with the same name."
   (when (and same-name
              (get-buffer target-buffer-name))
     (kill-buffer target-buffer-name)))
+
+(defun claude-tools/dunstctl-close-all ()
+  (interactive)
+  (shell-command "dunstctl close-all"))
+
+(defun claude-tools/dunstctl-history-pop ()
+  (interactive)
+  (shell-command "dunstctl history-pop"))

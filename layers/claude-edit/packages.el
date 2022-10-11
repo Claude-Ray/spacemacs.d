@@ -11,6 +11,7 @@
 
 (defconst claude-edit-packages
   '(
+    avy
     edit-indirect
     evil
     evil-goggles
@@ -21,6 +22,9 @@
     undo-tree
     smartparens
     ))
+
+(defun claude-edit/post-init-avy ()
+  (evil-global-set-key 'motion (kbd "g/") #'evil-avy-goto-char-2))
 
 (defun claude-edit/init-edit-indirect ()
   "Used by `markdown-mode'"
