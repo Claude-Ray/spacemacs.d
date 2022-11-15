@@ -36,8 +36,7 @@
           (gts-translator
            :picker (gts-noprompt-picker)
            :engines (list (gts-google-engine)
-                          (gts-google-rpc-engine
-                           :url "https://translate.google.com")
+                          (gts-google-rpc-engine)
                           (gts-bing-engine))
            :render (gts-buffer-render))
           gts-translate-list '(("en" "zh")))
