@@ -17,9 +17,6 @@
 (defun claude-chinese//gts-display-buffer (buffer)
   "Advice after `gts-buffer-display-or-focus-buffer'."
   (with-current-buffer buffer
-    ;; Avoid `gts-buffer-set-key' changing *Help* buffers
-    (local-unset-key (kbd "q"))
-    (local-unset-key (kbd "C-g"))
     (help-mode)))
 
 (defun claude-chinese/gts-prompt-translate ()
