@@ -12,7 +12,7 @@
 (defvar claude--company-advice-p t
   "If non nil then company-advice is enabled.")
 
-(defvar claude--org-large-file-size (* 640 1024)
+(defvar claude--org-large-file-size (* 512 1024)
   "Size above which org will disable company to avoid performance issues.")
 
 (defun claude-completion//company-advice (func &rest args)
