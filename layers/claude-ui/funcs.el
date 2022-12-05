@@ -26,6 +26,7 @@
         (equal buffname "*rime-posframe*")
         (equal buffname "*flycheck-posframe-buffer*")
         (equal buffname "*Ediff Control Panel*")
+        (equal buffname "*leetcode*")
         (equal mode 'telega-chat-mode)
         (equal mode 'mu4e-view-mode)
         (equal mode 'mu4e-compose-mode)

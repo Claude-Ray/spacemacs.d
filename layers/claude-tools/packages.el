@@ -21,6 +21,7 @@
     (confluence :location local)
     devdocs-browser
     eww
+    leetcode
     pdf-tools
     restclient
     sicp
@@ -127,6 +128,17 @@
         "]" 'eww-next-url
         (kbd "C-j") 'shr-next-link
         (kbd "C-k") 'shr-previous-link))))
+
+(defun claude-tools/init-leetcode ()
+  (use-package leetcode
+    :defer t
+    :config
+    (setq leetcode-prefer-language "javascript"
+          leetcode-prefer-sql "mysql"
+          leetcode-save-solutions t
+          leetcode-directory "~/Documents/leetcode")
+    (define-key leetcode--problems-mode-map
+      (kbd "<return>") 'leetcode-show-current-problem)))
 
 (defun claude-tools/post-init-pdf-tools ()
   (remove-hook 'pdf-view-mode-hook #'doom-modeline-set-pdf-modeline)
