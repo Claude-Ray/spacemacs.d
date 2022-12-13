@@ -11,9 +11,15 @@
 
 (defconst claude-term-packages
   '(
+    clipetty
     shell-pop
     vterm
     ))
+
+(defun claude-term/init-clipetty ()
+  (use-package clipetty
+    :ensure t
+    :hook (after-init . global-clipetty-mode)))
 
 (defun claude-term/post-init-shell-pop ()
   (setq shell-pop-autocd-to-working-dir nil)
