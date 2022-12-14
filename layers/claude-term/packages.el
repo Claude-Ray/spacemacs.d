@@ -19,7 +19,11 @@
 (defun claude-term/init-clipetty ()
   (use-package clipetty
     :ensure t
-    :hook (after-init . global-clipetty-mode)))
+    :hook (after-init . global-clipetty-mode)
+    :config
+    (setq clipetty-assume-nested-mux t
+          clipetty-tmux-ssh-tty
+          "echo \"SSH_TTY=$(tmux display-message -p '#{pane_tty}')\"")))
 
 (defun claude-term/post-init-shell-pop ()
   (setq shell-pop-autocd-to-working-dir nil)
