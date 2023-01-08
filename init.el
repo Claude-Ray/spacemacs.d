@@ -728,8 +728,10 @@ FIXME: https://github.com/syl20bnr/spacemacs/issues/15366."
   (setq configuration-layer-elpa-archives
         '(("melpa" . "https://melpa.org/packages/")
           ;; ("melpa-cn" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+          ;; ("gnu"   . "http://elpa.gnu.org/packages/")
           ("gnu-cn"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-          ("nongnu"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
+          ;; ("nongnu"   . "http://elpa.nongnu.org/nongnu/")
+          ("nongnu-cn"   . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")))
   (setq native-comp-deferred-compilation nil
         native-comp-async-report-warnings-errors 'silent)
   (setq tramp-ssh-controlmaster-options
