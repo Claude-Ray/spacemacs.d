@@ -46,7 +46,7 @@
   (let* ((remote-ref (browse-at-remote--remote-ref))
          (remote (car remote-ref))
          (target-repo (browse-at-remote--get-url-from-remote remote))
-         (repo-url (cdr target-repo))
+         (repo-url (plist-get target-repo :url))
          (source (magit-get-current-branch))
          (is-dev-branch (string-prefix-p "dev_" source))
          (is-master-branch (string-equal source "master"))
