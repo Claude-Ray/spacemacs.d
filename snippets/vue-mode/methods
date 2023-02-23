@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: methods
+# key: methods
+# --
+methods: {
+  ${1:name}() {
+    $0
+  },
+},

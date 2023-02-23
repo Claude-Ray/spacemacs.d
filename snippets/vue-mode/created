@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: created
+# key: created
+# --
+created() {
+  $0
+},

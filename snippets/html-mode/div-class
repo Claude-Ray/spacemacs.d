@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: div with class
+# key: div.
+# --
+<div class="${1:className}">
+  $0
+</div>

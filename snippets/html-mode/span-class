@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: span with class
+# key: span.
+# --
+<span class="${1:className}">
+  $0
+</span>
