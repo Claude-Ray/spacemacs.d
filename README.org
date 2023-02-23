@@ -5,13 +5,13 @@
 * Setup
 ** Dependencies
 - GNU Linux or MacOS 10.15+
-- Emacs 28.1+
+- Emacs 28.2+
 
 ** Installation
 *** Formulae
 **** Arch Linux
 #+begin_src bash
-yay --editmenu -S emacs-pgtk-native-comp-git
+sudo pacman -S emacs-nativecomp
 #+end_src
 **** MacOS
 #+begin_src bash
@@ -35,7 +35,7 @@ npm install -g \
     prettier import-js \
     typescript typescript-language-server \
     vscode-langservers-extracted \
-    vls \
+    vls @volar/vue-language-server \
     pyright \
     dockerfile-language-server-nodejs
 #+end_src
