@@ -24,7 +24,9 @@
       (user-error "Empty input"))
     (let* ((today (format-time-string "%Y%m%d"))
            (user-name (magit-git-string "config" "user.name"))
-           (start-point "master")
+           ;; TEMP: Use a separate master branch for isolation
+           (start-point
+            (if (string-prefix-p "aliyun_" text) "master_aliyun" "master"))
            (branch-suffix (format "%s_%s_%s" text user-name today))
            (dev-branch (concat "dev_" branch-suffix))
            (test-branch (concat "test_" branch-suffix)))
