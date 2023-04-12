@@ -9,6 +9,16 @@
 ;;
 ;;; License: GPLv3
 
+(defun claude-edit//evil-mc-save-keys (flag pre-name post-name keys)
+  "Save KEYS at PRE-NAME or POST-NAME according to FLAG.
+
+FIXME: Fix `evil-change' by adding support for pre-read-key-sequence.
+https://github.com/gabesoft/evil-mc/issues/131"
+  (cl-ecase flag
+    (pre (evil-mc-add-command-property pre-name keys))
+    (post (evil-mc-add-command-property post-name keys))
+    (pre-read-key-sequence (evil-mc-add-command-property post-name keys))))
+
 (defun claude-edit/evil-mc-keyboard-quit ()
   "Delete all cursors when doing keyboard-quit."
   (interactive)

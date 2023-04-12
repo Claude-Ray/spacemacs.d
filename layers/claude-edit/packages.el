@@ -55,6 +55,7 @@
         evil-goggles-enable-paste nil))
 
 (defun claude-edit/post-init-evil-mc ()
+  (advice-add 'evil-mc-save-keys :override #'claude-edit//evil-mc-save-keys)
   (add-hook 'evil-mc-before-cursors-created
             #'claude-edit//evil-mc-before-created)
   (add-hook 'evil-mc-after-cursors-deleted
