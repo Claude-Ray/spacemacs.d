@@ -75,8 +75,6 @@ This function should only modify configuration layer settings."
               chinese-default-input-method nil)
      (confluence :packages (not confluence))
      csv
-     (dash :variables
-           dash-autoload-common-docsets nil)
      (deft :variables
        deft-directory "~/Documents/Note"
        deft-recursive t)
