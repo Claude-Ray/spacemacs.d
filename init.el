@@ -137,6 +137,7 @@ This function should only modify configuration layer settings."
      nginx
      (ocaml :packages (not ocamlformat ocp-indent))
      (org :packages (not valign
+                         org-rich-yank
                          org-roam
                          org-roam-server)
           :variables

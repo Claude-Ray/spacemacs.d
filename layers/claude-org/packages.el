@@ -13,6 +13,7 @@
   '(
     (org :location built-in)
     org-present
+    org-rich-yank
     org-roam
     plantuml-mode
     valign
@@ -131,6 +132,16 @@
   (add-hook 'org-present-mode-quit-hook #'spacemacs/toggle-mode-line-on)
   (add-hook 'org-present-mode-quit-hook #'spacemacs/toggle-fullscreen-frame-off)
   (add-hook 'org-present-mode-quit-hook #'claude-ui/toggle-maximize-buffer-off))
+
+(defun claude-org/init-org-rich-yank ()
+  "To reduce startup time, don't load org-rich-yank eagerly."
+  (use-package org-rich-yank
+    :after org
+    :init
+    (spacemacs/set-leader-keys-for-major-mode 'org-mode
+      ;; yank is a misnomer for this function which actually puts/pastes
+      ;; ir = "insert rich"
+      "ir" 'org-rich-yank)))
 
 (defun claude-org/init-org-roam ()
   (use-package org-roam
