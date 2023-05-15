@@ -207,7 +207,8 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that cannot be updated.
    ;; FIXME: https://github.com/universal-ctags/citre/issues/150
-   dotspacemacs-frozen-packages '(citre)
+   ;; Keep using all-the-icons in doom-modeline.
+   dotspacemacs-frozen-packages '(citre doom-modeline)
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
