@@ -19,6 +19,13 @@
   (with-current-buffer buffer
     (help-mode)))
 
+(defun claude-chinese/gts-to-translate ()
+  "Do the translate, then exit visual state."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (gts-do-translate)
+    (evil-exit-visual-state nil buffer)))
+
 (defun claude-chinese/gts-prompt-translate ()
   "Do the translate with `gts-prompt-picker'."
   (interactive)

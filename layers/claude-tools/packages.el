@@ -98,8 +98,8 @@
     :init
     (setq devdocs-browser-cache-directory
           (expand-file-name "devdocs-browser" spacemacs-cache-directory))
-    (global-set-key (kbd "C-c b") 'devdocs-browser-open)
-    (global-set-key (kbd "C-c B") 'devdocs-browser-open-in)))
+    (spacemacs/set-leader-keys "ob" #'devdocs-browser-open)
+    (spacemacs/set-leader-keys "oB" #'devdocs-browser-open-in)))
 
 (defun claude-tools/init-eww ()
   (use-package eww

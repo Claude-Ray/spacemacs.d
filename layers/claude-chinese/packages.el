@@ -27,8 +27,8 @@
   (use-package go-translate
     :defer t
     :init
-    (global-set-key (kbd "C-c t") #'gts-do-translate)
-    (global-set-key (kbd "C-c T") #'claude-chinese/gts-prompt-translate)
+    (spacemacs/set-leader-keys "ot" #'claude-chinese/gts-to-translate)
+    (spacemacs/set-leader-keys "oT" #'claude-chinese/gts-prompt-translate)
     :config
     (setq gts-buffer-follow-p t
           gts-buffer-name "*Help*"
