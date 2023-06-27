@@ -136,7 +136,7 @@
     (setq leetcode-prefer-language "javascript"
           leetcode-prefer-sql "mysql"
           leetcode-save-solutions t
-          leetcode-directory "~/Documents/leetcode")
+          leetcode-directory "~/Documents/leetcode/Algorithms")
     (define-key leetcode--problems-mode-map
       (kbd "<return>") 'leetcode-show-current-problem)))
 
