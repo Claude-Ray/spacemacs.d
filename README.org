@@ -40,4 +40,6 @@ npm install -g \
     dockerfile-language-server-nodejs
 #+end_src
 *** Fonts
-PragmataPro 0.829
+- PragmataPro 0.829
+- ~M-x~ =nerd-icons-install-fonts=
+- ~M-x~ =all-the-icons-install-fonts=
