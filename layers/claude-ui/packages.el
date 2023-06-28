@@ -12,15 +12,16 @@
 (defconst claude-ui-packages
   '(
     all-the-icons
-    all-the-icons-dired
-    all-the-icons-ibuffer
-    all-the-icons-ivy-rich
     circadian
     diff-hl
     (dired :location built-in)
     diredfl
     doom-modeline
     doom-themes
+    nerd-icons
+    nerd-icons-dired
+    nerd-icons-ibuffer
+    nerd-icons-ivy-rich
     (pragmatapro :location local)
     ranger
     (realign-mode :location
@@ -47,23 +48,36 @@
     (add-to-list 'all-the-icons-regexp-icon-alist
                  '("persp-auto-save" all-the-icons-fileicon "elisp" :v-adjust -0.2 :face all-the-icons-dsilver))))
 
-(defun claude-ui/init-all-the-icons-dired ()
-  (use-package all-the-icons-dired
-    :if (display-graphic-p)
-    :after dired
+(defun claude-ui/init-nerd-icons ()
+  (use-package nerd-icons
     :config
-    (setq all-the-icons-dired-monochrome nil)
-    (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)))
+    (dolist (icon
+             '(("bat" nerd-icons-devicon "nf-dev-terminal" :face nerd-icons-purple)
+               ("cmd"  nerd-icons-devicon "nf-dev-terminal" :face nerd-icons-purple)
+               ("conf" nerd-icons-codicon "nf-cod-settings" :face nerd-icons-dorange)
+               ("http" nerd-icons-octicon "nf-oct-webhook" :face nerd-icons-blue)
+               ("mjs" nerd-icons-devicon "nf-dev-javascript" :face nerd-icons-yellow)
+               ("mobi" nerd-icons-mdicon "nf-md-book_open" :face nerd-icons-green)
+               ("plantuml" nerd-icons-faicon "nf-fae-palette_color" :face nerd-icons-green)
+               ("xls" nerd-icons-mdicon "nf-md-file_excel" :face nerd-icons-dgreen)))
+      (add-to-list 'nerd-icons-extension-icon-alist icon))
+    (add-to-list 'nerd-icons-regexp-icon-alist
+                 '("persp-auto-save" nerd-icons-sucicon "nf-custom-emacs" :face nerd-icons-dsilver))))
 
-(defun claude-ui/init-all-the-icons-ibuffer ()
-  (use-package all-the-icons-ibuffer
-    :after ivy-rich
-    :init (all-the-icons-ibuffer-mode 1)))
+(defun claude-ui/init-nerd-icons-dired ()
+  (use-package nerd-icons-dired
+    :after dired
+    :hook (dired-mode . nerd-icons-dired-mode)))
 
-(defun claude-ui/init-all-the-icons-ivy-rich ()
-  (use-package all-the-icons-ivy-rich
+(defun claude-ui/init-nerd-icons-ibuffer ()
+  (use-package nerd-icons-ibuffer
     :after ivy-rich
-    :init (all-the-icons-ivy-rich-mode 1)))
+    :hook (ibuffer-mode . nerd-icons-ibuffer-mode)))
+
+(defun claude-ui/init-nerd-icons-ivy-rich ()
+  (use-package nerd-icons-ivy-rich
+    :after ivy-rich
+    :init (nerd-icons-ivy-rich-mode 1)))
 
 (defun claude-ui/init-circadian ()
   (use-package circadian
@@ -109,13 +123,11 @@
       :defer t
       :init (doom-modeline-mode)
       :config
-      (add-to-list 'all-the-icons-mode-icon-alist
-                   '(calendar-mode all-the-icons-faicon "calendar"
-                                   :v-adjust -0.1
-                                   :face all-the-icons-red))
-      (add-to-list 'all-the-icons-mode-icon-alist
-                   '(spacemacs-buffer-mode all-the-icons-faicon "home"
-                                           :v-adjust -0.1
+      (add-to-list 'nerd-icons-mode-icon-alist
+                   '(calendar-mode nerd-icons-faicon "nf-fa-calendar"
+                                   :face nerd-icons-red))
+      (add-to-list 'nerd-icons-mode-icon-alist
+                   '(spacemacs-buffer-mode nerd-icons-faicon "nf-fa-home"
                                            :face font-lock-keyword-face))
       ;; Don’t compact font caches during GC.
       (setq inhibit-compacting-font-caches t)

@@ -19,15 +19,13 @@
       widget-mouse-face nil)
 
 ;; Modify the startup footer
-(with-eval-after-load 'all-the-icons
+(with-eval-after-load 'nerd-icons
   (setq dashboard-footer-icon
         (if (and (display-graphic-p)
-                 (or (fboundp 'all-the-icons-fileicon)
-                     (require 'all-the-icons nil 'noerror)))
-            (all-the-icons-fileicon "emacs"
-                                    :height 1.1
-                                    :v-adjust -0.05
-                                    :face 'font-lock-keyword-face)
+                 (or (fboundp 'nerd-icons-sucicon)
+                     (require 'nerd-icons nil 'noerror)))
+            (nerd-icons-sucicon "nf-custom-emacs"
+                                :face 'font-lock-keyword-face)
           (propertize "Emacs" 'face 'dashboard-footer)))
 
   (defun spacemacs-buffer//insert-footer ()

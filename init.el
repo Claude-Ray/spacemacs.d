@@ -175,7 +175,7 @@ This function should only modify configuration layer settings."
      tree-sitter
      (treemacs :variables
                treemacs-lock-width t
-               ;; all-the-icons-dired is better
+               ;; Use nerd-icons-dired instead
                treemacs-use-icons-dired nil)
      (typescript :variables
                  typescript-backend 'tide
@@ -207,8 +207,7 @@ This function should only modify configuration layer settings."
 
    ;; A list of packages that cannot be updated.
    ;; FIXME: https://github.com/universal-ctags/citre/issues/150
-   ;; Keep using all-the-icons in doom-modeline.
-   dotspacemacs-frozen-packages '(citre doom-modeline)
+   dotspacemacs-frozen-packages '(citre)
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()

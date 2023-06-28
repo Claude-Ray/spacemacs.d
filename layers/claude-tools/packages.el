@@ -32,11 +32,10 @@
   (use-package beancount
     :mode ("\\.beancount\\'" . beancount-mode)
     :config
-    (with-eval-after-load 'all-the-icons
-      (add-to-list 'all-the-icons-mode-icon-alist
-                   '(beancount-mode all-the-icons-octicon "file-text"
-                                    :v-adjust 0.0
-                                    :face all-the-icons-orange)))))
+    (with-eval-after-load 'nerd-icons
+      (add-to-list 'nerd-icons-extension-icon-alist
+                   '("beancount" nerd-icons-mdicon "nf-md-account_cash"
+                     :face nerd-icons-blue)))))
 
 (defun claude-tools/init-cal-china-x ()
   (use-package cal-china-x
