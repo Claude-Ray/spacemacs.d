@@ -26,3 +26,10 @@ with the same name."
 (defun claude-tools/dunstctl-history-pop ()
   (interactive)
   (shell-command "dunstctl history-pop"))
+
+(defun claude-tools/leetcode-show-current-problem-in-browser ()
+  "Open the current problem in browser."
+  (interactive)
+  (let* ((title (nth 0 (split-string (buffer-name) "\\.")))
+         (url (concat "https://leetcode.com/problems/" title)))
+    (browse-url url)))
