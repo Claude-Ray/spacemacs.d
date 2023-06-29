@@ -30,6 +30,9 @@ with the same name."
 (defun claude-tools/leetcode-show-current-problem-in-browser ()
   "Open the current problem in browser."
   (interactive)
-  (let* ((title (nth 0 (split-string (buffer-name) "\\.")))
-         (url (concat "https://leetcode.com/problems/" title)))
+  (let* ((name (buffer-name))
+         (title (car (split-string name "\\.")))
+         ;; Compatibility with `leetcode'
+         (slug-title (car (last (split-string title "_"))))
+         (url (concat "https://leetcode.com/problems/" slug-title)))
     (browse-url url)))
