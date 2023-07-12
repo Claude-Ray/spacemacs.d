@@ -1,4 +1,4 @@
-;;; layers.el --- claude-prog Layer keybindings file for Spacemacs
+;;; keybindings.el --- claude-prog Layer keybindings file for Spacemacs
 ;;
 ;; Copyright (c) 2020 claude-ray
 ;;
