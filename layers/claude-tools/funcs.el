@@ -27,16 +27,6 @@ with the same name."
   (interactive)
   (shell-command "dunstctl history-pop"))
 
-(defun leetcode--get-code-buffer-name (title)
-  "Get code buffer name by TITLE and `leetcode-prefer-language',
-WITHOUT the problem-id."
-  (let* ((suffix (assoc-default
-                  leetcode--lang
-                  leetcode--lang-suffixes))
-         (slug-title (leetcode--slugify-title title))
-         (title-with-suffix (concat slug-title suffix)))
-      title-with-suffix))
-
 (defun claude-tools/leetcode-show-current-problem-in-browser ()
   "Open the current problem in browser."
   (interactive)

@@ -132,6 +132,15 @@
   (use-package leetcode
     :defer t
     :config
+    (defun leetcode--get-code-buffer-name (title)
+      "Get code buffer name by TITLE and `leetcode-prefer-language',
+WITHOUT the problem-id."
+      (let* ((suffix (assoc-default
+                      leetcode--lang
+                      leetcode--lang-suffixes))
+             (slug-title (leetcode--slugify-title title))
+             (title-with-suffix (concat slug-title suffix)))
+        title-with-suffix))
     (setq leetcode-prefer-language "javascript"
           leetcode-prefer-sql "mysql"
           leetcode-save-solutions t
