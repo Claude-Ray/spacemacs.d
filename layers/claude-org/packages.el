@@ -160,12 +160,14 @@
       (spacemacs/declare-prefix-for-mode 'org-mode "mrd" "org-roam-dailies")
       (spacemacs/declare-prefix-for-mode 'org-mode "mrt" "org-roam-tags")
       (spacemacs/set-leader-keys-for-major-mode 'org-mode
+        "ra" 'org-roam-alias-add
         "rc" 'org-roam-capture
         "rb" 'org-roam-buffer
         "rf" 'org-roam-node-find
         "rg" 'org-roam-graph
         "ri" 'org-roam-node-insert
         "rl" 'org-roam-buffer-toggle
+        "rr" 'org-roam-refile
         "rdc" 'org-roam-dailies-capture-today
         "rdy" 'org-roam-dailies-goto-yesterday
         "rdt" 'org-roam-dailies-goto-today
