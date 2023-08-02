@@ -32,7 +32,8 @@
     :defer t))
 
 (defun claude-edit/post-init-evil ()
-  (setq evil-ex-search-vim-style-regexp t)
+  (setq evil-ex-search-vim-style-regexp t
+        evil-symbol-word-search t)
   (evil-ex-define-cmd "q[uit]" 'spacemacs/kill-this-buffer)
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (define-key evil-insert-state-map (kbd "s-s")
