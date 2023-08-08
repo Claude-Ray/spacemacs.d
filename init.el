@@ -206,9 +206,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '()
 
    ;; A list of packages that cannot be updated.
-   ;; FIXME: https://github.com/universal-ctags/citre/issues/150
-   ;; FIXME: https://github.com/seagle0128/doom-modeline/issues/652
-   dotspacemacs-frozen-packages '(citre doom-modeline)
+   dotspacemacs-frozen-packages '()
 
    ;; A list of packages that will not be installed and loaded.
    dotspacemacs-excluded-packages '()
