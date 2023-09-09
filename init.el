@@ -118,6 +118,7 @@ This function should only modify configuration layer settings."
      (lua :variables
           lua-backend 'lsp
           lua-lsp-server 'lua-language-server)
+     major-modes
      (markdown :packages (not valign))
      (mu4e :variables
            ;; Custom
