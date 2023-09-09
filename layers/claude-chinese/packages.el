@@ -100,6 +100,9 @@
     :init
     (setq default-input-method "rime")
     (when (spacemacs/system-is-mac)
+      (when (file-exists-p "/opt/homebrew/opt/emacs-plus")
+        (setq rime-emacs-module-header-root
+              "/opt/homebrew/opt/emacs-plus/include"))
       (setq rime-librime-root "~/.emacs.d/librime/dist"
             rime-user-data-dir (expand-file-name "~/Library/Rime/emacs/")))
     (when (spacemacs/system-is-linux)

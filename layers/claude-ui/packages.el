@@ -104,7 +104,10 @@
   (when (spacemacs/system-is-mac)
     ;; Use gls instead of ls
     (setq dired-use-ls-dired t
-          insert-directory-program "/usr/local/bin/gls"
+          insert-directory-program
+          (if (file-exists-p "/opt/homebrew")
+              "/opt/homebrew/bin/gls"
+            "/usr/local/bin/gls")
           dired-listing-switches "-aBhl --group-directories-first")))
 
 (defun claude-ui/init-diredfl ()
