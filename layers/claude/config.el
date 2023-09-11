@@ -26,9 +26,10 @@
   (setq confirm-kill-emacs '(lambda (prompt) (y-or-n-p-with-timeout prompt 10 "y"))))
 
 ;; eww
-(setq url-proxy-services
-      '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|10.*\\)")
-        ("http" . "127.0.0.1:7890")
-        ("https" . "127.0.0.1:7890")))
+(when (executable-find "clash")
+  (setq url-proxy-services
+        '(("no_proxy" . "^\\(localhost\\|127.*\\|192.*\\|10.*\\)")
+          ("http" . "127.0.0.1:7890")
+          ("https" . "127.0.0.1:7890"))))
 
 (add-hook 'spacemacs-scratch-mode-hook #'claude//spacemacs-scratch-mode-hook)

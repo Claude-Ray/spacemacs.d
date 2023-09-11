@@ -84,9 +84,9 @@
     :if (display-graphic-p)
     :init
     (setq circadian-themes '(("8:00" . doom-solarized-light)
-                             ("11:25" . spacemacs-light)
+                             ("12:00" . spacemacs-light)
                              ("13:25" . doom-solarized-light)
-                             ("18:00" . zenburn)))
+                             ("21:30" . zenburn)))
     (advice-add 'circadian-enable-theme
                 :before-until #'claude-ui//theme-enabled-p)
     (run-with-idle-timer 1 nil 'circadian-setup)))
@@ -103,12 +103,11 @@
 (defun claude-ui/post-init-dired ()
   (when (spacemacs/system-is-mac)
     ;; Use gls instead of ls
-    (setq dired-use-ls-dired t
-          insert-directory-program
-          (if (file-exists-p "/opt/homebrew")
-              "/opt/homebrew/bin/gls"
-            "/usr/local/bin/gls")
-          dired-listing-switches "-aBhl --group-directories-first")))
+    (let ((gls (executable-find "gls")))
+      (when gls
+        (setq dired-use-ls-dired t
+              insert-directory-program gls
+              dired-listing-switches "-aBhl --group-directories-first")))))
 
 (defun claude-ui/init-diredfl ()
   (use-package diredfl
