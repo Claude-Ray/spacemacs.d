@@ -55,7 +55,10 @@
          (target (if is-dev-branch
                      (replace-regexp-in-string "^\\(dev_\\)" "test_" source)
                    "master"))
-         (url (concat repo-url "/-/merge_requests/new"
+         ;; NOTE: Distinguish between CodeBase and Gitlab by branch name
+         (is-feat-branch (string-prefix-p "feat" source))
+         (hyphen (if is-feat-branch) "" "/-")
+         (url (concat repo-url hyphen "/merge_requests/new"
                       (when (not is-master-branch)
                         (concat "?merge_request[source_branch]=" source
                                 "&merge_request[target_branch]=" target)))))
