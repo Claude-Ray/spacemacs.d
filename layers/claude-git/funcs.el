@@ -57,7 +57,7 @@
                    "master"))
          ;; NOTE: Distinguish between CodeBase and Gitlab by branch name
          (is-feat-branch (string-prefix-p "feat" source))
-         (hyphen (if is-feat-branch) "" "/-")
+         (hyphen (if is-feat-branch "" "/-"))
          (url (concat repo-url hyphen "/merge_requests/new"
                       (when (not is-master-branch)
                         (concat "?merge_request[source_branch]=" source
