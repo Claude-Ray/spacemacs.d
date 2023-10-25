@@ -179,7 +179,7 @@ This function should only modify configuration layer settings."
                ;; Use nerd-icons-dired instead
                treemacs-use-icons-dired nil)
      (typescript :variables
-                 typescript-backend 'lsp
+                 typescript-backend 'tide
                  typescript-fmt-tool 'prettier
                  typescript-linter 'eslint
                  typescript-lsp-linter nil)
