@@ -179,8 +179,9 @@ This function should only modify configuration layer settings."
                ;; Use nerd-icons-dired instead
                treemacs-use-icons-dired nil)
      (typescript :variables
-                 typescript-backend 'tide
+                 typescript-backend 'lsp
                  typescript-fmt-tool 'prettier
+                 typescript-linter 'eslint
                  typescript-lsp-linter nil)
      (unicode-fonts :variables
                     unicode-fonts-force-multi-color-on-mac t)

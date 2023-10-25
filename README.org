@@ -31,7 +31,7 @@ brew install coreutils ripgrep plantuml graphviz libvterm mu offlineimap pandoc 
 *** Node.js Modules
 #+begin_src bash
 npm install -g \
-    eslint eslint_d tslint \
+    eslint tslint \
     prettier import-js \
     typescript typescript-language-server \
     vscode-langservers-extracted \
