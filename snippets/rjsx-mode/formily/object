@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: SchemaField.Object
+# key: sfo
+# group: formily
+# --
+<SchemaField.Object>
+  $0
+</SchemaField.Object>

@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: easyCreateSchemaField
+# key: easyCreateSchemaField
+# group: formily
+# --
+easyCreateSchemaField({
+  components: {
+    Input,
+    Select,
+    FormItem
+  },
+  scope: {}
+})

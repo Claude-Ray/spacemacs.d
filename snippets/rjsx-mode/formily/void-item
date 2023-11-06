@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: SchemaField.Void FormItem
+# key: sfvf
+# group: formily
+# --
+<SchemaField.Void
+  title="${1:Title}"
+  x-decorator="FormItem"
+  x-decorator-props={{
+    asterisk: true,
+    feedbackLayout: 'none'
+  }}
+>
+  $0
+</SchemaField.Void>

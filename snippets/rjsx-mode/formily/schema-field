@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: SchemaField
+# key: sf
+# group: formily
+# --
+<SchemaField form={form}>
+  $0
+</SchemaField>
