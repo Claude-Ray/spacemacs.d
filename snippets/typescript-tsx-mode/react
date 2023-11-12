@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: react
+# key: react
+# --
+import React from 'react'
+
+interface IProps {}
+
+export const ${1:ComponentName} = (props: IProps) => {
+  $0
+}
