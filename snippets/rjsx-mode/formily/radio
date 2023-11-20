@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: SchemaField Radio
+# key: sf.radio
+# group: formily
+# --
+<SchemaField.String
+  required
+  title="${1:Title}"
+  c-path={Path${2:.name}}
+  enum={[]}
+  x-decorator="FormItem"
+  x-component="Radio.Group"
+/>

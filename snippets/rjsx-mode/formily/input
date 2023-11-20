@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: SchemaField Input
+# key: sf.input
+# group: formily
+# --
+<SchemaField.String
+  required
+  title="${1:Title}"
+  c-path={Path${2:.name}}
+  x-decorator="FormItem"
+  x-component="Input"
+/>

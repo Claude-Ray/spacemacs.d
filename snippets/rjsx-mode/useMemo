@@ -2,4 +2,4 @@
 # name: useMemo
 # key: useMemo
 # --
-useMemo(() => $1, [$0])
+useMemo(() => $1, [$2])

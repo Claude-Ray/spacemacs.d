@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: SchemaField Select
+# key: sf.select
+# group: formily
+# --
+<SchemaField.String
+  required
+  title="${1:Title}"
+  c-path={Path${2:.name}}
+  enum={[]}
+  x-decorator="FormItem"
+  x-component="Select"
+/>
