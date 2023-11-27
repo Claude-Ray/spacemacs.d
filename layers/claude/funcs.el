@@ -59,3 +59,9 @@ FIXME: Symbol’s function definition is void: unicode-fonts//setup-fonts."
         (unicode-fonts-setup)
         (remove-hook 'after-make-frame-functions #'unicode-fonts//setup-fonts))
     (add-hook 'after-make-frame-functions #'unicode-fonts//setup-fonts)))
+
+(defun spacemacs/get-mode-line-theme-name ()
+  "Return the mode-line theme name."
+  (if (listp dotspacemacs-mode-line-theme)
+      (car dotspacemacs-mode-line-theme)
+    dotspacemacs-mode-line-theme))
