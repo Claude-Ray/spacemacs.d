@@ -173,7 +173,8 @@ This function should only modify configuration layer settings."
      sql
      (syntax-checking :packages (not flycheck-pos-tip))
      systemd
-     tree-sitter
+     (tree-sitter :variables
+                  spacemacs-tree-sitter-hl-black-list '(typescript-tsx-mode))
      (treemacs :variables
                treemacs-lock-width t
                ;; Use nerd-icons-dired instead
