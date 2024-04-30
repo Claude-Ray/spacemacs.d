@@ -21,6 +21,9 @@
 ;; Reduce cursor lag
 (setq auto-window-vscroll nil)
 
+(setq calendar-latitude 30.3
+      calendar-longitude 120.0)
+
 (when (display-graphic-p)
   ;; Ask for confirmation when leaving Emacs.
   (setq confirm-kill-emacs '(lambda (prompt) (y-or-n-p-with-timeout prompt 10 "y"))))
