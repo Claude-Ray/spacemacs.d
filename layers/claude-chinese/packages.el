@@ -27,21 +27,16 @@
   (use-package go-translate
     :defer t
     :init
-    (spacemacs/set-leader-keys "ot" #'claude-chinese/gts-to-translate)
-    (spacemacs/set-leader-keys "oT" #'claude-chinese/gts-prompt-translate)
+    (spacemacs/set-leader-keys "ot" #'claude-chinese/gt-to-translate)
+    (spacemacs/set-leader-keys "oT" #'claude-chinese/gt-prompt-translate)
     :config
-    (setq gts-buffer-follow-p t
-          gts-buffer-name "*Help*"
-          gts-default-translator
-          (gts-translator
-           :picker (gts-noprompt-picker)
-           :engines (list (gts-google-engine)
-                          (gts-google-rpc-engine)
-                          (gts-bing-engine))
-           :render (gts-buffer-render))
-          gts-translate-list '(("en" "zh")))
-    (advice-add 'gts-buffer-display-or-focus-buffer
-                :after #'claude-chinese//gts-display-buffer)))
+    (setq gt-buffer-render-follow-p t
+          gt-default-translator
+          (gt-translator
+           :taker (gt-taker)
+           :engines (gt-google-engine)
+           :render (gt-buffer-render))
+          gt-langs '("en" "zh"))))
 
 (defun claude-chinese/post-init-pangu-spacing ()
   (global-pangu-spacing-mode -1))

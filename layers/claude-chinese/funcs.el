@@ -14,25 +14,24 @@
       (format "%s." (nth (1- num) select-labels))
     (format "%d." num)))
 
-(defun claude-chinese//gts-display-buffer (buffer)
-  "Advice after `gts-buffer-display-or-focus-buffer'."
+(defun claude-chinese//gt-display-buffer (buffer render translator)
+  "Advice after `gt-buffer-render-output'."
   (with-current-buffer buffer
     (help-mode)))
 
-(defun claude-chinese/gts-to-translate ()
+(defun claude-chinese/gt-to-translate ()
   "Do the translate, then exit visual state."
   (interactive)
   (let ((buffer (current-buffer)))
-    (gts-do-translate)
+    (gt-do-translate)
     (evil-exit-visual-state nil buffer)))
 
-(defun claude-chinese/gts-prompt-translate ()
-  "Do the translate with `gts-prompt-picker'."
+(defun claude-chinese/gt-prompt-translate ()
+  "Do the translate with `gt-prompt-picker'."
   (interactive)
-  (let ((gts-translate-list '(("en" "zh") ("zh" "en"))))
-    (gts-translate (gts-translator
-                    :picker (gts-prompt-picker)
-                    :engines (list (gts-google-engine)
-                                   (gts-google-rpc-engine)
-                                   (gts-bing-engine))
-                    :render (gts-buffer-render)))))
+  (gt-start (gt-translator
+             :taker (gt-taker :prompt t)
+             :engines (list (gt-google-engine)
+                            (gt-google-rpc-engine)
+                            (gt-bing-engine))
+             :render (gt-buffer-render))))
