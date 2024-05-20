@@ -15,7 +15,7 @@
     (format "%d." num)))
 
 (defun claude-chinese//gt-display-buffer (buffer render translator)
-  "Advice after `gt-buffer-render-output'."
+  "Advice after `gt-buffer-render-init'."
   (with-current-buffer buffer
     (help-mode)))
 

@@ -31,12 +31,17 @@
     (spacemacs/set-leader-keys "oT" #'claude-chinese/gt-prompt-translate)
     :config
     (setq gt-buffer-render-follow-p t
+          ;; Reuse popwin settings of help-mode
+          gt-buffer-render-buffer-name "*Help*"
+          gt-buffer-render-window-config nil
           gt-default-translator
           (gt-translator
            :taker (gt-taker)
            :engines (gt-google-engine)
            :render (gt-buffer-render))
-          gt-langs '("en" "zh"))))
+          gt-langs '("en" "zh"))
+    (advice-add 'gt-buffer-render-init
+                :after #'claude-chinese//gt-display-buffer)))
 
 (defun claude-chinese/post-init-pangu-spacing ()
   (global-pangu-spacing-mode -1))
