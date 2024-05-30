@@ -76,8 +76,8 @@ This function should only modify configuration layer settings."
      (confluence :packages (not confluence))
      csv
      (deft :variables
-       deft-directory "~/Documents/Note"
-       deft-recursive t)
+           deft-directory "~/Documents/Note"
+           deft-recursive t)
      docker
      (elfeed :variables
              rmh-elfeed-org-files (list "~/Documents/RSS/elfeed.org"))

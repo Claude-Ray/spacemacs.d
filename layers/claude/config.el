@@ -36,3 +36,5 @@
           ("https" . "127.0.0.1:7890"))))
 
 (add-hook 'spacemacs-scratch-mode-hook #'claude//spacemacs-scratch-mode-hook)
+
+(setq spacemacs-keep-legacy-current-buffer-delete-bindings t)
