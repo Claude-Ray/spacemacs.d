@@ -38,3 +38,6 @@
 (add-hook 'spacemacs-scratch-mode-hook #'claude//spacemacs-scratch-mode-hook)
 
 (setq spacemacs-keep-legacy-current-buffer-delete-bindings t)
+
+(advice-add 'make-auto-save-file-name
+            :around #'claude//shorten-auto-save-file-name)

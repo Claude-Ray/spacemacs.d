@@ -65,3 +65,9 @@ FIXME: Symbol’s function definition is void: unicode-fonts//setup-fonts."
   (if (listp dotspacemacs-mode-line-theme)
       (car dotspacemacs-mode-line-theme)
     dotspacemacs-mode-line-theme))
+
+(defun claude//shorten-auto-save-file-name (&rest args)
+  "Avoid file name too long error on auto-save."
+  (let ((buffer-file-name
+         (when buffer-file-name (sha1 buffer-file-name))))
+    (apply args)))
