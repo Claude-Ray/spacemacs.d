@@ -131,8 +131,8 @@ This function should only modify configuration layer settings."
            mu4e-enable-mode-line t
            mu4e-installation-path
            (if (spacemacs/system-is-mac)
-               ;; ln /usr/local/Cellar/mu/*/share/emacs/site-lisp/mu/mu4e
-               "/usr/local/Cellar/mu/mu4e"
+               ;; symlink to ../Cellar/mu/*/share/emacs/site-lisp/mu/mu4e
+               "/opt/homebrew/share/mu4e"
              "/usr/share/emacs/site-lisp/mu4e"))
      multiple-cursors
      nginx

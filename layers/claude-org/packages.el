@@ -191,12 +191,11 @@
   (with-eval-after-load 'plantuml-mode
     (cond
      ((spacemacs/system-is-mac)
-      (setq plantuml-jar-path "/usr/local/opt/plantuml/libexec/plantuml.jar"
-            plantuml-executable-path "/usr/local/bin/plantuml"))
+      (setq plantuml-jar-path "/opt/homebrew/opt/plantuml/libexec/plantuml.jar"))
      ((spacemacs/system-is-linux)
-      (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar"
-            plantuml-executable-path "/usr/bin/plantuml")))
-    (setq plantuml-default-exec-mode 'executable
+      (setq plantuml-jar-path "/usr/share/java/plantuml/plantuml.jar")))
+    (setq plantuml-executable-path (executable-find "plantuml")
+          plantuml-default-exec-mode 'executable
           org-plantuml-jar-path plantuml-jar-path)))
 
 (defun claude-org/init-valign ()
