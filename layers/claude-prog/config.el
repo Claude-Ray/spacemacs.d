@@ -10,3 +10,6 @@
 ;;; License: GPLv3
 
 (setq-default sh-basic-offset 2)
+
+(defvar claude-enable-codeium nil
+  "If non nil then codeium is enabled.")
