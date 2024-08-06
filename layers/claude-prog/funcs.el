@@ -23,7 +23,7 @@
 (defun claude-prog/package-json-goto-node-module ()
   "Jump to the npm package source file at point."
   (interactive)
-  (when (string-equal (buffer-name) "package.json")
+  (when (string-equal (file-relative-name buffer-file-name) "package.json")
     (let* ((line (thing-at-point 'line t))
            (npm-pkg-name (save-match-data
                            (string-match "\"\\(.+\\)\":" line)
