@@ -22,6 +22,7 @@
     lsp-mode
     lua-mode
     js2-mode
+    json-mode
     npm-mode
     ocamlformat
     ocp-indent
@@ -60,8 +61,6 @@
     (setq-default citre-enable-xref-integration nil)
     (add-hook 'citre-mode-hook #'claude-prog//citre-set-jump-handler)
     (add-hook 'citre-peek--mode-hook #'claude-prog//citre-peek-hook)
-    (advice-add 'spacemacs//setup-lsp-jump-handler
-                :around #'claude-prog//setup-lsp-jump-handler)
     (advice-add 'citre-jump :around 'evil-better-jumper/set-jump-a)
     (advice-add 'citre-jump-back :around 'evil-better-jumper/set-jump-a)
     (advice-add 'citre-peek-jump :around 'evil-better-jumper/set-jump-a)))
@@ -131,6 +130,8 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (defun claude-prog/post-init-lsp-mode ()
+  (advice-add 'spacemacs//setup-lsp-jump-handler
+              :around #'claude-prog//setup-lsp-jump-handler)
   (setq lsp-auto-execute-action nil
         lsp-auto-guess-root t
 
@@ -185,6 +186,10 @@
         js2-mode-show-strict-warnings nil)
 
   (add-hook 'js2-mode-hook #'claude-prog//js2-mode-hook))
+
+(defun claude-prog/post-init-json-mode ()
+  (add-to-list 'spacemacs-jump-handlers-json-mode
+               #'claude-prog/package-json-goto-node-module))
 
 (defun claude-prog/post-init-npm-mode ()
   (add-hook 'typescript-mode-hook #'npm-mode)

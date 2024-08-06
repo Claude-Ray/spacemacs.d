@@ -20,6 +20,22 @@
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
+(defun claude-prog/package-json-goto-node-module ()
+  "Jump to the npm package source file at point."
+  (interactive)
+  (when (string-equal (buffer-name) "package.json")
+    (let* ((line (thing-at-point 'line t))
+           (npm-pkg-name (save-match-data
+                           (string-match "\"\\(.+\\)\":" line)
+                           (match-string 1 line)))
+           (npm-pkg-path (string-trim
+                          (shell-command-to-string
+                           (concat
+                            "node -e \"console.log(require.resolve('"
+                            npm-pkg-name
+                            "'))\"")))))
+      (find-file-existing npm-pkg-path))))
+
 (defun claude-prog//typescript-mode-config (func mode)
   "Advice around `spacemacs/typescript-mode-config'.
 Force the typescript-format keybinding to `,=='."
@@ -47,7 +63,8 @@ Force the typescript-format keybinding to `,=='."
 (defun claude-prog//setup-lsp-jump-handler (func)
   "Advice around `spacemacs//setup-lsp-jump-handler'.
 Set jump handler for LSP without async."
-  (if (bound-and-true-p citre-mode)
+  (if (or (bound-and-true-p citre-mode)
+          (eq major-mode 'json-mode))
       (add-to-list 'spacemacs-jump-handlers 'lsp-ui-peek-find-definitions)
     (funcall func)))
 

@@ -9,6 +9,8 @@
 ;;
 ;;; License: GPLv3
 
+(spacemacs|define-jump-handlers json-mode)
+
 (setq-default sh-basic-offset 2)
 
 (defvar claude-enable-codeium nil
