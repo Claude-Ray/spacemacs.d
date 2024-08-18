@@ -195,6 +195,7 @@
   (add-hook 'typescript-mode-hook #'npm-mode)
   (spacemacs/declare-prefix-for-mode 'typescript-mode "mn" "npm")
   (spacemacs/set-leader-keys-for-major-mode 'typescript-mode
+    "nj" #'claude-prog/prompt-goto-node-module
     "nc" 'npm-mode-npm-clean
     "ni" 'npm-mode-npm-install
     "nr" 'npm-mode-npm-run
@@ -205,6 +206,7 @@
     "nl" 'npm-mode-npm-list
     "np" 'npm-mode-visit-project-file)
   (spacemacs/set-leader-keys-for-major-mode 'js2-mode
+    "nj" #'claude-prog/prompt-goto-node-module
     "nc" 'npm-mode-npm-clean))
 
 (defun claude-prog/init-ocamlformat ()

@@ -20,6 +20,24 @@
     (setq forward-sexp-function nil)
     (set (make-local-variable 'semantic-mode) nil)))
 
+(defun claude-prog//npm-goto-node-module (npm-pkg-name)
+  "Jump to the npm package source file by the package name."
+  (let ((npm-pkg-path (string-trim
+                       (shell-command-to-string
+                        (concat
+                         "node -e \"console.log(require.resolve('"
+                         npm-pkg-name
+                         "'))\"")))))
+    (find-file-existing npm-pkg-path)))
+
+(defun claude-prog/prompt-goto-node-module ()
+  "Jump to the npm package source file by the prompt."
+  (interactive)
+  (let ((npm-pkg-name (string-trim (read-from-minibuffer "NPM Package Fullname: "))))
+    (when (zerop (length npm-pkg-name))
+      (user-error "No URL"))
+    (claude-prog//npm-goto-node-module npm-pkg-name)))
+
 (defun claude-prog/package-json-goto-node-module ()
   "Jump to the npm package source file at point."
   (interactive)
@@ -27,14 +45,8 @@
     (let* ((line (thing-at-point 'line t))
            (npm-pkg-name (save-match-data
                            (string-match "\"\\(.+\\)\":" line)
-                           (match-string 1 line)))
-           (npm-pkg-path (string-trim
-                          (shell-command-to-string
-                           (concat
-                            "node -e \"console.log(require.resolve('"
-                            npm-pkg-name
-                            "'))\"")))))
-      (find-file-existing npm-pkg-path))))
+                           (match-string 1 line))))
+      (claude-prog//npm-goto-node-module npm-pkg-name))))
 
 (defun claude-prog//typescript-mode-config (func mode)
   "Advice around `spacemacs/typescript-mode-config'.
