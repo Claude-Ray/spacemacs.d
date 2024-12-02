@@ -723,6 +723,23 @@ This function is called immediately after `dotspacemacs/init', before layer
 configuration.
 It is mostly for variables that should be set before packages are loaded.
 If you are unsure, try setting them in `dotspacemacs/user-config' first."
+  (defun spacemacs/load-default-theme ()
+    "Load default theme.
+Default theme is the car of `dotspacemacs-themes'. If failed to load the
+default theme, setting the `spacemacs--delayed-user-theme' to postpond
+the action.
+FIXME: Don't load the fallback theme to avoid color confusion."
+    ;; This function is called before all packages are necessarily activated, so
+    ;; if failed to load the theme we can try again after the packages activated.
+    (if-let* ((default-theme (car dotspacemacs-themes))
+              (theme-name (spacemacs//get-theme-name default-theme)))
+        (condition-case err
+            (spacemacs//load-theme-internal theme-name)
+          ('error (setq spacemacs--delayed-user-theme theme-name)))
+      (spacemacs-buffer/warning
+       (concat "Please check the `dotspacemacs-themes' in your dotfile\n"
+               "to make sure it has valid themes. Invalid value: \"%s\"")
+       theme-name)))
   (defun spacemacs-buffer//insert-recent-files (list-size)
     "Use `org-agenda-files' variable instead of function,
 since calling (org-agenda-files) could slow down startup a lot.
