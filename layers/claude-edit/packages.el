@@ -12,7 +12,6 @@
 (defconst claude-edit-packages
   '(
     avy
-    edit-indirect
     evil
     evil-goggles
     evil-mc
@@ -26,18 +25,13 @@
 (defun claude-edit/post-init-avy ()
   (evil-global-set-key 'motion (kbd "g/") #'evil-avy-goto-char-2))
 
-(defun claude-edit/init-edit-indirect ()
-  "Used by `markdown-mode'"
-  (use-package edit-indirect
-    :defer t))
-
 (defun claude-edit/post-init-evil ()
   (setq evil-ex-search-vim-style-regexp t
         evil-symbol-word-search t)
   (evil-ex-define-cmd "q[uit]" 'spacemacs/kill-this-buffer)
   (define-key evil-insert-state-map (kbd "TAB") 'tab-to-tab-stop)
   (define-key evil-insert-state-map (kbd "s-s")
-    #'claude-edit/save-and-evil-exit-insert-state))
+              #'claude-edit/save-and-evil-exit-insert-state))
 
 (defun claude-edit/post-init-evil-goggles ()
   (setq evil-goggles-enable-delete nil
