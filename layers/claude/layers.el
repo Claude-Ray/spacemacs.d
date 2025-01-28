@@ -11,6 +11,7 @@
 
 (configuration-layer/declare-layers
  '(
+   claude-ai
    claude-chinese
    claude-completion
    claude-edit

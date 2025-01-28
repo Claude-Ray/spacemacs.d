@@ -86,6 +86,7 @@ This function should only modify configuration layer settings."
      (evil-snipe :variables
                  evil-snipe-enable-alternate-f-and-t-behaviors t)
      (git :packages (not magit-gitflow))
+     github-copilot
      (go :variables
          go-backend 'lsp
          go-tab-width 4)
