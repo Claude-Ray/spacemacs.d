@@ -12,6 +12,7 @@
 (defconst claude-ai-packages
   '(
     copilot
+    (tabnine :toggle claude-enable-tabnine)
     ))
 
 (defun claude-ai/post-init-copilot ()
@@ -26,3 +27,14 @@
     (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
 
   (add-hook 'prog-mode-hook 'copilot-mode))
+
+(defun claude-ai/init-tabnine ()
+  (use-package tabnine
+    :config
+    ;; disable inline previews
+    (setq company-frontends '(company-pseudo-tooltip-frontend
+                              company-echo-metadata-frontend))
+    (define-key tabnine-completion-map (kbd "C-TAB") #'tabnine-accept-completion-by-word)
+    (define-key tabnine-completion-map (kbd "C-<tab>") #'tabnine-accept-completion-by-word)
+    (add-hook 'prog-mode-hook 'tabnine-mode)
+    (add-hook 'kill-emacs-hook #'tabnine-kill-process)))
