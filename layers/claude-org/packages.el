@@ -60,13 +60,15 @@
         '(("n" "Agenda and all TODOs"
            ((agenda "")
             (alltodo "")))
-          (" " "Agenda" agenda ""
-           ((org-agenda-clockreport-mode t)))
+          (" " "Agenda"
+           ((agenda ""
+                    ((org-agenda-clockreport-mode t)))))
           ("f" . "Work Review")
-          ("ff" "Work Agenda" agenda ""
-           ((org-agenda-tag-filter-preset '("+WORK"))
-            (org-agenda-clockreport-mode t)
-            (org-agenda-files (list claude--org-work-file))))
+          ("ff" "Work Agenda"
+           ((agenda ""
+                    ((org-agenda-clockreport-mode t)
+                     (org-agenda-files (list claude--org-work-file)))))
+           ((org-agenda-tag-filter-preset '("+WORK"))))
           ("ft" "Work TODOs"
            ((tags-todo "WORK"
                        ((org-agenda-overriding-header "Work Tasks")
@@ -80,9 +82,9 @@
             (org-agenda-files (list claude--org-work-file
                                     claude--org-inbox-file))))
           ("j" . "Personal Review")
-          ("jj" "Personal Agenda" agenda ""
-           ((org-agenda-tag-filter-preset '("-WORK"))
-            (org-agenda-clockreport-mode t)))
+          ("jj" "Personal Agenda"
+           ((agenda ""))
+           ((org-agenda-tag-filter-preset '("-WORK"))))
           ("jk" "Personal Agenda and TODOs"
            ((agenda "")
             (tags-todo "-WORK"))
