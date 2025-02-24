@@ -29,6 +29,7 @@
     python
     quickrun
     sqlfmt
+    sqlformat
     tide
     tuareg
     typescript-mode
@@ -268,6 +269,16 @@
           :height 0.3)
         popwin:special-display-config)
   (advice-add 'sqlfmt-buffer :around #'claude-prog//sqlfmt-buffer-advice))
+
+(defun claude-prog/init-sqlformat ()
+  (use-package sqlformat
+    :defer t
+    :init
+    (spacemacs/set-leader-keys-for-major-mode 'sql-mode
+      "=r" 'sqlformat-region
+      "==" 'sqlformat-buffer)
+    :config
+    (setq sqlformat-command 'sql-formatter)))
 
 (defun claude-prog/post-init-tide ()
   (setq tide-format-options '(:tabSize 2 :indentSize 2)))

@@ -37,7 +37,8 @@ npm install -g \
     vscode-langservers-extracted \
     vls @volar/vue-language-server \
     pyright \
-    dockerfile-language-server-nodejs
+    dockerfile-language-server-nodejs \
+    sql-formatter
 #+end_src
 *** Fonts
 - PragmataPro 0.830
