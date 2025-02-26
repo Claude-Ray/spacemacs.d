@@ -12,6 +12,7 @@
 (defconst claude-ai-packages
   '(
     copilot
+    copilot-chat
     (tabnine :toggle claude-enable-tabnine)
     ))
 
@@ -27,6 +28,14 @@
     (define-key copilot-completion-map (kbd "C-<tab>") 'copilot-accept-completion-by-word))
 
   (add-hook 'prog-mode-hook 'copilot-mode))
+
+(defun claude-ai/init-copilot-chat ()
+  (use-package copilot-chat
+    :defer t
+    :config
+    (setq copilot-chat-model "claude-3.7-sonnet"
+          copilot-chat-prompt-suffix "Reply in Chinese")
+    (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)))
 
 (defun claude-ai/init-tabnine ()
   (use-package tabnine
