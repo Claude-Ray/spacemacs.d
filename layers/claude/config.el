@@ -21,6 +21,9 @@
 ;; Reduce cursor lag
 (setq auto-window-vscroll nil)
 
+;; Don't create a new warning buffer at bottom
+(setq warning-display-at-bottom nil)
+
 (setq calendar-latitude 30.3
       calendar-longitude 120.0)
 
