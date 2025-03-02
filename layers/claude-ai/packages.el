@@ -23,7 +23,8 @@
                               company-echo-metadata-frontend)))
 
   (with-eval-after-load 'copilot
-    (setq copilot-indent-offset-warning-disable t
+    (setq copilot-idle-delay 0.2
+          copilot-indent-offset-warning-disable t
           copilot-max-char-warning-disable t)
     (add-to-list 'copilot-indentation-alist '(typescript-tsx-mode typescript-indent-level))
     (add-to-list 'copilot-indentation-alist '(sql-mode web-mode-sql-indent-offset))
