@@ -53,7 +53,7 @@ This function should only modify configuration layer settings."
      (spacemacs-org :packages (not org-superstar))
      spacemacs-project
      spacemacs-purpose
-     spacemacs-visual
+     (spacemacs-visual :packages (not nerd-icons))
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
