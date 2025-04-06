@@ -132,8 +132,7 @@ This function should only modify configuration layer settings."
            mu4e-enable-mode-line t
            mu4e-installation-path
            (if (spacemacs/system-is-mac)
-               ;; symlink to ../Cellar/mu/*/share/emacs/site-lisp/mu/mu4e
-               "/opt/homebrew/share/mu4e"
+               "/opt/homebrew/share/emacs/site-lisp/mu/mu4e"
              "/usr/share/emacs/site-lisp/mu4e"))
      multiple-cursors
      nginx
@@ -221,7 +220,7 @@ This function should only modify configuration layer settings."
    ;; installs only the used packages but won't delete unused ones. `all'
    ;; installs *all* packages supported by Spacemacs and never uninstalls them.
    ;; (default is `used-only')
-   dotspacemacs-install-packages 'used-only))
+   dotspacemacs-install-packages 'used-but-keep-unused))
 
 (defun dotspacemacs/init ()
   "Initialization:
