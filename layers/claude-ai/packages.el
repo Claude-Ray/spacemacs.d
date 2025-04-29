@@ -22,6 +22,9 @@
     (setq company-frontends '(company-pseudo-tooltip-frontend
                               company-echo-metadata-frontend)))
 
+  ;; https://github.com/copilot-emacs/copilot.el/issues/250
+  (add-hook 'typescript-mode-hook #'claude-ai//override-electric-keys)
+
   (with-eval-after-load 'copilot
     (setq copilot-idle-delay 0.2
           copilot-indent-offset-warning-disable t
