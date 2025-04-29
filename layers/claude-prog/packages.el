@@ -301,6 +301,11 @@
                  (cons 'typescript-linter value))))
 
 (defun claude-prog/post-init-web-mode ()
+  ;; safe locals
+  (put 'web-mode-style-padding 'safe-local-variable 'integerp)
+  (put 'web-mode-script-padding 'safe-local-variable 'integerp)
+  (put 'web-mode-block-padding 'safe-local-variable 'integerp)
+  (put 'web-mode-indent-style 'safe-local-variable 'integerp)
   (setq-default
    css-indent-offset 2
    web-mode-attr-indent-offset 2
