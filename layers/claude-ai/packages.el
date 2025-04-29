@@ -44,10 +44,12 @@
 (defun claude-ai/init-copilot-chat ()
   (use-package copilot-chat
     :defer t
+    :init
+    ;; (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
+    (spacemacs/set-leader-keys "oc" 'copilot-chat-display)
     :config
     (setq copilot-chat-model "claude-3.7-sonnet"
-          copilot-chat-prompt-suffix "Reply in Chinese")
-    (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)))
+          copilot-chat-prompt-suffix "Reply in Chinese")))
 
 (defun claude-ai/init-tabnine ()
   (use-package tabnine
