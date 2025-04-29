@@ -23,7 +23,7 @@
                               company-echo-metadata-frontend)))
 
   ;; https://github.com/copilot-emacs/copilot.el/issues/250
-  (add-hook 'typescript-mode-hook #'claude-ai//override-electric-keys)
+  (add-hook 'typescript-mode-hook #'claude-ai//setup-electric-indent-overrides)
 
   (with-eval-after-load 'copilot
     (setq copilot-idle-delay 0.2

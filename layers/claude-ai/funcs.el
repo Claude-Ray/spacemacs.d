@@ -28,3 +28,8 @@ ARG is the prefix argument passed to `self-insert-command'."
   (dolist (char electric-indent-chars)
     (define-key copilot-completion-map (vector char)
                 #'claude-ai/cancel-on-electric-indent-chars)))
+
+(defun claude-ai//setup-electric-indent-overrides ()
+  "Set up electric key overrides for Copilot in the current major mode."
+  (add-hook 'after-change-major-mode-hook
+            #'claude-ai//override-electric-keys nil 'local))
