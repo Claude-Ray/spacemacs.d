@@ -41,11 +41,11 @@
 
   (add-hook 'prog-mode-hook 'copilot-mode))
 
-(defun claude-ai/init-copilot-chat ()
+(defun claude-ai/post-init-copilot-chat ()
   (use-package copilot-chat
     :defer t
     :init
-    ;; (add-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
+    (remove-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
     (spacemacs/set-leader-keys "oc" 'copilot-chat-display)
     :config
     (setq copilot-chat-model "claude-3.7-sonnet"
