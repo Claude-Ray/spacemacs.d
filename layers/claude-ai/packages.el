@@ -28,6 +28,7 @@
   (with-eval-after-load 'copilot
     (setq copilot-idle-delay 0.2
           copilot-indent-offset-warning-disable t
+          copilot-max-char 1000000
           copilot-max-char-warning-disable t)
     (add-to-list 'copilot-indentation-alist '(typescript-tsx-mode typescript-indent-level))
     (add-to-list 'copilot-indentation-alist '(sql-mode web-mode-sql-indent-offset))
@@ -42,14 +43,9 @@
   (add-hook 'prog-mode-hook 'copilot-mode))
 
 (defun claude-ai/post-init-copilot-chat ()
-  (use-package copilot-chat
-    :defer t
-    :init
-    (remove-hook 'git-commit-setup-hook 'copilot-chat-insert-commit-message)
-    (spacemacs/set-leader-keys "oc" 'copilot-chat-display)
-    :config
-    (setq copilot-chat-model "claude-3.7-sonnet"
-          copilot-chat-prompt-suffix "Reply in Chinese")))
+  (spacemacs/set-leader-keys "oc" 'copilot-chat-display)
+  (setq copilot-chat-model "claude-3.7-sonnet"
+        copilot-chat-prompt-suffix "Reply in Chinese"))
 
 (defun claude-ai/init-tabnine ()
   (use-package tabnine
