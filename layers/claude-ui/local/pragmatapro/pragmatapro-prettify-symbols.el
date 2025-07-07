@@ -2,7 +2,7 @@
 
 ;; Author: Fabrizio Schiavi
 ;; URL: https://github.com/fabrizioschiavi/pragmatapro
-;; Version: 0.829
+;; Version: 0.9
 
 ;;; Commentary:
 ;; This package provides a prettify-hook for the PragmataPro font.
@@ -23,9 +23,9 @@
                 (vector (decode-char 'ucs (cadr s))))))
           '(("!="         #X100140)
             ("!=="        #X100141)
-            ("!=="        #X100142)
-            ("!≡"         #X100143)
-            ("!≡≡"        #X100144)
+            ("!≡"         #X100142)
+            ("!≡≡"        #X100143)
+            ("!=<"        #X100144)
             ("#("         #X10014C)
             ("#_"         #X10014D)
             ("#{"         #X10014E)

@@ -41,6 +41,6 @@ npm install -g \
     sql-formatter
 #+end_src
 *** Fonts
-- PragmataPro 0.830
+- PragmataPro
 - ~M-x~ =nerd-icons-install-fonts=
 - ~M-x~ =all-the-icons-install-fonts=
