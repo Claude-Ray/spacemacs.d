@@ -143,6 +143,7 @@ This function should only modify configuration layer settings."
                          org-roam-server)
           :variables
           org-enable-roam-support t
+          org-enable-verb-support t
           org-want-todo-bindings t)
      (osx :variables
           osx-command-as 'super
