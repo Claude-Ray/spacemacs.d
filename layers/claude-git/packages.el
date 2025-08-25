@@ -36,6 +36,8 @@
   (setq magit-revision-insert-related-refs nil)
   (advice-add 'magit-section-show
               :before #'claude-git//magit-section-show-advice)
+  (advice-add 'magit-find-file-noselect
+              :around #'claude-git//magit-find-file-noselect-advice)
   (with-eval-after-load 'magit
     (transient-append-suffix 'magit-commit "c"
       '("d" "Commit without diff" claude-git/magit-commit-without-diff))))

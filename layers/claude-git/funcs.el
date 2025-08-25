@@ -96,6 +96,11 @@
 (defvar claude--magit-section-max-len 10
   "Truncate the children of magit-section.")
 
+(defun claude-git//magit-find-file-noselect-advice (func rev &rest args)
+  "Ignore \"{index}\" REV by replacing it with \"{worktree}\"."
+  (let ((rev (if (equal rev "{index}") "{worktree}" rev)))
+    (apply func rev args)))
+
 (defun claude-git//magit-section-show-advice (section)
   "Hide the oversized children of the current section."
   (when (oref section hidden)
