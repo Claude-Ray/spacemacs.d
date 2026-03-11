@@ -44,7 +44,7 @@
 
 (defun claude-ai/post-init-copilot-chat ()
   (spacemacs/set-leader-keys "oc" 'copilot-chat-display)
-  (setq copilot-chat-model "claude-3.7-sonnet"
+  (setq copilot-chat-default-model "claude-4.5-sonnet"
         copilot-chat-prompt-suffix "Reply in Chinese"))
 
 (defun claude-ai/init-tabnine ()
