@@ -134,6 +134,7 @@
     (setq doom-modeline-mu4e t
           doom-modeline-buffer-state-icon nil
           doom-modeline-buffer-file-name-style 'relative-from-project
+          doom-modeline-modal-icon t
           mode-line-right-align-edge 'right-margin)))
 
 (defun claude-ui/init-doom-themes ()
