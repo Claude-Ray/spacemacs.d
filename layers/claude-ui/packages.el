@@ -19,7 +19,7 @@
     doom-modeline
     doom-themes
     nerd-icons
-    nerd-icons-dired
+    (nerd-icons-dired :toggle (not (eq ranger-override-dired 'dirvish)))
     nerd-icons-ibuffer
     nerd-icons-ivy-rich
     (pragmatapro :location local)
@@ -165,10 +165,7 @@
 (defun claude-ui/post-init-ranger ()
   (setq ranger-footer-delay nil ; remove footer
         ranger-hidden-regexp '("^\\.\\|^node_modules$")
-        ranger-override-dired 'ranger
         ranger-show-literal nil)
-  (when ranger-override-dired
-    (spacemacs/set-leader-keys "fj" ranger-override-dired))
   (with-eval-after-load 'ranger
     (add-hook 'magit-mode-hook #'claude-ui/ranger-minimal)
     (define-key ranger-mode-map (kbd "C-h") nil)))

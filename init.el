@@ -162,7 +162,8 @@ This function should only modify configuration layer settings."
              python-backend 'lsp
              python-lsp-server 'pyright)
      (ranger :variables
-             ranger-enter-with-minus nil)
+             ranger-enter-with-minus nil
+             ranger-override-dired 'dirvish)
      react
      restclient
      (rust :packages (not dap-mode)
