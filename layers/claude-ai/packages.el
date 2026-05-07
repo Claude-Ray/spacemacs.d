@@ -11,10 +11,30 @@
 
 (defconst claude-ai-packages
   '(
+    (agent-shell :location
+                 (recipe :fetcher github
+                         :repo "xenodium/agent-shell"
+                         :files ("*.el")))
     copilot
     copilot-chat
     (tabnine :toggle claude-enable-tabnine)
     ))
+
+(defun claude-ai/init-agent-shell ()
+  (use-package agent-shell
+    :defer t
+    :commands (agent-shell
+               agent-shell-new-shell)
+    :init
+    (spacemacs/set-leader-keys
+      "oa" #'agent-shell
+      "oA" #'agent-shell-new-shell)
+    :config
+    (setq agent-shell-openai-authentication
+          (agent-shell-openai-make-authentication :login t)
+          agent-shell-openai-codex-environment
+          (agent-shell-make-environment-variables :inherit-env t)
+          agent-shell-preferred-agent-config 'codex)))
 
 (defun claude-ai/post-init-copilot ()
   (with-eval-after-load 'company
