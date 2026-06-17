@@ -1,4 +1,4 @@
-;;; layers.el --- claude layer keybindings file for Spacemacs.
+;;; layers.el --- claude layer keybindings file for Spacemacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2019 claude-ray
 ;;

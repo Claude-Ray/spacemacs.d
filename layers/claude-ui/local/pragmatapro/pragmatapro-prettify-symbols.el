@@ -1,4 +1,4 @@
-;;; pragmatapro-prettify-symbols.el
+;;; pragmatapro-prettify-symbols.el  -*- lexical-binding: t; -*-
 
 ;; Author: Fabrizio Schiavi
 ;; URL: https://github.com/fabrizioschiavi/pragmatapro

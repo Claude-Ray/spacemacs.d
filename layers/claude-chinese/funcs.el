@@ -1,4 +1,4 @@
-;;; funcs.el --- claude-chinese layer functions file for Spacemacs.
+;;; funcs.el --- claude-chinese layer functions file for Spacemacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2021 claude-ray
 ;;

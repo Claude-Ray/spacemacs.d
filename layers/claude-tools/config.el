@@ -1,4 +1,4 @@
-;;; config.el --- claude-tools layer configuration file for Spacemacs.
+;;; config.el --- claude-tools layer configuration file for Spacemacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2021 claude-ray
 ;;

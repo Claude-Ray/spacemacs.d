@@ -1,4 +1,4 @@
-;;; funcs.el --- claude-completion layer functions file for Spacemacs.
+;;; funcs.el --- claude-completion layer functions file for Spacemacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2020 claude-ray
 ;;

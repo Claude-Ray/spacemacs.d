@@ -1,4 +1,4 @@
-;;; packages.el --- claude-prog Layer packages file for Spacemacs
+;;; packages.el --- claude-prog Layer packages file for Spacemacs  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2020 claude-ray
 ;;

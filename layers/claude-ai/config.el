@@ -1,4 +1,4 @@
-;;; config.el --- claude-ai Layer configuration file for Spacemacs
+;;; config.el --- claude-ai Layer configuration file for Spacemacs  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2025 claude-ray
 ;;

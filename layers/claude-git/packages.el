@@ -1,4 +1,4 @@
-;;; packages.el --- claude-git layer packages file for Spacemacs.
+;;; packages.el --- claude-git layer packages file for Spacemacs.  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2021 claude-ray
 ;;

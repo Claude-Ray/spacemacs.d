@@ -1,4 +1,4 @@
-;;; funcs.el --- claude-ai Layer functions file for Spacemacs
+;;; funcs.el --- claude-ai Layer functions file for Spacemacs  -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2025 claude-ray
 ;;
