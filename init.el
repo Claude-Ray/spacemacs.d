@@ -171,7 +171,7 @@ This function should only modify configuration layer settings."
            :variables
            rust-backend 'lsp)
      (shell :variables
-            shell-default-shell 'vterm)
+            shell-default-shell 'ghostel)
      sql
      (syntax-checking :packages (not flycheck-pos-tip))
      systemd

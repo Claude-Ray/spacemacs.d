@@ -12,6 +12,8 @@
 (defconst claude-term-packages
   '(
     clipetty
+    evil-ghostel
+    ghostel
     shell-pop
     vterm
     ))
@@ -29,6 +31,21 @@
   (setq shell-pop-autocd-to-working-dir nil)
   (advice-add 'spacemacs/projectile-shell-pop
               :around #'claude-term//projectile-shell-pop))
+
+(defun claude-term/init-ghostel ()
+  (use-package ghostel
+    :defer t
+    :commands (ghostel ghostel-project)
+    :init
+    (make-shell-pop-command "ghostel" ghostel)
+    :hook
+    (ghostel-mode . claude-term//hide-modeline-on-entry)))
+
+(defun claude-term/init-evil-ghostel ()
+  (use-package evil-ghostel
+    :after (ghostel evil)
+    :hook
+    (ghostel-mode . evil-ghostel-mode)))
 
 (defun claude-term/post-init-vterm ()
   ;; Open vterm in insert state
