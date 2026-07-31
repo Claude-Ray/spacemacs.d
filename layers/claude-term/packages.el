@@ -38,6 +38,8 @@
     :commands (ghostel ghostel-project)
     :init
     (make-shell-pop-command "ghostel" ghostel)
+    :config
+    (add-to-list 'ghostel-tramp-shells '("yadm" "/bin/zsh"))
     :hook
     (ghostel-mode . claude-term//hide-modeline-on-entry)))
 
