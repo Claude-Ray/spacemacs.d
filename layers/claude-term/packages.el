@@ -32,7 +32,7 @@
 
 (defun claude-term/post-init-ghostel ()
   (with-eval-after-load 'ghostel
-    (add-hook ghostel-mode-hook claude-term//hide-modeline-on-entry)
+    (add-hook 'ghostel-mode-hook #'claude-term//hide-modeline-on-entry)
     (add-to-list 'ghostel-tramp-shells '("yadm" "/bin/zsh"))))
 
 (defun claude-term/post-init-vterm ()
