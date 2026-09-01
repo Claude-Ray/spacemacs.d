@@ -173,7 +173,10 @@ This function should only modify configuration layer settings."
      (shell :variables
             shell-default-shell 'ghostel)
      sql
-     (syntax-checking :packages (not flycheck-pos-tip))
+     (syntax-checking :packages
+                      (not flycheck-pos-tip)
+                      :variables
+                      syntax-checking-enable-tooltips nil)
      systemd
      (tree-sitter :variables
                   spacemacs-tree-sitter-hl-black-list '(typescript-tsx-mode))
