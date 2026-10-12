@@ -27,6 +27,13 @@ with the same name."
   (interactive)
   (shell-command "dunstctl history-pop"))
 
+(defun claude-tools/markdown-open-in-mdv ()
+  "Open the current buffer's file in the macOS MDV app."
+  (interactive)
+  (unless buffer-file-name
+    (user-error "Current buffer is not visiting a file"))
+  (start-process "mdv-open" nil "open" "-a" "MDV" buffer-file-name))
+
 (defun claude-tools/leetcode-show-current-problem-in-browser ()
   "Open the current problem in browser."
   (interactive)
