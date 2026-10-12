@@ -12,6 +12,7 @@
 (defconst claude-term-packages
   '(
     clipetty
+    ghostel
     shell-pop
     vterm
     ))
@@ -31,6 +32,10 @@
               :around #'claude-term//projectile-shell-pop))
 
 (defun claude-term/post-init-ghostel ()
+  ;; Ghostel can shrink CJK fallback glyphs to fit the terminal grid.
+  ;; Keep their natural size at the cost of strict grid alignment; set the
+  ;; default so individual buffers can still override it.
+  (setq-default ghostel-glyph-scale-floor 1.0)
   (with-eval-after-load 'ghostel
     (add-hook 'ghostel-mode-hook #'claude-term//hide-modeline-on-entry)
     (add-to-list 'ghostel-tramp-shells '("yadm" "/bin/zsh"))))

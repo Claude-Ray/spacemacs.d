@@ -14,6 +14,7 @@
     memory-usage
     (recentf :location built-in)
     tramp
+    unicode-fonts
     which-key
     ))
 
@@ -42,6 +43,17 @@
                    (tramp-remote-shell "/bin/bash")
                    (tramp-remote-shell-args ("-c"))
                    (tramp-connection-timeout 10)))))
+
+(defun claude/pre-init-unicode-fonts ()
+  ;; Prefer PingFang SC for Chinese text and punctuation, keeping other fallbacks.
+  (with-eval-after-load 'unicode-fonts
+    (dolist (block '("CJK Unified Ideographs"
+                     "CJK Symbols and Punctuation"
+                     "Halfwidth and Fullwidth Forms"))
+      (let ((entry (assoc block unicode-fonts-block-font-mapping)))
+        (setf (cadr entry)
+              (cons "PingFang SC"
+                    (remove "PingFang SC" (cadr entry))))))))
 
 (defun claude/post-init-which-key ()
   (define-key global-map "\C-h\C-m" 'which-key-show-major-mode))
